@@ -19,7 +19,7 @@ public class UserController {
     public String createUser(@RequestBody User user) {
 
         //dopisac sprawdzenie czy jest uzytkoowanik o takim mailu, jesli jest wyslac komunikat, jestli nie ma to utworzyc uzytkownika wyslac komunikat
-        //sprawdzic co jest z tym LiveReload ;////
+        //sprawdzic co jest z tym LiveReload ;///
         return user.getUsername();
     }
 }
