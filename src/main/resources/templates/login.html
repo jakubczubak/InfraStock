@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Infrastock</title>
+    <script
+            src="https://kit.fontawesome.com/5fae53f1bb.js"
+            crossorigin="anonymous"
+    ></script>
+
+    <link th:href="@{/favicon.ico}" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" th:href="@{/login.css}">
+    <link rel="stylesheet" th:href="@{/alert.css}">
+</head>
+<body>
+<!--    Alert part start-->
+<div class="new_user-alert">
+    <span class="fa-solid fa-check-double"></span>
+    <span class="msg">Congratulations, your account has been successfully created.</span>
+    <span class="close-btn">
+            <span class="fas fa-times"></span>
+        </span>
+</div>
+<div class="error-alert">
+    <span class="fas fa-exclamation-circle"></span>
+    <span class="msg">Warning: Incorrect username or password</span>
+    <span class="close-btn">
+            <span class="fas fa-times"></span>
+        </span>
+</div>
+<div class="logout-alert">
+    <span class="fa-solid fa-check-double"></span>
+    <span class="msg">Logout successful</span>
+    <span class="close-btn">
+            <span class="fas fa-times"></span>
+        </span>
+</div>
+
+<!--    Alert part end-->
+<!-- Sign-in part start -->
+<div id="sign_in">
+    <form action="/login" method="post">
+        <span>INFRASTOCK</span>
+        <div class="field">
+            <label><i class="fas fa-user"></i></label>
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="field">
+            <label><i class="fa-solid fa-key"></i></label>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="field">
+            <input type="submit" value="Log in">
+        </div>
+    </form>
+    <p>Not a member?
+        <button onclick="signUp()"><a>Sign up now</a></button>
+        <i class="fa-solid fa-right-to-bracket"></i>
+    </p>
+</div>
+<!-- Sign-in part end -->
+
+<!-- Sign-up part start -->
+
+
+<!--    Alert part start-->
+<div class="error-password-alert">
+    <span class="fas fa-exclamation-circle"></span>
+    <span class="msg">Warning: Passwords did not match</span>
+    <span class="close-btn">
+            <span class="fas fa-times"></span>
+        </span>
+</div>
+<!--    Alert part end-->
+<div id="sign_up">
+    <form action="/register" method="post">
+        <span>Sign Up</span>
+        <div class="field">
+            <label><i class="fas fa-user"></i></label>
+            <input id="username" type="text" name="username" placeholder="Username" minlength="3" maxlength="20"
+                   required>
+        </div>
+        <div class="field">
+            <label><i class="fa-solid fa-at"></i></label>
+            <input id="email" type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <div class="field">
+            <label><i class="fas fa-lock"></i></label>
+            <input id="password" type="password" name="password" placeholder="Password" minlength="3" maxlength="20"
+                   required>
+        </div>
+        <div class="field">
+            <label><i class="fa-solid fa-check-double"></i></label>
+            <input id="confirm_password" type="password" placeholder="Confirm Password" minlength="3" maxlength="20"
+                   required>
+        </div>
+        <div class="field">
+            <input type="submit" value="Sign up">
+        </div>
+    </form>
+    <p>Already a member?
+        <button onclick="signIn()"><a>Sign in now</a></button>
+        <i class="fa-solid fa-right-to-bracket"></i>
+    </p>
+</div>
+<!-- Sign-up part end -->
+
+
+<script th:src="@{/login.js}"></script>
+<script th:src="@{/alert.js}"></script>
+<script th:src="@{/validation.js}"></script>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

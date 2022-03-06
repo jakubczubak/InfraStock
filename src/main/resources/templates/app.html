@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Infrastock</title>
+    <script
+            src="https://kit.fontawesome.com/5fae53f1bb.js"
+            crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" th:href="@{/app.css}"/>
+    <link th:href="@{/favicon.ico}" rel="icon" type="image/x-icon"/>
+</head>
+<body>
+
+
+<!-- Sidebar part start -->
+<div class="sidebar">
+    <div class="logo_content">
+        <div class="logo">
+            <i class="fa-brands fa-codepen"></i>
+            <div class="logo_name">Infrastock</div>
+        </div>
+        <i class="fa-solid fa-bars" id="btn"></i>
+    </div>
+    <ul class="nav_list">
+        <li>
+            <a href="#">
+                <i class="fa-solid fa-grip-vertical"></i>
+                <span class="links_name">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa-solid fa-industry"></i>
+                <span class="links_name">Materials</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span class="links_name">Tools</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="links_name">Orders</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa-solid fa-dolly"></i>
+                <span class="links_name">Suppliers</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span class="links_name">Analysis</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span class="links_name">Documents</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa-solid fa-earth-europe"></i>
+                <span class="links_name">Recycling</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa-solid fa-gears"></i>
+                <span class="links_name">Settings</span>
+            </a>
+        </li>
+        <li>
+            <a href="/logout">
+                <i class="fa-solid fa-door-open"></i>
+                <span class="links_name">Exit</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- Sidebar part end -->
+
+
+<!-- Home part start -->
+<div class="home_content">
+    <div class="text">Home content</div>
+</div>
+<!-- Home part end -->
+<script th:src="@{/app.js}"></script>
+</body>
+</html>
