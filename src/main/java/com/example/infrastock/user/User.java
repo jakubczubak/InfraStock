@@ -24,14 +24,7 @@ public class User implements UserDetails {
     @Size(min = 5, max = 30)
     private String username;
     private String password;
-    private String confirmPassword;
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
 
     private String email;
 

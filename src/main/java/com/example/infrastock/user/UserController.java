@@ -16,7 +16,7 @@ import java.util.Map;
 @RestController
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -35,7 +35,11 @@ public class UserController {
             userService.addUser(user);
             return "Congratulations, your account has been successfully created.";
         }
-        //dopisac sprawdzenie czy jest uzytkoowanik o takim mailu, jesli jest wyslac komunikat, jestli nie ma to utworzyc uzytkownika wyslac komunikat
-        //sprawdzic co jest z tym LiveReload ;///
+
+        //dopisac walidacdje do klasy user
+        //odebrac w js odpowiedzi i je wyswietlic na froncie
+        //dopisac alert js aby automatycznie wyswietlal wiadomosci z backendu
+        //live reload
+
     }
 }
