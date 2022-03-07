@@ -27,7 +27,7 @@ public class UserController {
     public String createUser(@RequestBody @Valid User user, BindingResult result) {
 
 
-        if (userService.checkIfExist(user)) {
+        if (userService.checkIfUsernameExist(user.getUsername())) {
             return "The username you have entered is already registered";
         } else if (result.hasErrors()) {
             return userService.validate(result);
@@ -40,6 +40,8 @@ public class UserController {
         //odebrac w js odpowiedzi i je wyswietlic na froncie
         //dopisac alert js aby automatycznie wyswietlal wiadomosci z backendu
         //live reload
+
+        //You need to throw an exception from the controller in order to get into error block.
 
     }
 }

@@ -27,10 +27,11 @@ public class UserService {
     }
 
 
-    public boolean checkIfExist(User user) {
+    public boolean checkIfUsernameExist(String username) {
+
+        return userRepo.findByUsername(username) != null;
 
 
-        return userRepo.findByUsername(user.getUsername()) != null;
     }
 
     public String validate(BindingResult results) {

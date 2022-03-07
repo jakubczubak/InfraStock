@@ -12,17 +12,18 @@ public class DefaultAdmin {
     private UserRepo userRepo;
     private UserService userService;
 
-    public DefaultAdmin(UserRepo userRepo, PasswordEncoder passwordEncoder, UserService userService) {
+    public DefaultAdmin(UserRepo userRepo, PasswordEncoder passwordEncoder, UserService userService
+    ) {
 
         User admin = new User();
 
         admin.setUsername("admin");
         admin.setPassword(passwordEncoder.encode("admin"));
         admin.setRole("ROLE_ADMIN");
-
-        if(userService.checkIfExist(admin)){
+        if(!userService.checkIfUsernameExist(admin.getUsername())){
             userRepo.save(admin);
         }
+
 
     }
 }

@@ -42,7 +42,7 @@ form.addEventListener("submit", e => {
     };
 
     //jeżeli wszystko ok to wysyłamy
-    if (input_password.value == input_confirm_password.value) {
+    if (input_password.value === input_confirm_password.value) {
 
         $.ajax({
             type: 'POST',
@@ -56,7 +56,7 @@ form.addEventListener("submit", e => {
                 showNewUserAlert();
             },
             error: function (jqXHR) {
-                console.log('Error: ' + jqXHR.status);
+                console.log('Error: ' + jqXHR);
             }
         });
 
