@@ -9,9 +9,14 @@ import java.security.Principal;
 @Controller
 public class AppController {
 
-    @GetMapping("/")
+    @GetMapping("/app")
     public String getAppPage() {
         return "app";
+    }
+
+    @GetMapping("/")
+    public String redirectToLoginPage() {
+        return "redirect:/login";
     }
 
 

@@ -16,7 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     public WebSecurityConfig(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
@@ -31,8 +31,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.headers().disable();
-        http.authorizeHttpRequests().antMatchers("/", "/home", "/js/**", "/css/**").permitAll();
-        http.authorizeHttpRequests().antMatchers("/register").permitAll();
         http.authorizeHttpRequests().antMatchers("/app").authenticated();
         http.formLogin()
                 .loginPage("/login")
