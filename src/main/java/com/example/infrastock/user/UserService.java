@@ -10,8 +10,8 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private UserRepo userRepo;
-    private PasswordEncoder passwordEncoder;
+    private final UserRepo userRepo;
+    private final PasswordEncoder passwordEncoder;
 
 
     public UserService(UserRepo userRepo, PasswordEncoder passwordEncoder) {
@@ -30,10 +30,7 @@ public class UserService {
     public boolean checkIfExist(User user) {
 
 
-        if (userRepo.findByUsername(user.getUsername()) != null) {
-            return true;
-
-        } else return false;
+        return userRepo.findByUsername(user.getUsername()) != null;
     }
 
     public String validate(BindingResult results) {

@@ -9,7 +9,7 @@ import java.security.Principal;
 @Controller
 public class AppController {
 
-    @GetMapping("/app")
+    @GetMapping("/")
     public String getAppPage() {
         return "app";
     }
