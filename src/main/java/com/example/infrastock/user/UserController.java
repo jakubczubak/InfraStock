@@ -27,8 +27,8 @@ public class UserController {
     public String createUser(@RequestBody @Valid User user, BindingResult result) {
 
 
-        if (userService.checkIfUsernameExist(user.getUsername())) {
-            return "The username you have entered is already registered";
+        if (userService.checkIfEmailExist(user.getEmail())) {
+            return "The email you have entered is already registered";
         } else if (result.hasErrors()) {
             return userService.validate(result);
         } else {

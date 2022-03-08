@@ -18,9 +18,10 @@ public class DefaultAdmin {
         User admin = new User();
 
         admin.setUsername("admin");
+        admin.setEmail("admin@inframet.com");
         admin.setPassword(passwordEncoder.encode("admin"));
         admin.setRole("ROLE_ADMIN");
-        if(!userService.checkIfUsernameExist(admin.getUsername())){
+        if(!userService.checkIfEmailExist(admin.getEmail())){
             userRepo.save(admin);
         }
 
