@@ -1,8 +1,6 @@
 package com.example.infrastock.config;
 
-import com.example.infrastock.user.User;
 import com.example.infrastock.user.UserDTO;
-import com.example.infrastock.user.UserRepo;
 import com.example.infrastock.user.UserService;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
