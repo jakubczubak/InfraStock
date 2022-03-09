@@ -1,10 +1,29 @@
 package com.example.infrastock.user;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class UserDTO {
 
     private Long id;
+
+    // user name should not be null or empty
+    // user name should have at least 2 characters
+    @NotEmpty
+    @Size(min = 3, message = "User name should have at least 3 characters")
     private String username;
+
+    // email should be a valid email format
+    // email should not be null or empty
+    @NotEmpty
+    @Email
     private String email;
+
+    // password should not be null or empty
+    // password should have at least 8 characters
+    @NotEmpty
+    @Size(min = 3, message = "Password should have at least 3 characters")
     private String password;
     private String role;
 

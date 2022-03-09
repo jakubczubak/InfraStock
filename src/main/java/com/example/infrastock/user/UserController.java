@@ -32,7 +32,7 @@ public class UserController {
         } else if (result.hasErrors()) {
             return userService.validate(result);
         } else {
-            userService.addUser(user);
+            userService.createUser(user);
             return "Congratulations, your account has been successfully created.";
         }
 

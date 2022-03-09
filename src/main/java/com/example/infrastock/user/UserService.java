@@ -19,7 +19,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void addUser(UserDTO userDTO) {
+    public void createUser(UserDTO userDTO) {
 
         User user = new User(userDTO.getUsername(), userDTO.getPassword(), userDTO.getEmail(), userDTO.getRole());
         user.setRole("ROLE_USER");
@@ -42,6 +42,7 @@ public class UserService {
     }
 
     public String validate(BindingResult results) {
+
         List<String> errors = new ArrayList<>();
 
         results.getAllErrors().forEach((result) -> {
