@@ -23,6 +23,7 @@ public class DefaultAdmin {
         admin.setRole("ROLE_ADMIN");
         if(!userService.checkIfEmailExist(admin.getEmail())){
             userRepo.save(admin);
+            //
         }
 
 
