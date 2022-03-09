@@ -26,6 +26,9 @@ public class UserService {
         userRepo.save(user);
     }
 
+    public void createAdmin(User user){
+        userRepo.save(user);
+    }
 
     public boolean checkIfEmailExist(String email) {
 

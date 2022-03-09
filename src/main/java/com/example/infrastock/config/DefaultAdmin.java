@@ -9,10 +9,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class DefaultAdmin {
 
-    private UserRepo userRepo;
+
     private UserService userService;
 
-    public DefaultAdmin(UserRepo userRepo, PasswordEncoder passwordEncoder, UserService userService
+    public DefaultAdmin(PasswordEncoder passwordEncoder, UserService userService
     ) {
 
         User admin = new User();
@@ -22,8 +22,7 @@ public class DefaultAdmin {
         admin.setPassword(passwordEncoder.encode("admin"));
         admin.setRole("ROLE_ADMIN");
         if(!userService.checkIfEmailExist(admin.getEmail())){
-            userRepo.save(admin);
-            //
+            userService.createAdmin(admin);
         }
 
 
