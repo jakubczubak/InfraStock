@@ -1,6 +1,7 @@
 package com.example.infrastock.config;
 
 import com.example.infrastock.user.User;
+import com.example.infrastock.user.UserDTO;
 import com.example.infrastock.user.UserRepo;
 import com.example.infrastock.user.UserService;
 import org.springframework.context.annotation.Configuration;
@@ -15,12 +16,12 @@ public class DefaultAdmin {
     public DefaultAdmin(PasswordEncoder passwordEncoder, UserService userService
     ) {
 
-        User admin = new User();
+        UserDTO admin = new UserDTO();
 
         admin.setUsername("admin");
         admin.setEmail("admin@inframet.com");
-        admin.setPassword(passwordEncoder.encode("admin"));
-        admin.setRole("ROLE_ADMIN");
+        admin.setPassword("admin");
+
         if(!userService.checkIfEmailExist(admin.getEmail())){
             userService.createAdmin(admin);
         }

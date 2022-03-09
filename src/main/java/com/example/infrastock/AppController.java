@@ -9,16 +9,17 @@ import java.security.Principal;
 @Controller
 public class AppController {
 
-    @GetMapping("/app")
-    public String getAppPage() {
-        return "app";
-    }
+
 
     @GetMapping("/")
     public String redirectToLoginPage() {
         return "redirect:/login";
     }
 
+    @GetMapping("/app")
+    public String getAppPage() {
+        return "app";
+    }
 
     @GetMapping("/login")
     public String getLoginPage() {

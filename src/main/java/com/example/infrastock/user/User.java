@@ -29,11 +29,11 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(Long id, String username, String password, String role) {
-        this.id = id;
+    public User(String username, String password, String email, String role) {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.email = email;
     }
 
     public Long getId() {

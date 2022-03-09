@@ -24,7 +24,7 @@ public class UserController {
 
 
     @PostMapping(value = "/register")
-    public String createUser(@RequestBody @Valid User user, BindingResult result) {
+    public String createUser(@RequestBody @Valid UserDTO user, BindingResult result) {
 
 
         if (userService.checkIfEmailExist(user.getEmail())) {

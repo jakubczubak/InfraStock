@@ -19,14 +19,18 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void addUser(User user) {
+    public void addUser(UserDTO userDTO) {
 
+        User user = new User(userDTO.getUsername(), userDTO.getPassword(), userDTO.getEmail(), userDTO.getRole());
         user.setRole("ROLE_USER");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
     }
 
-    public void createAdmin(User user){
+    public void createAdmin(UserDTO userDTO){
+        User user = new User(userDTO.getUsername(), userDTO.getPassword(), userDTO.getEmail(), userDTO.getRole());
+        user.setRole("ROLE_ADMIN");
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
     }
 
