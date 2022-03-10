@@ -11,7 +11,7 @@ public class DefaultAdmin {
 
     private UserService userService;
 
-    public DefaultAdmin(PasswordEncoder passwordEncoder, UserService userService
+    public DefaultAdmin(UserService userService
     ) {
 
         UserDTO admin = new UserDTO();

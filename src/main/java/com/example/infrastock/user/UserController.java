@@ -16,19 +16,18 @@ public class UserController {
 
 
     @PostMapping(value = "/register")
-    public String createUser(@RequestBody @Valid UserDTO user, BindingResult result) {
+    public String createUser(@RequestBody @Valid UserDTO user) {
 
 
         if (userService.checkIfEmailExist(user.getEmail())) {
             return "The email you have entered is already registered";
-        } else if (result.hasErrors()) {
-            return userService.validate(result);
-        } else {
+        }
+        else {
             userService.createUser(user);
             return "Congratulations, your account has been successfully created.";
         }
 
-        //dopisac walidacdje do klasy user
+
         //odebrac w js odpowiedzi i je wyswietlic na froncie
         //dopisac alert js aby automatycznie wyswietlal wiadomosci z backendu
         //live reload

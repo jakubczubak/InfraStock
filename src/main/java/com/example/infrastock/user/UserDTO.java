@@ -8,21 +8,21 @@ public class UserDTO {
 
     private Long id;
 
-    // user name should not be null or empty
-    // user name should have at least 2 characters
-    @NotEmpty
+    // username should not be null or empty
+    // username should have at least 2 characters
+    @NotEmpty(message = "Enter User name!")
     @Size(min = 3, message = "User name should have at least 3 characters")
     private String username;
 
     // email should be a valid email format
     // email should not be null or empty
-    @NotEmpty
-    @Email
+    @NotEmpty(message = "Enter email address!")
+    @Email(message = "Email is not valid")
     private String email;
 
     // password should not be null or empty
     // password should have at least 8 characters
-    @NotEmpty
+    @NotEmpty(message = "Enter password!")
     @Size(min = 3, message = "Password should have at least 3 characters")
     private String password;
     private String role;
