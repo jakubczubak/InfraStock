@@ -50,13 +50,22 @@ form.addEventListener("submit", e => {
             data: JSON.stringify(newUser),
             contentType: "application/json",
             success: function (text) {
-                console.log('Response: ' + text);
-                signIn();
-                clearData();
-                showNewUserAlert();
+                //If the email does not exist in the database, the controller sends a message:"Congratulations, your account has been successfully created."
+                if(text=="Congratulations, your account has been successfully created."){
+                    console.log('Response: ' + text);
+                    signIn();
+                    clearData();
+                    showNewUserAlert();
+                }else{
+                    //If the email exist in the database, the controller sends a message:"The email you have entered is already registered"
+                    //dopisac alert
+                    console.log('Response: ' + text);
+                }
+
             },
             error: function (jqXHR) {
-                console.log('Error: ' + jqXHR);
+                console.log('Error: ' + jqXHR.responseText);
+                //dopisać funkcje ktrwa wyswietli alert z tresicia bledu
             }
         });
 
