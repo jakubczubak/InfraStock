@@ -12,25 +12,6 @@ function clearData() {
     input_confirm_password.value = ""
 }
 
-function showNewUserAlert() {
-    new_user_alert.classList.remove("hide")
-    new_user_alert.classList.add("show");
-    setTimeout(function () {
-        new_user_alert.classList.remove("show");
-        new_user_alert.classList.add("hide")
-    }, 5000);
-}
-
-function showPasswordDidNotMatchAlert() {
-    password_alert.classList.remove("hide")
-    password_alert.classList.add("show");
-    setTimeout(function () {
-        password_alert.classList.remove("show");
-        password_alert.classList.add("hide")
-    }, 5000); //hide alert automatically after 5sec
-
-}
-
 form.addEventListener("submit", e => {
     e.preventDefault();
 
@@ -57,15 +38,14 @@ form.addEventListener("submit", e => {
                     clearData();
                     showNewUserAlert();
                 }else{
-                    //If the email exist in the database, the controller sends a message:"The email you have entered is already registered"
-                    //dopisac alert
+                    showValidationAlert(text);
                     console.log('Response: ' + text);
                 }
 
             },
             error: function (jqXHR) {
+                showValidationAlert(jqXHR.responseText);
                 console.log('Error: ' + jqXHR.responseText);
-                //dopisać funkcje ktrwa wyswietli alert z tresicia bledu
             }
         });
 

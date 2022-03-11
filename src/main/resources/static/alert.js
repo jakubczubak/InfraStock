@@ -10,6 +10,8 @@ let password_alert = document.querySelector(".error-password-alert");
 let new_user_alert_close_btn = document.querySelector("body > div.new_user-alert > span.close-btn");
 let new_user_alert = document.querySelector(".new_user-alert");
 
+let validMsg = document.getElementById("alertMsg");
+
 function errorAlert() {
     error_alert.classList.remove("show");
     error_alert.classList.add("hide")
@@ -18,6 +20,37 @@ function errorAlert() {
 function logoutAlert() {
     logout_alert.classList.remove("show");
     logout_alert.classList.add("hide");
+}
+
+function showNewUserAlert() {
+    password_alert.classList.remove("show");
+    password_alert.classList.add("hide")
+    new_user_alert.classList.remove("hide")
+    new_user_alert.classList.add("show");
+    setTimeout(function () {
+        new_user_alert.classList.remove("show");
+        new_user_alert.classList.add("hide")
+    }, 5000);
+}
+
+function showPasswordDidNotMatchAlert() {
+    password_alert.classList.remove("hide")
+    password_alert.classList.add("show");
+    setTimeout(function () {
+        password_alert.classList.remove("show");
+        password_alert.classList.add("hide")
+    }, 5000); //hide alert automatically after 5sec
+
+}
+
+function showValidationAlert(text){
+    validMsg.innerText=text;
+    password_alert.classList.remove("hide")
+    password_alert.classList.add("show");
+    setTimeout(function () {
+        password_alert.classList.remove("show");
+        password_alert.classList.add("hide")
+    }, 5000); //hide alert automatically after 5sec
 }
 
 error_alert_close_btn.addEventListener('click', function () {
