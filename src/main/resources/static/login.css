@@ -125,3 +125,17 @@ a:hover {
 #sign_up {
     display: none;
 }
+
+@media (max-width: 600px) {
+    #sign_in,
+    #sign_up {
+        inline-size: 80%;
+    }
+}
+
+@media (max-width: 340px){
+    #sign_in,
+    #sign_up {
+        inline-size: 90%;
+    }
+}

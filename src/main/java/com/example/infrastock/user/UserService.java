@@ -2,6 +2,9 @@ package com.example.infrastock.user;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -35,5 +38,18 @@ public class UserService {
         return userRepo.findByEmail(email) != null;
 
 
+    }
+
+    public String validate(BindingResult results) {
+
+        List<String> errors = new ArrayList<>();
+
+        results.getAllErrors().forEach((result) -> {
+            String errorMessage = result.getDefaultMessage();
+            errors.add(errorMessage);
+        });
+
+
+        return errors.toString();
     }
 }

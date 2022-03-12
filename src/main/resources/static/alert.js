@@ -23,8 +23,6 @@ function logoutAlert() {
 }
 
 function showNewUserAlert() {
-    password_alert.classList.remove("show");
-    password_alert.classList.add("hide")
     new_user_alert.classList.remove("hide")
     new_user_alert.classList.add("show");
     setTimeout(function () {

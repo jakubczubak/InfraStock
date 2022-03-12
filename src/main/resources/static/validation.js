@@ -33,7 +33,6 @@ form.addEventListener("submit", e => {
             success: function (text) {
                 //If the email does not exist in the database, the controller sends a message:"Congratulations, your account has been successfully created."
                 if(text=="Congratulations, your account has been successfully created."){
-                    console.log('Response: ' + text);
                     signIn();
                     clearData();
                     showNewUserAlert();
