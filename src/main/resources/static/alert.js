@@ -13,7 +13,7 @@ function showAlert(text) {
     alert.classList.add("show");
 }
 
-//dopisac funckje ktore beda zmienac styl alertu, alert wylogowania, alert niewlasciwego hasla, zla walidacja ten sam, alert pomyslnie utworzonego uzytkownika
+
 function hideAlert() {
     alert.classList.remove("show");
     alert.classList.add("hide");
@@ -71,7 +71,7 @@ let error = url.searchParams.get("error");
 let logout = url.searchParams.get("logout");
 
 if (error != null) {
-    showAlert("Warning: Incorrect email or password", errorStyleAlert());
+    showAlert("Warning: Incorrect email or password!", errorStyleAlert());
 
     setTimeout(function () {
         hideAlert();

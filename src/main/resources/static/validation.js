@@ -57,7 +57,7 @@ form.addEventListener("submit", e => {
 
     } else {
         //If evrything is NOT OK
-        showAlert("Passwords did not match!", warningStyleAlert());
+        showAlert("Warning: Passwords did not match!", warningStyleAlert());
         setTimeout(function () {
             hideAlert();
         }, 5000); //hide alert automatically after 5sec
