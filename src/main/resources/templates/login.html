@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -15,97 +15,74 @@
     <link rel="stylesheet" th:href="@{/alert.css}">
 </head>
 <body>
+<div class="wrapper">
 <!--    Alert part start-->
-<div class="new_user-alert">
-    <span class="fa-solid fa-check-double"></span>
-    <span class="msg">Congratulations, your account has been successfully created.</span>
-    <span class="close-btn">
-            <span class="fas fa-times"></span>
+    <div class="alert">
+        <span id="alertSign" class="fas fa-exclamation-circle"></span>
+        <span id="alertMsg" class="msg">Warning: Incorrect email or password</span>
+        <span class="close-btn">
+            <span id="alertCloseSign" class="fas fa-times"></span>
         </span>
-</div>
-<div class="error-alert">
-    <span class="fas fa-exclamation-circle"></span>
-    <span class="msg">Warning: Incorrect email or password</span>
-    <span class="close-btn">
-            <span class="fas fa-times"></span>
-        </span>
-</div>
-<div class="logout-alert">
-    <span class="fa-solid fa-check-double"></span>
-    <span class="msg">Logout successful</span>
-    <span class="close-btn">
-            <span class="fas fa-times"></span>
-        </span>
+    </div>
+    <!--    Alert part end-->
+    <!-- Sign-in part start -->
+    <div id="sign_in">
+        <form action="/login" method="post">
+            <span>INFRASTOCK</span>
+            <div class="field">
+                <label><i class="fas fa-user"></i></label>
+                <input type="text" name="email" placeholder="Email" required>
+            </div>
+            <div class="field">
+                <label><i class="fa-solid fa-key"></i></label>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="field">
+                <input type="submit" value="Log in">
+            </div>
+        </form>
+        <p>Not a member?
+            <button onclick="signUp()"><a>Sign up now</a></button>
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </p>
+    </div>
+    <!-- Sign-in part end -->
+
+    <!-- Sign-up part start -->
+    <div id="sign_up">
+        <form action="/register" method="post">
+            <span>Sign Up</span>
+            <div class="field">
+                <label><i class="fas fa-user"></i></label>
+                <input id="username" type="text" name="username" placeholder="Username" minlength="2" maxlength="20"
+                       required>
+            </div>
+            <div class="field">
+                <label><i class="fa-solid fa-at"></i></label>
+                <input id="email" type="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="field">
+                <label><i class="fas fa-lock"></i></label>
+                <input id="password" type="password" name="password" placeholder="Password" minlength="3" maxlength="20"
+                       required>
+            </div>
+            <div class="field">
+                <label><i class="fa-solid fa-check-double"></i></label>
+                <input id="confirm_password" type="password" placeholder="Confirm Password" minlength="3" maxlength="20"
+                       required>
+            </div>
+            <div class="field">
+                <input type="submit" value="Sign up">
+            </div>
+        </form>
+        <p>Already a member?
+            <button onclick="signIn()"><a>Sign in now</a></button>
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </p>
+    </div>
+    <!-- Sign-up part end -->
 </div>
 
-<!--    Alert part end-->
-<!-- Sign-in part start -->
-<div id="sign_in">
-    <form action="/login" method="post">
-        <span>INFRASTOCK</span>
-        <div class="field">
-            <label><i class="fas fa-user"></i></label>
-            <input type="text" name="email" placeholder="Email" required>
-        </div>
-        <div class="field">
-            <label><i class="fa-solid fa-key"></i></label>
-            <input type="password" name="password" placeholder="Password" required>
-        </div>
-        <div class="field">
-            <input type="submit" value="Log in">
-        </div>
-    </form>
-    <p>Not a member?
-        <button onclick="signUp()"><a>Sign up now</a></button>
-        <i class="fa-solid fa-right-to-bracket"></i>
-    </p>
-</div>
-<!-- Sign-in part end -->
-
-<!-- Sign-up part start -->
-
-
-<!--    Alert part start-->
-<div class="error-password-alert">
-    <span class="fas fa-exclamation-circle"></span>
-    <span id="alertMsg" class="msg">Warning: Passwords did not match</span>
-    <span class="close-btn">
-            <span class="fas fa-times"></span>
-        </span>
-</div>
-<!--    Alert part end-->
-<div id="sign_up">
-    <form action="/register" method="post">
-        <span>Sign Up</span>
-        <div class="field">
-            <label><i class="fas fa-user"></i></label>
-            <input id="username" type="text" name="username" placeholder="Username" minlength="2" maxlength="20"
-                   required>
-        </div>
-        <div class="field">
-            <label><i class="fa-solid fa-at"></i></label>
-            <input id="email" type="email" name="email" placeholder="Email Address" required>
-        </div>
-        <div class="field">
-            <label><i class="fas fa-lock"></i></label>
-            <input id="password" type="password" name="password" placeholder="Password" minlength="3" maxlength="20"
-                   required>
-        </div>
-        <div class="field">
-            <label><i class="fa-solid fa-check-double"></i></label>
-            <input id="confirm_password" type="password" placeholder="Confirm Password" minlength="3" maxlength="20"
-                   required>
-        </div>
-        <div class="field">
-            <input type="submit" value="Sign up">
-        </div>
-    </form>
-    <p>Already a member?
-        <button onclick="signIn()"><a>Sign in now</a></button>
-        <i class="fa-solid fa-right-to-bracket"></i>
-    </p>
-</div>
-<!-- Sign-up part end -->
 
 
 <script th:src="@{/login.js}"></script>

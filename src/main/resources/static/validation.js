@@ -22,7 +22,7 @@ form.addEventListener("submit", e => {
         confirmPassword: input_confirm_password.value
     };
 
-    //jeżeli wszystko ok to wysyłamy
+    //If evrything is OK
     if (input_password.value === input_confirm_password.value) {
 
         $.ajax({
@@ -35,21 +35,31 @@ form.addEventListener("submit", e => {
                 if(text=="Congratulations, your account has been successfully created."){
                     signIn();
                     clearData();
-                    showNewUserAlert();
+                    showAlert(text,successStyleAlert());
+                    setTimeout(function () {
+                        hideAlert();
+                    }, 5000); //hide alert automatically after 5sec
                 }else{
-                    showValidationAlert(text);
-                    console.log('Response: ' + text);
+                    showAlert(text,warningStyleAlert());
+                    setTimeout(function () {
+                        hideAlert();
+                    }, 5000); //hide alert automatically after 5sec
                 }
 
             },
             error: function (jqXHR) {
-                showValidationAlert(jqXHR.responseText);
-                console.log('Error: ' + jqXHR.responseText);
+                showAlert(jqXHR.responseText,warningStyleAlert());
+                setTimeout(function () {
+                    hideAlert();
+                }, 5000); //hide alert automatically after 5sec
             }
         });
 
     } else {
-        //jeżeli nie to pokazujemy jakieś błędy
-        showPasswordDidNotMatchAlert();
+        //If evrything is NOT OK
+        showAlert("Passwords did not match!", warningStyleAlert());
+        setTimeout(function () {
+            hideAlert();
+        }, 5000); //hide alert automatically after 5sec
     }
 })

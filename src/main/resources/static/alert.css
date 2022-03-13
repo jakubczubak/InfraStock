@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Josefin+Sans&display=swap");
 
 
-.error-alert {
+.alert {
     background: #ffdb9b;
     padding: 20px 40px;
     min-width: 420px;
@@ -14,7 +14,7 @@
     display: none;
 }
 
-.error-alert.show {
+.alert.show {
     display: revert;
     animation: show_slide 1s ease forwards;
 }
@@ -35,7 +35,7 @@
 
 }
 
-.error-alert.hide {
+.alert.hide {
     display: revert;
     animation: hide_slide 1s ease forwards;
 }
@@ -56,7 +56,7 @@
 
 }
 
-.error-alert .fa-exclamation-circle {
+.alert .fa-exclamation-circle {
     position: absolute;
     left: 20px;
     top: 50%;
@@ -65,14 +65,14 @@
     font-size: 30px;
 }
 
-.error-alert .msg {
+.alert .msg {
     letter-spacing: 1px;
     padding: 0 20px;
     font-size: 13px;
     color: #ce8500;
 }
 
-.error-alert .close-btn {
+.alert .close-btn {
 
     position: absolute;
     background: #ffd080;
@@ -83,377 +83,43 @@
     cursor: pointer;
 }
 
-.error-alert .close-btn:hover {
-    background: #ffc766;
+
+
+.alert .close-btn-bgc-error-style{
+    background: #ffd080;
 }
 
-.error-alert .close-btn .fa-times {
+.alert .close-btn-bgc-error-style:hover {
+    background: #ffc766;
+}
+.alert .close-btn-bgc-success-style{
+    background: #63912f;
+}
+
+.alert .close-btn-bgc-success-style:hover {
+    background: #72a934;
+}
+.alert .close-btn-bgc-warning-style{
+    background: #bf444f;
+}
+
+.alert .close-btn-bgc-warning-style:hover {
+    background: #c9313f;
+}
+.alert .close-btn-bgc-info-style{
+    background: #9bcafb;
+}
+
+.alert .close-btn-bgc-info-style:hover {
+    background: #76abe3;
+}
+
+
+.alert .close-btn .fa-times {
     color: #ce8500;
     font-size: 22px;
     line-height: 40px
 }
 
-.logout-alert {
-    background: #d1ecf1;
-    padding: 20px 40px;
-    min-width: 420px;
-    position: absolute;
-    right: 0px;
-    top: 20px;
-    border-radius: 4px;
-    border-left: 8px solid #9bcafb;
-    overflow: hidden;
-    display: none;
-}
-
-.logout-alert.show {
-    display: revert;
-    animation: show_slide 1s ease forwards;
-}
-
-@keyframes show_slide {
-    0% {
-        transform: translateX(100%);
-    }
-    40% {
-        transform: translateX(-10%);
-    }
-    80% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-10px);
-    }
-
-}
-
-.logout-alert.hide {
-    display: revert;
-    animation: hide_slide 1s ease forwards;
-}
-
-@keyframes hide_slide {
-    0% {
-        transform: translateX(-10px);
-    }
-    40% {
-        transform: translateX(0%);
-    }
-    80% {
-        transform: translateX(-10%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-
-}
-
-.logout-alert .fa-check-double {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #0c5460;
-    font-size: 30px;
-}
-
-.logout-alert .msg {
-    letter-spacing: 1px;
-    padding: 0 20px;
-    font-size: 13px;
-    color: #0c5460;
-}
-
-.logout-alert .close-btn {
-
-    position: absolute;
-    background: #9bcafb;
-    right: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 20px 18px;
-    cursor: pointer;
-}
-
-.logout-alert .close-btn:hover {
-    background: #76abe3;
-}
-
-.logout-alert .close-btn .fa-times {
-    color: #0c5460;
-    font-size: 22px;
-    line-height: 40px
-}
-
-
-.error-password-alert {
-    background: #dfa1a7;
-    padding: 20px 40px;
-    min-width: 420px;
-    position: absolute;
-    right: 0px;
-    top: 20px;
-    border-radius: 4px;
-    border-left: 8px solid #bf444f;
-    overflow: hidden;
-    display: none;
-}
-
-.error-password-alert.show {
-    display: revert;
-    animation: show_slide 1s ease forwards;
-}
-
-@keyframes show_slide {
-    0% {
-        transform: translateX(100%);
-    }
-    40% {
-        transform: translateX(-10%);
-    }
-    80% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-10px);
-    }
-
-}
-
-.error-password-alert.hide {
-    display: revert;
-    animation: hide_slide 1s ease forwards;
-}
-
-@keyframes hide_slide {
-    0% {
-        transform: translateX(-10px);
-    }
-    40% {
-        transform: translateX(0%);
-    }
-    80% {
-        transform: translateX(-10%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-
-}
-
-.error-password-alert .fa-exclamation-circle {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #bf444f;
-    font-size: 30px;
-}
-
-.error-password-alert .msg {
-    letter-spacing: 1px;
-    padding: 0 20px;
-    font-size: 13px;
-    color: #721c24;
-}
-
-.error-password-alert .close-btn {
-
-    position: absolute;
-    background: #bf444f;
-    right: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 20px 18px;
-    cursor: pointer;
-}
-
-.error-password-alert .close-btn:hover {
-    background: #c9313f;
-}
-
-.error-password-alert .close-btn .fa-times {
-    color: #721c24;
-    font-size: 22px;
-    line-height: 40px
-}
-
-
-.new_user-alert {
-    background: #8BC34A;
-    padding: 20px 40px;
-    min-width: 420px;
-    position: absolute;
-    right: 0px;
-    top: 20px;
-    border-radius: 4px;
-    border-left: 8px solid #63912f;
-    overflow: hidden;
-    display: none;
-}
-
-.new_user-alert.show {
-    display: revert;
-    animation: show_slide 1s ease forwards;
-}
-
-@keyframes show_slide {
-    0% {
-        transform: translateX(100%);
-    }
-    40% {
-        transform: translateX(-10%);
-    }
-    80% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-10px);
-    }
-
-}
-
-.new_user-alert.hide {
-    display: revert;
-    animation: hide_slide 1s ease forwards;
-}
-
-@keyframes hide_slide {
-    0% {
-        transform: translateX(-10px);
-    }
-    40% {
-        transform: translateX(0%);
-    }
-    80% {
-        transform: translateX(-10%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-
-}
-
-.new_user-alert .fa-check-double {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #fff;
-    font-size: 30px;
-}
-
-.new_user-alert .msg {
-    letter-spacing: 1px;
-    padding: 0 20px;
-    font-size: 13px;
-    color: #fff;
-}
-
-.new_user-alert .close-btn {
-
-    position: absolute;
-    background: #63912f;
-    right: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 20px 18px;
-    cursor: pointer;
-}
-
-.new_user-alert .close-btn:hover {
-    background: #72a934;
-}
-
-.new_user-alert .close-btn .fa-times {
-    color: #fff;
-    font-size: 22px;
-    line-height: 40px
-}
-
-@media (max-width: 600px){
-    .error-alert {
-        min-width: 350px;
-    }
-    .error-alert .msg {
-        font-size: 12px;
-    }
-
-    @keyframes hide_slide {
-        0% {
-            transform: translateX(-10px);
-        }
-        40% {
-            transform: translateX(0%);
-        }
-        80% {
-            transform: translateX(-3%);
-        }
-        100% {
-            transform: translateX(100%);
-        }
-
-    }
-
-    @keyframes show_slide {
-        0% {
-            transform: translateX(100%);
-        }
-        40% {
-            transform: translateX(-3%);
-        }
-        80% {
-            transform: translateX(0%);
-        }
-        100% {
-            transform: translateX(-3px);
-        }
-
-    }
-    .error-alert .close-btn .fa-times {
-        font-size: 22px;
-        line-height: 40px
-    }
-
-    .error-alert .fa-exclamation-circle {
-        font-size: 22px;
-    }
-}
-
-@media (max-width: 420px){
-    .error-alert {
-        padding:20px 20px;
-    }
-    .error-alert .close-btn{
-    padding: 20px 10px;
-    }
-
-    .error-alert .fa-exclamation-circle {
-        left:10px;
-    }
-}
-
-@media (max-width: 340px){
-    .error-alert {
-        padding:10px 5px;
-        min-width: 250px;
-    }
-
-    .error-alert .msg {
-        font-size: 11px;
-    }
-    .error-alert .close-btn{
-        padding: 20px 4px;
-    }
-
-    .error-alert .fa-exclamation-circle {
-        left:3px;
-        font-size: 20px;
-    }
-    .error-alert .close-btn .fa-times {
-        font-size: 20px;
-
-    }
-}
 
 

@@ -1,73 +1,67 @@
-let error_alert_close_btn = document.querySelector("body > div.error-alert > span.close-btn");
-let error_alert = document.querySelector(".error-alert");
+let alert_close_btn = document.querySelector(".wrapper > div.alert > span.close-btn");
+let alert = document.querySelector(".alert");
+let alertMsg = document.getElementById("alertMsg");
+let alertSign = document.getElementById(("alertSign"));
+let alertCLoseSign = document.getElementById("alertCloseSign");
 
-let logout_alert_close_btn = document.querySelector("body > div.logout-alert > span.close-btn");
-let logout_alert = document.querySelector(".logout-alert");
+//alert colors
 
-let password_alert_close_btn = document.querySelector("body > div.error-password-alert > span.close-btn");
-let password_alert = document.querySelector(".error-password-alert");
 
-let new_user_alert_close_btn = document.querySelector("body > div.new_user-alert > span.close-btn");
-let new_user_alert = document.querySelector(".new_user-alert");
-
-let validMsg = document.getElementById("alertMsg");
-
-function errorAlert() {
-    error_alert.classList.remove("show");
-    error_alert.classList.add("hide")
+function showAlert(text) {
+    alertMsg.innerText = text;
+    alert.classList.remove("hide");
+    alert.classList.add("show");
 }
 
-function logoutAlert() {
-    logout_alert.classList.remove("show");
-    logout_alert.classList.add("hide");
+//dopisac funckje ktore beda zmienac styl alertu, alert wylogowania, alert niewlasciwego hasla, zla walidacja ten sam, alert pomyslnie utworzonego uzytkownika
+function hideAlert() {
+    alert.classList.remove("show");
+    alert.classList.add("hide");
 }
 
-function showNewUserAlert() {
-    new_user_alert.classList.remove("hide")
-    new_user_alert.classList.add("show");
-    setTimeout(function () {
-        new_user_alert.classList.remove("show");
-        new_user_alert.classList.add("hide")
-    }, 5000);
+function successStyleAlert() {
+    alert.style.background = "#8BC34A";
+    alert.style.borderColor = "#63912f";
+    alertSign.style.color = "#fff";
+    alertMsg.style.color = "#fff";
+    alertCLoseSign.style.color = "#fff";
+    alert_close_btn.classList.remove("close-btn-bgc-error-style", "close-btn-bgc-success-style", "close-btn-bgc-warning-style", "close-btn-bgc-info-style",);
+    alert_close_btn.classList.add("close-btn-bgc-success-style");
 }
 
-function showPasswordDidNotMatchAlert() {
-    password_alert.classList.remove("hide")
-    password_alert.classList.add("show");
-    setTimeout(function () {
-        password_alert.classList.remove("show");
-        password_alert.classList.add("hide")
-    }, 5000); //hide alert automatically after 5sec
-
+function errorStyleAlert() {
+    alert.style.background = "#ffdb9b";
+    alert.style.borderColor = "#ffa502";
+    alertSign.style.color = "#ce8500";
+    alertMsg.style.color = "#ce8500";
+    alertCLoseSign.style.color = "#ce8500";
+    alert_close_btn.classList.remove("close-btn-bgc-error-style", "close-btn-bgc-success-style", "close-btn-bgc-warning-style", "close-btn-bgc-info-style",);
+    alert_close_btn.classList.add("close-btn-bgc-error-style");
 }
 
-function showValidationAlert(text){
-    validMsg.innerText=text;
-    password_alert.classList.remove("hide")
-    password_alert.classList.add("show");
-    setTimeout(function () {
-        password_alert.classList.remove("show");
-        password_alert.classList.add("hide")
-    }, 5000); //hide alert automatically after 5sec
+function warningStyleAlert() {
+    alert.style.background = "#dfa1a7";
+    alert.style.borderColor = "#bf444f";
+    alertSign.style.color = "#bf444f";
+    alertMsg.style.color = "#721c24";
+    alertCLoseSign.style.color = "#721c24";
+    alert_close_btn.classList.remove("close-btn-bgc-error-style", "close-btn-bgc-success-style", "close-btn-bgc-warning-style", "close-btn-bgc-info-style",);
+    alert_close_btn.classList.add("close-btn-bgc-warning-style");
 }
 
-error_alert_close_btn.addEventListener('click', function () {
-    errorAlert();
-})
+function infoStyleAlert() {
+    alert.style.background = "#d1ecf1";
+    alert.style.borderColor = "#9bcafb";
+    alertSign.style.color = "#0c5460";
+    alertMsg.style.color = "#0c5460";
+    alertCLoseSign.style.color = "#0c5460";
+    alert_close_btn.classList.remove("close-btn-bgc-error-style", "close-btn-bgc-success-style", "close-btn-bgc-warning-style", "close-btn-bgc-info-style",);
+    alert_close_btn.classList.add("close-btn-bgc-info-style");
+}
 
-logout_alert_close_btn.addEventListener('click', function () {
-    logoutAlert();
-})
-
-password_alert_close_btn.addEventListener('click', function () {
-    password_alert.classList.remove("show");
-    password_alert.classList.add("hide")
-})
-
-new_user_alert_close_btn.addEventListener('click', function () {
-    new_user_alert.classList.remove("show");
-    new_user_alert.classList.add("hide")
-})
+alert_close_btn.addEventListener("click", function () {
+    hideAlert();
+});
 
 
 //Check if param "error, logout" exist
@@ -75,21 +69,18 @@ let url_string = window.location.href;
 let url = new URL(url_string);
 let error = url.searchParams.get("error");
 let logout = url.searchParams.get("logout");
+
 if (error != null) {
-    error_alert.classList.remove("hide")
-    error_alert.classList.add("show");
+    showAlert("Warning: Incorrect email or password", errorStyleAlert());
 
     setTimeout(function () {
-        error_alert.classList.remove("show");
-        error_alert.classList.add("hide")
+        hideAlert();
     }, 5000); //hide alert automatically after 5sec
 }
 if (logout != null) {
-    logout_alert.classList.remove("hide")
-    logout_alert.classList.add("show");
 
+    showAlert("You have successfully logged out!", infoStyleAlert());
     setTimeout(function () {
-        logout_alert.classList.remove("show");
-        logout_alert.classList.add("hide")
+        hideAlert();
     }, 5000); //hide alert automatically after 5sec
 }
