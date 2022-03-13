@@ -10,13 +10,13 @@
             crossorigin="anonymous"
     ></script>
 
-    <link th:href="@{/favicon.ico}" rel="icon" type="image/x-icon"/>
-    <link rel="stylesheet" th:href="@{/login.css}">
-    <link rel="stylesheet" th:href="@{/alert.css}">
+    <link th:href="@{/icons/favicon-32x32.png}" rel="icon" type="image/png"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/alert.css}">
 </head>
 <body>
 <div class="wrapper">
-<!--    Alert part start-->
+    <!--    Alert part start-->
     <div class="alert">
         <span id="alertSign" class="fas fa-exclamation-circle"></span>
         <span id="alertMsg" class="msg">Warning: Incorrect email or password</span>
@@ -84,10 +84,9 @@
 </div>
 
 
-
-<script th:src="@{/login.js}"></script>
-<script th:src="@{/alert.js}"></script>
-<script th:src="@{/validation.js}"></script>
+<script th:src="@{/js/login.js}"></script>
+<script th:src="@{/js/alert.js}"></script>
+<script th:src="@{/js/validation.js}"></script>
 <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

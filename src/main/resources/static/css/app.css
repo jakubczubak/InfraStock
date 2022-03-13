@@ -47,7 +47,7 @@ body {
     pointer-events: none;
 }
 
-.sidebar .logo_content .logo i {
+.sidebar .logo_content .logo img {
     font-size: 28px;
     margin-right: 15px;
 }
@@ -112,6 +112,10 @@ body {
 
 }
 
+.sidebar ul li a img {
+    height: 30px;
+}
+
 .sidebar ul li a i {
     height: 50px;
     min-width: 50px;
@@ -119,6 +123,11 @@ body {
     line-height: 50px;
     text-align: center;
     color: #ea4c88;
+}
+
+.sidebar ul li a img {
+    margin-top: 10px;
+    height: 30px;
 }
 
 .sidebar .links_name {

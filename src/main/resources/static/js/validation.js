@@ -32,15 +32,15 @@ form.addEventListener("submit", e => {
             contentType: "application/json",
             success: function (text) {
                 //If the email does not exist in the database, the controller sends a message:"Congratulations, your account has been successfully created."
-                if(text=="Congratulations, your account has been successfully created."){
+                if (text == "Congratulations, your account has been successfully created.") {
                     signIn();
                     clearData();
-                    showAlert(text,successStyleAlert());
+                    showAlert(text, successStyleAlert());
                     setTimeout(function () {
                         hideAlert();
                     }, 5000); //hide alert automatically after 5sec
-                }else{
-                    showAlert(text,warningStyleAlert());
+                } else {
+                    showAlert(text, warningStyleAlert());
                     setTimeout(function () {
                         hideAlert();
                     }, 5000); //hide alert automatically after 5sec
@@ -48,7 +48,7 @@ form.addEventListener("submit", e => {
 
             },
             error: function (jqXHR) {
-                showAlert(jqXHR.responseText,warningStyleAlert());
+                showAlert(jqXHR.responseText, warningStyleAlert());
                 setTimeout(function () {
                     hideAlert();
                 }, 5000); //hide alert automatically after 5sec

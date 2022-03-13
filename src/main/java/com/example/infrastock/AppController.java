@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AppController {
 
 
-
     @GetMapping("/")
     public String redirectToLoginPage() {
         return "redirect:/login";

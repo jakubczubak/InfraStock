@@ -3,6 +3,7 @@ package com.example.infrastock.user;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class UserService {
         userRepo.save(user);
     }
 
-    public void createAdmin(UserDTO userDTO){
+    public void createAdmin(UserDTO userDTO) {
         User user = new User(userDTO.getUsername(), userDTO.getPassword(), userDTO.getEmail(), userDTO.getRole());
         user.setRole("ROLE_ADMIN");
         user.setPassword(passwordEncoder.encode(user.getPassword()));

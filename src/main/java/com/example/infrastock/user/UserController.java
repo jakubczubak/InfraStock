@@ -1,6 +1,7 @@
 package com.example.infrastock.user;
 
 import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 
 
@@ -20,7 +21,7 @@ public class UserController {
 
         if (userService.checkIfEmailExist(user.getEmail())) {
             return "The email you have entered is already registered";
-        }else {
+        } else {
             userService.createUser(user);
             return "Congratulations, your account has been successfully created.";
         }

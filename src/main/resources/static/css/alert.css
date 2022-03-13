@@ -86,29 +86,31 @@
 }
 
 
-
-.alert .close-btn-bgc-error-style{
+.alert .close-btn-bgc-error-style {
     background: #ffd080;
 }
 
 .alert .close-btn-bgc-error-style:hover {
     background: #ffc766;
 }
-.alert .close-btn-bgc-success-style{
+
+.alert .close-btn-bgc-success-style {
     background: #63912f;
 }
 
 .alert .close-btn-bgc-success-style:hover {
     background: #72a934;
 }
-.alert .close-btn-bgc-warning-style{
+
+.alert .close-btn-bgc-warning-style {
     background: #bf444f;
 }
 
 .alert .close-btn-bgc-warning-style:hover {
     background: #c9313f;
 }
-.alert .close-btn-bgc-info-style{
+
+.alert .close-btn-bgc-info-style {
     background: #9bcafb;
 }
 
@@ -125,27 +127,32 @@
 
 
 @media (max-width: 600px) {
-    .alert{
+    .alert {
         max-width: 370px;
         padding: 15px 40px;
     }
+
     .alert .msg {
         font-size: 12px;
     }
-    .alert .fa-exclamation-circle{
+
+    .alert .fa-exclamation-circle {
         font-size: 25px;
     }
 }
+
 @media (max-width: 375px) {
-    .alert{
+    .alert {
         max-width: 335px;
-    }}
+    }
+}
 
 @media (max-width: 320px) {
-    .alert{
+    .alert {
         max-width: 280px;
         padding: 10px 40px;
     }
+
     #sign_up {
         position: absolute;
         top: 20%;

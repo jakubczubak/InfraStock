@@ -135,7 +135,7 @@ a:hover {
     }
 }
 
-@media (max-width: 340px){
+@media (max-width: 340px) {
     #sign_in,
     #sign_up {
         inline-size: 90%;
