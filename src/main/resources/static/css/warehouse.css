@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Josefin+Sans&display=swap");
+
+
+
+.material-warhouse{
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #2c3338;
+    color: #fff;
+}
+
+.material-warhouse-header{
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    margin: 15px;
+}
+
+
+
+.material-warhouse-btn-section{
+    position: absolute;
+    top:40px;
+    right: 20px;
+    background-color: #3b4148;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    border-radius: 0.35rem;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+.material-warhouse-btn-section span{
+    padding-left: 15px;
+}
+
+.material-warhouse-btn-section:hover{
+    background: #fff;
+    color: #11101d;
+    border-radius: 0.35rem;
+    font-size: 1.4rem;
+}
+
+.material-categories-section{
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.material-categoires-item{
+    text-align: center;
+    background-color: #3b4148;
+    border-radius:0.35rem;
+    transition: all 0.1s ease;
+    cursor: pointer;
+    padding: 40px 15px 15px ;
+    font-weight: 400;
+    height: 140px;
+}
+.material-categoires-item h1{
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+}
+.material-categoires-item h2{
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.material-categoires-item:hover{
+    background: #fff;
+    color: #11101d;
+}
+

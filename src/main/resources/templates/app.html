@@ -10,6 +10,7 @@
             crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" th:href="@{/css/app.css}"/>
+    <link rel="stylesheet" th:href="@{/css/warehouse.css}"/>
     <link th:href="@{/icons/favicon-32x32.png}" rel="icon" type="image/png"/>
 </head>
 <body>
@@ -91,8 +92,53 @@
 
 
 <!-- Home part start -->
-<div class="home_content">
-    <div class="text">Home content</div>
+<div class="material-warhouse">
+    <h1 class="material-warhouse-header">Material warhouse</h1>
+
+    <div class="material-warhouse-btn-section">
+       <img th:src="@{/icons/plus.png}">
+        <span>Add iteam</span>
+    </div>
+
+    <div class="material-categories-section">
+        <div class="material-categoires-item">
+            <h1>All categories</h1>
+        </div>
+        <div class="material-categoires-item">
+            <div class="all-categories">
+                <h1>Aluminium plates</h1>
+                <h2>PA13 (5083)</h2>
+            </div>
+        </div>
+        <div class="material-categoires-item">
+
+            <h1>Aluminium plates</h1>
+            <h2>PA4 (6082)</h2>
+        </div>
+        <div class="material-categoires-item">
+            <h1>Ertacetal plates</h1>
+            <h2>C-black</h2>
+        </div>
+        <div class="material-categoires-item">
+            <h1>Aluminium rods</h1>
+            <h2>PA4 (6082)</h2>
+        </div>
+        <div class="material-categoires-item">
+            <h1>Aluminium pipes</h1>
+            <h2>PA4 (6082)</h2>
+        </div>
+        <div class="material-categoires-item">
+            <h1>Ertacetal rods</h1>
+            <h2>C-black</h2>
+        </div>
+        <div class="material-categoires-item">
+            <h1>Custom materials</h1>
+
+        </div>
+    </div>
+    <div class="material-table">
+
+    </div>
 </div>
 <!-- Home part end -->
 <script th:src="@{/js/app.js}"></script>
