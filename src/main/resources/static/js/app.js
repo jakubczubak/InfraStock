@@ -1,9 +1,6 @@
-let sidebar = document.querySelector('.sidebar')
+let sidebarBtn = document.querySelector('#btn');
+let sidebar = document.querySelector(".sidebar");
 
-sidebar.addEventListener("mouseover", function () {
-    sidebar.classList.add("active");
-})
-
-sidebar.addEventListener("mouseout", function () {
-    sidebar.classList.remove("active");
-})
+sidebarBtn.addEventListener("click", function () {
+    sidebar.classList.toggle("active");
+});

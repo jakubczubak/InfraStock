@@ -102,14 +102,21 @@ body {
     transition: all 0.1s ease;
     white-space: nowrap;
     font-size: 1rem;
+
 }
 
 .sidebar ul li a:hover {
-    background: #fff;
+    background-color: #fff;
     color: #11101d;
     border-radius: 0.35rem;
     font-size: 1.4rem;
+    border: 2px solid #9bcafb ;
+}
 
+.activeBtn{
+    border-radius: 0.35rem;
+    font-size: 1.4rem;
+    border: 1px solid #9bcafb ;
 }
 
 .sidebar ul li a img {
@@ -141,7 +148,7 @@ body {
     pointer-events: auto;
 }
 
-.material-warhouse {
+.material-warehouse {
     position: absolute;
     height: 100%;
     width: calc(100% - 78px);
@@ -157,8 +164,22 @@ body {
     margin: 12px;
 }
 
+.dashboard {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 78px);
+    left: 78px;
+    color: #fff;
+    transition: all 0.5s ease;
+}
 
-.sidebar.active ~ .material-warhouse {
+.sidebar.active ~ .dashboard {
+    width: calc(100% - 240px);
+    left: 240px;
+}
+
+
+.sidebar.active ~ .material-warehouse {
     width: calc(100% - 240px);
     left: 240px;
 }
