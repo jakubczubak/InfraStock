@@ -12,6 +12,7 @@
     border-left: 8px solid #ffa502;
     overflow: hidden;
     display: none;
+    z-index: 1;
 }
 
 .alert.show {

@@ -10,257 +10,116 @@
             crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" th:href="@{/css/app.css}"/>
-    <link rel="stylesheet" th:href="@{/css/warehouse.css}"/>
     <link rel="stylesheet" th:href="@{/css/dashboard.css}"/>
     <link th:href="@{/icons/favicon-32x32.png}" rel="icon" type="image/png"/>
 </head>
 <body>
 
-
-<!-- Sidebar part start -->
-<div class="sidebar">
-    <div class="logo_content">
-        <div class="logo">
-            <img th:src="@{/icons/favicon-32x32.png}">
-            <div class="logo_name">Infrastock</div>
-        </div>
-        <i class="fa-solid fa-bars" id="btn"></i>
-    </div>
-    <ul class="nav_list">
-        <li>
-            <a id="dashboard" class="activeBtn" href="#">
-                <i><img th:src="@{/icons/home.png}"></i>
-                <span class="links_name">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <a id="materials" href="#">
-                <i><img th:src="@{/icons/warehouse.png}"></i>
-                <span class="links_name">Materials</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i><img th:src="@{/icons/cnc-machine.png}"></i>
-                <span class="links_name">Tools</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i><img th:src="@{/icons/shopping-cart.png}"></i>
-                <span class="links_name">Orders</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i><img th:src="@{/icons/transit.png}"></i>
-                <span class="links_name">Suppliers</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i><img th:src="@{/icons/chart.png}"></i>
-                <span class="links_name">Analysis</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i><img th:src="@{/icons/pdf.png}"></i>
-                <span class="links_name">Documents</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i><img th:src="@{/icons/recycling.png}"></i>
-                <span class="links_name">Recycling</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i><img th:src="@{/icons/services.png}"></i>
-                <span class="links_name">Settings</span>
-            </a>
-        </li>
-        <li>
-            <a href="/logout">
-                <i><img th:src="@{/icons/logout.png}"></i>
-                <span class="links_name">Exit</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<!-- Sidebar part end -->
-
-<!-- Dashboard part start -->
-<div class="dashboard">
-    <h1>Dashboard</h1>
-</div>
-<!-- Dashboard part end -->
-
-<!-- Materials Warehouse part start -->
-<div class="material-warehouse">
-    <h1 class="material-warehouse-header">Material warehouse</h1>
-
-
-    <div class="material-categories-section">
-        <div class="material-categories-item">
-            <h1>All categories</h1>
-        </div>
-        <div class="material-categories-item">
-            <div class="all-categories">
-                <h1>Aluminium plates</h1>
-                <h2>PA13 (5083)</h2>
+<div class="wrapper">
+    <!-- Sidebar part start -->
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <img th:src="@{/icons/favicon-32x32.png}">
+                <div class="logo_name">Infrastock</div>
             </div>
+            <i class="fa-solid fa-bars" id="btn"></i>
         </div>
-        <div class="material-categories-item">
-
-            <h1>Aluminium plates</h1>
-            <h2>PA4 (6082)</h2>
-        </div>
-        <div class="material-categories-item">
-            <h1>Ertacetal plates</h1>
-            <h2>C-black</h2>
-        </div>
-        <div class="material-categories-item">
-            <h1>Aluminium rods</h1>
-            <h2>PA4 (6082)</h2>
-        </div>
-        <div class="material-categories-item">
-            <h1>Aluminium pipes</h1>
-            <h2>PA4 (6082)</h2>
-        </div>
-        <div class="material-categories-item">
-            <h1>Ertacetal rods</h1>
-            <h2>C-black</h2>
-        </div>
-        <div class="material-categories-item">
-            <h1>Custom materials</h1>
-
-        </div>
+        <ul class="nav_list">
+            <li>
+                <a id="dashboard" class="activeBtn" href="#">
+                    <i><img th:src="@{/icons/home.png}"></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a id="materials" href="#">
+                    <i><img th:src="@{/icons/warehouse.png}"></i>
+                    <span class="links_name">Materials</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i><img th:src="@{/icons/cnc-machine.png}"></i>
+                    <span class="links_name">Tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i><img th:src="@{/icons/shopping-cart.png}"></i>
+                    <span class="links_name">Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i><img th:src="@{/icons/transit.png}"></i>
+                    <span class="links_name">Suppliers</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i><img th:src="@{/icons/chart.png}"></i>
+                    <span class="links_name">Analysis</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i><img th:src="@{/icons/pdf.png}"></i>
+                    <span class="links_name">Documents</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i><img th:src="@{/icons/recycling.png}"></i>
+                    <span class="links_name">Recycling</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i><img th:src="@{/icons/services.png}"></i>
+                    <span class="links_name">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="/logout">
+                    <i><img th:src="@{/icons/logout.png}"></i>
+                    <span class="links_name">Exit</span>
+                </a>
+            </li>
+        </ul>
     </div>
-    <div class="material-table">
-        <div class="material-warehouse-btn-section">
-            <img th:src="@{/icons/plus.png}">
-            <span>Add item</span>
+    <!-- Sidebar part end -->
+
+
+    <div class="main">
+        <!--navbar part start-->
+        <div class="nav-bar">
+            <ul>
+                <li>
+                    <img th:src="@{/icons/alarm.png}">
+                </li>
+                <li>
+                    <img th:src="@{/icons/admin.png}">
+                    <p id="userInfo">...</p>
+                </li>
+            </ul>
         </div>
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>X [mm]</th>
-                <th>Y [mm]</th>
-                <th>X [mm]</th>
-                <th>Quantity</th>
-                <th>Nominal quantity</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>415</td>
-                <td>575</td>
-                <td>10</td>
-                <td>6</td>
-                <td>3</td>
-                <td><img th:src="@{/icons/edit_icon.png}"></td>
-                <td><img th:src="@{/icons/remove_icon.png}"></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>415</td>
-                <td>575</td>
-                <td>10</td>
-                <td>6</td>
-                <td>3</td>
-                <td><img th:src="@{/icons/edit_icon.png}"></td>
-                <td><img th:src="@{/icons/remove_icon.png}"></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>415</td>
-                <td>575</td>
-                <td>10</td>
-                <td>6</td>
-                <td>3</td>
-                <td><img th:src="@{/icons/edit_icon.png}"></td>
-                <td><img th:src="@{/icons/remove_icon.png}"></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>415</td>
-                <td>575</td>
-                <td>10</td>
-                <td>6</td>
-                <td>3</td>
-                <td><img th:src="@{/icons/edit_icon.png}"></td>
-                <td><img th:src="@{/icons/remove_icon.png}"></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>415</td>
-                <td>575</td>
-                <td>10</td>
-                <td>6</td>
-                <td>3</td>
-                <td><img th:src="@{/icons/edit_icon.png}"></td>
-                <td><img th:src="@{/icons/remove_icon.png}"></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>415</td>
-                <td>575</td>
-                <td>10</td>
-                <td>6</td>
-                <td>3</td>
-                <td><img th:src="@{/icons/edit_icon.png}"></td>
-                <td><img th:src="@{/icons/remove_icon.png}"></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>415</td>
-                <td>575</td>
-                <td>10</td>
-                <td>6</td>
-                <td>3</td>
-                <td><img th:src="@{/icons/edit_icon.png}"></td>
-                <td><img th:src="@{/icons/remove_icon.png}"></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>415</td>
-                <td>575</td>
-                <td>10</td>
-                <td>6</td>
-                <td>3</td>
-                <td><img th:src="@{/icons/edit_icon.png}"></td>
-                <td><img th:src="@{/icons/remove_icon.png}"></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>415</td>
-                <td>575</td>
-                <td>10</td>
-                <td>6</td>
-                <td>3</td>
-                <td><img th:src="@{/icons/edit_icon.png}"></td>
-                <td><img th:src="@{/icons/remove_icon.png}"></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>415</td>
-                <td>575</td>
-                <td>10</td>
-                <td>6</td>
-                <td>3</td>
-                <td><img th:src="@{/icons/edit_icon.png}"></td>
-                <td><img th:src="@{/icons/remove_icon.png}"></td>
-            </tr>
+        <!--navbar part end-->
 
+        <!-- Dashboard part start -->
 
+        <!-- Dashboard part end -->
 
-        </table>
     </div>
+
+
+
+
 </div>
-<!-- Home part end -->
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
 <script th:src="@{/js/app.js}"></script>
 <script th:src="@{/js/navigationButtons.js}"></script>
 </body>

@@ -8,22 +8,22 @@
 }
 
 body {
-    position: relative;
+
     min-height: 100vh;
     width: 100%;
-    overflow: hidden;
-    background-color: #2c3338;
+    background-color: #202634;
 }
 
 .sidebar {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    min-height: 100%;
     width: 78px;
-    background-color: #363b41;
+    background-color: #202634;
     padding: 6px 14px;
     transition: all 0.5s ease;
+    z-index: 1;
 }
 
 .sidebar.active {
@@ -36,10 +36,11 @@ body {
     height: 50px;
     width: 100%;
     align-items: center;
-    opacity: 0;
     pointer-events: none;
-    opacity: 0;
     transition: all 0.3s ease;
+}
+.sidebar.active .logo_content .logo .logo_name {
+   opacity: 1;
 }
 
 .sidebar.active .logo_content .logo {
@@ -50,6 +51,7 @@ body {
 .sidebar .logo_content .logo img {
     font-size: 28px;
     margin-right: 15px;
+    padding-left: 13px;
 }
 
 .sidebar .logo_content .logo .logo_name {
@@ -57,26 +59,27 @@ body {
     letter-spacing: 3px;
     font-weight: 600;
     text-transform: uppercase;
+    opacity: 0;
+    transition:  all 0.3s ease;
 }
 
 .sidebar #btn {
     position: absolute;
-    color: #fff;
-    left: 50%;
+    color: #bfc1c6;
+    left: 100%;
     top: 6px;
     font-size: 20px;
     height: 50px;
     width: 50px;
     text-align: center;
     line-height: 50px;
-    transform: translate(-50%);
     cursor: pointer;
     transition: all 0.5s ease;
 
 }
 
 .sidebar.active #btn {
-    left: 90%;
+    left: 100%;
 }
 
 .sidebar ul {
@@ -90,7 +93,7 @@ body {
     margin: 5px 5px;
     list-style: none;
     line-height: 50px;
-    background-color: #3b4148;
+    background-color: #202634;
     border-radius: 0.35rem;
 }
 
@@ -148,40 +151,75 @@ body {
     pointer-events: auto;
 }
 
-.material-warehouse {
+.main {
     position: absolute;
     height: 100%;
     width: calc(100% - 78px);
     left: 78px;
     color: #fff;
     transition: all 0.5s ease;
+    background-color: #202634;
+    z-index: 0;
+    overflow-x: hidden;
 }
 
-.home_content .text {
-    font-size: 25px;
-    font-weight: 500;
-    color: #fff;
-    margin: 12px;
-}
-
-.dashboard {
-    position: absolute;
-    height: 100%;
-    width: calc(100% - 78px);
-    left: 78px;
-    color: #fff;
-    transition: all 0.5s ease;
-}
-
-.sidebar.active ~ .dashboard {
+.sidebar.active ~ .main {
     width: calc(100% - 240px);
     left: 240px;
 }
 
 
-.sidebar.active ~ .material-warehouse {
-    width: calc(100% - 240px);
-    left: 240px;
+.nav-bar{
+     display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    padding: 14px 20px 14px 20px;
+    align-items: center;
+    background-color: #202634;
+    color: rgb(234,234,236);
+    box-shadow: 0 0 2rem 0 rgb(41 48 66);
+    flex-wrap: nowrap;
+
+}
+.nav-bar ul li{
+    display: inline-block;
+    padding: 0 5px;
 }
 
+.nav-bar ul li p{
+        display: inline-block;
+    position: relative;
+    top: -8px;
 
+}
+
+.nav-bar ul li img {
+    width: 30px;
+    height: 30px;
+}
+
+.wrapper{
+
+    min-block-size: 100vh;
+    overflow-x: hidden;
+    position: relative
+}
+
+@media (max-width: 640px) {
+    .sidebar {
+        left: -78px;
+    }
+    .sidebar.active{
+        left: 0;
+    }
+
+    .sidebar ~ .main {
+        left: 0;
+        width: 100%;
+
+    }
+    .sidebar.active ~ .main {
+        left: 100%;
+        width: 100%;
+    }
+}
