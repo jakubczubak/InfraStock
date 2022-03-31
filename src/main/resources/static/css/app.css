@@ -177,7 +177,7 @@ body {
     align-items: center;
     background-color: #202634;
     color: rgb(234,234,236);
-    box-shadow: 0 0 2rem 0 rgb(41 48 66);
+    box-shadow: 0 0 2rem 0 rgb(41,48,66);
     flex-wrap: nowrap;
 
 }
@@ -205,6 +205,173 @@ body {
     position: relative
 }
 
+/*meterial section*/
+
+
+.materials-header {
+    height: 55px;
+    padding: 48px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    cursor: pointer;
+
+}
+
+.materials-header-btn{
+     background-color: #4f46e5;
+     padding: 0 20px;
+     height: 40px;
+     line-height: 40px;
+     border-radius: 20px;
+    transition: all 0.1s ease;
+    font-size: 18px;
+
+
+ }
+
+.materials-header-btn:hover{
+    background-color: #3447e5;
+}
+
+.materials-categories{
+    margin-top: 20px;
+    padding: 32px;
+}
+.materials-categories-header h1{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.categories-items{
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}
+
+.category-item{
+    margin: 5px;
+    height: 128px;
+    width: 128px;
+    background-color: #fff;
+    color: black;
+    padding: 16px;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 0 0.5rem 0 rgb(83, 94, 119);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+.category-item:hover{
+    box-shadow: 0 0 2rem 0 rgb(83, 94, 119);
+}
+
+#addMaterialCategory.modal-wrap.active{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, .9);
+    z-index: 1;
+
+}
+
+#addMaterialCategory.modal-wrap.active .modal{
+position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    height: 50%;
+    background-color: transparent;
+    border-radius: 1rem;
+
+}
+
+#addMaterialCategory.modal-wrap.active .modal form{
+    margin-top: 70px;
+    display: block;
+    text-align: center;
+}
+
+#addMaterialCategory.modal-wrap.active .modal span{
+    font-size: 30px;
+    color: white;
+}
+
+#addMaterialCategory.modal-wrap.active .modal form input{
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    transition: background-color 0.3s;
+    inline-size: 60%;
+    font-size: 18px;
+    background-color: #363b41;
+    border: 0;
+    color: white;
+    border-radius: 10px;
+}
+
+#addMaterialCategory.modal-wrap.active .modal form input:focus{
+outline: 0;
+    border: 1px solid #1367fb ;
+}
+
+#addMaterialCategory.modal-wrap.active .modal form input::placeholder{
+    color: white;
+}
+
+#addMaterialCategory.modal-wrap.active .modal div{
+    display: block;
+    text-align: center;
+}
+
+#addMaterialCategory.modal-wrap.active .modal div .cancel{
+    background-color: orange;
+
+}
+
+#addMaterialCategory.modal-wrap.active .modal div .cancel:hover{
+    background-color: #ffbe0a;
+
+}
+
+#addMaterialCategory.modal-wrap.active .modal div button{
+    display: block;
+    text-align: center;
+    width: 50%;
+    margin: 10px auto;
+    border: none;
+    background-color: #1367fb;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    transition: all 0.1s ease;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#addMaterialCategory.modal-wrap.active .modal button:hover{
+    background-color: #598bfb;
+}
+
+@media (max-width: 1200px){
+    #addMaterialCategory.modal-wrap.active .modal{
+        width: 60%;
+        height: 50%;
+    }
+}
+
 @media (max-width: 640px) {
     .sidebar {
         left: -78px;
@@ -222,4 +389,27 @@ body {
         left: 100%;
         width: 100%;
     }
+    #addMaterialCategory.modal-wrap.active .modal{
+        width: 95%;
+        height: 50%;
+    }
+    #addMaterialCategory.modal-wrap.active .modal form input{
+        inline-size: 80%;
+    }
+    .materials-categories{
+        margin-top: 100px;
+        padding: 32px;
+    }
 }
+
+@media (max-width: 390px){
+    .nav-bar ul li img {
+        display: none;
+
+    }
+    .nav-bar ul li p {
+       top: 0;
+
+    }
+}
+

@@ -107,8 +107,51 @@
         <!--navbar part end-->
 
         <!-- Dashboard part start -->
-
+        <div class="materials">
+            <div class="materials-header">
+                <div>
+                    <h1>Warehouse section</h1>
+                </div>
+                <div class="materials-header-btn">
+                    <span>+ Create new material!</span>
+                </div>
+            </div>
+            <div class="materials-categories">
+                <div class="materials-categories-header">
+                    <h1>Categories</h1>
+                </div>
+                <div class="categories-items">
+                    <div class="category-item">
+                        <span><strong>PA13 (5083)</strong> plates</span>
+                    </div>
+                    <div class="category-item">
+                        <span><strong>PA4 (6082)</strong> plates</span>
+                    </div>
+                    <div class="category-item">
+                        <span><strong>PA4 (6082)</strong> tubes</span>
+                    </div>
+                    <div class="category-item">
+                        <span><strong>PA4 (6082)</strong> rods</span>
+                    </div>
+                    <div class="category-item">
+                        <span><strong>Ertacetal (POM-C)</strong> plates</span>
+                    </div>
+                    <div class="category-item">
+                        <span><strong>Ertacetal (POM-C)</strong> rods</span>
+                    </div>
+                    <div class="category-item">
+                        <span>Other materials</span>
+                    </div>
+                    <div id="add-material-category" class="category-item">
+                        <span>+Add category</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Dashboard part end -->
+
+
+
 
     </div>
 
@@ -116,6 +159,27 @@
 
 
 </div>
+
+<section id="addMaterialCategory" class="modal-wrap">
+    <div class="modal">
+        <form action="/material/category/add" method="post">
+            <span>CREATE NEW CATEGORY</span>
+            <div class="field">
+                <input type="text" name="categoryName" placeholder="Category name" required>
+            </div>
+
+        </form>
+        <div>
+            <button><a>CREATE</a></button>
+
+        </div>
+        <div>
+            <button id="material-add-category-cancel-btn" class="cancel"><a>CANCEL</a></button>
+        </div>
+
+
+    </div>
+</section>
 <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
