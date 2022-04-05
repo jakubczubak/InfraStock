@@ -244,6 +244,14 @@ body {
     font-weight: 400;
 }
 
+.materials-categories-header img{
+    width: 30px;
+    height:30px;
+    position: relative;
+    top: 8px;
+    cursor: pointer;
+}
+
 .categories-items{
     margin: 8px;
     display: flex;
@@ -263,12 +271,11 @@ body {
     border-radius: 1rem;
     text-align: center;
     box-shadow: 0 0 0.5rem 0 rgb(83, 94, 119);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     transition: all 0.1s ease;
+
 }
+
 .category-item:hover{
     box-shadow: 0 0 2rem 0 rgb(83, 94, 119);
 }
