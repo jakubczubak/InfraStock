@@ -112,7 +112,7 @@
                 <div>
                     <h1>Warehouse section</h1>
                 </div>
-                <div class="materials-header-btn">
+                <div id="createNewMaterial" class="materials-header-btn">
                     <span>+ Create new material!</span>
                 </div>
             </div>
@@ -165,6 +165,40 @@
         </div>
         <div>
             <button id="material-add-category-cancel-btn" class="cancel"><a>CANCEL</a></button>
+        </div>
+    </div>
+</section>
+<section id="addMaterialItem"  class="modal-wrap">
+    <div class="modal">
+        <form action="/material/category/add" method="post">
+            <span>CREATE NEW MATERIAL ITEM</span>
+            <div class="field">
+                <label for="material_description">Material description:</label>
+                <input id="material_description" type="text" placeholder="e.g PA4_10_415x575" required>
+            </div>
+            <div class="field">
+                <label for="in_stock">Insert quantity stock:</label>
+                <input id="in_stock" type="number" placeholder="e.g 15" required>
+            </div>
+
+            <div class="field">
+                <label for="minimum_stock">Insert minimum stock:</label>
+                <input id="minimum_stock" type="number" placeholder="e.g 3" required>
+            </div>
+            <label for="material_category">Choose a category:</label>
+
+            <select id="material_category" name="categories" style="width:200px;">
+                <option value="volvo">PA13</option>
+                <option value="saab">PA4</option>
+                <option value="mercedes">POM C</option>
+                <option value="audi">ERTACETAl</option>
+            </select>
+        </form>
+        <div>
+            <button><a>CREATE</a></button>
+        </div>
+        <div>
+            <button id="material-add-item-cancel-btn" class="cancel"><a>CANCEL</a></button>
         </div>
     </div>
 </section>

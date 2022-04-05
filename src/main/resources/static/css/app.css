@@ -205,7 +205,7 @@ body {
     position: relative
 }
 
-/*meterial section*/
+/*start material section*/
 
 
 .materials-header {
@@ -274,8 +274,8 @@ body {
 }
 
 #addMaterialCategory{
-    display: none;
-}
+     display: none;
+ }
 
 #addMaterialCategory.modal-wrap.active{
     display: revert;
@@ -325,7 +325,7 @@ body {
 }
 
 #addMaterialCategory.modal-wrap.active .modal form input:focus{
-outline: 0;
+    outline: 0;
     border: 1px solid #1367fb ;
 }
 
@@ -353,7 +353,7 @@ outline: 0;
     text-align: center;
     width: 50%;
     margin: 10px auto;
-    border: none;
+    border: 0;
     background-color: #1367fb;
     padding: 0 20px;
     height: 40px;
@@ -369,10 +369,123 @@ outline: 0;
     background-color: #598bfb;
 }
 
+
+/*start create new material section*/
+
+#addMaterialItem{
+    display: none;
+}
+
+#addMaterialItem.modal-wrap.active{
+    display: revert;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0, .4);
+    color: white;
+    z-index: 1;
+}
+
+#addMaterialItem.modal-wrap.active .modal{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    width: 60%;
+    min-height: 95%;
+    background-color: rgba(0,0,0, .9);
+    border-radius: 1rem;
+    padding: 0 25px;
+
+}
+
+#addMaterialItem.modal-wrap.active .modal form{
+    margin-top: 50px;
+    display: block;
+    text-align: center;
+}
+
+#addMaterialItem.modal-wrap.active .modal span{
+    font-size: 30px;
+    color: white;
+}
+
+#addMaterialItem.modal-wrap.active .modal form input{
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+    inline-size: 60%;
+    font-size: 18px;
+    background-color: #363b41;
+    border: 0;
+    color: white;
+    border-radius: 10px;
+}
+
+#addMaterialItem.modal-wrap.active .modal form input:focus{
+    outline: 0;
+    border: 1px solid #1367fb ;
+}
+
+#addMaterialItem.modal-wrap.active .modal form input::placeholder{
+
+}
+
+#addMaterialItem.modal-wrap.active .modal div{
+    display: block;
+    text-align: center;
+}
+
+#addMaterialItem.modal-wrap.active .modal div .cancel{
+    background-color: orange;
+
+}
+
+#addMaterialItem.modal-wrap.active .modal div .cancel:hover{
+    background-color: #ffbe0a;
+
+}
+
+#addMaterialItem.modal-wrap.active .modal div button{
+    display: block;
+    text-align: center;
+    width: 50%;
+    margin: 40px auto;
+    border: none;
+    background-color: #1367fb;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    transition: all 0.1s ease;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#addMaterialItem.modal-wrap.active .modal button:hover{
+    background-color: #598bfb;
+}
+
+/*end create new material section*/
+/* end meterial section*/
+
+
+/*start media section*/
+
 @media (max-width: 1200px){
     #addMaterialCategory.modal-wrap.active .modal{
         width: 60%;
         height: 50%;
+    }
+}
+
+@media (max-width: 900px){
+    #addMaterialItem.modal-wrap.active .modal{
+        width: 80%;
     }
 }
 
@@ -400,10 +513,23 @@ outline: 0;
     #addMaterialCategory.modal-wrap.active .modal form input{
         inline-size: 80%;
     }
+    #addMaterialItem.modal-wrap.active .modal form input{
+        inline-size: 95%;
+    }
     .materials-categories{
         margin-top: 100px;
         padding: 32px;
     }
+    #addMaterialItem.modal-wrap.active{
+        height: 120%;
+    }
+    #addMaterialItem.modal-wrap.active .modal{
+        margin-top: 20px;
+        font-size: 20px;
+        width: 100%;
+        height: 120%;
+    }
+
 }
 
 @media (max-width: 390px){
@@ -416,4 +542,6 @@ outline: 0;
 
     }
 }
+
+/*end media section*/
 
