@@ -1,8 +1,8 @@
 
-let materialsBtn = document.getElementById("materials");
-let dashboardBtn = document.getElementById("dashboard");
+const materialsBtn = document.getElementById("materials");
+const dashboardBtn = document.getElementById("dashboard");
 
-let materialsWarehouseSection = document.querySelector(".material-warehouse");
+const materialsWarehouseSection = document.querySelector(".material-warehouse");
 
 dashboardBtn.addEventListener("click", function () {
 console.log("dashboard");

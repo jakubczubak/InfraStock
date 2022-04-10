@@ -1,8 +1,8 @@
-let alert_close_btn = document.querySelector(".wrapper > div.alert > span.close-btn");
-let alert = document.querySelector(".alert");
-let alertMsg = document.getElementById("alertMsg");
-let alertSign = document.getElementById(("alertSign"));
-let alertCLoseSign = document.getElementById("alertCloseSign");
+const alert_close_btn = document.querySelector(".wrapper > div.alert > span.close-btn");
+const alert = document.querySelector(".alert");
+const alertMsg = document.getElementById("alertMsg");
+const alertSign = document.getElementById(("alertSign"));
+const alertCLoseSign = document.getElementById("alertCloseSign");
 
 //alert colors
 

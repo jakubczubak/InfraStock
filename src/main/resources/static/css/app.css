@@ -313,6 +313,23 @@ body {
     text-align: center;
 }
 
+#addMaterialCategory.modal-wrap.active .modal form button{
+    display: block;
+    text-align: center;
+    width: 50%;
+    margin: 10px auto;
+    border: 0;
+    background-color: #1367fb;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    transition: all 0.1s ease;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+
 #addMaterialCategory.modal-wrap.active .modal span{
     font-size: 30px;
     color: white;
@@ -478,6 +495,8 @@ body {
 }
 
 /*end create new material section*/
+
+
 /* end material section*/
 
 /*start materials table*/
@@ -490,22 +509,24 @@ body {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(83, 94, 119,0.15);
+    cursor: pointer;
 }
 
 .content-table thead tr{
-    background-color: #009879;
+    background-color: #1367fb;
     color: #fff;
     font-weight: bold;
 }
 
 .content-table th,
 .content-table td{
-    padding: 12px 15px;
+    padding: 12px 3vw;
     text-align: center;
 }
 
 .content-table tbody tr{
     border-bottom: thin solid #dddddd;
+    color: #fff;
 }
 .content-table tbody tr td img{
     height: 20px;
@@ -523,7 +544,7 @@ body {
     border-bottom: 2px solid #009879 ;
 }
 
-.content-table tbody tr.active-row{
+.content-table tbody tr:hover{
     font-weight: bold;
     color: #009879;
 }
@@ -586,6 +607,15 @@ body {
         height: 120%;
     }
 
+    .content-table th,
+    .content-table td{
+        padding: 12px 5px;
+        font-size: 16px;
+    }
+    .content-table{
+        min-width: 400px;
+    }
+
 }
 
 @media (max-width: 390px){
@@ -596,6 +626,26 @@ body {
     .nav-bar ul li p {
        top: 0;
 
+    }
+
+    .content-table th,
+    .content-table td{
+        padding: 12px 5px;
+        font-size: 14px;
+    }
+    .content-table{
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 340px){
+    .content-table th,
+    .content-table td{
+        padding: 12px 4px;
+        font-size: 13px;
+    }
+    .content-table tbody tr td img{
+        height: 17px;
     }
 }
 

@@ -11,11 +11,26 @@
     ></script>
     <link rel="stylesheet" th:href="@{/css/app.css}"/>
     <link rel="stylesheet" th:href="@{/css/dashboard.css}"/>
+    <link rel="stylesheet" th:href="@{/css/alert.css}"/>
     <link th:href="@{/icons/favicon-32x32.png}" rel="icon" type="image/png"/>
+    <script
+            src="https://kit.fontawesome.com/5fae53f1bb.js"
+            crossorigin="anonymous"
+    ></script>
 </head>
 <body>
 
+
+
 <div class="wrapper">
+
+    <div class="alert">
+        <span id="alertSign" class="fas fa-exclamation-circle"></span>
+        <span id="alertMsg" class="msg">Warning: Incorrect email or password</span>
+        <span class="close-btn">
+            <span id="alertCloseSign" class="fas fa-times"></span>
+        </span>
+    </div>
     <!-- Sidebar part start -->
     <div class="sidebar">
         <div class="logo_content">
@@ -272,15 +287,13 @@
 
 <section id="addMaterialCategory"  class="modal-wrap">
     <div class="modal">
-        <form action="/materials/add/" method="post">
+        <form  id="addMaterialCategoryForm"  action="/materials/add" method="post">
             <span>CREATE NEW CATEGORY</span>
             <div class="field">
-                <input type="text" name="categoryName" placeholder="Category name" required>
+                <input  id="categoryName" type="text" name="categoryName" placeholder="Category name" required>
             </div>
-        </form>
-        <div>
             <button><a>CREATE</a></button>
-        </div>
+        </form>
         <div>
             <button id="material-add-category-cancel-btn" class="cancel"><a>CANCEL</a></button>
         </div>
@@ -326,5 +339,7 @@
         crossorigin="anonymous"></script>
 <script th:src="@{/js/app.js}"></script>
 <script th:src="@{/js/navigationButtons.js}"></script>
+<script th:src="@{/js/addMaterialCategory.js}"></script>
+<script th:src="@{/js/alert.js}"></script>
 </body>
 </html>
