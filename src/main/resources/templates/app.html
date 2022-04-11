@@ -301,7 +301,7 @@
 </section>
 <section id="addMaterialItem"  class="modal-wrap">
     <div class="modal">
-        <form action="/material/category/add" method="post">
+        <form id="addMaterialItemForm" action="/material/category/add" method="post">
             <span>CREATE NEW MATERIAL ITEM</span>
             <div class="field">
                 <label for="material_description">Material description:</label>
@@ -341,5 +341,6 @@
 <script th:src="@{/js/navigationButtons.js}"></script>
 <script th:src="@{/js/addMaterialCategory.js}"></script>
 <script th:src="@{/js/alert.js}"></script>
+<script th:src="@{/js/addNewMaterial.js}"></script>
 </body>
 </html>

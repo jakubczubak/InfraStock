@@ -24,11 +24,11 @@ public class MaterialCategoryController {
     }
 
 
-    @PostMapping(value = "/add")
+    @PostMapping(value = "/addCategory")
     public String createMaterialCategory(@RequestBody @Valid MaterialCategoryDTO categoryDTO) {
 
 
-        if (materialCategoryService.checkIfEmailExist(categoryDTO.getCategoryName())) {
+        if (materialCategoryService.checkIfCategoryExist(categoryDTO.getCategoryName())) {
             return "The category you have entered is already in DataBase";
         } else {
             materialCategoryService.createMaterialCategory(categoryDTO);

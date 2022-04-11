@@ -23,16 +23,18 @@ public class MaterialCategoryService {
     }
 
 
-    public boolean checkIfEmailExist(String categoryName) {
+    public boolean checkIfCategoryExist(String categoryName) {
 
         return materialCategoryRepo.findByCategoryName(categoryName) != null;
 
     }
 
     public List<MaterialCategory> getMaterialCategories(){
+        return materialCategoryRepo.findAll();
+    }
 
-        List<MaterialCategory> materialCategoryList = materialCategoryRepo.findAll();
-        return materialCategoryList;
+    public MaterialCategory findByCategoryName(String categoryName){
+        return materialCategoryRepo.findByCategoryName(categoryName);
     }
 
 }

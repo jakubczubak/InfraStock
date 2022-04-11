@@ -1,32 +1,29 @@
-
-const addMaterialCategoryForm = document.getElementById("addMaterialCategoryForm");
-const materialAddCategoryCancelBtn = document.getElementById("material-add-category-cancel-btn");
-const addMaterialCategorySection = document.getElementById("addMaterialCategory");
-const addMaterialCategoryBtn = document.getElementById("add-material-category");
-const categoryNameInput = document.getElementById("categoryName");
+const materialAddItemCancelBtn = document.getElementById("material-add-item-cancel-btn");
+const addMaterialItem = document.getElementById("addMaterialItem");
+const createNewMaterial = document.getElementById("createNewMaterial");
+const addNewMaterialItemForm = document.getElementById("addMaterialItemForm");
 
 
-
-materialAddCategoryCancelBtn.addEventListener("click", function () {
-    addMaterialCategorySection.classList.remove("active");
+materialAddItemCancelBtn.addEventListener("click", function () {
+    addMaterialItem.classList.toggle("active");
 });
 
-addMaterialCategoryBtn.addEventListener("click", function () {
-    addMaterialCategorySection.classList.add("active");
+createNewMaterial.addEventListener("click", function () {
+    addMaterialItem.classList.toggle("active");
 });
 
 
-addMaterialCategoryForm.addEventListener("submit", e => {
+addNewMaterialItemForm.addEventListener("submit", e => {
     e.preventDefault();
 
 
-    let newCategory = {
+    let newMaterial = {
         categoryName : categoryNameInput.value
     };
 
     $.ajax({
         type: 'POST',
-        url: '/materials/addCategory',
+        url: '/materials/add',
         data: JSON.stringify(newCategory),
         contentType: "application/json",
         success: function (text) {

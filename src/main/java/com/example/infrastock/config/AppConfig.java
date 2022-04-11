@@ -1,5 +1,8 @@
 package com.example.infrastock.config;
 
+import com.example.infrastock.material.Material;
+import com.example.infrastock.material.MaterialDTO;
+import com.example.infrastock.material.MaterialService;
 import com.example.infrastock.materialCategory.MaterialCategoryDTO;
 import com.example.infrastock.materialCategory.MaterialCategoryService;
 import com.example.infrastock.user.UserDTO;
@@ -13,9 +16,14 @@ public class AppConfig {
 
     private UserService userService;
     private MaterialCategoryService materialCategoryService;
+    private MaterialService materialService;
 
-    public AppConfig(UserService userService, MaterialCategoryService materialCategoryService
+    public AppConfig(UserService userService, MaterialCategoryService materialCategoryService, MaterialService materialService
     ) {
+
+        this.userService=userService;
+        this.materialCategoryService=materialCategoryService;
+        this.materialService=materialService;
 
 //create default account
         UserDTO admin = new UserDTO();
@@ -58,5 +66,22 @@ public class AppConfig {
         materialCategoryService.createMaterialCategory(material7);
 
 
+
+
+        //create default material
+
+        MaterialDTO materialDTO = new MaterialDTO();
+
+        materialDTO.setMaterialName("PA13_15_415_575");
+        materialDTO.setQuntity(3);
+        materialDTO.setMinQuantity(3);
+        materialDTO.setCategory(materialCategoryService.findByCategoryName(material1.getCategoryName()));
+        materialService.createMaterial(materialDTO);
+
     }
+
+
+
+
+
 }
