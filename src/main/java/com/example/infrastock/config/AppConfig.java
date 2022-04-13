@@ -68,16 +68,6 @@ public class AppConfig {
 
 
 
-        //create default material
-
-        MaterialDTO materialDTO = new MaterialDTO();
-
-        materialDTO.setMaterialName("PA13_15_415_575");
-        materialDTO.setQuntity(3);
-        materialDTO.setMinQuantity(3);
-        materialDTO.setCategory(materialCategoryService.findByCategoryName(material1.getCategoryName()));
-        materialService.createMaterial(materialDTO);
-
     }
 
 

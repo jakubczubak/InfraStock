@@ -3,6 +3,11 @@ const addMaterialItem = document.getElementById("addMaterialItem");
 const createNewMaterial = document.getElementById("createNewMaterial");
 const addNewMaterialItemForm = document.getElementById("addMaterialItemForm");
 
+const materialDescription  = document.getElementById("material_description");
+const quantity = document.getElementById("quantity");
+const minimumQuantity = document.getElementById("minimum_quantity");
+const materialCategory = document.getElementById("materialCategory");
+
 
 materialAddItemCancelBtn.addEventListener("click", function () {
     addMaterialItem.classList.toggle("active");
@@ -18,25 +23,30 @@ addNewMaterialItemForm.addEventListener("submit", e => {
 
 
     let newMaterial = {
-        categoryName : categoryNameInput.value
+        materialName : materialDescription.value,
+        quantity : quantity.value,
+        minQuantity : minimumQuantity.value,
+        category : materialCategory.value,
     };
+
 
     $.ajax({
         type: 'POST',
-        url: '/materials/add',
-        data: JSON.stringify(newCategory),
+        url: '/addMaterial',
+        data: JSON.stringify(newMaterial),
         contentType: "application/json",
         success: function (text) {
-            addMaterialCategorySection.classList.remove("active");
-            categoryNameInput.value = "";
+            addMaterialItem.classList.remove("active");
+            materialDescription.value = "";
+            quantity.value="";
+            minimumQuantity.value="";
             showAlert(text, successStyleAlert());
             setTimeout(function () {
                 hideAlert();
             }, 5000); //hide alert automatically after 5sec
         },
         error: function (jqXHR) {
-            addMaterialCategorySection.classList.remove("active");
-            categoryNameInput.value = "";
+            addMaterialItem.classList.remove("active");
             showAlert(jqXHR.responseText, warningStyleAlert());
             setTimeout(function () {
                 hideAlert();

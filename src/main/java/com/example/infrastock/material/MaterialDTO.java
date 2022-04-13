@@ -11,28 +11,28 @@ public class MaterialDTO {
     @Size(min = 3, message = "Material description should have at least 3 characters")
     private String materialName;
 
-    @NotEmpty(message = "Enter the quantity")
+    @NotNull(message = "Enter the quantity")
     @Min(value = 0, message ="Chose the category of material!" )
     @Max(value = 99, message = "Maximum quantity could be 99")
-    private int quntity;
+    private Integer quantity;
 
 
-    @NotEmpty(message = "Enter the minimum quantity")
+    @NotNull(message = "Enter the minimum quantity")
     @Min(value = 0, message = "Minimum quantity could be 0")
     @Max(value = 99, message = "Maximum quantity could be 99")
-    private int minQuantity;
+    private Integer minQuantity;
 
 
     @NotEmpty(message = "Chose the category of material!")
-    private MaterialCategory category;
+    private String category;
 
 
     public MaterialDTO() {
     }
 
-    public MaterialDTO(String materialName, int quantity, int minQuantity, MaterialCategory category){
+    public MaterialDTO(String materialName, Integer quantity, Integer minQuantity, String category){
         this.materialName = materialName;
-        this.quntity=quantity;
+        this.quantity=quantity;
         this.minQuantity=minQuantity;
         this.category=category;
     }
@@ -53,15 +53,15 @@ public class MaterialDTO {
         this.materialName = materialName;
     }
 
-    public int getQuntity() {
-        return quntity;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setQuntity(int quntity) {
-        this.quntity = quntity;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
-    public int getMinQuantity() {
+    public Integer getMinQuantity() {
         return minQuantity;
     }
 
@@ -69,11 +69,11 @@ public class MaterialDTO {
         this.minQuantity = minQuantity;
     }
 
-    public MaterialCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(MaterialCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 }

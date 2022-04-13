@@ -12,8 +12,8 @@ public class Material {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String materialName;
-    private int quntity;
-    private int minQuantity;
+    private Integer quantity;
+    private Integer minQuantity;
     @OneToOne
     private MaterialCategory category;
 
@@ -21,9 +21,9 @@ public class Material {
     public Material() {
     }
 
-    public Material(String materialName, int quantity, int minQuantity, MaterialCategory category){
+    public Material(String materialName, Integer quantity, Integer minQuantity, MaterialCategory category){
         this.materialName = materialName;
-        this.quntity=quantity;
+        this.quantity=quantity;
         this.minQuantity=minQuantity;
         this.category=category;
     }
@@ -44,19 +44,19 @@ public class Material {
         this.materialName = materialName;
     }
 
-    public int getQuntity() {
-        return quntity;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setQuntity(int quntity) {
-        this.quntity = quntity;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
-    public int getMinQuantity() {
+    public Integer getMinQuantity() {
         return minQuantity;
     }
 
-    public void setMinQuantity(int minQuantity) {
+    public void setMinQuantity(Integer minQuantity) {
         this.minQuantity = minQuantity;
     }
 

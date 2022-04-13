@@ -308,26 +308,26 @@
                 <input id="material_description" type="text" placeholder="e.g PA4_10_415x575" required>
             </div>
             <div class="field">
-                <label for="in_stock">Quantity stock:</label>
-                <input id="in_stock" type="number" placeholder="e.g 15" required>
+                <label for="quantity">Quantity stock:</label>
+                <input id="quantity" type="number" placeholder="e.g 15" required>
             </div>
 
             <div class="field">
-                <label for="minimum_stock">Minimum stock:</label>
-                <input id="minimum_stock" type="number" placeholder="e.g 3" required>
+                <label for="minimum_quantity">Minimum stock:</label>
+                <input id="minimum_quantity" type="number" placeholder="e.g 3" required>
             </div>
-            <label for="material_category">Category:</label>
-
-            <select id="material_category" name="categories" style="width:200px;">
-                <option value="volvo">PA13</option>
+            <label for="materialCategory">Category:</label>
+            <select id="materialCategory" name="categories" style="width:200px;">
+                <option value="PA13 (5083) plates">PA13 (5083) plates</option>
                 <option value="saab">PA4</option>
                 <option value="mercedes">POM C</option>
                 <option value="audi">ERTACETAl</option>
             </select>
+            <div>
+                <button><a>CREATE</a></button>
+            </div>
         </form>
-        <div>
-            <button><a>CREATE</a></button>
-        </div>
+
         <div>
             <button id="material-add-item-cancel-btn" class="cancel"><a>CANCEL</a></button>
         </div>

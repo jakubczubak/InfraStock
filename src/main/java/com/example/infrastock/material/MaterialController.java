@@ -1,7 +1,5 @@
 package com.example.infrastock.material;
 
-import com.example.infrastock.materialCategory.MaterialCategoryDTO;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +12,7 @@ import java.util.List;
 public class MaterialController {
 
     private MaterialService materialService;
+
 
     public MaterialController(MaterialService materialService){
         this.materialService=materialService;

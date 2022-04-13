@@ -1,5 +1,7 @@
 package com.example.infrastock.material;
 
+import com.example.infrastock.materialCategory.MaterialCategory;
+import com.example.infrastock.materialCategory.MaterialCategoryRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,9 +10,11 @@ import java.util.List;
 public class MaterialService {
 
     private MaterialRepo materialRepo;
+    private MaterialCategoryRepo materialCategoryRepo;
 
-    public MaterialService(MaterialRepo materialItemRepo){
+    public MaterialService(MaterialRepo materialItemRepo, MaterialCategoryRepo materialCategoryRepo){
         this.materialRepo=materialItemRepo;
+        this.materialCategoryRepo= materialCategoryRepo;
     }
 
 
@@ -24,7 +28,9 @@ public class MaterialService {
     }
 
     public void createMaterial(MaterialDTO materialDTO){
-        Material newMaterial = new Material(materialDTO.getMaterialName(),materialDTO.getQuntity(), materialDTO.getMinQuantity(), materialDTO.getCategory());
+        String categoryName = materialDTO.getCategory();
+        MaterialCategory materialCategory = materialCategoryRepo.findByCategoryName(categoryName);
+        Material newMaterial = new Material(materialDTO.getMaterialName(), materialDTO.getQuantity(), materialDTO.getMinQuantity(), materialCategory);
         materialRepo.save(newMaterial);
     }
 }
