@@ -1,19 +1,26 @@
 
+console.log("addMaterials");
+
 const addMaterialCategoryForm = document.getElementById("addMaterialCategoryForm");
 const materialAddCategoryCancelBtn = document.getElementById("material-add-category-cancel-btn");
 const addMaterialCategorySection = document.getElementById("addMaterialCategory");
 const addMaterialCategoryBtn = document.getElementById("add-material-category");
 const categoryNameInput = document.getElementById("categoryName");
 
+console.log(addMaterialCategoryBtn);
 
 
 materialAddCategoryCancelBtn.addEventListener("click", function () {
     addMaterialCategorySection.classList.remove("active");
 });
 
+console.log("addMaterials");
+
+
 addMaterialCategoryBtn.addEventListener("click", function () {
     addMaterialCategorySection.classList.add("active");
 });
+
 
 
 addMaterialCategoryForm.addEventListener("submit", e => {
@@ -47,3 +54,4 @@ addMaterialCategoryForm.addEventListener("submit", e => {
         }
     });
 });
+
