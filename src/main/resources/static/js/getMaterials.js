@@ -27,55 +27,76 @@ printMaterials();
 }
 
 function updateMaterial(id){
-    console.log("edytujemy material: " + id);
-    addMaterialItem.classList.toggle("active");
-
-
-    //wyplenic inputy wartosciami z backendu
-    materialDescription.value = "";
-    quantity.value="";
-    minimumQuantity.value="";
-    materialCategory.value="";
+    // console.log("edytujemy material: " + id);
 
 
 
-    addNewMaterialItemForm.addEventListener("submit", e => {
-        e.preventDefault();
+    $.get(`/getMaterial?id=${id}`, function(data, status){
+        console.log(data);
 
 
-        let updateMaterial = {
-            id : id,
-            materialName : materialDescription.value,
-            quantity : quantity.value,
-            minQuantity : minimumQuantity.value,
-            category : materialCategory.value,
-        };
+        //wyplenic inputy wartosciami z backendu
+        materialDescription.value = `${data.materialName}`;
+        quantity.value=`${data.quantity}`;
+        minimumQuantity.value=`${data.minQuantity}`;
+        materialCategory.value=`${data.category.categoryName}`;
+
+        addNewMaterialItemForm.removeEventListener("submit", addMaterial);
+
+//kod pomiedzy dopisac to samo dla posta;
+        addNewMaterialItemForm.addEventListener("submit", addMaterial);
+
+        addMaterialItem.classList.toggle("active");
 
 
-        $.ajax({
-            type: 'UPDATE',
-            url: '/updateMaterial',
-            data: JSON.stringify(updateMaterial),
-            contentType: "application/json",
-            success: function (text) {
-                printMaterials();
-                addMaterialItem.classList.remove("active");
-                materialDescription.value = "";
-                quantity.value="";
-                minimumQuantity.value="";
-                showAlert(text, successStyleAlert());
-                setTimeout(function () {
-                    hideAlert();
-                }, 5000); //hide alert automatically after 5sec
-            },
-            error: function (jqXHR) {
-                addMaterialItem.classList.remove("active");
-                showAlert(jqXHR.responseText, warningStyleAlert());
-                setTimeout(function () {
-                    hideAlert();
-                }, 5000); //hide alert automatically after 5sec
-            }
+
+        addNewMaterialItemForm.addEventListener("submit", e => {
+            e.preventDefault();
+
+
+            console.log("event2");
+
+
+            // let updateMaterial = {
+            //     id : id,
+            //     materialName : materialDescription.value,
+            //     quantity : quantity.value,
+            //     minQuantity : minimumQuantity.value,
+            //     category : materialCategory.value,
+            // };
+            //
+            //
+            // $.ajax({
+            //     type: 'UPDATE',
+            //     url: '/updateMaterial',
+            //     data: JSON.stringify(updateMaterial),
+            //     contentType: "application/json",
+            //     success: function (text) {
+            //         printMaterials();
+            //         addMaterialItem.classList.remove("active");
+            //         materialDescription.value = "";
+            //         quantity.value="";
+            //         minimumQuantity.value="";
+            //         showAlert(text, successStyleAlert());
+            //         setTimeout(function () {
+            //             hideAlert();
+            //         }, 5000); //hide alert automatically after 5sec
+            //     },
+            //     error: function (jqXHR) {
+            //         addMaterialItem.classList.remove("active");
+            //         showAlert(jqXHR.responseText, warningStyleAlert());
+            //         setTimeout(function () {
+            //             hideAlert();
+            //         }, 5000); //hide alert automatically after 5sec
+            //     }
+            // });
         });
+        printMaterials();
     });
-    printMaterials();
+
+
+
+
+
+
 }

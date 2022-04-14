@@ -18,8 +18,10 @@ createNewMaterial.addEventListener("click", function () {
 });
 
 
-addNewMaterialItemForm.addEventListener("submit", e => {
-    e.preventDefault();
+
+function addMaterial(event){
+    event.preventDefault();
+
 
 
     let newMaterial = {
@@ -54,4 +56,7 @@ addNewMaterialItemForm.addEventListener("submit", e => {
             }, 5000); //hide alert automatically after 5sec
         }
     });
-});
+
+}
+addNewMaterialItemForm.addEventListener("submit", addMaterial);
+

@@ -1,9 +1,6 @@
 package com.example.infrastock.material;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -12,16 +9,24 @@ import java.util.List;
 public class MaterialController {
 
     private MaterialService materialService;
+    private MaterialRepo materialRepo;
 
 
-    public MaterialController(MaterialService materialService){
+    public MaterialController(MaterialService materialService, MaterialRepo materialRepo){
         this.materialService=materialService;
+        this.materialRepo=materialRepo;
     }
 
 
     @GetMapping("/materials")
     public List<Material> getMaterialList(){
         return materialService.getMaterialList();
+    }
+
+    @GetMapping("/getMaterial")
+    public Material getMaterialByID(@RequestParam Long id){
+
+        return materialService.getMaterialByID(id);
     }
 
 

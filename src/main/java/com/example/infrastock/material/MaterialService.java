@@ -27,6 +27,12 @@ public class MaterialService {
         return materialRepo.findAll();
     }
 
+
+    public Material getMaterialByID(Long id){
+        return materialRepo.findById(id).get();
+
+        //obsluzyc optionala w przyszlosci
+    }
     public void createMaterial(MaterialDTO materialDTO){
         String categoryName = materialDTO.getCategory();
         MaterialCategory materialCategory = materialCategoryRepo.findByCategoryName(categoryName);
