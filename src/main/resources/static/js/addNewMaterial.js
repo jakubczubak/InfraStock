@@ -36,6 +36,7 @@ addNewMaterialItemForm.addEventListener("submit", e => {
         data: JSON.stringify(newMaterial),
         contentType: "application/json",
         success: function (text) {
+            printMaterials();
             addMaterialItem.classList.remove("active");
             materialDescription.value = "";
             quantity.value="";
