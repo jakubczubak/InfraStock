@@ -225,16 +225,23 @@ body {
      height: 40px;
      line-height: 40px;
      border-radius: 20px;
-    transition: all 0.1s ease;
-    font-size: 18px;
-
-
+     transition: all 0.1s ease;
+     font-size: 18px;
+     margin: 15px 0;
  }
+
+.materials-header-btn.category{
+    background-color: #535e77;
+
+}
 
 .materials-header-btn:hover{
     background-color: #3447e5;
 }
 
+.materials-header-btn.category:hover{
+    background-color: #384d77;
+}
 .materials-categories{
     margin-top: 20px;
     padding: 32px;

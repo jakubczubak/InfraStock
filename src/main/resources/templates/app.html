@@ -127,9 +127,17 @@
                 <div>
                     <h1>Warehouse section</h1>
                 </div>
-                <div id="createNewMaterial" class="materials-header-btn">
-                    <span>+ Create new material!</span>
+                <div>
+                    <div id="createNewMaterial" class="materials-header-btn">
+                        <span>Create new material</span>
+
+                    </div>
+                    <div id="add-material-category" class="materials-header-btn category">
+                        <span>Create new category</span>
+
+                    </div>
                 </div>
+
             </div>
             <div class="materials-categories">
                 <div class="materials-categories-header">
@@ -137,50 +145,6 @@
 
                 </div>
                 <div id="categories-items" class="categories-items">
-<!--                    <div class="category-item">-->
-<!--                        <span><strong>PA13 (5083)</strong> plates</span>-->
-<!--                        <div class="actions">-->
-
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="category-item">-->
-<!--                        <span><strong>PA4 (6082)</strong> plates</span>-->
-<!--                        <div class="actions">-->
-
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="category-item">-->
-<!--                        <span><strong>PA4 (6082)</strong> tubes</span>-->
-<!--                        <div class="actions">-->
-
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="category-item">-->
-<!--                        <span><strong>PA4 (6082)</strong> rods</span>-->
-<!--                        <div class="actions">-->
-
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="category-item">-->
-<!--                        <span><strong>Ertacetal (POM-C)</strong> plates</span>-->
-<!--                        <div class="actions">-->
-
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="category-item">-->
-<!--                        <span><strong>Ertacetal (POM-C)</strong> rods</span>-->
-<!--                        <div class="actions">-->
-
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="category-item">-->
-<!--                        <span>Other materials</span>-->
-<!--                        <div class="actions">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div id="add-material-category" class="category-item">-->
-<!--                        <span>+Add category</span>-->
-<!--                    </div>-->
                 </div>
             </div>
         </div>
@@ -287,7 +251,7 @@
 
 <section id="addMaterialCategory"  class="modal-wrap">
     <div class="modal">
-        <form  id="addMaterialCategoryForm"  action="/materials/addCategory" method="post">
+        <form  id="addMaterialCategoryForm"  method="post">
             <span>CREATE NEW CATEGORY</span>
             <div class="field">
                 <input  id="categoryName" type="text" name="categoryName" placeholder="Category name" required>
