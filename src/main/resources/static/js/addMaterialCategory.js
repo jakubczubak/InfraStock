@@ -36,6 +36,7 @@
             contentType: "application/json",
             success: function (text) {
                 printCategories();
+                printCategoriesInSelectField();
                 addMaterialCategorySection.classList.remove("active");
                 categoryNameInput.value = "";
                 showAlert(text, successStyleAlert());
