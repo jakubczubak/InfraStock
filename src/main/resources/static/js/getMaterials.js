@@ -30,20 +30,52 @@ function updateMaterial(id){
     console.log("edytujemy material: " + id);
     addMaterialItem.classList.toggle("active");
 
+
+    //wyplenic inputy wartosciami z backendu
     materialDescription.value = "";
     quantity.value="";
     minimumQuantity.value="";
+    materialCategory.value="";
 
 
 
-    let updateMaterial = {
-        id : id,
-        materialName : materialDescription.value,
-        quantity : quantity.value,
-        minQuantity : minimumQuantity.value,
-        category : materialCategory.value,
-    };
+    addNewMaterialItemForm.addEventListener("submit", e => {
+        e.preventDefault();
 
-    //dokonczyc
+
+        let updateMaterial = {
+            id : id,
+            materialName : materialDescription.value,
+            quantity : quantity.value,
+            minQuantity : minimumQuantity.value,
+            category : materialCategory.value,
+        };
+
+
+        $.ajax({
+            type: 'UPDATE',
+            url: '/updateMaterial',
+            data: JSON.stringify(updateMaterial),
+            contentType: "application/json",
+            success: function (text) {
+                printMaterials();
+                addMaterialItem.classList.remove("active");
+                materialDescription.value = "";
+                quantity.value="";
+                minimumQuantity.value="";
+                showAlert(text, successStyleAlert());
+                setTimeout(function () {
+                    hideAlert();
+                }, 5000); //hide alert automatically after 5sec
+            },
+            error: function (jqXHR) {
+                addMaterialItem.classList.remove("active");
+                showAlert(jqXHR.responseText, warningStyleAlert());
+                setTimeout(function () {
+                    hideAlert();
+                }, 5000); //hide alert automatically after 5sec
+            }
+        });
+    });
     printMaterials();
 }
