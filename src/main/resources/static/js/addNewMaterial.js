@@ -14,7 +14,11 @@ materialAddItemCancelBtn.addEventListener("click", function () {
 });
 
 createNewMaterial.addEventListener("click", function () {
+
+    addMaterialFormHeader.innerText="CREATE NEW MATERIAL";
+    submitButton.innerText="CREATE";
     addMaterialItem.classList.toggle("active");
+    addNewMaterialItemForm.addEventListener("submit", addMaterial);
 });
 
 
@@ -57,6 +61,8 @@ function addMaterial(event){
         }
     });
 
+    addNewMaterialItemForm.removeEventListener("submit", addMaterial);
+
 }
-addNewMaterialItemForm.addEventListener("submit", addMaterial);
+
 

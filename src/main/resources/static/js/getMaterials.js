@@ -1,4 +1,7 @@
 
+const addMaterialFormHeader = document.getElementById("addMaterialFormHeader");
+const submitButton = document.getElementById("submitButton");
+
 function printMaterials(){
     $.get("/materials", function(data, status){
         const materials = document.getElementById("material-table");
@@ -27,76 +30,66 @@ printMaterials();
 }
 
 function updateMaterial(id){
-    // console.log("edytujemy material: " + id);
-
-
 
     $.get(`/getMaterial?id=${id}`, function(data, status){
-        console.log(data);
 
-
-        //wyplenic inputy wartosciami z backendu
         materialDescription.value = `${data.materialName}`;
         quantity.value=`${data.quantity}`;
         minimumQuantity.value=`${data.minQuantity}`;
         materialCategory.value=`${data.category.categoryName}`;
 
-        addNewMaterialItemForm.removeEventListener("submit", addMaterial);
 
-//kod pomiedzy dopisac to samo dla posta;
-        addNewMaterialItemForm.addEventListener("submit", addMaterial);
+        addMaterialFormHeader.innerText="UPDATE MATERIAL";
+        submitButton.innerText="UPDATE";
 
         addMaterialItem.classList.toggle("active");
 
+        addNewMaterialItemForm.addEventListener("submit", updateMaterialEvent);
+
+        function updateMaterialEvent(event){
+
+            event.preventDefault();
 
 
-        addNewMaterialItemForm.addEventListener("submit", e => {
-            e.preventDefault();
+            let updateMaterial = {
+                id : id,
+                materialName : materialDescription.value,
+                quantity : quantity.value,
+                minQuantity : minimumQuantity.value,
+                category : materialCategory.value,
+            };
 
 
-            console.log("event2");
+            $.ajax({
+                type: 'PUT',
+                url: `/updateMaterial?id=${id}`,
+                data: JSON.stringify(updateMaterial),
+                contentType: "application/json",
+                success: function (text) {
+                    printMaterials();
 
+                    addMaterialItem.classList.remove("active");
+                    materialDescription.value = "";
+                    quantity.value="";
+                    minimumQuantity.value="";
+                    showAlert(text, successStyleAlert());
+                    setTimeout(function () {
+                        hideAlert();
+                    }, 5000); //hide alert automatically after 5sec
+                },
+                error: function (jqXHR) {
+                    addMaterialItem.classList.remove("active");
+                    showAlert(jqXHR.responseText, warningStyleAlert());
+                    setTimeout(function () {
+                        hideAlert();
+                    }, 5000); //hide alert automatically after 5sec
+                }
+            });
 
-            // let updateMaterial = {
-            //     id : id,
-            //     materialName : materialDescription.value,
-            //     quantity : quantity.value,
-            //     minQuantity : minimumQuantity.value,
-            //     category : materialCategory.value,
-            // };
-            //
-            //
-            // $.ajax({
-            //     type: 'UPDATE',
-            //     url: '/updateMaterial',
-            //     data: JSON.stringify(updateMaterial),
-            //     contentType: "application/json",
-            //     success: function (text) {
-            //         printMaterials();
-            //         addMaterialItem.classList.remove("active");
-            //         materialDescription.value = "";
-            //         quantity.value="";
-            //         minimumQuantity.value="";
-            //         showAlert(text, successStyleAlert());
-            //         setTimeout(function () {
-            //             hideAlert();
-            //         }, 5000); //hide alert automatically after 5sec
-            //     },
-            //     error: function (jqXHR) {
-            //         addMaterialItem.classList.remove("active");
-            //         showAlert(jqXHR.responseText, warningStyleAlert());
-            //         setTimeout(function () {
-            //             hideAlert();
-            //         }, 5000); //hide alert automatically after 5sec
-            //     }
-            // });
-        });
-        printMaterials();
+            addNewMaterialItemForm.removeEventListener("submit", updateMaterialEvent);
+
+            printMaterials();
+        }
     });
-
-
-
-
-
-
 }
+

@@ -12,19 +12,19 @@ public class MaterialController {
     private MaterialRepo materialRepo;
 
 
-    public MaterialController(MaterialService materialService, MaterialRepo materialRepo){
-        this.materialService=materialService;
-        this.materialRepo=materialRepo;
+    public MaterialController(MaterialService materialService, MaterialRepo materialRepo) {
+        this.materialService = materialService;
+        this.materialRepo = materialRepo;
     }
 
 
     @GetMapping("/materials")
-    public List<Material> getMaterialList(){
+    public List<Material> getMaterialList() {
         return materialService.getMaterialList();
     }
 
     @GetMapping("/getMaterial")
-    public Material getMaterialByID(@RequestParam Long id){
+    public Material getMaterialByID(@RequestParam Long id) {
 
         return materialService.getMaterialByID(id);
     }
@@ -40,5 +40,11 @@ public class MaterialController {
             materialService.createMaterial(materialDTO);
             return "Congratulations, you've added a new material";
         }
+    }
+
+    @PutMapping("/updateMaterial")
+    public String updateMaterial(@RequestBody @Valid MaterialDTO materialDTO){
+       materialService.updateMaterial(materialDTO);
+        return "Successfully updated";
     }
 }

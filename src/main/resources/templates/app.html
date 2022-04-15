@@ -186,7 +186,7 @@
 <section id="addMaterialItem"  class="modal-wrap">
     <div class="modal">
         <form id="addMaterialItemForm" action="/material/category/add" method="post">
-            <span>CREATE NEW MATERIAL ITEM</span>
+            <span id="addMaterialFormHeader">CREATE NEW MATERIAL</span>
             <div class="field">
                 <label for="material_description">Material description:</label>
                 <input id="material_description" type="text" placeholder="e.g PA4_10_415x575" required>
@@ -208,7 +208,7 @@
                 <option value="audi">ERTACETAl</option>
             </select>
             <div>
-                <button><a>CREATE</a></button>
+                <button id="submitButton"><a>CREATE</a></button>
             </div>
         </form>
 

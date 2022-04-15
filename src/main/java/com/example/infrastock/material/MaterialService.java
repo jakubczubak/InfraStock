@@ -38,5 +38,15 @@ public class MaterialService {
         MaterialCategory materialCategory = materialCategoryRepo.findByCategoryName(categoryName);
         Material newMaterial = new Material(materialDTO.getMaterialName(), materialDTO.getQuantity(), materialDTO.getMinQuantity(), materialCategory);
         materialRepo.save(newMaterial);
+
+    }
+
+    public void updateMaterial(MaterialDTO materialDTO){
+        Material materialToUpdate = materialRepo.getById(materialDTO.getId());
+        materialToUpdate.setMaterialName(materialDTO.getMaterialName());
+        materialToUpdate.setQuantity(materialDTO.getQuantity());
+        materialToUpdate.setMinQuantity(materialDTO.getMinQuantity());
+        materialToUpdate.setCategory(materialCategoryRepo.findByCategoryName(materialDTO.getCategory()));
+        materialRepo.save(materialToUpdate);
     }
 }
