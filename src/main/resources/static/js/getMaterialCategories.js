@@ -2,12 +2,12 @@
 function printCategories(){
     $.get("/materials/categories", function(data, status){
         const categoriesItems = document.getElementById("categories-items");
-        let innerHTML = "";
+        let innerHTMLmaterial = "";
         for(let i = 0; i < data.length ; i++){
             let obj =(data[i]);
-            innerHTML += `<div class="category-item">${obj.categoryName}</div>`;
+            innerHTMLmaterial += `<div class="category-item">${obj.categoryName}</div>`;
         }
-        categoriesItems.innerHTML = innerHTML;
+        categoriesItems.innerHTML = innerHTMLmaterial;
 
         let category_items = document.getElementsByClassName("category-item");
 
@@ -16,7 +16,10 @@ function printCategories(){
             category_items[i].addEventListener("click", function () {
                 console.log(this.innerHTML);
 
-                //dopisac logige sortowania.
+                $.get(`/sortedMaterials?categoryName=${this.innerHTML}`, function(data, status){
+
+                    //print data
+                });
             })
         }
     });

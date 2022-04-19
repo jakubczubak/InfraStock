@@ -57,6 +57,8 @@ public class MaterialController {
 
     @GetMapping("/sortedMaterials")
     public List<Material> getSortedMaterialsByCategoryName(@RequestParam String categoryName){
+        
+
         return materialService.getSortedMaterials(categoryName);
     }
 
