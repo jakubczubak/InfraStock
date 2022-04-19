@@ -48,5 +48,14 @@ public class MaterialService {
         materialToUpdate.setMinQuantity(materialDTO.getMinQuantity());
         materialToUpdate.setCategory(materialCategoryRepo.findByCategoryName(materialDTO.getCategory()));
         materialRepo.save(materialToUpdate);
+
+    }
+
+    public void deleteMaterial(Long id){
+        materialRepo.delete(materialRepo.getById(id));
+    }
+
+    public List<Material> getSortedMaterials(String categoryName){
+        return materialRepo.findAllByCategoryCategoryName(categoryName);
     }
 }

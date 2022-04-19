@@ -26,7 +26,17 @@ printMaterials();
 
 function deleteMaterial(id) {
 console.log("usuwamy detal: " + id);
-printMaterials();
+
+
+    $.ajax({
+        url: `/deleteMaterial?id=${id}`,
+        type: 'DELETE',
+        success: function(text) {
+            showAlert(text,successStyleAlert());
+            printMaterials();
+        }
+    });
+
 }
 
 function updateMaterial(id){

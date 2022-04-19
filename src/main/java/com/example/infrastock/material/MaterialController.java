@@ -47,4 +47,17 @@ public class MaterialController {
        materialService.updateMaterial(materialDTO);
         return "Successfully updated";
     }
+
+    @DeleteMapping("/deleteMaterial")
+    public String deleteMaterial(@RequestParam Long id){
+        materialService.deleteMaterial(id);
+        return "Successfully deleted";
+    }
+
+
+    @GetMapping("/sortedMaterials")
+    public List<Material> getSortedMaterialsByCategoryName(@RequestParam String categoryName){
+        return materialService.getSortedMaterials(categoryName);
+    }
+
 }

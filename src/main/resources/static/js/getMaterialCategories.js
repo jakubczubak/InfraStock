@@ -8,7 +8,19 @@ function printCategories(){
             innerHTML += `<div class="category-item">${obj.categoryName}</div>`;
         }
         categoriesItems.innerHTML = innerHTML;
+
+        let category_items = document.getElementsByClassName("category-item");
+
+        for(let i = 0; i < category_items.length; i++){
+
+            category_items[i].addEventListener("click", function () {
+                console.log(this.innerHTML);
+
+                //dopisac logige sortowania.
+            })
+        }
     });
+
 }
 
 printCategories();
