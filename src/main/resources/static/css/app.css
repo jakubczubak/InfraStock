@@ -222,7 +222,8 @@ body {
 
 .materials-header img {
     position: relative;
-    top: 11px;
+    top: 8px;
+    height: 35px;
 }
 
 .materials-header-btn{
