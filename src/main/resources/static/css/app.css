@@ -217,6 +217,12 @@ body {
     flex-wrap: wrap;
     cursor: pointer;
 
+
+}
+
+.materials-header img {
+    position: relative;
+    top: 11px;
 }
 
 .materials-header-btn{
@@ -228,6 +234,7 @@ body {
      transition: all 0.1s ease;
      font-size: 18px;
      margin: 15px 0;
+
  }
 
 .materials-header-btn.category{
@@ -247,17 +254,11 @@ body {
     padding: 32px;
 }
 .materials-categories-header h1{
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 400;
 }
 
-.materials-categories-header img{
-    width: 30px;
-    height:30px;
-    position: relative;
-    top: 8px;
-    cursor: pointer;
-}
+
 
 .categories-items{
     margin: 8px;
@@ -507,6 +508,16 @@ body {
 /* end material section*/
 
 /*start materials table*/
+
+.materials-table button{
+    width: 50px;
+
+    background-color: transparent;
+        font-size: 1.4rem;
+    border: 1px solid #9bcafb ;
+    cursor: pointer;
+    margin-left: 40px;
+}
 .content-table{
 
     border-collapse: collapse;

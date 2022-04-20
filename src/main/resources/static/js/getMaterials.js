@@ -1,6 +1,11 @@
 
 const addMaterialFormHeader = document.getElementById("addMaterialFormHeader");
 const submitButton = document.getElementById("submitButton");
+const clear_filters_button = document.getElementById("clear-filters-button");
+
+clear_filters_button.addEventListener("click", function () {
+    printMaterials("/materials");
+});
 
 function printMaterials(url){
     $.get(`${url}`, function(data, status){
@@ -76,7 +81,7 @@ function updateMaterial(id){
                 data: JSON.stringify(updateMaterial),
                 contentType: "application/json",
                 success: function (text) {
-                    printMaterials();
+                    printMaterials("/materials");
 
                     addMaterialItem.classList.remove("active");
                     materialDescription.value = "";

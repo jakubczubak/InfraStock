@@ -15,11 +15,7 @@ function printCategories(){
 
             category_items[i].addEventListener("click", function () {
                 console.log(this.innerHTML);
-
-                $.get(`/sortedMaterials?categoryName=${this.innerHTML}`, function(data, status){
-
-                    //print data
-                });
+                printMaterials(`/sortedMaterials?categoryName=${this.innerHTML}`);
             })
         }
     });

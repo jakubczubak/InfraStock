@@ -125,7 +125,7 @@
         <div class="materials">
             <div class="materials-header">
                 <div>
-                    <h1>Warehouse section</h1>
+                    <h1>Warehouse section <img th:src="@{/icons/clear.png}" id="clear-filters-button" alt="clear" title="Clear filters"></h1>
                 </div>
                 <div>
                     <div id="createNewMaterial" class="materials-header-btn">
@@ -134,23 +134,22 @@
                     </div>
                     <div id="add-material-category" class="materials-header-btn category">
                         <span>Create new category</span>
-
                     </div>
                 </div>
-
             </div>
             <div class="materials-categories">
                 <div class="materials-categories-header">
-                    <h1>Categories</h1>
-
+                    <h1>CATEGORIES:</h1>
                 </div>
                 <div id="categories-items" class="categories-items">
                 </div>
             </div>
         </div>
         <section class="materials-table">
-        <table class="content-table">
+
+            <table class="content-table">
             <thead>
+
             <tr>
                 <th>Rank</th>
                 <th>Material</th>
