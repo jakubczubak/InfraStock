@@ -42,7 +42,7 @@ function addMaterial(event){
         data: JSON.stringify(newMaterial),
         contentType: "application/json",
         success: function (text) {
-            printMaterials();
+            printMaterials("/materials");
             addMaterialItem.classList.remove("active");
             materialDescription.value = "";
             quantity.value="";

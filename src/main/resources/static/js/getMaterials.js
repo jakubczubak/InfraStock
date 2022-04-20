@@ -2,8 +2,8 @@
 const addMaterialFormHeader = document.getElementById("addMaterialFormHeader");
 const submitButton = document.getElementById("submitButton");
 
-function printMaterials(){
-    $.get("/materials", function(data, status){
+function printMaterials(url){
+    $.get(`${url}`, function(data, status){
         const materials = document.getElementById("material-table");
         let innerHTML = "";
         for(let i = 0; i < data.length ; i++){
@@ -21,7 +21,7 @@ function printMaterials(){
     });
 }
 
-printMaterials();
+printMaterials("/materials");
 
 
 function deleteMaterial(id) {
@@ -33,7 +33,7 @@ console.log("usuwamy detal: " + id);
         type: 'DELETE',
         success: function(text) {
             showAlert(text,successStyleAlert());
-            printMaterials();
+            printMaterials("/materials");
         }
     });
 
@@ -98,7 +98,7 @@ function updateMaterial(id){
 
             addNewMaterialItemForm.removeEventListener("submit", updateMaterialEvent);
 
-            printMaterials();
+            printMaterials("/materials");
         }
     });
 }
