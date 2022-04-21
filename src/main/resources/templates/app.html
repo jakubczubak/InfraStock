@@ -171,48 +171,47 @@
 <section id="addMaterialCategory"  class="modal-wrap">
     <div class="modal">
         <form  id="addMaterialCategoryForm"  method="post">
-            <span>CREATE NEW CATEGORY</span>
+            <span>Create a new material category</span>
             <div class="field">
-                <input  id="categoryName" type="text" name="categoryName" placeholder="Category name" required>
+                <input  id="categoryName" type="text" name="categoryName" placeholder="enter the name of the category" required>
             </div>
-            <button><a>CREATE</a></button>
+            <button><a>Create</a></button>
         </form>
         <div>
-            <button id="material-add-category-cancel-btn" class="cancel"><a>CANCEL</a></button>
+            <button id="material-add-category-cancel-btn" class="cancel"><a>Cancel</a></button>
         </div>
     </div>
 </section>
 <section id="addMaterialItem"  class="modal-wrap">
     <div class="modal">
         <form id="addMaterialItemForm" action="/material/category/add" method="post">
-            <span id="addMaterialFormHeader">CREATE NEW MATERIAL</span>
-            <div class="field">
-                <label for="material_description">Material description:</label>
-                <input id="material_description" type="text" placeholder="e.g PA4_10_415x575" required>
-            </div>
-            <div class="field">
-                <label for="quantity">Quantity stock:</label>
-                <input id="quantity" type="number" placeholder="e.g 15" required>
+            <span id="addMaterialFormHeader">Create a new material position</span>
+            <div class="fields">
+                <div class="field">
+                    <label for="material_description">Material description:</label>
+                    <input id="material_description" type="text" placeholder="enter material description" required>
+                </div>
+                <div class="field">
+                    <label for="quantity">Stock quantity:</label>
+                    <input id="quantity" type="number" placeholder="enter quantity" required>
+                </div>
+
+                <div class="field">
+                    <label for="minimum_quantity">Minimum stock quantity:</label>
+                    <input id="minimum_quantity" type="number" placeholder="enter minimum quantity" required>
+                </div>
+                <label for="materialCategory">Material category:</label>
+                <select id="materialCategory" name="categories">
+                </select>
             </div>
 
-            <div class="field">
-                <label for="minimum_quantity">Minimum stock:</label>
-                <input id="minimum_quantity" type="number" placeholder="e.g 3" required>
-            </div>
-            <label for="materialCategory">Category:</label>
-            <select id="materialCategory" name="categories" style="width:200px;">
-                <option value="PA13 (5083) plates">PA13 (5083) plates</option>
-                <option value="saab">PA4</option>
-                <option value="mercedes">POM C</option>
-                <option value="audi">ERTACETAl</option>
-            </select>
             <div>
-                <button id="submitButton"><a>CREATE</a></button>
+                <button id="submitButton"><a>Create</a></button>
             </div>
         </form>
 
         <div>
-            <button id="material-add-item-cancel-btn" class="cancel"><a>CANCEL</a></button>
+            <button id="material-add-item-cancel-btn" class="cancel"><a>Cancel</a></button>
         </div>
     </div>
 </section>

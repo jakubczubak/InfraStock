@@ -27,7 +27,7 @@ function printMaterials(url){
                 <td>${obj.minQuantity}</td>
                 <td>${obj.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img class="edit" src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})"><img class="remove" src="/icons/remove_icon.png" onclick="deleteMaterial(${obj.id})"></td>
+                <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="deleteMaterial(${obj.id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"></td>
             </tr>`;
         }
         materials.innerHTML = innerHTML;
@@ -59,8 +59,8 @@ function updateMaterial(id){
         materialCategory.value=`${data.category.categoryName}`;
 
 
-        addMaterialFormHeader.innerText="UPDATE MATERIAL";
-        submitButton.innerText="UPDATE";
+        addMaterialFormHeader.innerText="Update material";
+        submitButton.innerText="Update";
 
         addMaterialItem.classList.toggle("active");
 

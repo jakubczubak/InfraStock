@@ -15,8 +15,8 @@ materialAddItemCancelBtn.addEventListener("click", function () {
 
 createNewMaterial.addEventListener("click", function () {
 
-    addMaterialFormHeader.innerText="CREATE NEW MATERIAL";
-    submitButton.innerText="CREATE";
+    addMaterialFormHeader.innerText="Create a new material position";
+    submitButton.innerText="Create";
     addMaterialItem.classList.toggle("active");
     addNewMaterialItemForm.addEventListener("submit", addMaterial);
 });
