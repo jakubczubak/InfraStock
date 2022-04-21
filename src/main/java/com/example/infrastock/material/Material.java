@@ -3,6 +3,8 @@ package com.example.infrastock.material;
 import com.example.infrastock.materialCategory.MaterialCategory;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "materials")
@@ -16,6 +18,8 @@ public class Material {
     private Integer minQuantity;
     @OneToOne
     private MaterialCategory category;
+    @Column(name = "updated_on")
+    private String updatedOn;
 
 
     public Material() {
@@ -26,6 +30,22 @@ public class Material {
         this.quantity=quantity;
         this.minQuantity=minQuantity;
         this.category=category;
+
+    }
+
+
+
+    @PreUpdate
+    public void preUpdate() {
+        LocalDateTime now = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        updatedOn = now.format(formatter);
+    }
+
+    public String getUpdatedOn() {
+        return updatedOn;
     }
 
     public Long getId() {

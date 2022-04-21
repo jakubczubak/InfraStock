@@ -13,12 +13,20 @@ function printMaterials(url){
         let innerHTML = "";
         for(let i = 0; i < data.length ; i++){
             let obj =(data[i]);
+
+           let inventoryDate = obj.updatedOn;
+
+           if(inventoryDate == null){
+               inventoryDate = "-";
+           }
+
             innerHTML += `<tr>
                 <td>${i+1}</td>
                 <td>${obj.materialName}</td>
                 <td>${obj.quantity}</td>
                 <td>${obj.minQuantity}</td>
                 <td>${obj.category.categoryName}</td>
+                <td>${inventoryDate}</td>
                 <td><img class="edit" src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})"><img class="remove" src="/icons/remove_icon.png" onclick="deleteMaterial(${obj.id})"></td>
             </tr>`;
         }
@@ -78,7 +86,7 @@ function updateMaterial(id){
                 data: JSON.stringify(updateMaterial),
                 contentType: "application/json",
                 success: function (text) {
-                    printMaterials("/materials");
+                    printMaterials(`/sortedMaterials?categoryName=${updateMaterial.category}`);
 
                     addMaterialItem.classList.remove("active");
                     materialDescription.value = "";
@@ -100,7 +108,6 @@ function updateMaterial(id){
 
             addNewMaterialItemForm.removeEventListener("submit", updateMaterialEvent);
 
-            printMaterials("/materials");
         }
     });
 }
