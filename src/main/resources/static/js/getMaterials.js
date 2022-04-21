@@ -30,15 +30,12 @@ printMaterials("/materials");
 
 
 function deleteMaterial(id) {
-console.log("usuwamy detal: " + id);
-
-
     $.ajax({
         url: `/deleteMaterial?id=${id}`,
         type: 'DELETE',
-        success: function(text) {
-            showAlert(text,successStyleAlert());
-            printMaterials("/materials");
+        success: function(categoryName) {
+            showAlert("Successfully deleted",successStyleAlert());
+            printMaterials(`/sortedMaterials?categoryName=${categoryName}`);
         }
     });
 

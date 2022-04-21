@@ -58,4 +58,8 @@ public class MaterialService {
     public List<Material> getSortedMaterials(String categoryName){
         return materialRepo.findAllByCategoryCategoryName(categoryName);
     }
+
+    public String getCategoryName(Long id){
+        return materialRepo.getById(id).getCategory().getCategoryName();
+    }
 }

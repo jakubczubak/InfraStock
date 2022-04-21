@@ -50,8 +50,9 @@ public class MaterialController {
 
     @DeleteMapping("/deleteMaterial")
     public String deleteMaterial(@RequestParam Long id){
+        String categoryName = materialService.getCategoryName(id);
         materialService.deleteMaterial(id);
-        return "Successfully deleted";
+        return categoryName;
     }
 
 
