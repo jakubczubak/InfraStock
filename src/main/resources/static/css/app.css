@@ -216,39 +216,40 @@ body {
     align-items: baseline;
     flex-wrap: wrap;
     cursor: pointer;
+    margin-bottom: 5px;
+}
 
+.materials-header h1 {
+    font-weight: 400;
 
 }
 
-.materials-header img {
+
+
+.materials-header-btn-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.materials-header-btn-wrapper img {
     position: relative;
-    top: 8px;
+    top: 11px;
+    right: 4px;
     height: 35px;
 }
 
 .materials-header-btn{
-     background-color: #4f46e5;
      padding: 0 20px;
      height: 40px;
      line-height: 40px;
-     border-radius: 20px;
      transition: all 0.1s ease;
      font-size: 18px;
-     margin: 15px 0;
-
  }
 
-.materials-header-btn.category{
-    background-color: #535e77;
 
-}
-
-.materials-header-btn:hover{
-    background-color: #3447e5;
-}
-
-.materials-header-btn.category:hover{
-    background-color: #384d77;
+.materials-header-btn:hover {
+    font-size: 1.3rem;
 }
 .materials-categories{
     margin-top: 20px;
@@ -279,7 +280,6 @@ body {
     padding: 16px;
     border-radius: 1rem;
     text-align: center;
-    box-shadow: 0 0 0.5rem 0 rgb(83, 94, 119);
     cursor: pointer;
     transition: all 0.1s ease;
 
@@ -533,7 +533,7 @@ body {
 }
 
 .content-table thead tr{
-    background-color: #1367fb;
+    background-color: #202634;
     color: #fff;
     font-weight: bold;
 }
