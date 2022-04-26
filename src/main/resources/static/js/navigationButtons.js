@@ -1,6 +1,10 @@
 
 const materialsBtn = document.getElementById("materials");
 const dashboardBtn = document.getElementById("dashboard");
+const logoutBtn = document.getElementById("logout");
+const confirmationModal = document.querySelector(".confirmationModal");
+const cancelBtn = document.getElementById("cancel");
+const sureBtn = document.getElementById("sure");
 
 const materialsWarehouseSection = document.querySelector(".material-warehouse");
 
@@ -16,3 +20,20 @@ materialsBtn.addEventListener("click", function () {
     materialsBtn.classList.add("activeBtn");
     dashboardBtn.classList.remove("activeBtn");
 });
+
+
+logoutBtn.addEventListener('click', function () {
+    confirmationModal.classList.add("active");
+    sureBtn.addEventListener('click', logoutFunction);
+});
+
+
+cancelBtn.addEventListener('click', function () {
+    confirmationModal.classList.remove("active");
+})
+
+
+function logoutFunction(){
+    window.location.href = "/logout";
+}
+

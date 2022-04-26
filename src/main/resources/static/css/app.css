@@ -604,6 +604,84 @@ body {
 
 /*end materials table*/
 
+
+/*start confirmation modal section*/
+.confirmationModal{
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0, .9);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    padding-top: 15%;
+    color: white;
+
+}
+
+.confirmationModal.active{
+    display: flex;
+}
+
+.confirmationModal .modal-wrap{
+    width: 50%;
+}
+
+.confirmationModal .modal-wrap .logo{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.confirmationModal .modal-wrap .header{
+    text-align: center;
+
+}
+.confirmationModal .modal-wrap .header h1{
+    text-align: center;
+    font-weight: 500;
+}
+
+.confirmationModal .modal-wrap .btnWrapper{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirmationModal .modal-wrap .btnWrapper button{
+    border: none;
+    font-size: 20px;
+    padding: 2px 60px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+
+
+}
+
+.confirmationModal .modal-wrap .btnWrapper button:nth-last-child(1){
+    background-color: #1367fb;
+    color: white;
+    transition: all 0.1s ease;
+}
+
+.confirmationModal .modal-wrap .btnWrapper button:nth-last-child(1):hover{
+    background-color: #3983ff;
+
+}
+
+.confirmationModal .modal-wrap .btnWrapper button:nth-child(1):hover{
+    background-color: #e7d6d6;
+
+}
+/*end confirmation modal section*/
+
+
+
 /*start media section*/
 
 @media (max-width: 1200px){

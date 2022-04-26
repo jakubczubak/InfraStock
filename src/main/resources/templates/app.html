@@ -95,8 +95,8 @@
                     <span class="links_name">Settings</span>
                 </a>
             </li>
-            <li>
-                <a href="/logout">
+            <li id="logout">
+                <a href="#">
                     <i><img th:src="@{/icons/logout.png}"></i>
                     <span class="links_name">Exit</span>
                 </a>
@@ -167,7 +167,21 @@
         <!-- Dashboard part end -->
     </div>
 </div>
+<div class="confirmationModal">
+    <div class="modal-wrap">
+        <div class="logo">
+            <img src="/icons/exclamation-mark.png" alt="Exclamation-mark">
+        </div>
+        <div class="header">
+            <h1>Are you sure?</h1>
+        </div>
+        <div class="btnWrapper">
+            <button id="cancel">Cancel</button>
+            <button id="sure">Sure!</button>
+        </div>
+    </div>
 
+</div>
 <section id="addMaterialCategory"  class="modal-wrap">
     <div class="modal">
         <form  id="addMaterialCategoryForm"  method="post">

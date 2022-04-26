@@ -27,7 +27,7 @@ function printMaterials(url){
                 <td>${obj.minQuantity}</td>
                 <td>${obj.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="deleteMaterial(${obj.id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"></td>
+                <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${obj.id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"></td>
             </tr>`;
         }
         materials.innerHTML = innerHTML;
@@ -37,17 +37,34 @@ function printMaterials(url){
 printMaterials("/materials");
 
 
-function deleteMaterial(id) {
-    $.ajax({
-        url: `/deleteMaterial?id=${id}`,
-        type: 'DELETE',
-        success: function(categoryName) {
-            showAlert("Successfully deleted",successStyleAlert());
-            printMaterials(`/sortedMaterials?categoryName=${categoryName}`);
-        }
+
+function showDeleteMaterialPopUp(id) {
+
+    confirmationModal.classList.add("active");
+
+    sureBtn.removeEventListener('click', logoutFunction);
+
+    sureBtn.addEventListener('click', deleteMaterialListener = function() {
+    deleteMaterial(id);
+    confirmationModal.classList.remove("active");
+    sureBtn.removeEventListener('click', deleteMaterialListener);
     });
 
 }
+
+function deleteMaterial(id){
+        $.ajax({
+            url: `/deleteMaterial?id=${id}`,
+            type: 'DELETE',
+            success: function(categoryName) {
+                showAlert("Successfully deleted",successStyleAlert());
+                printMaterials(`/sortedMaterials?categoryName=${categoryName}`);
+            }
+        });
+
+
+    }
+
 
 function updateMaterial(id){
 
