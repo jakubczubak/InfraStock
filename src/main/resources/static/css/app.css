@@ -577,7 +577,7 @@ body {
 .content-table th,
 .content-table td{
     padding: 12px 3vw;
-    text-align: center;
+    text-align: left;
 }
 
 .content-table tbody tr{
@@ -585,10 +585,10 @@ body {
     color: #fff;
 }
 .content-table tbody tr td img{
-    height: 20px;
-    padding: 0 4px;
+    height: 21px;
+    padding: 0 10px;
     position: relative;
-    top: 3px;
+    top: 4px;
     cursor: pointer;
 }
 
