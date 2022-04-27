@@ -566,6 +566,7 @@ body {
     overflow: hidden;
     box-shadow: 0 0 20px rgba(83, 94, 119,0.15);
     cursor: pointer;
+
 }
 
 .content-table thead tr{
@@ -590,6 +591,18 @@ body {
     position: relative;
     top: 4px;
     cursor: pointer;
+}
+#material_pdf{
+    position: relative;
+    left: 50%;
+    transform: scale(1)translate(-50%);
+    height: 40px;
+    top:5px;
+    transition: all 0.1s ease;
+}
+#material_pdf:hover{
+   transform: scale(1.1)translate(-40%);
+
 }
 
 .content-table tbody tr:nth-of-type(even){
