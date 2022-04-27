@@ -34,8 +34,8 @@
     <!-- Sidebar part start -->
     <div class="sidebar">
         <div class="logo_content">
-            <div class="logo">
-                <img th:src="@{/icons/favicon-32x32.png}">
+            <div class="logo" id="logo-wrapper">
+                <img th:src="@{/icons/favicon-32x32.png}" alt="Logo" title="Infrastock">
                 <div class="logo_name">Infrastock</div>
             </div>
             <i class="fa-solid fa-bars" id="btn"></i>
@@ -43,61 +43,61 @@
         <ul class="nav_list">
             <li>
                 <a id="dashboard" class="activeBtn" href="#">
-                    <i><img th:src="@{/icons/home.png}"></i>
+                    <i><img th:src="@{/icons/home.png}" alt="Dashboard" title="Dashboard"></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li>
                 <a id="materials" href="#">
-                    <i><img th:src="@{/icons/warehouse.png}"></i>
+                    <i><img th:src="@{/icons/warehouse.png}" alt="Materials" title="Materials"></i>
                     <span class="links_name">Materials</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i><img th:src="@{/icons/cnc-machine.png}"></i>
+                    <i><img th:src="@{/icons/cnc-machine.png}" alt="Tools" title="Tools"></i>
                     <span class="links_name">Tools</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i><img th:src="@{/icons/shopping-cart.png}"></i>
+                    <i><img th:src="@{/icons/shopping-cart.png}" alt="Orders" title="Orders"></i>
                     <span class="links_name">Orders</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i><img th:src="@{/icons/transit.png}"></i>
+                    <i><img th:src="@{/icons/transit.png}" alt="Suppliers" title="Suppliers"></i>
                     <span class="links_name">Suppliers</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i><img th:src="@{/icons/chart.png}"></i>
+                    <i><img th:src="@{/icons/chart.png}" alt="Analysis" title="Analysis"></i>
                     <span class="links_name">Analysis</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i><img th:src="@{/icons/pdf.png}"></i>
+                    <i><img th:src="@{/icons/pdf.png}" alt="Documents" title="Documents"></i>
                     <span class="links_name">Documents</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i><img th:src="@{/icons/recycling.png}"></i>
+                    <i><img th:src="@{/icons/recycling.png}" alt="Recycling" title="Recycling"></i>
                     <span class="links_name">Recycling</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i><img th:src="@{/icons/services.png}"></i>
+                    <i><img th:src="@{/icons/services.png}" alt="Settings" title="Settings"></i>
                     <span class="links_name">Settings</span>
                 </a>
             </li>
             <li id="logout">
                 <a href="#">
-                    <i><img th:src="@{/icons/logout.png}"></i>
+                    <i><img th:src="@{/icons/logout.png}" alt="Logout" title="Logout"></i>
                     <span class="links_name">Exit</span>
                 </a>
             </li>
@@ -111,10 +111,10 @@
         <div class="nav-bar">
             <ul>
                 <li>
-                    <img th:src="@{/icons/alarm.png}">
+                    <img th:src="@{/icons/alarm.png}" alt="Notifications" title="Notifications">
                 </li>
                 <li>
-                    <img th:src="@{/icons/admin.png}">
+                    <img th:src="@{/icons/admin.png}" alt="User-icon" title="User-icon">
                     <p id="userInfo">...</p>
                 </li>
             </ul>
@@ -170,7 +170,7 @@
 <div class="confirmationModal">
     <div class="modal-wrap">
         <div class="logo">
-            <img src="/icons/exclamation-mark.png" alt="Exclamation-mark">
+            <img src="/icons/exclamation-mark.png" alt="Exclamation-mark" title="Exclamation-mark">
         </div>
         <div class="header">
             <h1>Are you sure?</h1>

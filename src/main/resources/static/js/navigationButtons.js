@@ -5,6 +5,7 @@ const logoutBtn = document.getElementById("logout");
 const confirmationModal = document.querySelector(".confirmationModal");
 const cancelBtn = document.getElementById("cancel");
 const sureBtn = document.getElementById("sure");
+const logoBtn = document.getElementById("logo-wrapper");
 
 const materialsWarehouseSection = document.querySelector(".material-warehouse");
 
@@ -30,10 +31,15 @@ logoutBtn.addEventListener('click', function () {
 
 cancelBtn.addEventListener('click', function () {
     confirmationModal.classList.remove("active");
-})
+});
+
+logoBtn.addEventListener('click', getMainPage);
 
 
 function logoutFunction(){
     window.location.href = "/logout";
 }
 
+function getMainPage() {
+    window.location.href = "/app";
+}
