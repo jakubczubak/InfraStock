@@ -38,7 +38,7 @@ function printMaterials(url){
                innerHTML += `<tr>
                 <td>${i+1}</td>
                 <td>${obj.materialName}</td>
-                <td>${obj.quantity}</td>
+                <td>${obj.quantity}<img src="/icons/ok-icon.png" alt="OK" title="Correct stock quantity!"></td>
                 <td>${obj.minQuantity}</td>
                 <td>${obj.category.categoryName}</td>
                 <td>${inventoryDate}</td>
