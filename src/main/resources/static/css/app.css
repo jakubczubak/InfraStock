@@ -547,17 +547,7 @@ body {
 
 /*start materials table*/
 
-.materials-table button{
-    width: 50px;
-
-    background-color: transparent;
-        font-size: 1.4rem;
-    border: 1px solid #9bcafb ;
-    cursor: pointer;
-    margin-left: 40px;
-}
 .content-table{
-
     border-collapse: collapse;
     margin: 25px auto;
     font-size: 1em;
@@ -801,10 +791,18 @@ body {
 
 
 @media print{
-
+    body{
+        background-color: #fff;
+    }
+    .main {
+        background-color: #fff;
+    }
+    
     .content-table{
+        border-collapse: collapse;
        width: 100%;
         box-shadow: none;
+        background-color: #fff;
     }
 
     .content-table thead tr img{
@@ -814,6 +812,7 @@ body {
     .content-table th,
     .content-table td{
         color: black;
+        background-color: #fff;
     }
 
 
