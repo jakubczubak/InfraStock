@@ -64,4 +64,9 @@ public class MaterialController {
         return materialService.getSortedMaterials(categoryName);
     }
 
+    @GetMapping("/shoppingList")
+    public List<Material> getShoppingList(){
+        return materialService.getShoppingList();
+    }
+
 }

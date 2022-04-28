@@ -42,12 +42,18 @@ function addMaterial(event){
         data: JSON.stringify(newMaterial),
         contentType: "application/json",
         success: function (text) {
-            printMaterials("/materials");
-            addMaterialItem.classList.remove("active");
-            materialDescription.value = "";
-            quantity.value="";
-            minimumQuantity.value="";
-            showAlert(text, successStyleAlert());
+            if(text=='The material you have entered is already in DataBase'){
+                addMaterialItem.classList.remove("active");
+                showAlert(text, warningStyleAlert());
+            }else{
+                printMaterials("/materials");
+                addMaterialItem.classList.remove("active");
+                materialDescription.value = "";
+                quantity.value="";
+                minimumQuantity.value="";
+                showAlert(text, successStyleAlert());
+            }
+
             setTimeout(function () {
                 hideAlert();
             }, 5000); //hide alert automatically after 5sec

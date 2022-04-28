@@ -4,6 +4,7 @@ import com.example.infrastock.materialCategory.MaterialCategory;
 import com.example.infrastock.materialCategory.MaterialCategoryRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -61,5 +62,19 @@ public class MaterialService {
 
     public String getCategoryName(Long id){
         return materialRepo.getById(id).getCategory().getCategoryName();
+    }
+
+
+    public List<Material> getShoppingList(){
+
+        List<Material> shoppingList = new ArrayList<>();
+
+        materialRepo.findAll().forEach(material -> {
+            if(material.getMinQuantity()>material.getQuantity()){
+                shoppingList.add(material);
+            }
+        });
+
+        return shoppingList;
     }
 }

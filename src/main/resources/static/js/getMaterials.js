@@ -2,6 +2,11 @@
 const addMaterialFormHeader = document.getElementById("addMaterialFormHeader");
 const submitButton = document.getElementById("submitButton");
 const clear_filters_button = document.getElementById("clear-filters-button");
+const materialShoppingList = document.getElementById("materialShoppingList");
+
+materialShoppingList.addEventListener('click', function () {
+printMaterials('/shoppingList');
+})
 
 clear_filters_button.addEventListener("click", function () {
     printMaterials("/materials");
