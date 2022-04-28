@@ -14,6 +14,9 @@ clear_filters_button.addEventListener("click", function () {
 
 function printMaterials(url){
     $.get(`${url}`, function(data, status){
+
+        data.sort((a,b) => (a.materialName > b.materialName) ? 1 : -1);
+
         const materials = document.getElementById("material-table");
         let innerHTML = "";
         for(let i = 0; i < data.length ; i++){

@@ -14,7 +14,6 @@ function printCategories(){
         for(let i = 0; i < category_items.length; i++){
 
             category_items[i].addEventListener("click", function () {
-                console.log(this.innerHTML);
                 printMaterials(`/sortedMaterials?categoryName=${this.innerHTML}`);
             })
         }
