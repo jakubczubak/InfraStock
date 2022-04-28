@@ -797,3 +797,27 @@ body {
 }
 
 /*end media section*/
+
+
+
+@media print{
+
+    .content-table{
+       width: 100%;
+        box-shadow: none;
+    }
+
+    .content-table thead tr img{
+    display: none;
+    }
+
+    .content-table th,
+    .content-table td{
+        color: black;
+    }
+
+
+    .content-table tbody tr td img{
+        display: none;
+    }
+}
