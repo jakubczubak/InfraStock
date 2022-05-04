@@ -66,7 +66,7 @@ printMaterials("/materials");
 function showDeleteMaterialPopUp(id) {
 
 
-    const element = $(event.target).closest('.material-data');
+    let element = $(event.target).closest('.material-data');
 
     confirmationModal.classList.add("active");
 
@@ -82,11 +82,11 @@ function showDeleteMaterialPopUp(id) {
 
 function deleteMaterial(id, element){
 
-       element.remove();
         $.ajax({
             url: `/deleteMaterial?id=${id}`,
             type: 'DELETE',
             success: function(categoryName) {
+                element.remove();
                 showAlert("Successfully deleted",successStyleAlert());
             }
         });
@@ -97,6 +97,7 @@ function deleteMaterial(id, element){
 
 function updateMaterial(id){
 
+    let TRelement = $(event.target).closest('.material-data');
     $.get(`/getMaterial?id=${id}`, function(data, status){
 
         materialDescription.value = `${data.materialName}`;
@@ -126,13 +127,51 @@ function updateMaterial(id){
             };
 
 
+            let isLowQuantity = false;
+
+            if(updateMaterial.minQuantity>updateMaterial.quantity){
+                isLowQuantity=true;
+            }
+
+
             $.ajax({
                 type: 'PUT',
                 url: `/updateMaterial?id=${id}`,
                 data: JSON.stringify(updateMaterial),
                 contentType: "application/json",
                 success: function (text) {
-                    printMaterials(`/sortedMaterials?categoryName=${updateMaterial.category}`);
+
+                    $.get(`/getMaterial?id=${id}`, function(data, status) {
+                        let inventoryDate = data.updatedOn;
+
+                        if(isLowQuantity){
+                            TRelement.replaceWith(
+                                `<tr class="material-data">
+                                          <td>${1}</td>
+                                          <td>${updateMaterial.materialName}</td>
+                                          <td>${updateMaterial.quantity}<img src="/icons/high_icon.png" alt="Check the stock quantity!" title="Check the stock quantity!"></td>
+                                          <td>${updateMaterial.minQuantity}</td>
+                                          <td>${updateMaterial.category}</td>
+                                          <td>${inventoryDate}</td>
+                                          <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"></td>
+                                        </tr>`)
+                        }else{
+                            TRelement.replaceWith(
+                                `<tr class="material-data">
+                                          <td>${1}</td>
+                                          <td>${updateMaterial.materialName}</td>
+                                          <td>${updateMaterial.quantity}<img src="/icons/ok-icon.png" alt="OK" title="Correct stock quantity!"></td>
+                                          <td>${updateMaterial.minQuantity}</td>
+                                          <td>${updateMaterial.category}</td>
+                                          <td>${inventoryDate}</td>
+                                          <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"></td>
+                                        </tr>`)
+                        }
+                    });
+
+
+                    //
+                    // printMaterials(`/sortedMaterials?categoryName=${updateMaterial.category}`);
 
                     addMaterialItem.classList.remove("active");
                     materialDescription.value = "";
