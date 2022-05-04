@@ -169,10 +169,6 @@ function updateMaterial(id){
                         }
                     });
 
-
-                    //
-                    // printMaterials(`/sortedMaterials?categoryName=${updateMaterial.category}`);
-
                     addMaterialItem.classList.remove("active");
                     materialDescription.value = "";
                     quantity.value="";
