@@ -34,7 +34,7 @@ function printMaterials(url){
 
            if(isLowQuantity){
                innerHTML += `<tr class="material-data">
-                <td>${i+1}</td>
+                <td class="material-list-number">${i+1}</td>
                 <td>${obj.materialName}</td>
                 <td>${obj.quantity}<img src="/icons/high_icon.png" alt="Check the stock quantity!" title="Check the stock quantity!"></td>
                 <td>${obj.minQuantity}</td>
@@ -44,7 +44,7 @@ function printMaterials(url){
             </tr>`;
            }else{
                innerHTML += `<tr class="material-data">
-                <td>${i+1}</td>
+                <td class="material-list-number">${i+1}</td>
                 <td>${obj.materialName}</td>
                 <td>${obj.quantity}<img src="/icons/ok-icon.png" alt="OK" title="Correct stock quantity!"></td>
                 <td>${obj.minQuantity}</td>
@@ -98,6 +98,9 @@ function deleteMaterial(id, element){
 function updateMaterial(id){
 
     let TRelement = $(event.target).closest('.material-data');
+    let numberInTheList = TRelement[0].querySelector('.material-list-number').innerHTML;
+
+
     $.get(`/getMaterial?id=${id}`, function(data, status){
 
         materialDescription.value = `${data.materialName}`;
@@ -144,10 +147,14 @@ function updateMaterial(id){
                     $.get(`/getMaterial?id=${id}`, function(data, status) {
                         let inventoryDate = data.updatedOn;
 
+                        if(inventoryDate == null){
+                            inventoryDate = "-";
+                        }
+
                         if(isLowQuantity){
                             TRelement.replaceWith(
                                 `<tr class="material-data">
-                                          <td>${1}</td>
+                                          <td class="material-list-number">${numberInTheList}</td>
                                           <td>${updateMaterial.materialName}</td>
                                           <td>${updateMaterial.quantity}<img src="/icons/high_icon.png" alt="Check the stock quantity!" title="Check the stock quantity!"></td>
                                           <td>${updateMaterial.minQuantity}</td>
@@ -158,7 +165,7 @@ function updateMaterial(id){
                         }else{
                             TRelement.replaceWith(
                                 `<tr class="material-data">
-                                          <td>${1}</td>
+                                          <td class="material-list-number">${numberInTheList}</td>
                                           <td>${updateMaterial.materialName}</td>
                                           <td>${updateMaterial.quantity}<img src="/icons/ok-icon.png" alt="OK" title="Correct stock quantity!"></td>
                                           <td>${updateMaterial.minQuantity}</td>
