@@ -184,9 +184,40 @@ body {
     flex-wrap: nowrap;
 
 }
+
+.nav-bar .icon-button__badge{
+
+}
 .nav-bar ul li{
     display: inline-block;
     padding: 0 5px;
+    position: relative;
+}
+
+.nav-bar ul li .icon-button{
+   cursor: pointer;
+    transition: all 0.1s ease;
+    transform: scale(1);
+
+}
+.nav-bar ul li .icon-button:hover{
+    transform: scale(1.1);
+
+}
+
+
+.nav-bar ul li .icon-button__badge{
+    font-size: 16px;
+    position: absolute;
+    top:-8px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    color: #fff;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
 }
 
 .nav-bar ul li p{
