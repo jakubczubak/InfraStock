@@ -111,8 +111,13 @@
         <div class="nav-bar">
             <ul>
                 <li>
-                    <img class="icon-button" th:src="@{/icons/alarm.png}" alt="Notifications" title="Notifications">
+                    <img id="notificationButton" class="icon-button" th:src="@{/icons/alarm.png}" alt="Notifications" title="Notifications">
                     <span class="icon-button__badge">2</span>
+                    <div id="notificationDropdown" class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
                 </li>
                 <li>
                     <img th:src="@{/icons/admin.png}" alt="User-icon" title="User-icon">
@@ -243,5 +248,6 @@
 <script th:src="@{/js/addMaterialCategory.js}"></script>
 <script th:src="@{/js/printThis.js}"></script>
 <script th:src="@{/js/printTable.js}"></script>
+<script th:src="@{/js/notificationDropdown.js}"></script>
 </body>
 </html>
