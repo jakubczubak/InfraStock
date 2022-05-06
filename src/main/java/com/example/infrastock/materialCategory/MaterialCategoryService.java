@@ -34,6 +34,7 @@ public class MaterialCategoryService {
     }
 
     public MaterialCategory findByCategoryName(String categoryName){
+
         return materialCategoryRepo.findByCategoryName(categoryName);
     }
 

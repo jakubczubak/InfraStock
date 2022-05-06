@@ -57,6 +57,7 @@ function addMaterial(event){
             setTimeout(function () {
                 hideAlert();
             }, 5000); //hide alert automatically after 5sec
+            getNumbersOfNotifications();
         },
         error: function (jqXHR) {
             addMaterialItem.classList.remove("active");

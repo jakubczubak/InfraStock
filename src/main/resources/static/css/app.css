@@ -205,6 +205,7 @@ body {
 
 
 .nav-bar ul li .icon-button__badge{
+    display: none;
     font-size: 16px;
     position: absolute;
     top:-8px;

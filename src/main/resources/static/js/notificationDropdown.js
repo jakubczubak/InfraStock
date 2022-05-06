@@ -12,3 +12,12 @@ document.addEventListener('mouseup', function(e) {
             notificationDropdown.classList.remove('active');
     }
 });
+
+function getNumbersOfNotifications(){
+    $.get("/notifications", function(data, status){
+        if(data.length>0){
+            notificationCounter.style.display="block";
+            notificationCounter.innerText=data.length;
+        }
+    });
+}

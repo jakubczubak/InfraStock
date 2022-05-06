@@ -15,6 +15,10 @@ $.get("/userInfo", function(data, status){
 });
 
 
-
-
+$.get("/notifications", function(data, status){
+    if(data.length>0){
+        notificationCounter.style.display="block";
+        notificationCounter.innerText=data.length;
+    }
+});
 

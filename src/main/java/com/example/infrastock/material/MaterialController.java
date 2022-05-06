@@ -1,5 +1,7 @@
 package com.example.infrastock.material;
 
+import com.example.infrastock.notification.Notification;
+import com.example.infrastock.notification.NotificationService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -10,11 +12,13 @@ public class MaterialController {
 
     private MaterialService materialService;
     private MaterialRepo materialRepo;
+    private NotificationService notificationService;
 
 
-    public MaterialController(MaterialService materialService, MaterialRepo materialRepo) {
+    public MaterialController(MaterialService materialService, MaterialRepo materialRepo, NotificationService notificationService) {
         this.materialService = materialService;
         this.materialRepo = materialRepo;
+        this.notificationService = notificationService;
     }
 
 
@@ -37,6 +41,7 @@ public class MaterialController {
         if (materialService.checkIfMaterialExist(materialDTO.getMaterialName())) {
             return "The material you have entered is already in DataBase";
         } else {
+            notificationService.addNotification(materialDTO);
             materialService.createMaterial(materialDTO);
             return "Congratulations, you've added a new material";
         }
@@ -44,6 +49,7 @@ public class MaterialController {
 
     @PutMapping("/updateMaterial")
     public String updateMaterial(@RequestBody @Valid MaterialDTO materialDTO){
+        notificationService.addNotification(materialDTO);
        materialService.updateMaterial(materialDTO);
         return "Successfully updated";
     }
