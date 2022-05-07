@@ -238,12 +238,12 @@ body {
 
 .nav-bar ul li .dropdown-content .notification-header{
     background-color: #1367fb;
-    height: 50px;
+    height: 60px;
     text-align: center;
-    line-height: 70px;
     font-size: 20px;
     font-weight: 500;
     letter-spacing: 1px;
+    line-height: 80px;
     border-radius: 30px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

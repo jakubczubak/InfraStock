@@ -61,6 +61,7 @@ function deleteNotification(id,event){
 
     console.log("usuwam");
     console.log(element);
+    element.remove();
     // $.ajax({
     //     url: `/deleteNotification?id=${id}`,
     //     type: 'DELETE',
