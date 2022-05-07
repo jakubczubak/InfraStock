@@ -13,7 +13,7 @@ function clearData() {
 }
 
 form.addEventListener("submit", e => {
-    e.preventDefault();
+
 
     let newUser = {
         username: input_username.value,

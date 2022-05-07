@@ -85,7 +85,7 @@ function deleteMaterial(id, element){
         $.ajax({
             url: `/deleteMaterial?id=${id}`,
             type: 'DELETE',
-            success: function(categoryName) {
+            success: function() {
                 element.remove();
                 showAlert("Successfully deleted",successStyleAlert());
                 setTimeout(function () {
@@ -192,7 +192,7 @@ function updateMaterial(id){
                         hideAlert();
                     }, 5000); //hide alert automatically after 5sec
 
-                    getNumbersOfNotifications();
+                    getNotifications();
                 },
                 error: function (jqXHR) {
                     addMaterialItem.classList.remove("active");
