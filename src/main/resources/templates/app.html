@@ -114,9 +114,15 @@
                     <img id="notificationButton" class="icon-button" th:src="@{/icons/alarm.png}" alt="Notifications" title="Notifications">
                     <span id='icon-button__badge' class="icon-button__badge">0</span>
                     <div id="notificationDropdown" class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <div class="notification-header">
+                            <p> <img src="/icons/alarm.png" alt="Notifications" title="Notifications">Notifications:</p>
+                        </div>
+                        <div class="notification-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+
                     </div>
                 </li>
                 <li>

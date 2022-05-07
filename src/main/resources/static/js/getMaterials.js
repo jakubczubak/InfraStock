@@ -88,6 +88,9 @@ function deleteMaterial(id, element){
             success: function(categoryName) {
                 element.remove();
                 showAlert("Successfully deleted",successStyleAlert());
+                setTimeout(function () {
+                    hideAlert();
+                }, 5000); //hide alert automatically after 5sec
             }
         });
 
@@ -100,6 +103,10 @@ function updateMaterial(id){
     let TRelement = $(event.target).closest('.material-data');
     let numberInTheList = TRelement[0].querySelector('.material-list-number').innerHTML;
 
+
+
+
+    const element = $(event.target).closest('.material-data');
 
     $.get(`/getMaterial?id=${id}`, function(data, status){
 
