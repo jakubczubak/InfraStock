@@ -17,7 +17,7 @@ public class NotificationService {
 
     public void addNotification(MaterialDTO materialDTO) {
         if(materialDTO.getMinQuantity()>materialDTO.getQuantity()){
-            Notification newNotification = new Notification("Check the quantity of: " + materialDTO.getMaterialName(),false);
+            Notification newNotification = new Notification("Small amount of: <strong>" + materialDTO.getMaterialName()+"<strong>",false);
             notificationRepo.save(newNotification);
         }
     }
