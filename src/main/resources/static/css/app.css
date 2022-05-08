@@ -280,6 +280,7 @@ body {
 
 .nav-bar ul li .dropdown-content a.checked{
     color: gray;
+    text-decoration: line-through;
 }
 
 

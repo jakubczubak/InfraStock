@@ -1,10 +1,9 @@
 package com.example.infrastock.notification;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.infrastock.material.MaterialDTO;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -19,5 +18,15 @@ public class NotificationController {
     @GetMapping("/notifications")
     public List<Notification> getNotificationList(){
         return notificationService.getNotificationList();
+    }
+
+    @DeleteMapping("/deleteNotification")
+    public void deleteNotification(@RequestParam Long id){
+        notificationService.deleteNotification(id);
+    }
+
+    @PutMapping("/changeStatus")
+    public void changeStatus(@RequestParam Long id){
+        notificationService.changeNotificationStatus(id);
     }
 }

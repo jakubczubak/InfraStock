@@ -24,14 +24,17 @@ $.get("/notifications", function(data, status){
         notificationCounter.innerText=data.length;
 
         for(let i = 0; i < data.length; i++){
+            if(!data[i].checked){
 
-
-            if(data[i].isChecked = 'false'){
                 innerHTML += `<a class="notification-item" href="#" onclick="changeStatusOfNotification(${data[i].id})">${data[i].description} <img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id}, event)"> </a>`
             }else{
+
                 innerHTML += `<a  class="notification-item checked"    href="#" onclick="changeStatusOfNotification(${data[i].id}))">${data[i].description}<img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id})"></a>`
             }
         }
+        notificationContent.innerHTML = innerHTML;
+    }else{
+        innerHTML += `<a>No notifications!</a>`;
         notificationContent.innerHTML = innerHTML;
     }
 });

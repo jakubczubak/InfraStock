@@ -27,4 +27,14 @@ public class NotificationService {
     public List<Notification> getNotificationList() {
         return notificationRepo.findAll();
     }
+
+    public void deleteNotification(Long id){
+        notificationRepo.delete(notificationRepo.getById(id));
+    }
+
+    public void changeNotificationStatus(Long id){
+        Notification updatedNotification = notificationRepo.getById(id);
+        updatedNotification.setChecked(true);
+        notificationRepo.save(updatedNotification);
+    }
 }
