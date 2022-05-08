@@ -16,6 +16,7 @@ document.addEventListener('mouseup', function(e) {
 
 function getNotifications(){
     $.get("/notifications", function(data, status){
+        data.reverse();
 
         let innerHTML = ``;
 
@@ -26,10 +27,10 @@ function getNotifications(){
             for(let i = 0; i < data.length; i++){
                 if(!data[i].checked){
 
-                    innerHTML += `<a class="notification-item" href="#" onclick="changeStatusOfNotification(${data[i].id})">${data[i].description} <img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id}, event)"> </a>`
+                    innerHTML += `<a class="notification-item" href="#" onclick="changeStatusOfNotification(${data[i].id})"><p class="notification-date">${data[i].createdOn}</p>${data[i].description} <img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id}, event)"> </a>`
                 }else{
 
-                    innerHTML += `<a  class="notification-item checked"    href="#" onclick="changeStatusOfNotification(${data[i].id}))">${data[i].description}<img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id},event)"></a>`
+                    innerHTML += `<a  class="notification-item checked"    href="#" onclick="changeStatusOfNotification(${data[i].id}))"><p class="notification-date">${data[i].createdOn}</p>${data[i].description}<img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id},event)"></a>`
                 }
             }
             notificationContent.innerHTML = innerHTML;

@@ -40,7 +40,7 @@ function printMaterials(url){
                 <td>${obj.minQuantity}</td>
                 <td>${obj.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${obj.id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"><img src="/icons/create-order.png" onclick="" alt="Create order" title="Create order"></td>
+                <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${obj.id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"></td>
             </tr>`;
            }else{
                innerHTML += `<tr class="material-data">
@@ -50,7 +50,7 @@ function printMaterials(url){
                 <td>${obj.minQuantity}</td>
                 <td>${obj.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${obj.id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"><img src="/icons/create-order.png" onclick="" alt="Create order" title="Create order"></td>
+                <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${obj.id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"></td>
             </tr>`;
            }
 
@@ -167,7 +167,7 @@ function updateMaterial(id){
                                           <td>${updateMaterial.minQuantity}</td>
                                           <td>${updateMaterial.category}</td>
                                           <td>${inventoryDate}</td>
-                                          <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"><img src="/icons/create-order.png" onclick="" alt="Create order" title="Create order"></td>
+                                          <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"></td>
                                         </tr>`)
                         }else{
                             TRelement.replaceWith(
@@ -178,7 +178,7 @@ function updateMaterial(id){
                                           <td>${updateMaterial.minQuantity}</td>
                                           <td>${updateMaterial.category}</td>
                                           <td>${inventoryDate}</td>
-                                          <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"><img src="/icons/create-order.png" onclick="" alt="Create order" title="Create order"></td>
+                                          <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="" alt="About material" title="About material"></td>
                                         </tr>`)
                         }
                     });
