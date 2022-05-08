@@ -530,7 +530,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100%;
+    min-height: 170%;
     background-color: rgba(0,0,0, .95);
     color: white;
     z-index: 1;
@@ -648,6 +648,20 @@ body {
 
 #addMaterialItem.modal-wrap.active .modal button:hover{
     background-color: #598bfb;
+}
+
+
+#addMaterialItem.modal-wrap.active .modal form .dimensions{
+
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#addMaterialItem.modal-wrap.active .modal form .plate{
+    margin-top: 30px;
 }
 
 /*end create new material section*/
