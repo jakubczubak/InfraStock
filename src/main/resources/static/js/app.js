@@ -29,7 +29,7 @@ $.get("/notifications", function(data, status){
                 innerHTML += `<a class="notification-item" href="#" onclick="changeStatusOfNotification(${data[i].id})">${data[i].description} <img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id}, event)"> </a>`
             }else{
 
-                innerHTML += `<a  class="notification-item checked"    href="#" onclick="changeStatusOfNotification(${data[i].id}))">${data[i].description}<img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id})"></a>`
+                innerHTML += `<a  class="notification-item checked"    href="#" onclick="changeStatusOfNotification(${data[i].id}))">${data[i].description}<img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id},event)"></a>`
             }
         }
         notificationContent.innerHTML = innerHTML;
