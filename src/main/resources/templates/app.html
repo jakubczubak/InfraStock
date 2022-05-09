@@ -216,57 +216,60 @@
                 </div>
                 <div class="field">
                     <label for="quantity">Stock quantity:</label>
-                    <input id="quantity" type="number" placeholder="enter quantity" required>
+                    <input id="quantity" type="number" min="0" placeholder="enter quantity" required>
                 </div>
 
                 <div class="field">
                     <label for="minimum_quantity">Minimum stock quantity:</label>
-                    <input id="minimum_quantity" type="number" placeholder="enter minimum quantity" required>
+                    <input id="minimum_quantity" type="number" min="0" placeholder="enter minimum quantity" required>
                 </div>
                 <label for="materialCategory">Material category:</label>
                 <select id="materialCategory" name="categories">
                 </select>
-                <span class="plate">Dimensions for sheets:</span>
-                <div class="dimensions">
-                    <div>
-                        <label for="x_dimension">X [mm]:</label>
-                        <input id="x_dimension" type="number" placeholder="mm">
+                <div class="material-additional-info">
+                    <span class="plate">Dimensions for sheets:</span>
+                    <div class="dimensions">
+                        <div>
+                            <label for="x_dimension">X [mm]:</label>
+                            <input id="x_dimension" type="number" min="0" placeholder="mm">
+                        </div>
+                        <div>
+                            <label for="y_dimension">Y [mm]:</label>
+                            <input id="y_dimension" type="number" min="0" placeholder="mm">
+                        </div>
+                        <div>
+                            <label for="z_dimension">Z [mm]:</label>
+                            <input id="z_dimension" type="number" min="0" placeholder="mm">
+                        </div>
                     </div>
-                    <div>
-                        <label for="y_dimension">Y [mm]:</label>
-                        <input id="y_dimension" type="number" placeholder="mm">
+                    <span class="plate">Dimensions for rods/tubes:</span>
+                    <div class="dimensions">
+                        <div>
+                            <label for="D_outer_dimension">Outer &#8960; [mm]:</label>
+                            <input id="D_outer_dimension" type="number" min="0" placeholder="mm">
+                        </div>
+                        <div>
+                            <label for="d_inner_dimension">Inner &#8960; [mm]:</label>
+                            <input id="d_inner_dimension" type="number" min="0" placeholder="mm">
+                        </div>
+                        <div>
+                            <label for="length_dimension">Length [mm]:</label>
+                            <input id="length_dimension" type="number" min="0" placeholder="mm">
+                        </div>
                     </div>
-                 <div>
-                     <label for="z_dimension">Z [mm]:</label>
-                     <input id="z_dimension" type="number" placeholder="mm">
-                 </div>
+                    <span class="plate">Additional informations:</span>
+                    <div class="dimensions">
+                        <div>
+                            <label for="density">Density [kg/m3]:</label>
+                            <input id="density" type="number" min="0" placeholder="[kg/m3]">
+                        </div>
+                        <div>
+                            <label for="price">Price [PLN/kg]:</label>
+                            <input id="price" type="number" min="0" placeholder="PLN">
+                        </div>
+                    </div>
                 </div>
-                <span class="plate">Dimensions for rods/tubes:</span>
-                <div class="dimensions">
-                    <div>
-                        <label for="D_outer_dimension">Outer &#8960; [mm]:</label>
-                        <input id="D_outer_dimension" type="number" placeholder="mm">
-                    </div>
-                    <div>
-                        <label for="d_inner_dimension">Inner &#8960; [mm]:</label>
-                        <input id="d_inner_dimension" type="number" placeholder="mm">
-                    </div>
-                    <div>
-                        <label for="length_dimension">Length [mm]:</label>
-                        <input id="length_dimension" type="number" placeholder="mm">
-                    </div>
-                </div>
-                <span class="plate">Additional informations:</span>
-                <div class="dimensions">
-                    <div>
-                        <label for="density">Density [kg/m3]:</label>
-                        <input id="density" type="number" placeholder="[kg/m3]">
-                    </div>
-                    <div>
-                        <label for="price">Price [PLN/kg]:</label>
-                        <input id="price" type="number" placeholder="PLN">
-                    </div>
-                </div>
+
             </div>
 
             <div>

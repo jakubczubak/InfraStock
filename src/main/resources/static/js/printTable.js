@@ -5,7 +5,7 @@ const printBtn = document.getElementById("material_pdf");
 $(printBtn).click(function () {
     let table = document.getElementById("materials-table");
     $(table).printThis({
-        debug: false,               // show the iframe for debugging
+        debug: true,               // show the iframe for debugging
         importCSS: true,            // import parent page css
         importStyle: false,         // import style tags
         printContainer: true,       // print outer container/$.selector

@@ -651,13 +651,19 @@ body {
 }
 
 
+#addMaterialItem.modal-wrap.active .modal form .material-additional-info{
+    margin: 0 auto;
+    inline-size: 60%;
+}
+
+
 #addMaterialItem.modal-wrap.active .modal form .dimensions{
 
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+
 }
 
 #addMaterialItem.modal-wrap.active .modal form .plate{
