@@ -48,8 +48,15 @@ public class MaterialService {
         materialToUpdate.setQuantity(materialDTO.getQuantity());
         materialToUpdate.setMinQuantity(materialDTO.getMinQuantity());
         materialToUpdate.setCategory(materialCategoryRepo.findByCategoryName(materialDTO.getCategory()));
+        materialToUpdate.setX_dimension(materialDTO.getX_dimension());
+        materialToUpdate.setY_dimension(materialDTO.getY_dimension());
+        materialToUpdate.setZ_dimension(materialDTO.getZ_dimension());
+        materialToUpdate.setD_outer_dimension(materialDTO.getD_outer_dimension());
+        materialToUpdate.setD_inner_dimension(materialDTO.getD_inner_dimension());
+        materialToUpdate.setLength_dimension(materialDTO.getLength_dimension());
+        materialToUpdate.setDensity(materialDTO.getDensity());
+        materialDTO.setPrice(materialDTO.getPrice());
         materialRepo.save(materialToUpdate);
-
     }
 
     public void deleteMaterial(Long id){

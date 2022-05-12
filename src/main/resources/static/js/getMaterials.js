@@ -114,6 +114,14 @@ function updateMaterial(id){
         quantity.value=`${data.quantity}`;
         minimumQuantity.value=`${data.minQuantity}`;
         materialCategory.value=`${data.category.categoryName}`;
+        x_dimension.value=`${data.x_dimension}`;
+        y_dimension.value=`${data.y_dimension}`;
+        z_dimension.value=`${data.z_dimension}`;
+        D_outer_dimension.value=`${data.d_outer_dimension}`;
+        d_inner_dimension.value=`${data.d_inner_dimension}`;
+        length_dimension.value=`${data.length_dimension}`;
+        density.value=`${data.density}`;
+        price.value=`${data.price}`;
 
 
         addMaterialFormHeader.innerText="Update material";
@@ -134,6 +142,14 @@ function updateMaterial(id){
                 quantity : quantity.value,
                 minQuantity : minimumQuantity.value,
                 category : materialCategory.value,
+                x_dimension : x_dimension.value,
+                y_dimension : y_dimension.value,
+                z_dimension : z_dimension.value,
+                d_outer_dimension : D_outer_dimension.value,
+                d_inner_dimension : d_inner_dimension.value,
+                length_dimension : length_dimension.value,
+                density : density.value,
+                price : price.value
             };
 
 
