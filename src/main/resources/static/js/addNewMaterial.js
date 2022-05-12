@@ -8,6 +8,18 @@ const quantity = document.getElementById("quantity");
 const minimumQuantity = document.getElementById("minimum_quantity");
 const materialCategory = document.getElementById("materialCategory");
 
+const x_dimension = document.getElementById("x_dimension");
+const y_dimension = document.getElementById("y_dimension");
+const z_dimension = document.getElementById("z_dimension");
+
+const D_outer_dimension = document.getElementById("D_outer_dimension");
+const d_inner_dimension = document.getElementById("d_inner_dimension");
+const length_dimension = document.getElementById("length_dimension");
+
+const density = document.getElementById("density");
+const price = document.getElementById("price");
+
+
 
 materialAddItemCancelBtn.addEventListener("click", function () {
     addMaterialItem.classList.toggle("active");
@@ -33,6 +45,14 @@ function addMaterial(event){
         quantity : quantity.value,
         minQuantity : minimumQuantity.value,
         category : materialCategory.value,
+        x_dimension : x_dimension.value,
+        y_dimension : y_dimension.value,
+        z_dimension : z_dimension.value,
+        d_outer_dimension : D_outer_dimension.value,
+        d_inner_dimension : d_inner_dimension.value,
+        length_dimension : length_dimension.value,
+        density : density.value,
+        price : price.value
     };
 
 
