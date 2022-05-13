@@ -60,9 +60,6 @@ function showMaterialInfoPopUp(id) {
           
     `;
 
-        console.log(singleMassForPlate);
-        console.log(singleMassForRod);
-        console.log(singleMassForTube);
         material_info.classList.add('active');
     })
 }
