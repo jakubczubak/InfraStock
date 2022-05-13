@@ -677,6 +677,67 @@ body {
 
 /* end material section*/
 
+/*start material info*/
+#material_info{
+    display: none;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0, .5);
+    z-index: 9999;
+}
+
+#material_info.active{
+    display: revert;
+}
+
+
+#material_info .container{
+    color: white;
+    width: 350px;
+    padding: 30px 40px;
+    background-color: #202634;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0 0 1rem 0 rgb(41,48,66);
+}
+
+#material_info .container img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+#material_info .container ul{
+    margin-bottom: 20px;
+    list-style: none;
+}
+#material_info .container button{
+    display: block;
+    text-align: center;
+    width: 90%;
+    margin: 10px auto;
+    border: none;
+    background-color: #1367fb;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 10px;
+    transition: all 0.1s ease;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+#material_info .container button:hover{
+    background-color: #598bfb;
+}
+
+/*end material info*/
 /*start materials table*/
 
 .content-table{
