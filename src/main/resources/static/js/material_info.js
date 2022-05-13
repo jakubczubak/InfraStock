@@ -6,7 +6,18 @@ material_info_close_btn.addEventListener('click', function () {
     material_info.classList.remove('active');
 });
 
-function showMaterialInfoPopUp(id){
-    $.get(`/getMaterial?id=${id}`, function(data, status){
-    material_info.classList.add('active');
-})};
+function showMaterialInfoPopUp(id) {
+    $.get(`/getMaterial?id=${id}`, function (data, status) {
+        about_material_list.innerHTML = `
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+    `
+    })
+}

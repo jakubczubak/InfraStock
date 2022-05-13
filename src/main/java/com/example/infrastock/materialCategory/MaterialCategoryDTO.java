@@ -1,6 +1,5 @@
 package com.example.infrastock.materialCategory;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -16,8 +15,8 @@ public class MaterialCategoryDTO {
     public MaterialCategoryDTO() {
     }
 
-    public MaterialCategoryDTO(String categoryName){
-        this.categoryName=categoryName;
+    public MaterialCategoryDTO(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public Long getId() {

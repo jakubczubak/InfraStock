@@ -21,6 +21,6 @@ public class RestErrorHandler extends ResponseEntityExceptionHandler {
 
         String bodyOfResponse = exception.getFieldError().getDefaultMessage();
 
-        return new ResponseEntity(bodyOfResponse,headers,status);
+        return new ResponseEntity(bodyOfResponse, headers, status);
     }
 }

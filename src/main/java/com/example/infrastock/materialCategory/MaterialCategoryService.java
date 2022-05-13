@@ -2,7 +2,6 @@ package com.example.infrastock.materialCategory;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -16,7 +15,7 @@ public class MaterialCategoryService {
         this.materialCategoryRepo = materialCategoryRepo;
     }
 
-    public void createMaterialCategory(MaterialCategoryDTO materialCategoryDTO){
+    public void createMaterialCategory(MaterialCategoryDTO materialCategoryDTO) {
 
         MaterialCategory newMaterialCategory = new MaterialCategory(materialCategoryDTO.getCategoryName());
         materialCategoryRepo.save(newMaterialCategory);
@@ -29,11 +28,11 @@ public class MaterialCategoryService {
 
     }
 
-    public List<MaterialCategory> getMaterialCategories(){
+    public List<MaterialCategory> getMaterialCategories() {
         return materialCategoryRepo.findAll();
     }
 
-    public MaterialCategory findByCategoryName(String categoryName){
+    public MaterialCategory findByCategoryName(String categoryName) {
 
         return materialCategoryRepo.findByCategoryName(categoryName);
     }

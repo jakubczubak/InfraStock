@@ -62,4 +62,4 @@ form.addEventListener("submit", e => {
             hideAlert();
         }, 5000); //hide alert automatically after 5sec
     }
-})
+});

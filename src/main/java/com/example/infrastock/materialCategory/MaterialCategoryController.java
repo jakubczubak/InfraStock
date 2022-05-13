@@ -1,6 +1,5 @@
 package com.example.infrastock.materialCategory;
 
-import com.example.infrastock.user.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -14,12 +13,12 @@ public class MaterialCategoryController {
 
     private final MaterialCategoryService materialCategoryService;
 
-    public MaterialCategoryController(MaterialCategoryService materialCategoryService){
-       this.materialCategoryService=materialCategoryService;
+    public MaterialCategoryController(MaterialCategoryService materialCategoryService) {
+        this.materialCategoryService = materialCategoryService;
     }
 
     @GetMapping("/categories")
-    public List<MaterialCategory> getCategoriesList(){
+    public List<MaterialCategory> getCategoriesList() {
         return materialCategoryService.getMaterialCategories();
     }
 

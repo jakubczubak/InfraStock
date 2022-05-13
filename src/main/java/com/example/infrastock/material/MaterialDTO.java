@@ -1,7 +1,5 @@
 package com.example.infrastock.material;
 
-import com.example.infrastock.materialCategory.MaterialCategory;
-
 import javax.validation.constraints.*;
 
 public class MaterialDTO {
@@ -12,7 +10,7 @@ public class MaterialDTO {
     private String materialName;
 
     @NotNull(message = "Enter the quantity")
-    @Min(value = 0, message ="Chose the category of material!" )
+    @Min(value = 0, message = "Chose the category of material!")
     @Max(value = 99, message = "Maximum quantity could be 99")
     private Integer quantity;
 
@@ -54,11 +52,11 @@ public class MaterialDTO {
     public MaterialDTO() {
     }
 
-    public MaterialDTO(String materialName, Integer quantity, Integer minQuantity, String category){
+    public MaterialDTO(String materialName, Integer quantity, Integer minQuantity, String category) {
         this.materialName = materialName;
-        this.quantity=quantity;
-        this.minQuantity=minQuantity;
-        this.category=category;
+        this.quantity = quantity;
+        this.minQuantity = minQuantity;
+        this.category = category;
     }
 
     public MaterialDTO(String materialName, Integer quantity, Integer minQuantity, String category, float x_dimension, float y_dimension, float z_dimension, float d_outer_dimension, float d_inner_dimension, float length_dimension, float density, float price) {
@@ -108,16 +106,16 @@ public class MaterialDTO {
         this.minQuantity = minQuantity;
     }
 
+    public void setMinQuantity(Integer minQuantity) {
+        this.minQuantity = minQuantity;
+    }
+
     public String getCategory() {
         return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    public void setMinQuantity(Integer minQuantity) {
-        this.minQuantity = minQuantity;
     }
 
     public float getX_dimension() {

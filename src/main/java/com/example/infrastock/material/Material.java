@@ -1,10 +1,8 @@
 package com.example.infrastock.material;
 
 import com.example.infrastock.materialCategory.MaterialCategory;
-import com.example.infrastock.materialCategory.MaterialCategoryDTO;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -35,29 +33,29 @@ public class Material {
     public Material() {
     }
 
-    public Material(String materialName, Integer quantity, Integer minQuantity, MaterialCategory category){
+    public Material(String materialName, Integer quantity, Integer minQuantity, MaterialCategory category) {
         this.materialName = materialName;
-        this.quantity=quantity;
-        this.minQuantity=minQuantity;
-        this.category=category;
-
-    }
-    public Material(String materialName, Integer quantity, Integer minQuantity, MaterialCategory category, float x_dimension, float y_dimension, float z_dimension, float d_outer_dimension, float d_inner_dimension, float length_dimension, float density, float price){
-        this.materialName = materialName;
-        this.quantity=quantity;
-        this.minQuantity=minQuantity;
-        this.category=category;
-        this.x_dimension=x_dimension;
-        this.y_dimension=y_dimension;
-        this.z_dimension=z_dimension;
-        this.d_outer_dimension=d_outer_dimension;
-        this.d_inner_dimension=d_inner_dimension;
-        this.length_dimension=length_dimension;
-        this.density=density;
-        this.price=price;
+        this.quantity = quantity;
+        this.minQuantity = minQuantity;
+        this.category = category;
 
     }
 
+    public Material(String materialName, Integer quantity, Integer minQuantity, MaterialCategory category, float x_dimension, float y_dimension, float z_dimension, float d_outer_dimension, float d_inner_dimension, float length_dimension, float density, float price) {
+        this.materialName = materialName;
+        this.quantity = quantity;
+        this.minQuantity = minQuantity;
+        this.category = category;
+        this.x_dimension = x_dimension;
+        this.y_dimension = y_dimension;
+        this.z_dimension = z_dimension;
+        this.d_outer_dimension = d_outer_dimension;
+        this.d_inner_dimension = d_inner_dimension;
+        this.length_dimension = length_dimension;
+        this.density = density;
+        this.price = price;
+
+    }
 
 
     @PreUpdate
@@ -71,6 +69,10 @@ public class Material {
 
     public String getUpdatedOn() {
         return updatedOn;
+    }
+
+    public void setUpdatedOn(String updatedOn) {
+        this.updatedOn = updatedOn;
     }
 
     public Long getId() {
@@ -111,10 +113,6 @@ public class Material {
 
     public void setCategory(MaterialCategory category) {
         this.category = category;
-    }
-
-    public void setUpdatedOn(String updatedOn) {
-        this.updatedOn = updatedOn;
     }
 
     public float getX_dimension() {

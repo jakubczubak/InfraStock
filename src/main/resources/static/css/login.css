@@ -19,7 +19,8 @@
     overflow-x: hidden;
     position: relative
 }
-img{
+
+img {
     position: absolute;
     height: 35vw;
     width: 35vw;
@@ -27,6 +28,7 @@ img{
     right: 2%;
     z-index: 0;
 }
+
 #sign_in,
 #sign_up {
     inline-size: 50%;

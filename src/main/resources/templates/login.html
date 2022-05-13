@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Infrastock</title>
     <script
-            src="https://kit.fontawesome.com/5fae53f1bb.js"
             crossorigin="anonymous"
+            src="https://kit.fontawesome.com/5fae53f1bb.js"
     ></script>
 
-    <link th:href="@{/icons/favicon-32x32.png}" rel="icon" type="image/png"/>
+    <link rel="icon" th:href="@{/icons/favicon-32x32.png}" type="image/png"/>
     <link rel="stylesheet" th:href="@{/css/login.css}">
     <link rel="stylesheet" th:href="@{/css/alert.css}">
 </head>
@@ -18,10 +18,10 @@
 <div class="wrapper">
     <!--    Alert part start-->
     <div class="alert">
-        <span id="alertSign" class="fas fa-exclamation-circle"></span>
-        <span id="alertMsg" class="msg">Warning: Incorrect email or password</span>
+        <span class="fas fa-exclamation-circle" id="alertSign"></span>
+        <span class="msg" id="alertMsg">Warning: Incorrect email or password</span>
         <span class="close-btn">
-            <span id="alertCloseSign" class="fas fa-times"></span>
+            <span class="fas fa-times" id="alertCloseSign"></span>
         </span>
     </div>
     <!--    Alert part end-->
@@ -31,11 +31,11 @@
             <span>INFRASTOCK</span>
             <div class="field">
                 <label><i class="fas fa-user"></i></label>
-                <input type="text" name="email" placeholder="Email" required>
+                <input name="email" placeholder="Email" required type="text">
             </div>
             <div class="field">
                 <label><i class="fa-solid fa-key"></i></label>
-                <input type="password" name="password" placeholder="Password" required>
+                <input name="password" placeholder="Password" required type="password">
             </div>
             <div class="field">
                 <input type="submit" value="Log in">
@@ -56,22 +56,22 @@
             <span>Sign Up</span>
             <div class="field">
                 <label><i class="fas fa-user"></i></label>
-                <input id="username" type="text" name="username" placeholder="Username" minlength="2" maxlength="20"
-                       required>
+                <input id="username" maxlength="20" minlength="2" name="username" placeholder="Username" required
+                       type="text">
             </div>
             <div class="field">
                 <label><i class="fa-solid fa-at"></i></label>
-                <input id="email" type="email" name="email" placeholder="Email Address" required>
+                <input id="email" name="email" placeholder="Email Address" required type="email">
             </div>
             <div class="field">
                 <label><i class="fas fa-lock"></i></label>
-                <input id="password" type="password" name="password" placeholder="Password" minlength="3" maxlength="20"
-                       required>
+                <input id="password" maxlength="20" minlength="3" name="password" placeholder="Password" required
+                       type="password">
             </div>
             <div class="field">
                 <label><i class="fa-solid fa-check-double"></i></label>
-                <input id="confirm_password" type="password" placeholder="Confirm Password" minlength="3" maxlength="20"
-                       required>
+                <input id="confirm_password" maxlength="20" minlength="3" placeholder="Confirm Password" required
+                       type="password">
             </div>
             <div class="field">
                 <input type="submit" value="Sign up">
@@ -92,9 +92,9 @@
 <script th:src="@{/js/alert.js}"></script>
 <script th:src="@{/js/validation.js}"></script>
 <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        crossorigin="anonymous"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
 </html>

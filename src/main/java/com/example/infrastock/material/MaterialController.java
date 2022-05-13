@@ -1,6 +1,5 @@
 package com.example.infrastock.material;
 
-import com.example.infrastock.notification.Notification;
 import com.example.infrastock.notification.NotificationService;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,14 +47,14 @@ public class MaterialController {
     }
 
     @PutMapping("/updateMaterial")
-    public String updateMaterial(@RequestBody @Valid MaterialDTO materialDTO){
+    public String updateMaterial(@RequestBody @Valid MaterialDTO materialDTO) {
         notificationService.addNotification(materialDTO);
-       materialService.updateMaterial(materialDTO);
+        materialService.updateMaterial(materialDTO);
         return "Successfully updated";
     }
 
     @DeleteMapping("/deleteMaterial")
-    public String deleteMaterial(@RequestParam Long id){
+    public String deleteMaterial(@RequestParam Long id) {
         String categoryName = materialService.getCategoryName(id);
         materialService.deleteMaterial(id);
         return categoryName;
@@ -64,14 +63,14 @@ public class MaterialController {
 
 
     @GetMapping("/sortedMaterials")
-    public List<Material> getSortedMaterialsByCategoryName(@RequestParam String categoryName){
-        
+    public List<Material> getSortedMaterialsByCategoryName(@RequestParam String categoryName) {
+
 
         return materialService.getSortedMaterials(categoryName);
     }
 
     @GetMapping("/shoppingList")
-    public List<Material> getShoppingList(){
+    public List<Material> getShoppingList() {
         return materialService.getShoppingList();
     }
 

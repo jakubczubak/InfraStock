@@ -14,8 +14,8 @@ public class MaterialCategory {
     public MaterialCategory() {
     }
 
-    public MaterialCategory(String categoryName){
-        this.categoryName=categoryName;
+    public MaterialCategory(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public Long getId() {

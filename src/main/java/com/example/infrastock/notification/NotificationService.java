@@ -1,6 +1,5 @@
 package com.example.infrastock.notification;
 
-import com.example.infrastock.material.Material;
 import com.example.infrastock.material.MaterialDTO;
 import org.springframework.stereotype.Service;
 
@@ -16,23 +15,22 @@ public class NotificationService {
     }
 
     public void addNotification(MaterialDTO materialDTO) {
-        if(materialDTO.getMinQuantity()>materialDTO.getQuantity()){
-            Notification newNotification = new Notification("Small amount of: <strong>" + materialDTO.getMaterialName()+"<strong>",false);
+        if (materialDTO.getMinQuantity() > materialDTO.getQuantity()) {
+            Notification newNotification = new Notification("Small amount of: <strong>" + materialDTO.getMaterialName() + "<strong>", false);
             notificationRepo.save(newNotification);
         }
     }
-
 
 
     public List<Notification> getNotificationList() {
         return notificationRepo.findAll();
     }
 
-    public void deleteNotification(Long id){
+    public void deleteNotification(Long id) {
         notificationRepo.delete(notificationRepo.getById(id));
     }
 
-    public void changeNotificationStatus(Long id){
+    public void changeNotificationStatus(Long id) {
         Notification updatedNotification = notificationRepo.getById(id);
         updatedNotification.setChecked(true);
         notificationRepo.save(updatedNotification);

@@ -3,7 +3,7 @@ const addMaterialItem = document.getElementById("addMaterialItem");
 const createNewMaterial = document.getElementById("createNewMaterial");
 const addNewMaterialItemForm = document.getElementById("addMaterialItemForm");
 
-const materialDescription  = document.getElementById("material_description");
+const materialDescription = document.getElementById("material_description");
 const quantity = document.getElementById("quantity");
 const minimumQuantity = document.getElementById("minimum_quantity");
 const materialCategory = document.getElementById("materialCategory");
@@ -20,39 +20,36 @@ const density = document.getElementById("density");
 const price = document.getElementById("price");
 
 
-
 materialAddItemCancelBtn.addEventListener("click", function () {
     addMaterialItem.classList.toggle("active");
 });
 
 createNewMaterial.addEventListener("click", function () {
 
-    addMaterialFormHeader.innerText="Create a new material position";
-    submitButton.innerText="Create";
+    addMaterialFormHeader.innerText = "Create a new material position";
+    submitButton.innerText = "Create";
     addMaterialItem.classList.toggle("active");
     addNewMaterialItemForm.addEventListener("submit", addMaterial);
 });
 
 
-
-function addMaterial(event){
+function addMaterial(event) {
     event.preventDefault();
 
 
-
     let newMaterial = {
-        materialName : materialDescription.value,
-        quantity : quantity.value,
-        minQuantity : minimumQuantity.value,
-        category : materialCategory.value,
-        x_dimension : x_dimension.value,
-        y_dimension : y_dimension.value,
-        z_dimension : z_dimension.value,
-        d_outer_dimension : D_outer_dimension.value,
-        d_inner_dimension : d_inner_dimension.value,
-        length_dimension : length_dimension.value,
-        density : density.value,
-        price : price.value
+        materialName: materialDescription.value,
+        quantity: quantity.value,
+        minQuantity: minimumQuantity.value,
+        category: materialCategory.value,
+        x_dimension: x_dimension.value,
+        y_dimension: y_dimension.value,
+        z_dimension: z_dimension.value,
+        d_outer_dimension: D_outer_dimension.value,
+        d_inner_dimension: d_inner_dimension.value,
+        length_dimension: length_dimension.value,
+        density: density.value,
+        price: price.value
     };
 
 
@@ -62,15 +59,15 @@ function addMaterial(event){
         data: JSON.stringify(newMaterial),
         contentType: "application/json",
         success: function (text) {
-            if(text=='The material you have entered is already in DataBase'){
+            if (text == 'The material you have entered is already in DataBase') {
                 addMaterialItem.classList.remove("active");
                 showAlert(text, warningStyleAlert());
-            }else{
+            } else {
                 printMaterials("/materials");
                 addMaterialItem.classList.remove("active");
                 materialDescription.value = "";
-                quantity.value="";
-                minimumQuantity.value="";
+                quantity.value = "";
+                minimumQuantity.value = "";
                 showAlert(text, successStyleAlert());
             }
 
