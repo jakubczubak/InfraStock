@@ -700,7 +700,7 @@ body {
 
 #material_info .container {
     color: white;
-    width: 350px;
+    width: 400px;
     padding: 30px 40px;
     background-color: #202634;
     position: absolute;
@@ -738,6 +738,10 @@ body {
     font-size: 18px;
     color: #fff;
     cursor: pointer;
+}
+
+#material_info .container ul li.important {
+    font-size: 1.3em;
 }
 
 #material_info .container button:hover {

@@ -48,6 +48,7 @@ public class MaterialController {
 
     @PutMapping("/updateMaterial")
     public String updateMaterial(@RequestBody @Valid MaterialDTO materialDTO) {
+        System.out.println(materialDTO.getPrice());
         notificationService.addNotification(materialDTO);
         materialService.updateMaterial(materialDTO);
         return "Successfully updated";

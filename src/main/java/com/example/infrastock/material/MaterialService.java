@@ -55,7 +55,7 @@ public class MaterialService {
         materialToUpdate.setD_inner_dimension(materialDTO.getD_inner_dimension());
         materialToUpdate.setLength_dimension(materialDTO.getLength_dimension());
         materialToUpdate.setDensity(materialDTO.getDensity());
-        materialDTO.setPrice(materialDTO.getPrice());
+        materialToUpdate.setPrice(materialDTO.getPrice());
         materialRepo.save(materialToUpdate);
     }
 

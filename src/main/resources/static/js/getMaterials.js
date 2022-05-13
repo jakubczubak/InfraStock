@@ -148,6 +148,7 @@ function updateMaterial(id) {
                 price: price.value
             };
 
+            console.log(updateMaterial);
 
             let isLowQuantity = false;
 
@@ -158,7 +159,7 @@ function updateMaterial(id) {
 
             $.ajax({
                 type: 'PUT',
-                url: `/updateMaterial?id=${id}`,
+                url: `/updateMaterial`,
                 data: JSON.stringify(updateMaterial),
                 contentType: "application/json",
                 success: function (text) {
