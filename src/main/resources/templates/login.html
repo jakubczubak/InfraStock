@@ -5,45 +5,53 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Infrastock</title>
-    <script
-            crossorigin="anonymous"
-            src="https://kit.fontawesome.com/5fae53f1bb.js"
-    ></script>
-
-    <link rel="icon" th:href="@{/icons/favicon-32x32.png}" type="image/png"/>
     <link rel="stylesheet" th:href="@{/css/login.css}">
     <link rel="stylesheet" th:href="@{/css/alert.css}">
 </head>
 <body>
 <div class="wrapper">
-    <!--    Alert part start-->
-    <div class="alert">
-        <span class="fas fa-exclamation-circle" id="alertSign"></span>
-        <span class="msg" id="alertMsg">Warning: Incorrect email or password</span>
-        <span class="close-btn">
-            <span class="fas fa-times" id="alertCloseSign"></span>
-        </span>
+<!--        Alert part start-->
+    <div class="alert_wrapper">
+        <div class="alert_error">
+            <div class="alert error">
+                <span class="alert-msg" id="alert_error_msg"><img src="/icons/Alarm.svg" alt="">Something wrong!</span>
+                <span class="alert-close-btn error" id="alert_error_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
+            </div>
+        </div>
+        <div class="alert_info">
+            <div class="alert info">
+                <span class="alert-msg" id="alert_info_msg"><img src="/icons/info.svg" alt="">Info</span>
+                <span class="alert-close-btn info" id="alert_info_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
+            </div>
+        </div>
+        <div class="alert_success">
+            <div class="alert success">
+                <span class="alert-msg" id="alert_success_msg"><img src="/icons/done.svg" alt="">Success!</span>
+                <span class="alert-close-btn success" id="alert_success_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
+            </div>
+        </div>
     </div>
+
     <!--    Alert part end-->
     <!-- Sign-in part start -->
     <div id="sign_in">
         <form action="/login" method="post">
+            <div class="logo">
+                <img src="/icons/undraw_heavy_box.svg" alt="logo">
+            </div>
             <span>INFRASTOCK</span>
-            <div class="field">
-                <label><i class="fas fa-user"></i></label>
+            <div>
                 <input name="email" placeholder="Email" required type="text">
             </div>
-            <div class="field">
-                <label><i class="fa-solid fa-key"></i></label>
+            <div>
                 <input name="password" placeholder="Password" required type="password">
             </div>
-            <div class="field">
-                <input type="submit" value="Log in">
+            <div>
+                <input type="submit" value="GET STARTED">
             </div>
         </form>
         <p>Not a member?
-            <button onclick="signUp()"><a>Sign up now</a></button>
-            <i class="fa-solid fa-right-to-bracket"></i>
+            <button onclick="signUp()">Sign up now!</button>
         </p>
     </div>
 
@@ -53,37 +61,40 @@
     <!-- Sign-up part start -->
     <div id="sign_up">
         <form action="/register" method="post">
-            <span>Sign Up</span>
-            <div class="field">
-                <label><i class="fas fa-user"></i></label>
+            <div class="logo">
+                <img src="/icons/undraw_sign_in.svg" alt="Sign in">
+            </div>
+            <span>Create Account with e-mail</span>
+            <div>
                 <input id="username" maxlength="20" minlength="2" name="username" placeholder="Username" required
                        type="text">
             </div>
-            <div class="field">
-                <label><i class="fa-solid fa-at"></i></label>
+            <div>
                 <input id="email" name="email" placeholder="Email Address" required type="email">
             </div>
-            <div class="field">
-                <label><i class="fas fa-lock"></i></label>
+            <div>
                 <input id="password" maxlength="20" minlength="3" name="password" placeholder="Password" required
                        type="password">
             </div>
-            <div class="field">
-                <label><i class="fa-solid fa-check-double"></i></label>
-                <input id="confirm_password" maxlength="20" minlength="3" placeholder="Confirm Password" required
+            <div>
+                <input id="confirm_password" maxlength="20" minlength="3" placeholder="Confirm password" required
                        type="password">
             </div>
-            <div class="field">
-                <input type="submit" value="Sign up">
+            <div>
+                <input class="sing_up_btn" type="submit" value="Sign up with e-mail">
             </div>
         </form>
         <p>Already a member?
-            <button onclick="signIn()"><a>Sign in now</a></button>
-            <i class="fa-solid fa-right-to-bracket"></i>
+            <button onclick="signIn()">Log in</button>
         </p>
     </div>
     <!-- Sign-up part end -->
-    <img th:src="@{/icons/loginimg.svg}">
+    <div class="bgc-wallpaper_one">
+        <img src="/icons/undraw_log.svg" alt="">
+    </div>
+    <div class="bgc-wallpaper_two">
+        <img src="/icons/undraw_gift.svg" alt="">
+    </div>
 
 </div>
 
