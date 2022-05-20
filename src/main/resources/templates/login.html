@@ -12,22 +12,22 @@
 <div class="wrapper">
 <!--        Alert part start-->
     <div class="alert_wrapper">
-        <div class="alert_error">
-            <div class="alert error">
-                <span class="alert-msg" id="alert_error_msg"><img src="/icons/Alarm.svg" alt="">Something wrong!</span>
-                <span class="alert-close-btn error" id="alert_error_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
-            </div>
-        </div>
         <div class="alert_info">
-            <div class="alert info">
-                <span class="alert-msg" id="alert_info_msg"><img src="/icons/info.svg" alt="">Info</span>
+            <div  id="alert_info" class="alert info">
+                <img class="alert_msg_icon" src="/icons/info.svg" alt=""><span class="alert-msg" id="alert_info_msg">Info</span>
                 <span class="alert-close-btn info" id="alert_info_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
             </div>
         </div>
         <div class="alert_success">
-            <div class="alert success">
-                <span class="alert-msg" id="alert_success_msg"><img src="/icons/done.svg" alt="">Success!</span>
+            <div id="alert_success" class="alert success">
+                <img class="alert_msg_icon" src="/icons/done.svg" alt=""><span class="alert-msg" id="alert_success_msg">Success!</span>
                 <span class="alert-close-btn success" id="alert_success_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
+            </div>
+        </div>
+        <div class="alert_error">
+            <div id="alert_error" class="alert error">
+                <img class="alert_msg_icon" src="/icons/Alarm.svg" alt=""><span class="alert-msg" id="alert_error_msg">Something wrong!</span>
+                <span class="alert-close-btn error" id="alert_error_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@
 
     <!-- Sign-up part start -->
     <div id="sign_up">
-        <form action="/register" method="post">
+        <form id="registration_form">
             <div class="logo">
                 <img src="/icons/undraw_sign_in.svg" alt="Sign in">
             </div>
@@ -101,11 +101,6 @@
 
 <script th:src="@{/js/login.js}"></script>
 <script th:src="@{/js/alert.js}"></script>
-<script th:src="@{/js/validation.js}"></script>
-<script
-        crossorigin="anonymous"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script th:src="@{/js/register.js}"></script>
 </body>
 </html>

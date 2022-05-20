@@ -7,21 +7,10 @@
     top: 40px;
 }
 
-.alert_error{
-    display: revert;
-}
-
-.alert_info{
-    display: revert;
-}
-.alert_success{
-    display: revert;
-}
-
 .alert {
     margin: 8px 0;
-    width: 363px;
     height: 68px;
+    min-width: 350px;
     border-width: 0px 0px 0px 8px;
     border-radius: 16px;
     border-style: solid;
@@ -29,8 +18,10 @@
     overflow: hidden;
     text-align: left;
     padding-left: 16px;
-    z-index: 1;
+    padding-right: 80px;
+    z-index: 2;
     position: relative;
+    display: none;
 }
 
 .alert.error{
@@ -89,8 +80,6 @@
 
 }
 
-
-
 .alert-msg {
     font-weight: 400;
     font-size: 20px;
@@ -99,7 +88,7 @@
 
 }
 
-.alert-msg img{
+.alert_msg_icon{
     position: relative;
     top: 8px;
     padding: 0 4px;

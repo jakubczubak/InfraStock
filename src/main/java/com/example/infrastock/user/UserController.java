@@ -1,12 +1,10 @@
 package com.example.infrastock.user;
 
+import com.example.infrastock.config.Response;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.security.Principal;
 
 
 @RestController
@@ -20,7 +18,7 @@ public class UserController {
 
 
     @GetMapping(value = "/userInfo")
-    public String getUserInfo(HttpServletRequest request){
+    public String getUserInfo(){
         Object principal = SecurityContextHolder. getContext(). getAuthentication(). getPrincipal();
         String email = ((User)principal).getEmail();
         return email;
@@ -28,14 +26,16 @@ public class UserController {
     }
 
     @PostMapping(value = "/register")
-    public String createUser(@RequestBody @Valid UserDTO user) {
+    public Response createUser(@RequestBody @Valid UserDTO user) {
+
+
 
 
         if (userService.checkIfEmailExist(user.getEmail())) {
-            return "The email you have entered is already registered";
+            return new Response("E-mail already exist in Database!");
         } else {
             userService.createUser(user);
-            return "Congratulations, your account has been successfully created.";
+            return new Response("Successfully created account!");
         }
     }
 }
