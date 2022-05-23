@@ -1,5 +1,7 @@
-const sidebarBtn = document.querySelector('#btn');
+const sidebarBtn = document.getElementById('sidebar_btn');
 const sidebar = document.querySelector(".sidebar");
+
+
 const userInfo = document.getElementById("userInfo");
 
 

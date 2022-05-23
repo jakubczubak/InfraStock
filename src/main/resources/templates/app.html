@@ -5,310 +5,111 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Infrastock</title>
-    <script
-            crossorigin="anonymous"
-            src="https://kit.fontawesome.com/5fae53f1bb.js"
-    ></script>
     <link media="all" rel="stylesheet" th:href="@{/css/app.css}" type="text/css"/>
-    <link media="all" rel="stylesheet" th:href="@{/css/dashboard.css}" type="text/css"/>
     <link media="all" rel="stylesheet" th:href="@{/css/alert.css}" type="text/css"/>
-    <link rel="icon" th:href="@{/icons/favicon-32x32.png}" type="image/png"/>
-    <script
-            crossorigin="anonymous"
-            src="https://kit.fontawesome.com/5fae53f1bb.js"
-    ></script>
 </head>
 <body>
 
 
 <div class="wrapper">
 
-    <div class="alert">
-        <span class="fas fa-exclamation-circle" id="alertSign"></span>
-        <span class="msg" id="alertMsg">Warning: Incorrect email or password</span>
-        <span class="close-btn">
-            <span class="fas fa-times" id="alertCloseSign"></span>
-        </span>
-    </div>
+
     <!-- Sidebar part start -->
-    <div class="sidebar">
+    <div class="sidebar active">
         <div class="logo_content">
             <div class="logo" id="logo-wrapper">
-                <img alt="Logo" th:src="@{/icons/favicon-32x32.png}" title="Infrastock">
-                <div class="logo_name">Infrastock</div>
+                <img class="logo_img" alt="Logo" src="/icons/undraw_heavy_box.svg" title="Infrastock">
+                <span class="logo_name">Infrastock</span>
             </div>
-            <i class="fa-solid fa-bars" id="btn"></i>
         </div>
         <ul class="nav_list">
-            <li>
-                <a class="activeBtn" href="#" id="dashboard">
-                    <i><img alt="Dashboard" th:src="@{/icons/home.png}" title="Dashboard"></i>
-                    <span class="links_name">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" id="materials">
-                    <i><img alt="Materials" th:src="@{/icons/warehouse.png}" title="Materials"></i>
+            <li class="active">
+                <a  href="#">
+                    <img alt="Materials" src="/icons/materials.svg" title="Materials">
                     <span class="links_name">Materials</span>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i><img alt="Tools" th:src="@{/icons/cnc-machine.png}" title="Tools"></i>
+                <a  href="#">
+                    <img alt="Materials" src="/icons/light.svg" title="Materials">
                     <span class="links_name">Tools</span>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i><img alt="Orders" th:src="@{/icons/shopping-cart.png}" title="Orders"></i>
-                    <span class="links_name">Orders</span>
+                <a  href="#">
+                    <img alt="Materials" src="/icons/wallet.svg" title="Materials">
+                    <span class="links_name">Calculations</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i><img alt="Suppliers" th:src="@{/icons/transit.png}" title="Suppliers"></i>
-                    <span class="links_name">Suppliers</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i><img alt="Analysis" th:src="@{/icons/chart.png}" title="Analysis"></i>
-                    <span class="links_name">Analysis</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i><img alt="Documents" th:src="@{/icons/pdf.png}" title="Documents"></i>
-                    <span class="links_name">Documents</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i><img alt="Recycling" th:src="@{/icons/recycling.png}" title="Recycling"></i>
-                    <span class="links_name">Recycling</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i><img alt="Settings" th:src="@{/icons/services.png}" title="Settings"></i>
+            <li id="settings">
+                <a  href="#">
+                    <img alt="Materials" src="/icons/settings.svg" title="Materials">
                     <span class="links_name">Settings</span>
                 </a>
             </li>
             <li id="logout">
-                <a href="#">
-                    <i><img alt="Logout" th:src="@{/icons/logout.png}" title="Logout"></i>
-                    <span class="links_name">Exit</span>
+                <a  href="#">
+                    <img alt="Materials" src="/icons/sign_out.svg" title="Materials">
+                    <span class="links_name">Logout</span>
                 </a>
             </li>
         </ul>
     </div>
-    <!-- Sidebar part end -->
+<!--     Sidebar part end -->
 
+<!--     Main part start -->
 
     <div class="main">
         <!--navbar part start-->
         <div class="nav-bar">
-            <ul>
-                <li>
-                    <img alt="Notifications" class="icon-button" id="notificationButton" th:src="@{/icons/alarm.png}"
-                         title="Notifications">
-                    <span class="icon-button__badge" id='icon-button__badge'>0</span>
-                    <div class="dropdown-content" id="notificationDropdown">
-                        <div class="notification-header">
-                            <p><img alt="Notifications" src="/icons/alarm.png" title="Notifications">Notifications:</p>
-                        </div>
-                        <div class="notification-content" id="notificationContent">
-                        </div>
-
-                    </div>
-                </li>
-                <li>
-                    <img alt="User-icon" th:src="@{/icons/admin.png}" title="User-icon">
-                    <p id="userInfo">...</p>
-                </li>
-            </ul>
+          <ul>
+              <li class="sidebar_btn_wrapper"><img id="sidebar_btn" alt="Logo" src="/icons/darhboard_btn.svg" title="Infrastock"></li>
+              <li class="notifications_wrapper"><img src="/icons/Bell.svg" alt=""><span style="pointer-events: auto;" class="notifications_counter">2</span></li>
+              <li><img  src="/icons/user.svg" alt=""></li>
+              <li><span>admin@inframet.com</span></li>
+          </ul>
         </div>
         <!--navbar part end-->
 
-        <!-- Dashboard part start -->
-        <div class="materials">
-            <div class="materials-header">
-                <div>
-                    <h1>Material warehouse</h1>
+<!--        material section start-->
+        <div class="material_section_wrapper">
+            <div class="material_header_wrapper">
+                <h1 class="header">Material section <img src="/icons/question.svg" alt=""></h1>
+                <div class="btn_wrapper">
+                    <ul>
+                        <li>
+                            <img src="/icons/add.svg" alt=""><span>New material</span>
+                        </li>
+                        <li>
+                            <img src="/icons/add.svg" alt=""><span>New category</span>
+                        </li>
+                        <li>
+                            <img src="/icons/refresh.svg" alt=""><span>Refresh</span>
+                        </li>
+                        <li>
+                            <img src="/icons/bag.svg" alt=""><span>Shopping list</span>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <div class="materials-header-btn-wrapper">
-                        <span class="materials-header-btn" id="createNewMaterial"><img alt="Create material"
-                                                                                       src="/icons/pallet.png"
-                                                                                       title="Create material"> Create material</span>
-                        <span class="materials-header-btn" id="add-material-category"><img alt="New category"
-                                                                                           src="/icons/math.png"
-                                                                                           title="New category"> New category</span>
-                        <span class="materials-header-btn" id="clear-filters-button"><img alt="Clear filters"
-                                                                                          src="/icons/clear.png"
-                                                                                          title="Clear filters"> Show all materials</span>
-                        <span class="materials-header-btn" id="materialShoppingList"><img alt="Material for purchase"
-                                                                                          src="/icons/shopping-cart.png"
-                                                                                          title="Material for purchase"> Material for purchase</span>
+        </div>
+            <div class="material_category_wrapper">
+                <h1>Choose material category:</h1>
+                <div class="btn_wrapper">
+                    <div class="category_item">
+                        <h1>Material name</h1>
+                        <h3>Quantity</h3>
+                        <img src="" alt="">
+                        <img src="" alt="">
                     </div>
                 </div>
             </div>
-            <div class="materials-categories">
-                <div class="materials-categories-header">
-                    <h1>Material available in stock:</h1>
-                </div>
-                <div class="categories-items" id="categories-items">
-                </div>
-            </div>
         </div>
-        <section class="materials-table">
 
-            <table class="content-table" id="materials-table">
-                <thead>
-
-                <tr>
-                    <th>ID</th>
-                    <th>Material</th>
-                    <th>Qty</th>
-                    <th>Min Qty</th>
-                    <th>Category</th>
-                    <th>Inventory Date</th>
-                    <th><img alt="export-pdf-icon" id="material_pdf" src="/icons/exportpdf.png"
-                             title="Download pdf file"></th>
-                </tr>
-                </thead>
-                <tbody id="material-table">
-                <!-- data from backend... -->
-                </tbody>
-            </table>
-        </section>
-        <!-- Dashboard part end -->
+        <!--        material section end-->
     </div>
+<!--     Main part end -->
 </div>
-<div class="confirmationModal">
-    <div class="modal-wrap">
-        <div class="logo">
-            <img alt="Exclamation-mark" src="/icons/exclamation-mark.png" title="Exclamation-mark">
-        </div>
-        <div class="header">
-            <h1>Are you sure?</h1>
-        </div>
-        <div class="btnWrapper">
-            <button id="cancel">Cancel</button>
-            <button id="sure">Sure!</button>
-        </div>
-    </div>
 
-</div>
-<section class="modal-wrap" id="addMaterialCategory">
-    <div class="modal">
-        <form id="addMaterialCategoryForm" method="post">
-            <span>Create a new material category</span>
-            <div class="field">
-                <input id="categoryName" name="categoryName" placeholder="enter the name of the category" required
-                       type="text">
-            </div>
-            <button><a>Create</a></button>
-        </form>
-        <div>
-            <button class="cancel" id="material-add-category-cancel-btn"><a>Cancel</a></button>
-        </div>
-    </div>
-</section>
-<section id="material_info">
-    <div class="container">
-        <img alt="Details" src="/icons/details.png" title="Details">
-        <ul id="about_material_list">
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-        </ul>
-        <button id="material_info_close_btn">Back</button>
-    </div>
-</section>
-<section class="modal-wrap" id="addMaterialItem">
-    <div class="modal">
-        <form action="/material/category/add" id="addMaterialItemForm" method="post">
-            <span id="addMaterialFormHeader">Create a new material position</span>
-            <div class="fields">
-                <div class="field">
-                    <label for="material_description">Material description:</label>
-                    <input id="material_description" placeholder="enter material description" required type="text">
-                </div>
-                <div class="field">
-                    <label for="quantity">Stock quantity:</label>
-                    <input id="quantity" min="0" placeholder="enter quantity" required type="number">
-                </div>
-
-                <div class="field">
-                    <label for="minimum_quantity">Minimum stock quantity:</label>
-                    <input id="minimum_quantity" min="0" placeholder="enter minimum quantity" required type="number">
-                </div>
-                <label for="materialCategory">Material category:</label>
-                <select id="materialCategory" name="categories">
-                </select>
-                <div class="material-additional-info">
-                    <span class="plate">Dimensions for sheets:</span>
-                    <div class="dimensions">
-                        <div>
-                            <label for="x_dimension">X [mm]:</label>
-                            <input id="x_dimension" min="0" placeholder="mm" type="number" step="0.01">
-                        </div>
-                        <div>
-                            <label for="y_dimension">Y [mm]:</label>
-                            <input id="y_dimension" min="0" placeholder="mm" type="number" step="0.01">
-                        </div>
-                        <div>
-                            <label for="z_dimension">Z [mm]:</label>
-                            <input id="z_dimension" min="0" placeholder="mm" type="number" step="0.01">
-                        </div>
-                    </div>
-                    <span class="plate">Dimensions for rods/tubes:</span>
-                    <div class="dimensions">
-                        <div>
-                            <label for="D_outer_dimension">Outer &#8960; [mm]:</label>
-                            <input id="D_outer_dimension" min="0" placeholder="mm" type="number" step="0.01">
-                        </div>
-                        <div>
-                            <label for="d_inner_dimension">Inner &#8960; [mm]:</label>
-                            <input id="d_inner_dimension" min="0" placeholder="mm" type="number" step="0.01">
-                        </div>
-                        <div>
-                            <label for="length_dimension">Length [mm]:</label>
-                            <input id="length_dimension" min="0" placeholder="mm" type="number" step="0.01">
-                        </div>
-                    </div>
-                    <span class="plate">Additional informations:</span>
-                    <div class="dimensions">
-                        <div>
-                            <label for="density">Density [g/cm3]:</label>
-                            <input id="density" min="0" placeholder="g/cm3" type="number" step="0.01">
-                        </div>
-                        <div>
-                            <label for="price">Price [zł/kg]:</label>
-                            <input id="price" min="0" placeholder="zł/kg" type="number" step="0.01">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div>
-                <button id="submitButton"><a>Create</a></button>
-            </div>
-        </form>
-
-        <div>
-            <button class="cancel" id="material-add-item-cancel-btn"><a>Cancel</a></button>
-        </div>
-    </div>
-</section>
 <script
         crossorigin="anonymous"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
