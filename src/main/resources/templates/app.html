@@ -20,6 +20,7 @@
             <div class="logo" id="logo-wrapper">
                 <img class="logo_img" alt="Logo" src="/icons/undraw_heavy_box.svg" title="Infrastock">
                 <span class="logo_name">Infrastock</span>
+                <img id="sidebar_btn" alt="Logo" src="/icons/darhboard_btn.svg" title="Infrastock">
             </div>
         </div>
         <ul class="nav_list">
@@ -58,17 +59,17 @@
 <!--     Sidebar part end -->
 
 <!--     Main part start -->
+    <div class="nav-bar">
+        <ul>
+            <li class="notifications_wrapper"><img src="/icons/Bell.svg" alt=""><span style="pointer-events: auto;" class="notifications_counter">2</span></li>
+            <li><img  src="/icons/user.svg" alt=""></li>
+            <li><span>admin@inframet.com</span></li>
+        </ul>
+    </div>
 
     <div class="main">
         <!--navbar part start-->
-        <div class="nav-bar">
-          <ul>
-              <li class="sidebar_btn_wrapper"><img id="sidebar_btn" alt="Logo" src="/icons/darhboard_btn.svg" title="Infrastock"></li>
-              <li class="notifications_wrapper"><img src="/icons/Bell.svg" alt=""><span style="pointer-events: auto;" class="notifications_counter">2</span></li>
-              <li><img  src="/icons/user.svg" alt=""></li>
-              <li><span>admin@inframet.com</span></li>
-          </ul>
-        </div>
+
         <!--navbar part end-->
 
 <!--        material section start-->
@@ -139,22 +140,145 @@
                     </table>
                 </div>
             </div>
-            <div class="material_category_creation_form_popup">
-                <div class="form_wrapper">
-                    <img src="/icons/undraw_add_info.svg" alt="">
-                    <h1>Material category creation form</h1>
-                    <input type="text" placeholder="Category name">
-                    <div class="btn_wrapper">
-                        <button>Create</button>
-                        <button>Close</button>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
         <!--        material section end-->
     </div>
 <!--     Main part end -->
+<!--POPUP start-->
+    <div class="material_category_creation_form_popup">
+        <div class="form_wrapper">
+            <img src="/icons/undraw_add_info.svg" alt="">
+            <h1>Material category creation form</h1>
+            <input type="text" placeholder="Material category name">
+            <div class="btn_wrapper">
+                <button>Create</button>
+                <button>Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="material_category_edit_form_popup">
+        <div class="form_wrapper">
+            <img src="/icons/undraw_add_info.svg" alt="">
+            <h1>Edit material category</h1>
+            <input type="text" placeholder="Material category name">
+            <div class="btn_wrapper">
+                <button>Update</button>
+                <button>Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="new_material_creation_form_popup">
+        <div class="form_wrapper">
+            <img src="/icons/addfiles.svg" alt="">
+            <h1>New material creation form</h1>
+            <input type="text" placeholder="Material name">
+            <div class="quantity">
+                <input type="number" placeholder="Quantity" min="0" step="1">
+                <input type="number" placeholder="Min. quantity" min="0" step="1">
+            </div>
+            <select name="categories" id="material_categories">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <div class="density_price">
+                <input type="number" placeholder="Density [g/cm3]" min="0">
+                <input type="number" placeholder="Price [PLN/kg]" min="0">
+            </div>
+            <span>Dimensions:</span>
+            <div class="img_wrapper">
+                <img src="/icons/Add_1.svg" alt="">
+                <img src="/icons/Add_2.svg" alt="">
+                <img src="/icons/Add_3.svg" alt="">
+            </div>
+            <div class="dimensions_input_wrapper">
+                <input type="number" placeholder="X [mm]" min="0">
+                <input type="number" placeholder="Y [mm]" min="0">
+                <input type="number" placeholder="Z [mm]" min="0">
+            </div>
+            <div class="btn_wrapper">
+                <button>Create</button>
+                <button>Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="edit_material_creation_form_popup">
+        <div class="form_wrapper">
+            <img src="/icons/update.svg" alt="">
+            <h1>Edit material</h1>
+            <input type="text" placeholder="Material name">
+            <div class="quantity">
+                <input type="number" placeholder="Quantity" min="0" step="1">
+                <input type="number" placeholder="Min. quantity" min="0" step="1">
+            </div>
+            <select name="categories" id="material_categories_edit_form">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <div class="density_price">
+                <input type="number" placeholder="Density [g/cm3]" min="0">
+                <input type="number" placeholder="Price [PLN/kg]" min="0">
+            </div>
+            <span>Dimensions:</span>
+            <div class="img_wrapper">
+                <img src="/icons/Add_1.svg" alt="">
+                <img src="/icons/Add_2.svg" alt="">
+                <img src="/icons/Add_3.svg" alt="">
+            </div>
+            <div class="dimensions_input_wrapper">
+                <input type="number" placeholder="X [mm]" min="0">
+                <input type="number" placeholder="Y [mm]" min="0">
+                <input type="number" placeholder="Z [mm]" min="0">
+            </div>
+            <div class="btn_wrapper">
+                <button>Update</button>
+                <button>Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="material_info_popup">
+        <div class="form_wrapper">
+            <img src="/icons/questions.svg" alt="">
+            <h1>Info</h1>
+            <span>Material description: </span>
+            <span>Quantity: </span>
+            <span>Mass per piece: </span>
+            <span><strong>Total mass: </strong></span>
+            <img src="/icons/dollar.svg" alt="">
+            <span>Price per piece: </span>
+            <span><strong>Total price: </strong></span>
+            <div class="btn_wrapper">
+                <button>Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="delete_popup">
+        <div class="popup_wrapper">
+            <img src="/icons/red_trash.svg" alt="">
+            <h1>Delete?</h1>
+            <h3>Here something is Deleted.</h3>
+            <div class="btn_wrapper">
+                <button>Cancel</button>
+                <button>Delete</button>
+            </div>
+        </div>
+    </div>
+    <div id="logout_popup" class="logout_popup">
+        <div class="popup_wrapper">
+            <img src="/icons/logout.svg" alt="">
+            <h1>Log out from Infrastock?</h1>
+            <div class="btn_wrapper">
+                <button id="logout_btn_confirm">Yes, log out</button>
+                <button id="logout_btn_cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+<!--    POPUP END-->
 </div>
 
 <script
@@ -164,7 +288,7 @@
 <script th:src="@{/js/app.js}"></script>
 <script th:src="@{/js/getMaterialCategories.js}"></script>
 <script th:src="@{/js/getMaterials.js}"></script>
-<script th:src="@{/js/navigationButtons.js}"></script>
+<script th:src="@{/js/navigation_btn.js}"></script>
 <script th:src="@{/js/alert.js}"></script>
 <script th:src="@{/js/addNewMaterial.js}"></script>
 <script th:src="@{/js/addMaterialCategory.js}"></script>

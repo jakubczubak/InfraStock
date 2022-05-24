@@ -1,11 +1,10 @@
-const sidebarBtn = document.getElementById('sidebar_btn');
+const sidebar_btn = document.getElementById('sidebar_btn');
 const sidebar = document.querySelector(".sidebar");
-
 
 const userInfo = document.getElementById("userInfo");
 
 
-sidebarBtn.addEventListener("click", function () {
+sidebar_btn.addEventListener("click", function () {
     sidebar.classList.toggle("active");
 });
 
