@@ -451,6 +451,7 @@ body{
     left: 0;
     background-color: rgba(249, 250, 252, 0.8);
     display: none;
+    z-index: 99999;
 }
 .material_category_edit_form_popup.active{
     display: block;

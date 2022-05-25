@@ -2,6 +2,11 @@ const delete_popup = document.getElementById('delete_popup');
 const delete_popup_cancel_btn = document.getElementById('delete_popup_cancel_btn');
 const delete_popup_delete_btn = document.getElementById('delete_popup_delete_btn');
 
+const material_category_edit_form_popup = document.getElementById('material_category_edit_form_popup');
+const material_category_edit_form_popup_update_btn = document.getElementById('material_category_edit_form_popup_update_btn');
+const material_category_edit_form_popup_close_btn = document.getElementById('material_category_edit_form_popup_close_btn');
+const material_category_edit_form_popup_category_name_input = document.getElementById('material_category_edit_form_popup_category_name_input');
+
 
 function printMaterialCategories() {
     fetch('/materials/categories')
@@ -21,7 +26,7 @@ function printMaterialCategories() {
                         <h1>${category.categoryName}</h1>
                         <h3>Quantity: 15</h3>
                         <img class="del" src="/icons/del.svg" alt="asd" onclick="deleteMaterialCategory(${category.id})">
-                        <img class="edit" src="/icons/edit.svg" alt="asda">
+                        <img class="edit" src="/icons/edit.svg" alt="asda" onclick="editMaterialCategory(${category.id})">
                     </div>
                 `
             });
@@ -64,6 +69,52 @@ function deleteMaterialCategory(id){
                 }, 5000); //hide alert automatically after 5sec
             })
     }
+}
+
+function editMaterialCategory(id) {
+
+    const element = event.target.parentNode;
+    const categoryName = event.target.parentNode.children[0].innerHTML;
+
+    material_category_edit_form_popup_category_name_input.value = categoryName;
+    material_category_edit_form_popup.classList.add('active');
+
+    material_category_edit_form_popup_close_btn.onclick =function () {
+        material_category_edit_form_popup.classList.remove('active');
+    };
+
+    material_category_edit_form_popup_update_btn.onclick = function () {
+
+        const updatedCategoryName = material_category_edit_form_popup_category_name_input.value;
+
+        let updateCategory = {
+            categoryName: updatedCategoryName
+        };
+
+
+        fetch('/materials/addCategory', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedCategoryName),
+        })
+            .then(res => res.text()) // or res.json()
+            .then(res => {
+
+                element.children[0].innerHTML=updatedCategoryName;
+                material_category_edit_form_popup.classList.remove('active');
+                delete_popup.classList.remove('active');
+                showInfoAlert(res);
+                setTimeout(function () {
+                    hideInfoAlert();
+                }, 5000); //hide alert automatically after 5sec
+            });
+
+
+
+
+    };
 }
 
 
