@@ -121,7 +121,7 @@ body{
 
 .main {
     position: absolute;
-    height: 100%;
+    height: calc(100%- 58px);
     width: calc(100% - 84px);
     top: 58px;
     left: 84px;
