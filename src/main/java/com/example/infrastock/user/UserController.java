@@ -1,6 +1,5 @@
 package com.example.infrastock.user;
 
-import com.example.infrastock.config.Response;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,16 +25,16 @@ public class UserController {
     }
 
     @PostMapping(value = "/register")
-    public Response createUser(@RequestBody @Valid UserDTO user) {
+    public String createUser(@RequestBody @Valid UserDTO user) {
 
 
 
 
         if (userService.checkIfEmailExist(user.getEmail())) {
-            return new Response("E-mail already exist in Database!");
+            return "E-mail already exist in Database!";
         } else {
             userService.createUser(user);
-            return new Response("Successfully created account!");
+            return "Successfully created account!";
         }
     }
 }

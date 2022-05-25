@@ -19,7 +19,7 @@ public class RestErrorHandler extends ResponseEntityExceptionHandler {
             WebRequest request) {
 
 
-        Response bodyOfResponse = new Response(exception.getFieldError().getDefaultMessage());
+        String bodyOfResponse = exception.getFieldError().getDefaultMessage();
 
         return new ResponseEntity(bodyOfResponse, headers, status);
     }

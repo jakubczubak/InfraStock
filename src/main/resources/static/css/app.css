@@ -183,7 +183,7 @@ body{
 }
 
 .material_section_wrapper{
-    padding: 16px 32px 16px 32px;
+    padding: 16px 40px 16px 40px;
 }
 
 .material_header_wrapper{
@@ -239,27 +239,35 @@ body{
 }
 
 .material_category_wrapper .btn_wrapper{
+    margin: 0 auto;
+    width: 90%;
     padding: 48px 0;
     display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
     justify-content: center;
+    align-items: center;
 }
 
 .material_category_wrapper .btn_wrapper .category_item{
-    width: 240px;
-    height: 192px;
+    width: 210px;
+    height: 180px;
     border-radius: 32px;
     box-shadow: 0px 4px 4px #6C63FF;
     background: linear-gradient(122.62deg, #02D2FF 0%, #6C63FF 100%);
     position: relative;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .material_category_wrapper .btn_wrapper .category_item h1{
     font-weight: 700;
-    font-size: 30px;
+    font-size: 22px;
     text-align: center;
     color: #ffffff;
-    line-height: 192px;
+    padding: 0 8px;
 }
 .material_category_wrapper .btn_wrapper .category_item h3{
     position: absolute;
@@ -357,6 +365,7 @@ body{
     left: 0;
     background-color: rgba(249, 250, 252, 0.8);
     display: none;
+    z-index: 99999;
 }
 .material_category_creation_form_popup.active{
     display: block;
@@ -818,7 +827,7 @@ body{
 
 /*MATERIAL INFO POPUP START*/
 .material_info_popup{
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     top: 0;
@@ -892,7 +901,7 @@ body{
 
 /*DELETE POPUP START*/
 .delete_popup{
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     top: 0;
@@ -963,7 +972,7 @@ body{
 
 /*LOGOUT POPUP START*/
 .logout_popup{
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     top: 0;

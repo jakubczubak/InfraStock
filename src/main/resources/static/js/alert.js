@@ -11,14 +11,18 @@ const alert_error = document.getElementById('alert_error');
 const alert_info = document.getElementById('alert_info');
 const alert_success = document.getElementById('alert_success');
 
+const alert_wrapper = document.getElementById('alert_wrapper');
+
 
 function showErrorAlert(text) {
+
     alert_error_msg.innerText = text;
     alert_error.classList.remove('hide');
     alert_error.classList.add('show');
 }
 
 function showInfoAlert(text) {
+
     alert_info_msg.innerText = text;
     alert_info.classList.remove('hide');
     alert_info.classList.add('show');
@@ -33,16 +37,19 @@ function showSuccessAlert(text) {
 function hideErrorAlert() {
     alert_error.classList.remove('show');
     alert_error.classList.add('hide');
+
 }
 
 function hideInfoAlert() {
     alert_info.classList.remove('show');
     alert_info.classList.add('hide');
+
 }
 
 function hideSuccessAlert() {
     alert_success.classList.remove('show');
     alert_success.classList.add('hide');
+
 }
 
 alert_error_close_btn.addEventListener('click', function () {

@@ -1,5 +1,6 @@
 package com.example.infrastock.materialCategory;
 
+import com.example.infrastock.material.Material;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,5 +37,16 @@ public class MaterialCategoryService {
 
         return materialCategoryRepo.findByCategoryName(categoryName);
     }
+
+    public String deleteMaterialCategoryByID(Long id){
+        String categoryName = getMaterialCategoryByID(id).getCategoryName();
+        materialCategoryRepo.deleteById(id);
+        return categoryName;
+    }
+
+    public MaterialCategory getMaterialCategoryByID(Long id){
+        return materialCategoryRepo.getById(id);
+    }
+
 
 }

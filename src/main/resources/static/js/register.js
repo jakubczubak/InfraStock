@@ -33,36 +33,35 @@ registration_form.addEventListener("submit", e => {
             body: JSON.stringify(newUser),
         })
             .then(function (response) {
-                return response.json();
-            })
-            .then(function (response) {
 
-                if(`${response.message}` === "Successfully created account!"){
+                if(response.ok){
+                    response.text().then(function (text) {
+                        if( text === "Successfully created account!"){
 
-                    signIn();
-                    clearRegistrationFormData();
-                    showSuccessAlert(`${response.message}`);
-                                setTimeout(function () {
-                                    hideSuccessAlert();
-                                }, 5000); //hide alert automatically after 5sec
+                            signIn();
+                            clearRegistrationFormData();
+                            showSuccessAlert(text);
+                            setTimeout(function () {
+                                hideSuccessAlert();
+                            }, 5000); //hide alert automatically after 5sec
 
+                        }else{
+
+                            showErrorAlert(text);
+                            setTimeout(function () {
+                                hideErrorAlert();
+                            }, 5000); //hide alert automatically after 5sec
+                        }
+                    })
                 }else{
-
-                    showErrorAlert(`${response.message}`);
-                    setTimeout(function () {
-                        hideErrorAlert();
-                    }, 5000); //hide alert automatically after 5sec
+                    response.text().then(function (text) {
+                        showErrorAlert(text);
+                        setTimeout(function () {
+                            hideErrorAlert();
+                        }, 5000); //hide alert automatically after 5sec
+                    })
                 }
-
             })
-            .catch(function (response) {
-                showErrorAlert(`${response}`);
-                setTimeout(function () {
-                    hideErrorAlert();
-                }, 5000); //hide alert automatically after 5sec
-            });
-
-
     } else {
         showErrorAlert("Passwords did not match!");
         setTimeout(function () {

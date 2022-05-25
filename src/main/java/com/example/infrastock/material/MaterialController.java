@@ -59,7 +59,7 @@ public class MaterialController {
         String categoryName = materialService.getCategoryName(id);
         materialService.deleteMaterial(id);
         return categoryName;
-        //s
+
     }
 
 

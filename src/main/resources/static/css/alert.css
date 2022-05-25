@@ -1,11 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Josefin+Sans&display=swap");
 
 
-.alert_wrapper{
-    position: absolute;
-    right: 0px;
-    top: 40px;
-}
+
 
 .alert {
     margin: 8px 0;
@@ -19,26 +15,35 @@
     text-align: left;
     padding-left: 16px;
     padding-right: 80px;
-    z-index: 2;
-    position: relative;
+    z-index: 9999999999;
+    position: absolute;
+    right: 0;
     display: none;
 }
 
 .alert.error{
     border-color: #7B0101;
     background: #CC0000;
+    top: 80px;
 }
 
 .alert.info{
     border-color: #036B82;
     background: #2E9FFF;
+    top: 156px;
 }
 .alert.success{
     border-color: #039838;
     background: #1DB954;
+    top: 232px;
+
 }
 
 .alert.show {
+    display: revert;
+    animation: show_slide 1s ease forwards;
+}
+.alert_wrapper.show{
     display: revert;
     animation: show_slide 1s ease forwards;
 }
@@ -63,8 +68,13 @@
     display: revert;
     animation: hide_slide 1s ease forwards;
 }
+.alert_wrapper.hide{
+    display: revert;
+    animation: show_slide 1s ease forwards;
+}
 
 @keyframes hide_slide {
+
     0% {
         transform: translateX(-10px);
     }
@@ -75,9 +85,8 @@
         transform: translateX(-10%);
     }
     100% {
-        transform: translateX(100%);
+        transform: translateX(110%);
     }
-
 }
 
 .alert-msg {
@@ -98,6 +107,7 @@
     right: 0;
     top: 0;
     width: 64px;
+    height: 68px;
     display: block;
     text-align: center;
 }
@@ -113,8 +123,9 @@
     background-color: #039838;
 }
 .alert-close-btn img{
-    position: relative;
-    top:-11px;
+    position: absolute;
+    top:20px;
+    right: 20px;
     cursor: pointer;
 }
 

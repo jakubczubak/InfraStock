@@ -35,5 +35,13 @@ public class MaterialCategoryController {
         }
     }
 
+    @DeleteMapping("/deleteMaterialCategory")
+    public String deleteMaterialCategory(@RequestParam Long id) {
+
+
+        return "Successfully deleted category: " + materialCategoryService.deleteMaterialCategoryByID(id);
+
+    }
+
 
 }

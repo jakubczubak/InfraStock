@@ -5,6 +5,7 @@ const logout_btn_cancel = document.getElementById('logout_btn_cancel');
 
 logout_btn.addEventListener('click', function () {
     logout_popup.classList.add('active');
+
 });
 
 logout_btn_cancel.addEventListener('click',function () {
@@ -13,3 +14,4 @@ logout_btn_cancel.addEventListener('click',function () {
 logout_btn_confirm.addEventListener('click', function () {
     window.location.href="/logout";
 });
+

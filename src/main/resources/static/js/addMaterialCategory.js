@@ -1,52 +1,59 @@
-const addMaterialCategoryForm = document.getElementById("addMaterialCategoryForm");
-const materialAddCategoryCancelBtn = document.getElementById("material-add-category-cancel-btn");
-const addMaterialCategorySection = document.getElementById("addMaterialCategory");
-const addMaterialCategoryBtn = document.getElementById("add-material-category");
-const categoryNameInput = document.getElementById("categoryName");
+const add_material_category_btn = document.getElementById("add_material_category_btn");
+const material_category_name = document.getElementById("material_category_name");
+const material_category_creation_form_popup = document.getElementById('material_category_creation_form_popup');
+const material_category_creation_form_popup_create_btn = document.getElementById('material_category_creation_form_popup_create_btn');
+const material_category_creation_form_popup_close_btn = document.getElementById('material_category_creation_form_popup_close_btn');
 
-
-materialAddCategoryCancelBtn.addEventListener("click", function () {
-    addMaterialCategorySection.classList.remove("active");
+add_material_category_btn.addEventListener('click', function () {
+    material_category_creation_form_popup.classList.add("active");
+});
+material_category_creation_form_popup_close_btn.addEventListener('click', function () {
+    material_category_creation_form_popup.classList.remove("active");
 });
 
 
-addMaterialCategoryBtn.addEventListener("click", function () {
-    addMaterialCategorySection.classList.add("active");
-});
-
-
-addMaterialCategoryForm.addEventListener("submit", e => {
-    e.preventDefault();
-
+material_category_creation_form_popup_create_btn.addEventListener("click", e => {
 
     let newCategory = {
-        categoryName: categoryNameInput.value
+        categoryName: material_category_name.value
     };
 
-    $.ajax({
-        type: 'POST',
-        url: '/materials/addCategory',
-        data: JSON.stringify(newCategory),
-        contentType: "application/json",
-        success: function (text) {
-            printCategories();
-            printCategoriesInSelectField();
-            addMaterialCategorySection.classList.remove("active");
-            categoryNameInput.value = "";
-            showAlert(text, successStyleAlert());
-            setTimeout(function () {
-                hideAlert();
-            }, 5000); //hide alert automatically after 5sec
+
+    fetch('/materials/addCategory', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
         },
-        error: function (jqXHR) {
-            addMaterialCategorySection.classList.remove("active");
-            categoryNameInput.value = "";
-            showAlert(jqXHR.responseText, warningStyleAlert());
-            setTimeout(function () {
-                hideAlert();
-            }, 5000); //hide alert automatically after 5sec
-        }
-    });
+        body: JSON.stringify(newCategory),
+    })
+        .then(function (response) {
+            response.text().then(function (text) {
+
+                if (response.ok){
+                    if(text === "Congratulations, you've added a new category"){
+                        material_category_creation_form_popup.classList.remove("active");
+                        material_category_name.value = "";
+                        printMaterialCategories();
+                        showSuccessAlert(text);
+                        setTimeout(function () {
+                            hideSuccessAlert();
+                        }, 5000); //hide alert automatically after 5sec
+                    }else{
+                        showErrorAlert(text);
+                        setTimeout(function () {
+                            hideErrorAlert();
+                        }, 5000); //hide alert automatically after 5sec
+                    }
+                }else{
+                    showErrorAlert(text);
+                    setTimeout(function () {
+                        hideErrorAlert();
+                    }, 5000); //hide alert automatically after 5sec
+                }
+            })
+
+        })
+
 });
 
 

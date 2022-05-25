@@ -81,7 +81,7 @@
                         <li>
                             <img src="/icons/add.svg" alt=""><span>New material</span>
                         </li>
-                        <li>
+                        <li id="add_material_category_btn">
                             <img src="/icons/add.svg" alt=""><span>New category</span>
                         </li>
                         <li>
@@ -95,8 +95,8 @@
             </div>
             <div class="material_category_wrapper">
                 <h1 class="header">Choose material category:</h1>
-                <div class="btn_wrapper">
-                    <div class="category_item">
+                <div class="btn_wrapper" id="categories-items">
+                    <div class="category_item" >
                         <h1>Pa4 </h1>
                         <h3>Quantity: 15</h3>
 
@@ -146,15 +146,38 @@
         <!--        material section end-->
     </div>
 <!--     Main part end -->
+    <!--        Alert part start-->
+    <div class="alert_wrapper">
+        <div class="alert_info">
+            <div  id="alert_info" class="alert info">
+                <img class="alert_msg_icon" src="/icons/info.svg" alt=""><span class="alert-msg" id="alert_info_msg">Info</span>
+                <span class="alert-close-btn info" id="alert_info_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
+            </div>
+        </div>
+        <div class="alert_success">
+            <div id="alert_success" class="alert success">
+                <img class="alert_msg_icon" src="/icons/done.svg" alt=""><span class="alert-msg" id="alert_success_msg">Success!</span>
+                <span class="alert-close-btn success" id="alert_success_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
+            </div>
+        </div>
+        <div class="alert_error">
+            <div id="alert_error" class="alert error">
+                <img class="alert_msg_icon" src="/icons/Alarm.svg" alt=""><span class="alert-msg" id="alert_error_msg">Something wrong!</span>
+                <span class="alert-close-btn error" id="alert_error_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
+            </div>
+        </div>
+    </div>
+
+    <!--    Alert part end-->
 <!--POPUP start-->
-    <div class="material_category_creation_form_popup">
+    <div class="material_category_creation_form_popup" id="material_category_creation_form_popup">
         <div class="form_wrapper">
             <img src="/icons/undraw_add_info.svg" alt="">
             <h1>Material category creation form</h1>
-            <input type="text" placeholder="Material category name">
+            <input id="material_category_name" type="text" placeholder="Material category name">
             <div class="btn_wrapper">
-                <button>Create</button>
-                <button>Close</button>
+                <button id="material_category_creation_form_popup_create_btn">Create</button>
+                <button id="material_category_creation_form_popup_close_btn">Close</button>
             </div>
         </div>
     </div>
@@ -257,14 +280,14 @@
             </div>
         </div>
     </div>
-    <div class="delete_popup">
+    <div class="delete_popup" id="delete_popup">
         <div class="popup_wrapper">
             <img src="/icons/red_trash.svg" alt="">
             <h1>Delete?</h1>
             <h3>Here something is Deleted.</h3>
             <div class="btn_wrapper">
-                <button>Cancel</button>
-                <button>Delete</button>
+                <button id="delete_popup_cancel_btn">Cancel</button>
+                <button id="delete_popup_delete_btn">Delete</button>
             </div>
         </div>
     </div>
