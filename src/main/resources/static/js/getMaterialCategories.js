@@ -24,16 +24,15 @@ function printMaterialCategories() {
                 categoriesItemsInnerHTML += `
                                     <div class="category_item" >
                         <h1>${category.categoryName}</h1>
-                        <h3>Quantity: 15</h3>
-                        <img class="del" src="/icons/del.svg" alt="asd" onclick="deleteMaterialCategory(${category.id})">
-                        <img class="edit" src="/icons/edit.svg" alt="asda" onclick="editMaterialCategory(${category.id})">
+                        <img class="del" src="/icons/del.svg" alt="" onclick="deleteMaterialCategory(${category.id})">
+                        <img class="edit" src="/icons/edit.svg" alt="" onclick="editMaterialCategory(${category.id})">
                     </div>
                 `
             });
             categoriesItems.innerHTML = categoriesItemsInnerHTML;
             printMaterialTableSortedByCategoryName();
 
-            printMaterialCategoriesInMaterialCreationForm(categories);
+            printMaterialCategoriesInMaterialCreationForm();
 
         })
 }
@@ -53,18 +52,33 @@ function printMaterialTableSortedByCategoryName(){
     }
 }
 
-function printMaterialCategoriesInMaterialCreationForm(material_categories_list){
-    const material_categories_wrapper = document.getElementById("material_categories");
-    let innerHTML = "";
-    for (let i = 0; i < material_categories_list.length; i++) {
-        let item = (material_categories_list[i]);
-        innerHTML += `<option value="${item.categoryName}">${item.categoryName}</option>`;
-    }
-    material_categories_wrapper.innerHTML = innerHTML;
+function printMaterialCategoriesInMaterialCreationForm(){
+
+
+    fetch('/materials/categories')
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw "Error fetch Material Categories"
+            }
+        })
+        .then(function (material_categories_list) {
+            const material_categories_wrapper = document.getElementById("material_categories");
+            let innerHTML = "";
+            for (let i = 0; i < material_categories_list.length; i++) {
+                let item = (material_categories_list[i]);
+                innerHTML += `<option value="${item.categoryName}">${item.categoryName}</option>`;
+            }
+            material_categories_wrapper.innerHTML = innerHTML;
+            });
+
 }
 
 
 function deleteMaterialCategory(id){
+
+    event.stopImmediatePropagation();
 
     const element = event.target.parentNode;
 
@@ -76,9 +90,18 @@ function deleteMaterialCategory(id){
         fetch('/materials/deleteMaterialCategory?id=' + id, {
             method: 'DELETE',
         })
-            .then(res => res.text()) // or res.json()
+            .then(function (response) {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    delete_popup.classList.remove('active');
+                    showErrorAlert('The category has assigned materials');
+                    throw "The category has assigned materials";
+                }
+            }) // or res.json()
             .then(res => {
                 element.remove();
+                printMaterialCategories();
                 delete_popup.classList.remove('active');
                 showInfoAlert(res);
                 setTimeout(function () {
@@ -89,7 +112,7 @@ function deleteMaterialCategory(id){
 }
 
 function editMaterialCategory(id) {
-
+    event.stopImmediatePropagation();
 
     const element = event.target.parentNode;
     const categoryName = event.target.parentNode.children[0].innerHTML;

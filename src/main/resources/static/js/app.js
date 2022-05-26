@@ -9,6 +9,8 @@ sidebar_btn.addEventListener("click", function () {
 });
 
 
+
+
 //Get user info from backend and display it on main page
 $.get("/userInfo", function (data, status) {
     userInfo.innerText = "Welcome, " + data + " !";

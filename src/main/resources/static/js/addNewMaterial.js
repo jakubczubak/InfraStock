@@ -1,4 +1,4 @@
-const new_material_btn = document.getElementById('new_material_btn')
+const new_material_btn = document.getElementById('new_material_btn');
 const new_material_creation_form_popup = document.getElementById('new_material_creation_form_popup');
 const new_material_creation_form_popup_create_btn = document.getElementById("new_material_creation_form_popup_create_btn");
 const new_material_creation_form_popup_close_btn = document.getElementById("new_material_creation_form_popup_close_btn");
@@ -24,7 +24,7 @@ rod_inputs.classList.add('hide');
         length_dimension.value="";
         d_dimension.value="";
         length_rod_dimension.value="";
-})
+});
 tube_btn.addEventListener('click', function (){
     plate_inputs.classList.remove('show');
     plate_inputs.classList.add('hide');
@@ -39,7 +39,7 @@ y_dimension.value="";
 z_dimension.value="";
     d_dimension.value="";
     length_rod_dimension.value="";
-})
+});
 rod_btn.addEventListener('click', function (){
     plate_inputs.classList.remove('show');
     plate_inputs.classList.add('hide');
@@ -52,7 +52,7 @@ rod_btn.addEventListener('click', function (){
     z_dimension.value="";
     D_outer_dimension.value="";
     d_inner_dimension.value="";
-})
+});
 
 
 const materialDescription = document.getElementById("material_description");
@@ -77,7 +77,7 @@ new_material_btn.addEventListener('click', function (){
 
 new_material_creation_form_popup_close_btn.onclick =function (){
     new_material_creation_form_popup.classList.remove('active');
-}
+};
 
 
 new_material_creation_form_popup_create_btn.addEventListener('click', function (){
@@ -100,73 +100,57 @@ new_material_creation_form_popup_create_btn.addEventListener('click', function (
     };
 
 
-    console.log(newMaterial);
-
-});
-
-createNewMaterial.addEventListener("click", function () {
-
-    addMaterialFormHeader.innerText = "Create a new material position";
-    submitButton.innerText = "Create";
-    addMaterialItem.classList.toggle("active");
-    addNewMaterialItemForm.addEventListener("submit", addMaterial);
-});
-
-
-function addMaterial(event) {
-    event.preventDefault();
-
-
-    let newMaterial = {
-        materialName: materialDescription.value,
-        quantity: quantity.value,
-        minQuantity: minimumQuantity.value,
-        category: materialCategory.value,
-        x_dimension: x_dimension.value,
-        y_dimension: y_dimension.value,
-        z_dimension: z_dimension.value,
-        d_outer_dimension: D_outer_dimension.value,
-        d_inner_dimension: d_inner_dimension.value,
-        length_dimension: length_dimension.value,
-        density: density.value,
-        price: price.value
-    };
-
-
-    $.ajax({
-        type: 'POST',
-        url: '/addMaterial',
-        data: JSON.stringify(newMaterial),
-        contentType: "application/json",
-        success: function (text) {
-            if (text == 'The material you have entered is already in DataBase') {
-                addMaterialItem.classList.remove("active");
-                showAlert(text, warningStyleAlert());
-            } else {
-                printMaterials("/materials");
-                addMaterialItem.classList.remove("active");
-                materialDescription.value = "";
-                quantity.value = "";
-                minimumQuantity.value = "";
-                showAlert(text, successStyleAlert());
-            }
-
-            setTimeout(function () {
-                hideAlert();
-            }, 5000); //hide alert automatically after 5sec
-            getNotifications();
+    fetch('/addMaterial', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
         },
-        error: function (jqXHR) {
-            addMaterialItem.classList.remove("active");
-            showAlert(jqXHR.responseText, warningStyleAlert());
-            setTimeout(function () {
-                hideAlert();
-            }, 5000); //hide alert automatically after 5sec
-        }
-    });
+        body: JSON.stringify(newMaterial),
+    })
+        .then(function (response) {
+            response.text().then(function (text) {
 
-    addNewMaterialItemForm.removeEventListener("submit", addMaterial);
+                if (response.ok){
+                    if(text === "Congratulations, you've added a new material"){
+                        new_material_creation_form_popup.classList.remove('active');
+                        clearDataMaterialCreationForm();
+                        printMaterials("/materials");
+                        showSuccessAlert(text);
+                        setTimeout(function () {
+                            hideSuccessAlert();
+                        }, 5000); //hide alert automatically after 5sec
+                    }else{
+                        showErrorAlert(text);
+                        setTimeout(function () {
+                            hideErrorAlert();
+                        }, 5000); //hide alert automatically after 5sec
+                    }
+                }else{
+                    showErrorAlert(text);
+                    setTimeout(function () {
+                        hideErrorAlert();
+                    }, 5000); //hide alert automatically after 5sec
+                }
+            })
 
+        })
+
+});
+
+function clearDataMaterialCreationForm(){
+    materialDescription.value="";
+    quantity.value="";
+    minimumQuantity.value="";
+    materialCategory.value="";
+    x_dimension.value="";
+    y_dimension.value="";
+    z_dimension.value="";
+        D_outer_dimension.value="";
+     d_inner_dimension.value="";
+    length_dimension.value="";
+     density.value="";
+      price.value="";
+     d_dimension.value="";
+      length_rod_dimension.value="";
 }
-
 

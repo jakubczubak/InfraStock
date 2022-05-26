@@ -1,5 +1,7 @@
 const addMaterialFormHeader = document.getElementById("addMaterialFormHeader");
 const submitButton = document.getElementById("submitButton");
+
+
 const clear_filters_button = document.getElementById("clear-filters-button");
 const materialShoppingList = document.getElementById("materialShoppingList");
 
@@ -11,54 +13,70 @@ clear_filters_button.addEventListener("click", function () {
     printMaterials("/materials");
 });
 
-function printMaterials(url) {
-    $.get(`${url}`, function (data, status) {
+const printMaterials = function printMaterials(url) {
 
-        data.sort((a, b) => (a.materialName > b.materialName) ? 1 : -1);
-
-        const materials = document.getElementById("material-table");
-        let innerHTML = "";
-        for (let i = 0; i < data.length; i++) {
-            let obj = (data[i]);
-
-            let inventoryDate = obj.updatedOn;
-            let isLowQuantity = false;
-
-            if (inventoryDate == null) {
-                inventoryDate = "-";
-            }
-            if (obj.minQuantity > obj.quantity) {
-                isLowQuantity = true;
-            }
-
-            if (isLowQuantity) {
-                innerHTML += `<tr class="material-data">
-                <td class="material-list-number">${i + 1}</td>
-                <td>${obj.materialName}</td>
-                <td>${obj.quantity}<img src="/icons/high_icon.png" alt="Check the stock quantity!" title="Check the stock quantity!"></td>
-                <td>${obj.minQuantity}</td>
-                <td>${obj.category.categoryName}</td>
-                <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${obj.id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="showMaterialInfoPopUp(${obj.id})" alt="About material" title="About material"></td>
-            </tr>`;
+    fetch(url)
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
             } else {
-                innerHTML += `<tr class="material-data">
-                <td class="material-list-number">${i + 1}</td>
-                <td>${obj.materialName}</td>
-                <td>${obj.quantity}<img src="/icons/ok-icon.png" alt="OK" title="Correct stock quantity!"></td>
-                <td>${obj.minQuantity}</td>
-                <td>${obj.category.categoryName}</td>
-                <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${obj.id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${obj.id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="showMaterialInfoPopUp(${obj.id})" alt="About material" title="About material"></td>
-            </tr>`;
+                throw "Error fetch Material list"
             }
+        })
+        .then(function (materials) {
+            materials.sort((a, b) => (a.materialName > b.materialName) ? 1 : -1);
 
-        }
-        materials.innerHTML = innerHTML;
-    });
-}
+            const materialsItemsWrapper = document.getElementById("materials_items");
+            let materialsItemsWrapperInnerHTML = "";
+            let i = 0;
+            materials.forEach(function (material) {
+                i++;
+                let inventoryDate = material.updatedOn;
+                let isLowQuantity = false;
 
-printMaterials("/materials");
+                if (inventoryDate == null) {
+                    inventoryDate = "-";
+                }
+
+                if (material.minQuantity > material.quantity) {
+                    isLowQuantity = true;
+                }
+
+                if(isLowQuantity){
+
+                    materialsItemsWrapperInnerHTML +=
+                        `<tr>
+                <td class="material-list-number">${i + 1}</td>
+                <td>${material.materialName}</td>
+                <td>${material.quantity}<img class="face" src="/icons/sad.svg" alt=""></td>
+                <td>${material.minQuantity}</td>
+                <td>${material.category.categoryName}</td>
+                <td>${inventoryDate}</td>
+                <td><img src="/icons/edit_fill.svg" alt=""><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt=""></td>
+                </tr>
+                `
+                }else{
+                    materialsItemsWrapperInnerHTML +=
+                        `
+                <tr>    
+                <td class="material-list-number">${i + 1}</td>
+                <td>${material.materialName}</td>
+                <td>${material.quantity}<img class="face" src="/icons/happy.svg" alt=""></td>
+                <td>${material.minQuantity}</td>
+                <td>${material.category.categoryName}</td>
+                <td>${inventoryDate}</td>
+                <td><img src="/icons/edit_fill.svg" alt=""><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt=""></td>
+                </tr>
+                `
+                }
+            });
+            materialsItemsWrapper.innerHTML=materialsItemsWrapperInnerHTML;
+        });
+};
+
+printMaterials('/materials');
+
+
 
 
 function showDeleteMaterialPopUp(id) {
