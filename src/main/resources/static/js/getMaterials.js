@@ -52,7 +52,7 @@ const printMaterials = function printMaterials(url) {
                 <td>${material.minQuantity}</td>
                 <td>${material.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt=""><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt=""></td>
+                <td><img src="/icons/edit_fill.svg" alt=""><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
                 </tr>
                 `
                 }else{
@@ -65,7 +65,7 @@ const printMaterials = function printMaterials(url) {
                 <td>${material.minQuantity}</td>
                 <td>${material.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt=""><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt=""></td>
+                <td><img src="/icons/edit_fill.svg" alt=""><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
                 </tr>
                 `
                 }
@@ -75,6 +75,60 @@ const printMaterials = function printMaterials(url) {
 };
 
 printMaterials('/materials');
+
+
+
+
+function deleteMaterial(id){
+
+
+
+    const element = event.target.parentNode.parentNode;
+
+    console.log(element);
+
+    delete_popup.classList.add('active');
+    delete_popup_cancel_btn.onclick = function () {
+        delete_popup.classList.remove('active');
+    };
+    delete_popup_delete_btn.onclick = function () {
+        fetch('/deleteMaterial?id=' + id, {
+            method: 'DELETE',
+        })
+            .then(function (response) {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    delete_popup.classList.remove('active');
+                    showErrorAlert('Error: delete material');
+                    throw "Error: delete material";
+                }
+            }) // or res.json()
+            .then(res => {
+                element.remove();
+                delete_popup.classList.remove('active');
+                showInfoAlert(res);
+                setTimeout(function () {
+                    hideInfoAlert();
+                }, 5000); //hide alert automatically after 5sec
+            })
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -96,22 +150,7 @@ function showDeleteMaterialPopUp(id) {
 
 }
 
-function deleteMaterial(id, element) {
 
-    $.ajax({
-        url: `/deleteMaterial?id=${id}`,
-        type: 'DELETE',
-        success: function () {
-            element.remove();
-            showAlert("Successfully deleted", successStyleAlert());
-            setTimeout(function () {
-                hideAlert();
-            }, 5000); //hide alert automatically after 5sec
-        }
-    });
-
-
-}
 
 
 function updateMaterial(id) {

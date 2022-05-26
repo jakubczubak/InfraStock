@@ -101,7 +101,7 @@ function deleteMaterialCategory(id){
             }) // or res.json()
             .then(res => {
                 element.remove();
-                printMaterialCategories();
+                printMaterialCategoriesInMaterialCreationForm()
                 delete_popup.classList.remove('active');
                 showInfoAlert(res);
                 setTimeout(function () {
