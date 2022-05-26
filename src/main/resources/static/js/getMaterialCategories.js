@@ -14,7 +14,7 @@ function printMaterialCategories() {
             if (response.ok) {
                 return response.json();
             } else {
-                throw "Oops!!!"
+                throw "Error fetch Material Categories"
             }
         })
         .then(function (categories) {
@@ -73,6 +73,7 @@ function deleteMaterialCategory(id){
 
 function editMaterialCategory(id) {
 
+
     const element = event.target.parentNode;
     const categoryName = event.target.parentNode.children[0].innerHTML;
 
@@ -84,22 +85,26 @@ function editMaterialCategory(id) {
     };
 
     material_category_edit_form_popup_update_btn.onclick = function () {
-
         const updatedCategoryName = material_category_edit_form_popup_category_name_input.value;
 
         let updateCategory = {
+            id: id,
             categoryName: updatedCategoryName
         };
-
-
-        fetch('/materials/addCategory', {
+        fetch('/materials/updateMaterial?id=' + id, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(updatedCategoryName),
         })
-            .then(res => res.text()) // or res.json()
+            .then(res => {
+                if(res.ok){
+                    return res.text();
+                }else{
+                    throw 'Error update material category'
+                }
+            }) // or res.json()
             .then(res => {
 
                 element.children[0].innerHTML=updatedCategoryName;
@@ -110,10 +115,6 @@ function editMaterialCategory(id) {
                     hideInfoAlert();
                 }, 5000); //hide alert automatically after 5sec
             });
-
-
-
-
     };
 }
 

@@ -1,6 +1,7 @@
 package com.example.infrastock.materialCategory;
 
 import com.example.infrastock.material.Material;
+import com.example.infrastock.material.MaterialDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,9 +45,19 @@ public class MaterialCategoryService {
         return categoryName;
     }
 
+
+
     public MaterialCategory getMaterialCategoryByID(Long id){
         return materialCategoryRepo.getById(id);
     }
 
+    public void updateMaterialCategory(MaterialCategoryDTO materialCategoryDTO, Long id) {
+        MaterialCategory materialCategoryToUpdate = materialCategoryRepo.getById(id);
+        materialCategoryToUpdate.setCategoryName(materialCategoryDTO.getCategoryName());
+        materialCategoryRepo.save(materialCategoryToUpdate);
+    }
+
 
 }
+
+

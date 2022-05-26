@@ -18,6 +18,10 @@ public class MaterialCategoryDTO {
     public MaterialCategoryDTO(String categoryName) {
         this.categoryName = categoryName;
     }
+    public MaterialCategoryDTO(Long id, String categoryName) {
+        this.categoryName = categoryName;
+        this.id=id;
+    }
 
     public Long getId() {
         return id;

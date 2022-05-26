@@ -1,5 +1,6 @@
 package com.example.infrastock.materialCategory;
 
+import com.example.infrastock.material.MaterialDTO;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -41,6 +42,12 @@ public class MaterialCategoryController {
 
         return "Successfully deleted category: " + materialCategoryService.deleteMaterialCategoryByID(id);
 
+    }
+
+    @PostMapping("/updateMaterial")
+    public String updateMaterialCategory(@RequestBody @Valid MaterialCategoryDTO materialCategoryDTO, @RequestParam Long id) {
+        materialCategoryService.updateMaterialCategory(materialCategoryDTO, id);
+        return "Successfully material category updated: " + materialCategoryDTO.getCategoryName();
     }
 
 
