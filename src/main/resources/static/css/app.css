@@ -537,6 +537,7 @@ body{
     left: 0;
     background-color: rgba(249, 250, 252, 0.8);
     display: none;
+    z-index: 2;
 }
 .new_material_creation_form_popup.active{
     display: block;
@@ -580,6 +581,7 @@ body{
     padding: 0 16px;
     margin: 8px auto;
     display: block;
+    cursor: pointer;
 }
 
 .new_material_creation_form_popup .form_wrapper select::placeholder{
@@ -609,7 +611,10 @@ body{
     padding: 0 16px;
     margin: 8px auto;
     display: block;
+    cursor: pointer;
 }
+
+
 .new_material_creation_form_popup .form_wrapper input:focus{
     outline-color: #6C63FF;
 }
@@ -638,11 +643,30 @@ body{
     cursor: pointer;
 }
 
-.new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper{
+.new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div{
     display: flex;
     width: 80%;
     justify-content: space-around;
     margin: 0 auto;
+}
+
+.new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.plate.hide{
+    display: none;
+}
+.new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.tube.hide{
+    display: none;
+}
+.new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.rod.hide{
+    display: none;
+}
+.new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.plate.show{
+    display: flex;
+}
+.new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.tube.show{
+    display: flex;
+}
+.new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.rod.show{
+    display: flex;
 }
 .new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper input{
     width: 30%;

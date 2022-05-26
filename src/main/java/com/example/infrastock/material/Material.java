@@ -26,7 +26,11 @@ public class Material {
     private float z_dimension;
     private float d_outer_dimension;
     private float d_inner_dimension;
+
+    private float d_dimension;
     private float length_dimension;
+
+    private float length_rod_dimension;
     private float density;
     private float price;
 
@@ -41,7 +45,7 @@ public class Material {
 
     }
 
-    public Material(String materialName, Integer quantity, Integer minQuantity, MaterialCategory category, float x_dimension, float y_dimension, float z_dimension, float d_outer_dimension, float d_inner_dimension, float length_dimension, float density, float price) {
+    public Material(String materialName, Integer quantity, Integer minQuantity, MaterialCategory category, float x_dimension, float y_dimension, float z_dimension, float d_outer_dimension, float d_inner_dimension, float length_dimension, float density, float price, float d_dimension, float length_rod_dimension) {
         this.materialName = materialName;
         this.quantity = quantity;
         this.minQuantity = minQuantity;
@@ -54,7 +58,8 @@ public class Material {
         this.length_dimension = length_dimension;
         this.density = density;
         this.price = price;
-
+        this.d_dimension =d_dimension;
+        this.length_rod_dimension =length_rod_dimension;
     }
 
 
@@ -65,6 +70,22 @@ public class Material {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
         updatedOn = now.format(formatter);
+    }
+
+    public float getD_dimension() {
+        return d_dimension;
+    }
+
+    public void setD_dimension(float d_dimension) {
+        this.d_dimension = d_dimension;
+    }
+
+    public float getLength_rod_dimension() {
+        return length_rod_dimension;
+    }
+
+    public void setLength_rod_dimension(float length_rod_dimension) {
+        this.length_rod_dimension = length_rod_dimension;
     }
 
     public String getUpdatedOn() {

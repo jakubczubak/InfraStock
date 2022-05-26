@@ -39,8 +39,14 @@ public class MaterialDTO {
     @Min(value = 0, message = "Minimum dimension could be 0")
     private float d_inner_dimension;
 
+    @Min(value = 0, message = "Minimum dimension could be 0")
+    private float d_dimension;
+
     @Min(value = 0, message = "Minimum length could be 0")
     private float length_dimension;
+
+    @Min(value = 0, message = "Minimum length could be 0")
+    private float length_rod_dimension;
 
     @Min(value = 0, message = "Minimum density could be 0")
     private float density;
@@ -59,7 +65,7 @@ public class MaterialDTO {
         this.category = category;
     }
 
-    public MaterialDTO(String materialName, Integer quantity, Integer minQuantity, String category, float x_dimension, float y_dimension, float z_dimension, float d_outer_dimension, float d_inner_dimension, float length_dimension, float density, float price) {
+    public MaterialDTO(String materialName, Integer quantity, Integer minQuantity, String category, float x_dimension, float y_dimension, float z_dimension, float d_outer_dimension, float d_inner_dimension, float length_dimension, float density, float price, float d_dimension, float length_rod_dimension) {
         this.materialName = materialName;
         this.quantity = quantity;
         this.minQuantity = minQuantity;
@@ -72,6 +78,24 @@ public class MaterialDTO {
         this.length_dimension = length_dimension;
         this.density = density;
         this.price = price;
+        this.d_dimension =d_dimension;
+        this.length_rod_dimension =length_rod_dimension;
+    }
+
+    public float getD_dimension() {
+        return d_dimension;
+    }
+
+    public void setD_dimension(float d_dimension) {
+        this.d_dimension = d_dimension;
+    }
+
+    public float getLength_rod_dimension() {
+        return length_rod_dimension;
+    }
+
+    public void setLength_rod_dimension(float length_rod_dimension) {
+        this.length_rod_dimension = length_rod_dimension;
     }
 
     public Long getId() {

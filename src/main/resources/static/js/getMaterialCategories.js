@@ -31,20 +31,37 @@ function printMaterialCategories() {
                 `
             });
             categoriesItems.innerHTML = categoriesItemsInnerHTML;
+            printMaterialTableSortedByCategoryName();
 
+            printMaterialCategoriesInMaterialCreationForm(categories);
 
-            let category_items = document.getElementsByClassName("category_item");
-
-            for (let i = 0; i < category_items.length; i++) {
-
-                category_items[i].addEventListener("click", function () {
-                    printMaterials(`/sortedMaterials?categoryName=${this.children[0].innerHTML}`);
-                })
-            }
         })
 }
 
 printMaterialCategories();
+
+
+
+function printMaterialTableSortedByCategoryName(){
+    let category_items = document.getElementsByClassName("category_item");
+
+    for (let i = 0; i < category_items.length; i++) {
+
+        category_items[i].addEventListener("click", function () {
+            printMaterials(`/sortedMaterials?categoryName=${this.children[0].innerHTML}`);
+        })
+    }
+}
+
+function printMaterialCategoriesInMaterialCreationForm(material_categories_list){
+    const material_categories_wrapper = document.getElementById("material_categories");
+    let innerHTML = "";
+    for (let i = 0; i < material_categories_list.length; i++) {
+        let item = (material_categories_list[i]);
+        innerHTML += `<option value="${item.categoryName}">${item.categoryName}</option>`;
+    }
+    material_categories_wrapper.innerHTML = innerHTML;
+}
 
 
 function deleteMaterialCategory(id){
@@ -117,18 +134,3 @@ function editMaterialCategory(id) {
             });
     };
 }
-
-
-function printCategoriesInSelectField() {
-    $.get("/materials/categories", function (data, status) {
-        const categoriesItems = document.getElementById("materialCategory");
-        let innerHTML = "";
-        for (let i = 0; i < data.length; i++) {
-            let obj = (data[i]);
-            innerHTML += `<option value="${obj.categoryName}">${obj.categoryName}</option>`;
-        }
-        categoriesItems.innerHTML = innerHTML;
-    });
-}
-
-printCategoriesInSelectField();

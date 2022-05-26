@@ -78,7 +78,7 @@
                 <h1 class="header">Material section <img src="/icons/question.svg" alt=""></h1>
                 <div class="btn_wrapper">
                     <ul>
-                        <li>
+                        <li id="new_material_btn">
                             <img src="/icons/add.svg" alt=""><span>New material</span>
                         </li>
                         <li id="add_material_category_btn">
@@ -185,39 +185,48 @@
             </div>
         </div>
     </div>
-    <div class="new_material_creation_form_popup">
+    <div class="new_material_creation_form_popup" id="new_material_creation_form_popup">
         <div class="form_wrapper">
             <img src="/icons/addfiles.svg" alt="">
             <h1>New material creation form</h1>
-            <input type="text" placeholder="Material name">
+            <input id="material_description" type="text" placeholder="Material name">
             <div class="quantity">
-                <input type="number" placeholder="Quantity" min="0" step="1">
-                <input type="number" placeholder="Min. quantity" min="0" step="1">
+                <input id="quantity" type="number" placeholder="Quantity" min="0" step="1">
+                <input id="minimum_quantity" type="number" placeholder="Min. quantity" min="0" step="1">
             </div>
-            <select name="categories" id="material_categories">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+            <select  name="categories" id="material_categories">
             </select>
             <div class="density_price">
-                <input type="number" placeholder="Density [g/cm3]" min="0">
-                <input type="number" placeholder="Price [PLN/kg]" min="0">
+                <input id="density" type="number" placeholder="Density [g/cm3]" min="0">
+                <input id="price" type="number" placeholder="Price [PLN/kg]" min="0">
             </div>
             <span>Dimensions:</span>
             <div class="img_wrapper">
-                <img src="/icons/Add_1.svg" alt="">
-                <img src="/icons/Add_2.svg" alt="">
-                <img src="/icons/Add_3.svg" alt="">
+                <img id="plate_btn" src="/icons/Add_1.svg" alt="Plate" title="Plate">
+                <img id="tube_btn" src="/icons/Add_2.svg" alt="Tube" title="Tube">
+                <img id="rod_btn" src="/icons/Add_3.svg" alt="Rod" title="Rod">
             </div>
             <div class="dimensions_input_wrapper">
-                <input type="number" placeholder="X [mm]" min="0">
-                <input type="number" placeholder="Y [mm]" min="0">
-                <input type="number" placeholder="Z [mm]" min="0">
+
+                <div class="plate" id="plate_inputs">
+                    <input id="x_dimension" type="number" placeholder="X [mm]" min="0" title="X axis dimension">
+                    <input id="y_dimension" type="number" placeholder="Y [mm]" min="0" title="Y axis dimension">
+                    <input id="z_dimension" type="number" placeholder="Z [mm]" min="0" title="Z axis dimension">
+                </div>
+                <div class="tube hide" id="tube_inputs">
+                    <input id="D_outer_dimension" type="number" placeholder="&#x2300; [mm]" min="0" title="Outer diameter">
+                    <input id="d_inner_dimension" type="number" placeholder="&#8960; [mm]" min="0" title="Inner diameter">
+                    <input id="length_dimension" type="number" placeholder="L [mm]" min="0" title="Length of tube">
+                </div>
+                <div class="rod hide" id="rod_inputs">
+                    <input id="d_dimension" type="number" placeholder="&#x2300; [mm]" min="0" title="Diameter">
+                    <input id="length_rod_dimension" type="number" placeholder="L [mm]" min="0" title="Length of rod">
+                </div>
+
             </div>
             <div class="btn_wrapper">
-                <button>Create</button>
-                <button>Close</button>
+                <button id="new_material_creation_form_popup_create_btn">Create</button>
+                <button id="new_material_creation_form_popup_close_btn">Close</button>
             </div>
         </div>
     </div>
