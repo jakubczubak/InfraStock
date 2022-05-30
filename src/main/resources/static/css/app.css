@@ -1089,3 +1089,39 @@ body{
 }
 /*LOGOUT  POPUP END*/
 
+@media print {
+table{
+        overflow: hidden;
+        text-align: center;
+        width: 100%;
+    border-collapse: collapse;
+    }
+table thead{
+        color: #ffffff;
+        font-size: 18px;
+    font-weight: normal;
+    }
+table thead th{
+        padding: 16px 8px;
+        color: black;
+    }
+table thead th img{
+display: none;
+    }
+
+table tbody tr{
+         height: 30px;
+         border-bottom: 1px solid #505F79;
+     }
+    table tbody tr:last-child{
+        border: none;
+    }
+    table tbody tr td{
+
+    }
+table tbody tr td img{
+
+        display: none;
+    }
+
+}
