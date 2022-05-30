@@ -51,7 +51,7 @@ public class MaterialController {
         System.out.println(materialDTO.getPrice());
         notificationService.addNotification(materialDTO);
         materialService.updateMaterial(materialDTO);
-        return "Successfully updated";
+        return "Successfully updated: " + materialDTO.getMaterialName();
     }
 
     @DeleteMapping("/deleteMaterial")

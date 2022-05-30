@@ -138,6 +138,60 @@ const price_edit = document.getElementById("price_edit");
 
 
 
+const plate_btn_edit = document.getElementById('plate_btn_edit');
+const tube_btn_edit = document.getElementById('tube_btn_edit');
+const rod_btn_edit = document.getElementById('rod_btn_edit');
+
+const plate_inputs_edit = document.getElementById('plate_inputs_edit');
+const tube_inputs_edit = document.getElementById('tube_inputs_edit');
+const rod_inputs_edit = document.getElementById('rod_inputs_edit');
+
+plate_btn_edit.addEventListener('click', function (){
+    plate_inputs_edit.classList.remove('hide');
+    plate_inputs_edit.classList.add('show');
+    tube_inputs_edit.classList.remove('show');
+    tube_inputs_edit.classList.add('hide');
+    rod_inputs_edit.classList.remove('show');
+    rod_inputs_edit.classList.add('hide');
+
+    D_outer_dimension.value="";
+    d_inner_dimension.value="";
+    length_dimension.value="";
+    d_dimension.value="";
+    length_rod_dimension.value="";
+});
+tube_btn_edit.addEventListener('click', function (){
+    plate_inputs_edit.classList.remove('show');
+    plate_inputs_edit.classList.add('hide');
+    tube_inputs_edit.classList.remove('hide');
+    tube_inputs_edit.classList.add('show');
+    rod_inputs_edit.classList.remove('show');
+    rod_inputs_edit.classList.add('hide');
+
+
+    x_dimension.value="";
+    y_dimension.value="";
+    z_dimension.value="";
+    d_dimension.value="";
+    length_rod_dimension.value="";
+});
+rod_btn_edit.addEventListener('click', function (){
+    plate_inputs_edit.classList.remove('show');
+    plate_inputs_edit.classList.add('hide');
+    tube_inputs_edit.classList.remove('show');
+    tube_inputs_edit.classList.add('hide');
+    rod_inputs_edit.classList.remove('hide');
+    rod_inputs_edit.classList.add('show');
+    x_dimension.value="";
+    y_dimension.value="";
+    z_dimension.value="";
+    D_outer_dimension.value="";
+    d_inner_dimension.value="";
+});
+
+
+
+
 function updateMaterial(id) {
 
     const element = event.target.parentNode.parentNode;
@@ -167,17 +221,89 @@ function updateMaterial(id) {
        d_dimension_edit.value = material.d_dimension;
        length_rod_dimension_edit.value = material.length_rod_dimension;
 
+       return material;
+
     }).then(function (material){
+
+        if(material.x_dimension > 0){
+            plate_inputs_edit.classList.remove('hide');
+            plate_inputs_edit.classList.add('show');
+            tube_inputs_edit.classList.remove('show');
+            tube_inputs_edit.classList.add('hide');
+            rod_inputs_edit.classList.remove('show');
+            rod_inputs_edit.classList.add('hide');
+        }else if(material.d_outer_dimension > 0){
+            plate_inputs_edit.classList.remove('show');
+            plate_inputs_edit.classList.add('hide');
+            tube_inputs_edit.classList.remove('hide');
+            tube_inputs_edit.classList.add('show');
+            rod_inputs_edit.classList.remove('show');
+            rod_inputs_edit.classList.add('hide');
+        }else{
+            plate_inputs_edit.classList.remove('show');
+            plate_inputs_edit.classList.add('hide');
+            tube_inputs_edit.classList.remove('show');
+            tube_inputs_edit.classList.add('hide');
+            rod_inputs_edit.classList.remove('hide');
+            rod_inputs_edit.classList.add('show');
+        }
+
         edit_material_creation_form_popup.classList.add('active');
 
         edit_material_creation_form_popup_close_btn.onclick = function (){
             edit_material_creation_form_popup.classList.remove('active');
-        }
+        };
+
 
         edit_material_creation_form_popup_update_btn.onclick = function (){
 
+
+            let updatedMaterial = {
+                id : material.id,
+                materialName: materialDescription_edit.value,
+                quantity: quantity_edit.value,
+                minQuantity: minimumQuantity_edit.value,
+                category: materialCategory_edit.value,
+                x_dimension: x_dimension_edit.value,
+                y_dimension: y_dimension_edit.value,
+                z_dimension: z_dimension_edit.value,
+                d_outer_dimension: D_outer_dimension_edit.value,
+                d_inner_dimension: d_inner_dimension_edit.value,
+                length_dimension: length_dimension_edit.value,
+                density: density_edit.value,
+                price: price_edit.value,
+                d_dimension : d_dimension_edit.value,
+                length_rod_dimension : length_rod_dimension_edit.value
+            };
+
+
+            fetch('/updateMaterial?id=' + updatedMaterial.id, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedMaterial),
+            })
+                .then(res => {
+                    if(res.ok){
+                        return res.text();
+                    }else{
+                        throw 'Error update material'
+                    }
+                }) // or res.json()
+                .then(res => {
+
+                    element.children[0].innerHTML=material_number;
+                    edit_material_creation_form_popup.classList.remove('active');
+                    showInfoAlert(res);
+                    setTimeout(function () {
+                        hideInfoAlert();
+                    }, 5000); //hide alert automatically after 5sec
+                });
         }
     })
+
+
 
 
     //

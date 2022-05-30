@@ -318,6 +318,13 @@ body{
 .material_table_wrapper .table_wrapper table thead th{
     padding: 16px 8px;
 }
+.material_table_wrapper .table_wrapper table thead th img{
+    width: 32px;
+    position: relative;
+    left: 0;
+    top: 7px;
+    cursor: pointer;
+}
 
 .material_table_wrapper .table_wrapper table tbody tr{
     height: 62px;
@@ -706,6 +713,7 @@ body{
     left: 0;
     background-color: rgba(249, 250, 252, 0.8);
     display: none;
+    z-index: 2;
 }
 .edit_material_creation_form_popup.active{
     display: block;
