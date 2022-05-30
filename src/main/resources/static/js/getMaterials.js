@@ -48,7 +48,7 @@ const printMaterials = function printMaterials(url) {
                 <td>${material.minQuantity}</td>
                 <td>${material.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
                 </tr>
                 `
                 } else {
@@ -61,7 +61,7 @@ const printMaterials = function printMaterials(url) {
                 <td>${material.minQuantity}</td>
                 <td>${material.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
                 </tr>
                 `
                 }
@@ -309,7 +309,7 @@ function updateMaterial(id) {
                 <td>${material.minQuantity}</td>
                 <td>${material.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
                 </tr>
                 `)
                                 } else {
@@ -322,7 +322,7 @@ function updateMaterial(id) {
                 <td>${material.minQuantity}</td>
                 <td>${material.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
                 </tr>
                 `)
                                 }
