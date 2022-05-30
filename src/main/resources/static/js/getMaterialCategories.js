@@ -42,7 +42,8 @@ printMaterialCategories();
 
 
 function printMaterialTableSortedByCategoryName(){
-    let category_items = document.getElementsByClassName("category_item");
+    const category_items = document.getElementsByClassName("category_item");
+
 
     for (let i = 0; i < category_items.length; i++) {
 
@@ -65,12 +66,15 @@ function printMaterialCategoriesInMaterialCreationForm(){
         })
         .then(function (material_categories_list) {
             const material_categories_wrapper = document.getElementById("material_categories");
+            const material_categories_edit = document.getElementById('material_categories_edit');
+
             let innerHTML = "";
             for (let i = 0; i < material_categories_list.length; i++) {
-                let item = (material_categories_list[i]);
+                let item = material_categories_list[i];
                 innerHTML += `<option value="${item.categoryName}">${item.categoryName}</option>`;
             }
             material_categories_wrapper.innerHTML = innerHTML;
+            material_categories_edit.innerHTML = innerHTML
             });
 
 }

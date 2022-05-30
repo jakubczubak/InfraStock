@@ -215,24 +215,24 @@
             </div>
         </div>
     </div>
-    <div class="edit_material_creation_form_popup">
+    <div class="edit_material_creation_form_popup" id="edit_material_creation_form_popup">
         <div class="form_wrapper">
             <img src="/icons/update.svg" alt="">
             <h1>Edit material</h1>
-            <input type="text" placeholder="Material name">
+            <input id="material_description_edit" type="text" placeholder="Material name">
             <div class="quantity">
-                <input type="number" placeholder="Quantity" min="0" step="1">
-                <input type="number" placeholder="Min. quantity" min="0" step="1">
+                <input id="quantity_edit" type="number" placeholder="Quantity" min="0" step="1">
+                <input id="minimum_quantity_edit" type="number" placeholder="Min. quantity" min="0" step="1">
             </div>
-            <select name="categories" id="material_categories_edit_form">
-                <option value="1">1</option>
+            <select name="categories" id="material_categories_edit" >
+                <option selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
             </select>
             <div class="density_price">
-                <input type="number" placeholder="Density [g/cm3]" min="0">
-                <input type="number" placeholder="Price [PLN/kg]" min="0">
+                <input id="density_edit" type="number" placeholder="Density [g/cm3]" min="0">
+                <input id="price_edit" type="number" placeholder="Price [PLN/kg]" min="0">
             </div>
             <span>Dimensions:</span>
             <div class="img_wrapper">
@@ -241,13 +241,26 @@
                 <img src="/icons/Add_3.svg" alt="">
             </div>
             <div class="dimensions_input_wrapper">
-                <input type="number" placeholder="X [mm]" min="0">
-                <input type="number" placeholder="Y [mm]" min="0">
-                <input type="number" placeholder="Z [mm]" min="0">
+
+                <div class="plate" id="plate_inputs_edit">
+                    <input id="x_dimension_edit" type="number" placeholder="X [mm]" min="0" title="X axis dimension">
+                    <input id="y_dimension_edit" type="number" placeholder="Y [mm]" min="0" title="Y axis dimension">
+                    <input id="z_dimension_edit" type="number" placeholder="Z [mm]" min="0" title="Z axis dimension">
+                </div>
+                <div class="tube hide" id="tube_inputs_edit">
+                    <input id="D_outer_dimension_edit" type="number" placeholder="&#x2300; [mm]" min="0" title="Outer diameter">
+                    <input id="d_inner_dimension_edit" type="number" placeholder="&#8960; [mm]" min="0" title="Inner diameter">
+                    <input id="length_dimension_edit" type="number" placeholder="L [mm]" min="0" title="Length of tube">
+                </div>
+                <div class="rod hide" id="rod_inputs_edit">
+                    <input id="d_dimension_edit" type="number" placeholder="&#x2300; [mm]" min="0" title="Diameter">
+                    <input id="length_rod_dimension_edit" type="number" placeholder="L [mm]" min="0" title="Length of rod">
+                </div>
+
             </div>
             <div class="btn_wrapper">
-                <button>Update</button>
-                <button>Close</button>
+                <button id="edit_material_creation_form_popup_update_btn">Update</button>
+                <button id="edit_material_creation_form_popup_close_btn">Close</button>
             </div>
         </div>
     </div>

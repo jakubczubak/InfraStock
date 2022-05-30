@@ -806,11 +806,30 @@ body{
     cursor: pointer;
 }
 
-.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper{
+.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div{
     display: flex;
     width: 80%;
     justify-content: space-around;
     margin: 0 auto;
+}
+
+.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.plate.hide{
+    display: none;
+}
+.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.tube.hide{
+    display: none;
+}
+.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.rod.hide{
+    display: none;
+}
+.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.plate.show{
+    display: flex;
+}
+.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.tube.show{
+    display: flex;
+}
+.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.rod.show{
+    display: flex;
 }
 .edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper input{
     width: 30%;
