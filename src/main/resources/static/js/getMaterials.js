@@ -1,6 +1,3 @@
-
-
-
 const clear_filters_button = document.getElementById("clear-filters-button");
 const materialShoppingList = document.getElementById("materialShoppingList");
 
@@ -41,7 +38,7 @@ const printMaterials = function printMaterials(url) {
                     isLowQuantity = true;
                 }
 
-                if(isLowQuantity){
+                if (isLowQuantity) {
 
                     materialsItemsWrapperInnerHTML +=
                         `<tr>
@@ -54,7 +51,7 @@ const printMaterials = function printMaterials(url) {
                 <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
                 </tr>
                 `
-                }else{
+                } else {
                     materialsItemsWrapperInnerHTML +=
                         `
                 <tr>    
@@ -69,21 +66,17 @@ const printMaterials = function printMaterials(url) {
                 `
                 }
             });
-            materialsItemsWrapper.innerHTML=materialsItemsWrapperInnerHTML;
+            materialsItemsWrapper.innerHTML = materialsItemsWrapperInnerHTML;
         });
 };
 
 printMaterials('/materials');
 
 
-
-
-function deleteMaterial(id){
-
+function deleteMaterial(id) {
 
 
     const element = event.target.parentNode.parentNode;
-
 
 
     delete_popup.classList.add('active');
@@ -120,7 +113,6 @@ const edit_material_creation_form_popup_update_btn = document.getElementById('ed
 const edit_material_creation_form_popup_close_btn = document.getElementById('edit_material_creation_form_popup_close_btn');
 
 
-
 const materialDescription_edit = document.getElementById("material_description_edit");
 const quantity_edit = document.getElementById("quantity_edit");
 const minimumQuantity_edit = document.getElementById("minimum_quantity_edit");
@@ -137,7 +129,6 @@ const density_edit = document.getElementById("density_edit");
 const price_edit = document.getElementById("price_edit");
 
 
-
 const plate_btn_edit = document.getElementById('plate_btn_edit');
 const tube_btn_edit = document.getElementById('tube_btn_edit');
 const rod_btn_edit = document.getElementById('rod_btn_edit');
@@ -146,7 +137,7 @@ const plate_inputs_edit = document.getElementById('plate_inputs_edit');
 const tube_inputs_edit = document.getElementById('tube_inputs_edit');
 const rod_inputs_edit = document.getElementById('rod_inputs_edit');
 
-plate_btn_edit.addEventListener('click', function (){
+plate_btn_edit.addEventListener('click', function () {
     plate_inputs_edit.classList.remove('hide');
     plate_inputs_edit.classList.add('show');
     tube_inputs_edit.classList.remove('show');
@@ -154,13 +145,13 @@ plate_btn_edit.addEventListener('click', function (){
     rod_inputs_edit.classList.remove('show');
     rod_inputs_edit.classList.add('hide');
 
-    D_outer_dimension.value="";
-    d_inner_dimension.value="";
-    length_dimension.value="";
-    d_dimension.value="";
-    length_rod_dimension.value="";
+    D_outer_dimension.value = "";
+    d_inner_dimension.value = "";
+    length_dimension.value = "";
+    d_dimension.value = "";
+    length_rod_dimension.value = "";
 });
-tube_btn_edit.addEventListener('click', function (){
+tube_btn_edit.addEventListener('click', function () {
     plate_inputs_edit.classList.remove('show');
     plate_inputs_edit.classList.add('hide');
     tube_inputs_edit.classList.remove('hide');
@@ -169,77 +160,77 @@ tube_btn_edit.addEventListener('click', function (){
     rod_inputs_edit.classList.add('hide');
 
 
-    x_dimension.value="";
-    y_dimension.value="";
-    z_dimension.value="";
-    d_dimension.value="";
-    length_rod_dimension.value="";
+    x_dimension.value = "";
+    y_dimension.value = "";
+    z_dimension.value = "";
+    d_dimension.value = "";
+    length_rod_dimension.value = "";
 });
-rod_btn_edit.addEventListener('click', function (){
+rod_btn_edit.addEventListener('click', function () {
     plate_inputs_edit.classList.remove('show');
     plate_inputs_edit.classList.add('hide');
     tube_inputs_edit.classList.remove('show');
     tube_inputs_edit.classList.add('hide');
     rod_inputs_edit.classList.remove('hide');
     rod_inputs_edit.classList.add('show');
-    x_dimension.value="";
-    y_dimension.value="";
-    z_dimension.value="";
-    D_outer_dimension.value="";
-    d_inner_dimension.value="";
+    x_dimension.value = "";
+    y_dimension.value = "";
+    z_dimension.value = "";
+    D_outer_dimension.value = "";
+    d_inner_dimension.value = "";
 });
-
-
 
 
 function updateMaterial(id) {
 
     const element = event.target.parentNode.parentNode;
+
+    console.log(element);
     const material_number = element.children[0].innerHTML;
 
     fetch("/getMaterial?id=" + id)
-        .then(function (response){
+        .then(function (response) {
             if (response.ok) {
                 return response.json();
             } else {
                 throw "Error fetch Material by id"
             }
-        }).then(function (material){
+        }).then(function (material) {
 
-       materialDescription_edit.value = material.materialName;
-       quantity_edit.value = material.quantity;
-       minimumQuantity_edit.value = material.minQuantity;
-       materialCategory_edit.value = material.category.categoryName;
-       x_dimension_edit.value = material.x_dimension;
-       y_dimension_edit.value = material.y_dimension;
-       z_dimension_edit.value = material.z_dimension;
-       D_outer_dimension_edit.value = material.d_outer_dimension;
-       d_inner_dimension_edit.value = material.d_inner_dimension;
-       length_dimension_edit.value = material.length_dimension;
-       density_edit.value = material.density;
-       price_edit.value = material.price;
-       d_dimension_edit.value = material.d_dimension;
-       length_rod_dimension_edit.value = material.length_rod_dimension;
+        materialDescription_edit.value = material.materialName;
+        quantity_edit.value = material.quantity;
+        minimumQuantity_edit.value = material.minQuantity;
+        materialCategory_edit.value = material.category.categoryName;
+        x_dimension_edit.value = material.x_dimension;
+        y_dimension_edit.value = material.y_dimension;
+        z_dimension_edit.value = material.z_dimension;
+        D_outer_dimension_edit.value = material.d_outer_dimension;
+        d_inner_dimension_edit.value = material.d_inner_dimension;
+        length_dimension_edit.value = material.length_dimension;
+        density_edit.value = material.density;
+        price_edit.value = material.price;
+        d_dimension_edit.value = material.d_dimension;
+        length_rod_dimension_edit.value = material.length_rod_dimension;
 
-       return material;
+        return material;
 
-    }).then(function (material){
+    }).then(function (material) {
 
-        if(material.x_dimension > 0){
+        if (material.x_dimension > 0) {
             plate_inputs_edit.classList.remove('hide');
             plate_inputs_edit.classList.add('show');
             tube_inputs_edit.classList.remove('show');
             tube_inputs_edit.classList.add('hide');
             rod_inputs_edit.classList.remove('show');
             rod_inputs_edit.classList.add('hide');
-        }else if(material.d_outer_dimension > 0){
+        } else if (material.d_outer_dimension > 0) {
             plate_inputs_edit.classList.remove('show');
             plate_inputs_edit.classList.add('hide');
             tube_inputs_edit.classList.remove('hide');
             tube_inputs_edit.classList.add('show');
             rod_inputs_edit.classList.remove('show');
             rod_inputs_edit.classList.add('hide');
-        }else{
+        } else {
             plate_inputs_edit.classList.remove('show');
             plate_inputs_edit.classList.add('hide');
             tube_inputs_edit.classList.remove('show');
@@ -250,16 +241,16 @@ function updateMaterial(id) {
 
         edit_material_creation_form_popup.classList.add('active');
 
-        edit_material_creation_form_popup_close_btn.onclick = function (){
+        edit_material_creation_form_popup_close_btn.onclick = function () {
             edit_material_creation_form_popup.classList.remove('active');
         };
 
 
-        edit_material_creation_form_popup_update_btn.onclick = function (){
+        edit_material_creation_form_popup_update_btn.onclick = function () {
 
 
             let updatedMaterial = {
-                id : material.id,
+                id: material.id,
                 materialName: materialDescription_edit.value,
                 quantity: quantity_edit.value,
                 minQuantity: minimumQuantity_edit.value,
@@ -272,8 +263,8 @@ function updateMaterial(id) {
                 length_dimension: length_dimension_edit.value,
                 density: density_edit.value,
                 price: price_edit.value,
-                d_dimension : d_dimension_edit.value,
-                length_rod_dimension : length_rod_dimension_edit.value
+                d_dimension: d_dimension_edit.value,
+                length_rod_dimension: length_rod_dimension_edit.value
             };
 
 
@@ -284,145 +275,74 @@ function updateMaterial(id) {
                 },
                 body: JSON.stringify(updatedMaterial),
             })
-                .then(res => {
-                    if(res.ok){
-                        return res.text();
-                    }else{
-                        throw 'Error update material'
-                    }
-                }) // or res.json()
-                .then(res => {
+                .then(function (response) {
+                    response.text().then(function (text) {
+                        if(response.ok){
+                            fetch("/getMaterial?id=" + updatedMaterial.id)
+                                .then(function (response) {
+                                    if (response.ok) {
+                                        return response.json();
+                                    } else {
 
-                    element.children[0].innerHTML=material_number;
-                    edit_material_creation_form_popup.classList.remove('active');
-                    showInfoAlert(res);
-                    setTimeout(function () {
-                        hideInfoAlert();
-                    }, 5000); //hide alert automatically after 5sec
-                });
+                                        throw "Error fetch Material by id"
+                                    }
+                                }).then(function (material) {
+
+                                let inventoryDate = material.updatedOn;
+                                let isLowQuantity = false;
+
+                                if (inventoryDate == null) {
+                                    inventoryDate = "-";
+                                }
+
+                                if (material.minQuantity > material.quantity) {
+                                    isLowQuantity = true;
+                                }
+
+                                if (isLowQuantity) {
+
+                                    element.innerHTML = (
+                                        `<tr>
+                <td>${material_number}</td>
+                <td>${material.materialName}</td>
+                <td>${material.quantity}<img class="face" src="/icons/sad.svg" alt=""></td>
+                <td>${material.minQuantity}</td>
+                <td>${material.category.categoryName}</td>
+                <td>${inventoryDate}</td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
+                </tr>
+                `)
+                                } else {
+                                    element.innerHTML = (
+                                        `
+                <tr>    
+                <td>${material_number}</td>
+                <td>${material.materialName}</td>
+                <td>${material.quantity}<img class="face" src="/icons/happy.svg" alt=""></td>
+                <td>${material.minQuantity}</td>
+                <td>${material.category.categoryName}</td>
+                <td>${inventoryDate}</td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt=""><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
+                </tr>
+                `)
+                                }
+                                edit_material_creation_form_popup.classList.remove('active');
+                                showInfoAlert(text);
+                                setTimeout(function () {
+                                    hideInfoAlert();
+                                }, 5000); //hide alert automatically after 5sec
+                            });
+                        }else{
+                            showErrorAlert(text);
+                            setTimeout(hideErrorAlert,1000);
+                        }
+                    })
+                })
+
         }
     })
-
-
-
-
-    //
-    //
-    // $.get(`/getMaterial?id=${id}`, function (data, status) {
-    //
-    //     materialDescription.value = `${data.materialName}`;
-    //     quantity.value = `${data.quantity}`;
-    //     minimumQuantity.value = `${data.minQuantity}`;
-    //     materialCategory.value = `${data.category.categoryName}`;
-    //     x_dimension.value = `${data.x_dimension}`;
-    //     y_dimension.value = `${data.y_dimension}`;
-    //     z_dimension.value = `${data.z_dimension}`;
-    //     D_outer_dimension.value = `${data.d_outer_dimension}`;
-    //     d_inner_dimension.value = `${data.d_inner_dimension}`;
-    //     length_dimension.value = `${data.length_dimension}`;
-    //     density.value = `${data.density}`;
-    //     price.value = `${data.price}`;
-    //
-    //
-    //     addMaterialFormHeader.innerText = "Update material";
-    //     submitButton.innerText = "Update";
-    //
-    //     addMaterialItem.classList.toggle("active");
-    //
-    //     addNewMaterialItemForm.addEventListener("submit", updateMaterialEvent);
-    //
-    //     function updateMaterialEvent(event) {
-    //
-    //         event.preventDefault();
-    //
-    //
-    //         let updateMaterial = {
-    //             id: id,
-    //             materialName: materialDescription.value,
-    //             quantity: quantity.value,
-    //             minQuantity: minimumQuantity.value,
-    //             category: materialCategory.value,
-    //             x_dimension: x_dimension.value,
-    //             y_dimension: y_dimension.value,
-    //             z_dimension: z_dimension.value,
-    //             d_outer_dimension: D_outer_dimension.value,
-    //             d_inner_dimension: d_inner_dimension.value,
-    //             length_dimension: length_dimension.value,
-    //             density: density.value,
-    //             price: price.value
-    //         };
-    //
-    //         console.log(updateMaterial);
-    //
-    //         let isLowQuantity = false;
-    //
-    //         if (updateMaterial.minQuantity > updateMaterial.quantity) {
-    //             isLowQuantity = true;
-    //         }
-    //
-    //
-    //         $.ajax({
-    //             type: 'PUT',
-    //             url: `/updateMaterial`,
-    //             data: JSON.stringify(updateMaterial),
-    //             contentType: "application/json",
-    //             success: function (text) {
-    //
-    //                 $.get(`/getMaterial?id=${id}`, function (data, status) {
-    //                     let inventoryDate = data.updatedOn;
-    //
-    //                     if (inventoryDate == null) {
-    //                         inventoryDate = "-";
-    //                     }
-    //
-    //                     if (isLowQuantity) {
-    //                         TRelement.replaceWith(
-    //                             `<tr class="material-data">
-    //                                       <td class="material-list-number">${numberInTheList}</td>
-    //                                       <td>${updateMaterial.materialName}</td>
-    //                                       <td>${updateMaterial.quantity}<img src="/icons/high_icon.png" alt="Check the stock quantity!" title="Check the stock quantity!"></td>
-    //                                       <td>${updateMaterial.minQuantity}</td>
-    //                                       <td>${updateMaterial.category}</td>
-    //                                       <td>${inventoryDate}</td>
-    //                                       <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="showMaterialInfoPopUp(${id})" alt="About material" title="About material"></td>
-    //                                     </tr>`)
-    //                     } else {
-    //                         TRelement.replaceWith(
-    //                             `<tr class="material-data">
-    //                                       <td class="material-list-number">${numberInTheList}</td>
-    //                                       <td>${updateMaterial.materialName}</td>
-    //                                       <td>${updateMaterial.quantity}<img src="/icons/ok-icon.png" alt="OK" title="Correct stock quantity!"></td>
-    //                                       <td>${updateMaterial.minQuantity}</td>
-    //                                       <td>${updateMaterial.category}</td>
-    //                                       <td>${inventoryDate}</td>
-    //                                       <td><img src="/icons/edit_icon.png" onclick="updateMaterial(${id})" alt="Edit material" title="Edit material"><img src="/icons/remove_icon.png" onclick="showDeleteMaterialPopUp(${id})" alt="Delete material" title="Delete material"><img class="remove" src="/icons/ask.png" onclick="showMaterialInfoPopUp(${id})" alt="About material" title="About material"></td>
-    //                                     </tr>`)
-    //                     }
-    //                 });
-    //
-    //                 addMaterialItem.classList.remove("active");
-    //                 materialDescription.value = "";
-    //                 quantity.value = "";
-    //                 minimumQuantity.value = "";
-    //                 showAlert(text, successStyleAlert());
-    //                 setTimeout(function () {
-    //                     hideAlert();
-    //                 }, 5000); //hide alert automatically after 5sec
-    //
-    //                 getNotifications();
-    //             },
-    //             error: function (jqXHR) {
-    //                 addMaterialItem.classList.remove("active");
-    //                 showAlert(jqXHR.responseText, warningStyleAlert());
-    //                 setTimeout(function () {
-    //                     hideAlert();
-    //                 }, 5000); //hide alert automatically after 5sec
-    //             }
-    //         });
-    //
-    //         addNewMaterialItemForm.removeEventListener("submit", updateMaterialEvent);
-    //
-    // //     }
-    // });
 }
+
+
+
 
