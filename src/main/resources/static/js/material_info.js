@@ -19,10 +19,13 @@ function showMaterialInfoPopUp(id) {
             console.log(material);
 
 
+            let singleMassForPlate = (material.density * material.x_dimension * material.y_dimension *material.z_dimension / 1000000).toFixed(9);
+            let singleMassForRod = (material.density * Math.PI * Math.pow((material.d_dimension / 2), 2) * material.length_rod_dimension / 1000000).toFixed(9);
+            let singleMassForTube = (material.density * Math.PI * (Math.pow((material.d_outer_dimension / 2), 2) - Math.pow((material.d_inner_dimension / 2), 2)) * material.length_dimension / 1000000).toFixed(9);
 
-    //         let singleMassForPlate = (`${data.density}` * `${data.x_dimension}` * `${data.y_dimension}` * `${data.z_dimension}` / 1000000).toFixed(2);
-    //         let singleMassForRod = (`${data.density}` * Math.PI * Math.pow((`${data.d_outer_dimension}` / 2), 2) * `${data.length_dimension}` / 1000000).toFixed(2);
-    //         let singleMassForTube = (`${data.density}` * Math.PI * (Math.pow((`${data.d_outer_dimension}` / 2), 2) - Math.pow((`${data.d_inner_dimension}` / 2), 2)) * `${data.length_dimension}` / 1000000).toFixed(2);
+            console.log(singleMassForPlate);
+            console.log(singleMassForRod);
+            console.log(singleMassForTube);
     //
     //         let singleMass = '';
     //
