@@ -44,11 +44,11 @@ const printMaterials = function printMaterials(url) {
                         `<tr>
                 <td class="material-list-number">${i + 1}</td>
                 <td>${material.materialName}</td>
-                <td>${material.quantity}<img class="face" src="/icons/sad.svg" alt=""></td>
+                <td>${material.quantity}<img class="face" src="/icons/sad.svg" alt="" title="Low quantity!"></td>
                 <td>${material.minQuantity}</td>
                 <td>${material.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
                 </tr>
                 `
                 } else {
@@ -57,11 +57,11 @@ const printMaterials = function printMaterials(url) {
                 <tr>    
                 <td class="material-list-number">${i + 1}</td>
                 <td>${material.materialName}</td>
-                <td>${material.quantity}<img class="face" src="/icons/happy.svg" alt=""></td>
+                <td>${material.quantity}<img class="face" src="/icons/happy.svg" alt="" title="Quantity is good"></td>
                 <td>${material.minQuantity}</td>
                 <td>${material.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
                 </tr>
                 `
                 }
@@ -185,7 +185,6 @@ function updateMaterial(id) {
 
     const element = event.target.parentNode.parentNode;
 
-    console.log(element);
     const material_number = element.children[0].innerHTML;
 
     fetch("/getMaterial?id=" + id)
@@ -305,11 +304,11 @@ function updateMaterial(id) {
                                         `<tr>
                 <td>${material_number}</td>
                 <td>${material.materialName}</td>
-                <td>${material.quantity}<img class="face" src="/icons/sad.svg" alt=""></td>
+                <td>${material.quantity}<img class="face" src="/icons/sad.svg" alt="" title="Low quantity!"></td>
                 <td>${material.minQuantity}</td>
                 <td>${material.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
                 </tr>
                 `)
                                 } else {
@@ -318,11 +317,11 @@ function updateMaterial(id) {
                 <tr>    
                 <td>${material_number}</td>
                 <td>${material.materialName}</td>
-                <td>${material.quantity}<img class="face" src="/icons/happy.svg" alt=""></td>
+                <td>${material.quantity}<img class="face" src="/icons/happy.svg" alt="" title="Quantity is good"></td>
                 <td>${material.minQuantity}</td>
                 <td>${material.category.categoryName}</td>
                 <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"></td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
                 </tr>
                 `)
                                 }

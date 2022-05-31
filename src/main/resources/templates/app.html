@@ -25,32 +25,32 @@
         </div>
         <ul class="nav_list">
             <li class="active">
-                <a  href="#">
-                    <img alt="Materials" src="/icons/materials.svg" title="Materials">
+                <a  href="#" title="Materials section">
+                    <img  src="/icons/materials.svg">
                     <span class="links_name">Materials</span>
                 </a>
             </li>
             <li>
-                <a  href="#">
-                    <img alt="Materials" src="/icons/light.svg" title="Materials">
+                <a  href="#" title="Tools section">
+                    <img src="/icons/light.svg">
                     <span class="links_name">Tools</span>
                 </a>
             </li>
             <li>
-                <a  href="#">
-                    <img alt="Materials" src="/icons/wallet.svg" title="Materials">
+                <a  href="#" title="Projects calculations">
+                    <img  src="/icons/wallet.svg">
                     <span class="links_name">Calculations</span>
                 </a>
             </li>
             <li id="settings">
-                <a  href="#">
-                    <img alt="Materials" src="/icons/settings.svg" title="Materials">
+                <a  href="#" title="Settings">
+                    <img src="/icons/settings.svg">
                     <span class="links_name">Settings</span>
                 </a>
             </li>
-            <li id="logout">
+            <li id="logout" title="Logout">
                 <a  href="#">
-                    <img alt="Materials" src="/icons/sign_out.svg" title="Materials">
+                    <img src="/icons/sign_out.svg">
                     <span class="links_name">Logout</span>
                 </a>
             </li>
@@ -61,9 +61,9 @@
 <!--     Main part start -->
     <div class="nav-bar">
         <ul>
-            <li class="notifications_wrapper"><img src="/icons/Bell.svg" alt=""><span style="pointer-events: auto;" class="notifications_counter">2</span></li>
+            <li class="notifications_wrapper"><img src="/icons/Bell.svg" alt=""><span id="notificationCounter" style="pointer-events: auto;" class="notifications_counter"></span></li>
             <li><img  src="/icons/user.svg" alt=""></li>
-            <li><span>admin@inframet.com</span></li>
+            <li><span id="userInfo">admin@inframet.com</span></li>
         </ul>
     </div>
 
@@ -75,7 +75,9 @@
 <!--        material section start-->
         <div class="material_section_wrapper">
             <div class="material_header_wrapper">
-                <h1 class="header">Material section <img src="/icons/question.svg" alt=""></h1>
+                <div class="tooltip" data-tooltip="This section contains information about materials currently in our company">
+                    <h1 class="header">Material section <img src="/icons/question.svg" alt=""></h1>
+                </div>
                 <div class="btn_wrapper">
                     <ul>
                         <li id="new_material_btn">
@@ -110,7 +112,7 @@
                                 <th>Min. quantity</th>
                                 <th>Category</th>
                                 <th>Inventory date</th>
-                                <th><img id="material_pdf" src="/icons/print.svg" alt=""></th>
+                                <th><img id="material_pdf" src="/icons/print.svg" alt="" title="Print table"></th>
                             </tr>
                         </thead>
                         <tbody id="materials_items">

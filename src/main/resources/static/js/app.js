@@ -1,7 +1,7 @@
 const sidebar_btn = document.getElementById('sidebar_btn');
 const sidebar = document.querySelector(".sidebar");
-
 const userInfo = document.getElementById("userInfo");
+const notificationCounter = document.getElementById('notificationCounter');
 
 
 sidebar_btn.addEventListener("click", function () {
@@ -12,33 +12,11 @@ sidebar_btn.addEventListener("click", function () {
 
 
 //Get user info from backend and display it on main page
-$.get("/userInfo", function (data, status) {
-    userInfo.innerText = "Welcome, " + data + " !";
+fetch('/userInfo')
+    .then(function (response) {
+        return response.text();
+    }).then(function (text) {
+    userInfo.innerText = "Hi, " + text + " !";
 });
 
-//Get notifications from backend
-$.get("/notifications", function (data, status) {
-
-    data.reverse();
-    let innerHTML = ``;
-
-    if (data.length > 0) {
-        notificationCounter.style.display = "block";
-        notificationCounter.innerText = data.length;
-
-        for (let i = 0; i < data.length; i++) {
-            if (!data[i].checked) {
-
-                innerHTML += `<a class="notification-item" href="#" onclick="changeStatusOfNotification(${data[i].id})"><p class="notification-date">${data[i].createdOn}</p>${data[i].description} <img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id}, event)"> </a>`
-            } else {
-
-                innerHTML += `<a  class="notification-item checked"    href="#" onclick="changeStatusOfNotification(${data[i].id}))"><p class="notification-date">${data[i].createdOn}</p>${data[i].description}<img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id},event)"></a>`
-            }
-        }
-        notificationContent.innerHTML = innerHTML;
-    } else {
-        innerHTML += `<a>No notifications!</a>`;
-        notificationContent.innerHTML = innerHTML;
-    }
-});
 

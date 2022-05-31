@@ -24,8 +24,8 @@ function printMaterialCategories() {
                 categoriesItemsInnerHTML += `
                                     <div class="category_item" >
                         <h1>${category.categoryName}</h1>
-                        <img class="del" src="/icons/del.svg" alt="" onclick="deleteMaterialCategory(${category.id})">
-                        <img class="edit" src="/icons/edit.svg" alt="" onclick="editMaterialCategory(${category.id})">
+                        <img class="del" src="/icons/del.svg" alt="" onclick="deleteMaterialCategory(${category.id})" title="Delete">
+                        <img class="edit" src="/icons/edit.svg" alt="" onclick="editMaterialCategory(${category.id})" title="Edit">
                     </div>
                 `
             });
