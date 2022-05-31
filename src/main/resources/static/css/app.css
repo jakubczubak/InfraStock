@@ -367,7 +367,7 @@ body{
     left: 0;
     background-color: rgba(249, 250, 252, 0.8);
     display: none;
-    z-index: 99999;
+    z-index: 2;
 }
 .material_category_creation_form_popup.active{
     display: block;
@@ -405,6 +405,7 @@ body{
     margin: 0 auto;
     display: block;
 }
+
 .material_category_creation_form_popup .form_wrapper input:focus{
     outline-color: #6C63FF;
 }
@@ -414,6 +415,7 @@ body{
     font-size: 16px;
     color: #505F79;
 }
+
 .material_category_creation_form_popup .form_wrapper .btn_wrapper{
     width: 80%;
     display: block;
@@ -567,12 +569,26 @@ body{
     color: #505F79;
     padding: 16px 0;
 }
+.new_material_creation_form_popup .form_wrapper label{
+    color: #BAB6B6;
+    width:80%;
+    display: block;
+    margin: 0 auto;
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 16px;
+}
 .new_material_creation_form_popup .form_wrapper .quantity{
     display: flex;
     width: 80%;
     justify-content: space-around;
     margin: 0 auto;
     gap: 16px;
+}
+
+.new_material_creation_form_popup .form_wrapper .quantity div input{
+    margin: 0 auto;
+    width: 100%;
 }
 .new_material_creation_form_popup .form_wrapper select{
     width: 80%;
@@ -602,6 +618,10 @@ body{
     justify-content: space-around;
     margin: 0 auto;
     gap: 16px;
+}
+.new_material_creation_form_popup .form_wrapper .density_price div input{
+    margin: 0 auto;
+    width: 100%;
 }
 
 .new_material_creation_form_popup .form_wrapper input{
@@ -635,12 +655,13 @@ body{
     color: #BAB6B6;
 }
 .new_material_creation_form_popup .form_wrapper .img_wrapper{
-    text-align: center;
-
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 8px;
 }
 
 .new_material_creation_form_popup .form_wrapper .img_wrapper img{
-    display: inline-block;
+
     margin: 8px auto;
     cursor: pointer;
 }
@@ -649,8 +670,9 @@ body{
     display: flex;
     width: 80%;
     justify-content: space-around;
-    margin: 0 auto;
+    margin: 8px auto;
 }
+
 
 .new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.plate.hide{
     display: none;
@@ -671,7 +693,9 @@ body{
     display: flex;
 }
 .new_material_creation_form_popup .form_wrapper .dimensions_input_wrapper input{
-    width: 30%;
+    width: 95%;
+    margin: 0;
+
 }
 .new_material_creation_form_popup .form_wrapper .btn_wrapper{
     width: 80%;
@@ -1088,6 +1112,41 @@ body{
     color: #fff;
 }
 /*LOGOUT  POPUP END*/
+
+/*TOOLTIP START*/
+
+.tooltip{
+    position: relative;
+}
+
+.tooltip::before{
+    --scale: 0;
+    position: absolute;
+    display: block;
+    content: "";
+    top: -8px;
+    left: 50%;
+    height: 50%;
+    transform: translateX(-50%) translateY(-100%) scale(var(--scale));
+    transition:  30ms transform;
+
+}
+
+.tooltip::before {
+    content: attr(data-tooltip);
+    color: white;
+    padding: 8px 24px;
+    width: max-content;
+    background-color: rgba(51, 51, 51, 0.9);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.tooltip:hover::before{
+    --scale: 1;
+}
+
+/*TOOLTIP END*/
 
 @media print {
 table{

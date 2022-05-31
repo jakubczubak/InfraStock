@@ -152,7 +152,9 @@
         <div class="form_wrapper">
             <img src="/icons/undraw_add_info.svg" alt="">
             <h1>Material category creation form</h1>
-            <input id="material_category_name" type="text" placeholder="Material category name">
+            <div class="tooltip" data-tooltip="Material category description">
+                <input id="material_category_name" type="text" placeholder="Material category name">
+            </div>
             <div class="btn_wrapper">
                 <button id="material_category_creation_form_popup_create_btn">Create</button>
                 <button id="material_category_creation_form_popup_close_btn">Close</button>
@@ -163,7 +165,9 @@
         <div class="form_wrapper">
             <img src="/icons/undraw_add_info.svg" alt="">
             <h1>Edit material category</h1>
+            <div class="tooltip" data-tooltip="Material category description">
             <input id="material_category_edit_form_popup_category_name_input" type="text" placeholder="Material category name">
+            </div>
             <div class="btn_wrapper">
                 <button id="material_category_edit_form_popup_update_btn">Update</button>
                 <button id="material_category_edit_form_popup_close_btn">Close</button>
@@ -174,38 +178,72 @@
         <div class="form_wrapper">
             <img src="/icons/addfiles.svg" alt="">
             <h1>New material creation form</h1>
-            <input id="material_description" type="text" placeholder="Material name">
-            <div class="quantity">
-                <input id="quantity" type="number" placeholder="Quantity" min="0" step="1">
-                <input id="minimum_quantity" type="number" placeholder="Min. quantity" min="0" step="1">
+            <div class="tooltip" data-tooltip="Material name">
+                <input id="material_description" type="text" placeholder="Material name">
             </div>
+            <div class="quantity">
+                <div class="tooltip" data-tooltip="Quantity">
+                <input id="quantity" type="number" placeholder="Quantity" min="0" step="1">
+                </div>
+                <div class="tooltip" data-tooltip="Minimum quantity">
+                <input id="minimum_quantity" type="number" placeholder="Min. quantity" min="0" step="1">
+                </div>
+            </div>
+            <div class="tooltip" data-tooltip="Material category">
             <select  name="categories" id="material_categories">
             </select>
+            </div>
             <div class="density_price">
+                <div class="tooltip" data-tooltip="Density [g/cm3]">
                 <input id="density" type="number" placeholder="Density [g/cm3]" min="0">
+                </div>
+                <div class="tooltip" data-tooltip="Price [PLN/kg]">
                 <input id="price" type="number" placeholder="Price [PLN/kg]" min="0">
+                </div>
             </div>
             <span>Dimensions:</span>
             <div class="img_wrapper">
-                <img id="plate_btn" src="/icons/Add_1.svg" alt="Plate" title="Plate">
-                <img id="tube_btn" src="/icons/Add_2.svg" alt="Tube" title="Tube">
-                <img id="rod_btn" src="/icons/Add_3.svg" alt="Rod" title="Rod">
+                <div class="tooltip" data-tooltip="Dimension for plate">
+                <img id="plate_btn" src="/icons/Add_1.svg" alt="Plate">
+                </div>
+                <div class="tooltip" data-tooltip="Dimension for Tube">
+                <img id="tube_btn" src="/icons/Add_2.svg" alt="Tube">
+                </div>
+                <div class="tooltip" data-tooltip="Dimension for Rod">
+                <img id="rod_btn" src="/icons/Add_3.svg" alt="Rod">
+                </div>
             </div>
             <div class="dimensions_input_wrapper">
 
                 <div class="plate" id="plate_inputs">
-                    <input id="x_dimension" type="number" placeholder="X [mm]" min="0" title="X axis dimension">
-                    <input id="y_dimension" type="number" placeholder="Y [mm]" min="0" title="Y axis dimension">
-                    <input id="z_dimension" type="number" placeholder="Z [mm]" min="0" title="Z axis dimension">
+                    <div class="tooltip" data-tooltip="X axis dimension [mm]">
+                    <input id="x_dimension" type="number" placeholder="X [mm]" min="0">
+                    </div>
+                    <div class="tooltip" data-tooltip="Y axis dimension [mm]">
+                    <input id="y_dimension" type="number" placeholder="Y [mm]" min="0">
+                    </div>
+                    <div class="tooltip" data-tooltip="Z axis dimension [mm]">
+                    <input id="z_dimension" type="number" placeholder="Z [mm]" min="0">
+                    </div>
                 </div>
                 <div class="tube hide" id="tube_inputs">
-                    <input id="D_outer_dimension" type="number" placeholder="&#x2300; [mm]" min="0" title="Outer diameter">
-                    <input id="d_inner_dimension" type="number" placeholder="&#8960; [mm]" min="0" title="Inner diameter">
-                    <input id="length_dimension" type="number" placeholder="L [mm]" min="0" title="Length of tube">
+                    <div class="tooltip" data-tooltip="Outer diameter &#x2300; [mm]">
+                    <input id="D_outer_dimension" type="number" placeholder="&#x2300; [mm]" min="0">
+                    </div>
+                    <div class="tooltip" data-tooltip="Inner diameter &#x2300; [mm]">
+                    <input id="d_inner_dimension" type="number" placeholder="&#8960; [mm]" min="0">
+                    </div>
+                    <div class="tooltip" data-tooltip="Length of tube [mm]">
+                    <input id="length_dimension" type="number" placeholder="L [mm]" min="0">
+                    </div>
                 </div>
                 <div class="rod hide" id="rod_inputs">
-                    <input id="d_dimension" type="number" placeholder="&#x2300; [mm]" min="0" title="Diameter">
-                    <input id="length_rod_dimension" type="number" placeholder="L [mm]" min="0" title="Length of rod">
+                    <div class="tooltip" data-tooltip="Diameter &#x2300; [mm]">
+                    <input id="d_dimension" type="number" placeholder="&#x2300; [mm]" min="0">
+                    </div>
+                    <div class="tooltip" data-tooltip="Length of rod [mm]">
+                    <input id="length_rod_dimension" type="number" placeholder="L [mm]" min="0">
+                    </div>
                 </div>
 
             </div>
@@ -219,42 +257,38 @@
         <div class="form_wrapper">
             <img src="/icons/update.svg" alt="">
             <h1>Edit material</h1>
-            <input id="material_description_edit" type="text" placeholder="Material name">
+            <input id="material_description_edit" type="text" placeholder="Material name" title="Material name">
             <div class="quantity">
-                <input id="quantity_edit" type="number" placeholder="Quantity" min="0" step="1">
-                <input id="minimum_quantity_edit" type="number" placeholder="Min. quantity" min="0" step="1">
+                <input id="quantity_edit" type="number" placeholder="Quantity" min="0" step="1" title="Quantity">
+                <input id="minimum_quantity_edit" type="number" placeholder="Min. quantity" min="0" step="1" title="Minimum quantity">
             </div>
-            <select name="categories" id="material_categories_edit" >
-                <option selected value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+            <select name="categories" id="material_categories_edit" title="Material category" >
             </select>
             <div class="density_price">
-                <input id="density_edit" type="number" placeholder="Density [g/cm3]" min="0">
-                <input id="price_edit" type="number" placeholder="Price [PLN/kg]" min="0">
+                <input id="density_edit" type="number" placeholder="Density [g/cm3]" min="0" title="Density [g/cm3]">
+                <input id="price_edit" type="number" placeholder="Price [PLN/kg]" min="0" title="Price [PLN/kg]">
             </div>
             <span>Dimensions:</span>
             <div class="img_wrapper">
-                <img id="plate_btn_edit" src="/icons/Add_1.svg" alt="Plate" title="Plate">
-                <img id="tube_btn_edit" src="/icons/Add_2.svg" alt="Tube" title="Tube">
-                <img id="rod_btn_edit" src="/icons/Add_3.svg" alt="Rod" title="Rod">
+                <img id="plate_btn_edit" src="/icons/Add_1.svg" alt="Plate" title="Dimension for plate">
+                <img id="tube_btn_edit" src="/icons/Add_2.svg" alt="Tube" title="Dimension for tube">
+                <img id="rod_btn_edit" src="/icons/Add_3.svg" alt="Rod" title="Dimension for rod">
             </div>
             <div class="dimensions_input_wrapper">
 
                 <div class="plate" id="plate_inputs_edit">
-                    <input id="x_dimension_edit" type="number" placeholder="X [mm]" min="0" title="X axis dimension">
-                    <input id="y_dimension_edit" type="number" placeholder="Y [mm]" min="0" title="Y axis dimension">
-                    <input id="z_dimension_edit" type="number" placeholder="Z [mm]" min="0" title="Z axis dimension">
+                    <input id="x_dimension_edit" type="number" placeholder="X [mm]" min="0" title="X axis dimension [mm]">
+                    <input id="y_dimension_edit" type="number" placeholder="Y [mm]" min="0" title="Y axis dimension [mm]">
+                    <input id="z_dimension_edit" type="number" placeholder="Z [mm]" min="0" title="Z axis dimension [mm]">
                 </div>
                 <div class="tube hide" id="tube_inputs_edit">
-                    <input id="D_outer_dimension_edit" type="number" placeholder="&#x2300; [mm]" min="0" title="Outer diameter">
-                    <input id="d_inner_dimension_edit" type="number" placeholder="&#8960; [mm]" min="0" title="Inner diameter">
-                    <input id="length_dimension_edit" type="number" placeholder="L [mm]" min="0" title="Length of tube">
+                    <input id="D_outer_dimension_edit" type="number" placeholder="&#x2300; [mm]" min="0" title="&#x2300; Outer diameter [mm]">
+                    <input id="d_inner_dimension_edit" type="number" placeholder="&#8960; [mm]" min="0" title="&#x2300; Inner diameter [mm]">
+                    <input id="length_dimension_edit" type="number" placeholder="L [mm]" min="0" title="Length of tube [mm]">
                 </div>
                 <div class="rod hide" id="rod_inputs_edit">
-                    <input id="d_dimension_edit" type="number" placeholder="&#x2300; [mm]" min="0" title="Diameter">
-                    <input id="length_rod_dimension_edit" type="number" placeholder="L [mm]" min="0" title="Length of rod">
+                    <input id="d_dimension_edit" type="number" placeholder="&#x2300; [mm]" min="0" title="&#x2300; Diameter [mm]">
+                    <input id="length_rod_dimension_edit" type="number" placeholder="L [mm]" min="0" title="Length of rod [mm]">
                 </div>
 
             </div>
