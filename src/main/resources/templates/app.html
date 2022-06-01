@@ -61,7 +61,22 @@
 <!--     Main part start -->
     <div class="nav-bar">
         <ul>
-            <li class="notifications_wrapper"><img src="/icons/Bell.svg" alt=""><span id="notificationCounter" style="pointer-events: auto;" class="notifications_counter"></span></li>
+            <li class="notifications_wrapper">
+                <img src="/icons/Bell.svg" alt="">
+                <span id="notificationCounter" style="pointer-events: auto;" class="notifications_counter"></span>
+                <div class="dropdown-content" id="notificationDropdown">
+                    <div class="notification-header">
+                        <p>Notifications:</p>
+                    </div>
+                    <div class="notification-content" id="notificationContent">
+                        <div class="notification">
+                            <p class="text">Admin added new material.Admin added new material.Admin added new material.</p>
+                            <p class="date">time</p>
+                            <img src="/icons/del_table.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
             <li><img  src="/icons/user.svg" alt=""></li>
             <li><span id="userInfo">admin@inframet.com</span></li>
         </ul>
