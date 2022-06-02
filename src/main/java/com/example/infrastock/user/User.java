@@ -1,5 +1,6 @@
 package com.example.infrastock.user;
 
+import com.example.infrastock.notification.Notification;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 
 @Entity
@@ -20,6 +22,9 @@ public class User implements UserDetails {
     private String password;
     private String email;
     private String role;
+
+    @OneToMany(cascade=CascadeType.ALL)
+    private List<Notification> notifications;
 
 
     public User() {
@@ -62,6 +67,14 @@ public class User implements UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
     }
 
     @Override

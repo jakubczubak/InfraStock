@@ -23,6 +23,7 @@ public class UserService {
 
         User user = new User(userDTO.getUsername(), userDTO.getPassword(), userDTO.getEmail(), userDTO.getRole());
         user.setRole("ROLE_USER");
+        user.setNotifications(new ArrayList<>());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
     }
@@ -30,6 +31,7 @@ public class UserService {
     public void createAdmin(UserDTO userDTO) {
         User user = new User(userDTO.getUsername(), userDTO.getPassword(), userDTO.getEmail(), userDTO.getRole());
         user.setRole("ROLE_ADMIN");
+        user.setNotifications(new ArrayList<>());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
     }

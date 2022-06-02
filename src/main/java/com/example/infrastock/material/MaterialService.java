@@ -2,6 +2,7 @@ package com.example.infrastock.material;
 
 import com.example.infrastock.materialCategory.MaterialCategory;
 import com.example.infrastock.materialCategory.MaterialCategoryRepo;
+import com.example.infrastock.notification.NotificationService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,10 +13,12 @@ public class MaterialService {
 
     private MaterialRepo materialRepo;
     private MaterialCategoryRepo materialCategoryRepo;
+    private NotificationService notificationService;
 
-    public MaterialService(MaterialRepo materialItemRepo, MaterialCategoryRepo materialCategoryRepo) {
+    public MaterialService(MaterialRepo materialItemRepo, MaterialCategoryRepo materialCategoryRepo, NotificationService notificationService) {
         this.materialRepo = materialItemRepo;
         this.materialCategoryRepo = materialCategoryRepo;
+        this.notificationService = notificationService;
     }
 
 
@@ -36,6 +39,8 @@ public class MaterialService {
 
     public void createMaterial(MaterialDTO materialDTO) {
         String categoryName = materialDTO.getCategory();
+
+        notificationService.sendNotificationToUsers("added new material: " + materialDTO.getMaterialName());
         MaterialCategory materialCategory = materialCategoryRepo.findByCategoryName(categoryName);
         Material newMaterial = new Material(materialDTO.getMaterialName(), materialDTO.getQuantity(), materialDTO.getMinQuantity(), materialCategory, materialDTO.getX_dimension(), materialDTO.getY_dimension(), materialDTO.getZ_dimension(), materialDTO.getD_outer_dimension(), materialDTO.getD_inner_dimension(), materialDTO.getLength_dimension(), materialDTO.getDensity(), materialDTO.getPrice(), materialDTO.getD_dimension(), materialDTO.getLength_rod_dimension());
         materialRepo.save(newMaterial);
@@ -58,10 +63,13 @@ public class MaterialService {
         materialToUpdate.setPrice(materialDTO.getPrice());
         materialToUpdate.setD_dimension(materialDTO.getD_dimension());
         materialToUpdate.setLength_rod_dimension(materialDTO.getLength_rod_dimension());
+        notificationService.sendNotificationToUsers("updated material: " + materialDTO.getMaterialName());
         materialRepo.save(materialToUpdate);
     }
 
     public void deleteMaterial(Long id) {
+
+        notificationService.sendNotificationToUsers("deleted material: " + materialRepo.getById(id).getMaterialName());
         materialRepo.delete(materialRepo.getById(id));
     }
 

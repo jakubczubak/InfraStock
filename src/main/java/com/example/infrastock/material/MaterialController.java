@@ -1,6 +1,8 @@
 package com.example.infrastock.material;
 
 import com.example.infrastock.notification.NotificationService;
+import com.example.infrastock.user.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -40,7 +42,6 @@ public class MaterialController {
         if (materialService.checkIfMaterialExist(materialDTO.getMaterialName())) {
             return "The material you have entered is already in DataBase";
         } else {
-            notificationService.addNotification(materialDTO);
             materialService.createMaterial(materialDTO);
             return "Congratulations, you've added a new material";
         }
@@ -49,7 +50,6 @@ public class MaterialController {
     @PutMapping("/updateMaterial")
     public String updateMaterial(@RequestBody @Valid MaterialDTO materialDTO) {
         System.out.println(materialDTO.getPrice());
-        notificationService.addNotification(materialDTO);
         materialService.updateMaterial(materialDTO);
         return "Successfully updated: " + materialDTO.getMaterialName();
     }
