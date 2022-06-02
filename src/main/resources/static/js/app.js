@@ -1,7 +1,6 @@
 const sidebar_btn = document.getElementById('sidebar_btn');
 const sidebar = document.querySelector(".sidebar");
 const userInfo = document.getElementById("userInfo");
-const notificationCounter = document.getElementById('notificationCounter');
 
 
 sidebar_btn.addEventListener("click", function () {

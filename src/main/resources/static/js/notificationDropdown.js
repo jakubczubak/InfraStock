@@ -1,59 +1,73 @@
-const notificationDropdown = document.getElementById("notificationDropdown");
+const notificationDropdown = document.getElementById('notificationDropdown');
 const notificationButton = document.getElementById('notificationButton');
-const notificationCounter = document.getElementById('icon-button__badge');
+const notificationCounter = document.getElementById('notificationCounter');
 const notificationContent = document.getElementById('notificationContent');
 
 notificationButton.addEventListener('click', function () {
-    notificationDropdown.classList.toggle('active');
+    notificationDropdown.classList.add('active');
+    notificationCounter.classList.remove('active');
 });
 
 document.addEventListener('mouseup', function (e) {
-
     if (!notificationDropdown.contains(e.target)) {
         notificationDropdown.classList.remove('active');
     }
 });
 
-function getNotifications() {
-    $.get("/notifications", function (data, status) {
-        data.reverse();
+fetch('/notifications')
+    .then(function (response){
+        return response.json();
+    }).then(function (notifications){
+
+        console.log(notifications);
+        notifications.reverse();
 
         let innerHTML = ``;
 
-        if (data.length > 0) {
-            notificationCounter.style.display = "block";
-            notificationCounter.innerText = data.length;
+        if(notifications.length > 0){
+            console.log('jest wieksze');
+            notificationCounter.classList.add('active');
+            notificationCounter.innerText = notifications.length;
 
-            for (let i = 0; i < data.length; i++) {
-                if (!data[i].checked) {
-
-                    innerHTML += `<a class="notification-item" href="#" onclick="changeStatusOfNotification(${data[i].id})"><p class="notification-date">${data[i].createdOn}</p>${data[i].description} <img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id}, event)"> </a>`
+            notifications.forEach(function (notification){
+                if (notification.checked) {
+                    innerHTML += `<div class="notification" onclick="changeStatusOfNotification(${notification.id})">
+                            <p class="text checked">${notification.description}</p>
+                            <p class="date">${notification.createdOn}</p>
+                            <img src="/icons/del_table.svg" alt="">
+                        </div>`
                 } else {
 
-                    innerHTML += `<a  class="notification-item checked"    href="#" onclick="changeStatusOfNotification(${data[i].id}))"><p class="notification-date">${data[i].createdOn}</p>${data[i].description}<img src="/icons/remove_icon.png" alt="Delete" title="Delete" onclick="deleteNotification(${data[i].id},event)"></a>`
+                    innerHTML += `<div class="notification" onclick="changeStatusOfNotification(${notification.id})">
+                            <p class="text">${notification.description}</p>
+                            <p class="date">${notification.createdOn}</p>
+                            <img src="/icons/del_table.svg" alt="">
+                        </div>`
                 }
-            }
+            })
+
             notificationContent.innerHTML = innerHTML;
-        } else {
-            innerHTML += `<a>No notifications!</a>`;
+        }else{
+            innerHTML =
             notificationContent.innerHTML = innerHTML;
         }
-    });
-}
+
+})
 
 
 function changeStatusOfNotification(id) {
+   const element = event.target.parentNode.children[0];
 
-    let element = $(event.target).closest('.notification-item');
-    $.ajax({
-        type: 'PUT',
-        url: `/changeStatus?id=${id}`,
-        success: function (text) {
-            element.addClass('checked');
-        },
-        error: function (jqXHR) {
+    fetch('/changeStatus?id=' + id, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
         }
-    });
+    }).then(function (){
+        element.classList.add('checked');
+    }).catch(function (){
+        throw 'Error change status of notification'
+    })
 }
 
 function deleteNotification(id, event) {
