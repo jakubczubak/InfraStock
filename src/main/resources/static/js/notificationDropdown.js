@@ -19,7 +19,6 @@ fetch('/notifications')
         return response.json();
     }).then(function (notifications){
 
-        console.log(notifications);
         notifications.reverse();
 
         let innerHTML = ``;
@@ -34,17 +33,17 @@ fetch('/notifications')
                     innerHTML += `<div class="notification" onclick="changeStatusOfNotification(${notification.id})">
                             <p class="text checked">${notification.description}</p>
                             <p class="date">${notification.createdOn}</p>
-                            <img src="/icons/del_table.svg" alt="">
+                            <img src="/icons/del_table.svg" alt="" onclick="deleteNotification(${notification.id})">
                         </div>`
                 } else {
 
                     innerHTML += `<div class="notification" onclick="changeStatusOfNotification(${notification.id})">
                             <p class="text">${notification.description}</p>
                             <p class="date">${notification.createdOn}</p>
-                            <img src="/icons/del_table.svg" alt="">
+                            <img src="/icons/del_table.svg" alt="" onclick="deleteNotification(${notification.id})">
                         </div>`
                 }
-            })
+            });
 
             notificationContent.innerHTML = innerHTML;
         }else{
@@ -52,10 +51,11 @@ fetch('/notifications')
             notificationContent.innerHTML = innerHTML;
         }
 
-})
+});
 
 
 function changeStatusOfNotification(id) {
+    event.stopPropagation();
    const element = event.target.parentNode.children[0];
 
     fetch('/changeStatus?id=' + id, {
@@ -70,27 +70,15 @@ function changeStatusOfNotification(id) {
     })
 }
 
-function deleteNotification(id, event) {
+function deleteNotification(id) {
+
     event.stopPropagation();
-    let element = $(event.target).closest('.notification-item');
-    $.ajax({
-        url: `/deleteNotification?id=${id}`,
-        type: 'DELETE',
-        success: function () {
-            element.remove();
-            checkIfNotificationsExist();
-        }
-    });
-
-
-}
-
-function checkIfNotificationsExist() {
-    $.get("/notifications", function (data, status) {
-        notificationCounter.innerText = data.length;
-        if (data.length < 1) {
-            notificationCounter.style.display = "none";
-            notificationContent.innerHTML = `<a>No notification!</a>`;
-        }
-    });
+    const element = event.target.parentNode;
+    fetch('/deleteNotification?id=' + id, {
+        method: 'DELETE',
+    }).then(function (){
+        element.remove(element);
+    }).catch(function (){
+        throw 'Error delete notification'
+    })
 }

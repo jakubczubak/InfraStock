@@ -23,7 +23,7 @@ public class User implements UserDetails {
     private String email;
     private String role;
 
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Notification> notifications;
 
 

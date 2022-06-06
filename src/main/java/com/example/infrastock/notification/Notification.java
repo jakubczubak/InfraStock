@@ -1,5 +1,7 @@
 package com.example.infrastock.notification;
 
+import com.example.infrastock.user.User;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,15 +18,29 @@ public class Notification {
     private boolean isChecked;
     private String createdOn;
 
-
+    @ManyToOne
+    private User user;
 
 
     public Notification() {
     }
 
-    public Notification(String description, boolean isChecked) {
+    public void setCreatedOn(String createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Notification(String description, boolean isChecked, User user) {
         this.description = description;
         this.isChecked = isChecked;
+        this.user = user;
     }
 
     @PrePersist

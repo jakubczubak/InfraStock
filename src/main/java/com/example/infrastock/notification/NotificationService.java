@@ -33,7 +33,7 @@ public class NotificationService {
         userList.remove(userRepo.getById(id));
 
         for (User user: userList) {
-            Notification newNotification = new Notification("<strong>" + name + "</strong>" + " " + message, false);
+            Notification newNotification = new Notification("<strong>" + name + "</strong>" + " " + message, false, user);
             user.getNotifications().add(newNotification);
             userRepo.save(user);
             }
