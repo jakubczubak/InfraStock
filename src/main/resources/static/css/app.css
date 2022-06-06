@@ -140,13 +140,14 @@ body{
 
 .nav-bar{
     position: relative;
-    left: 350px;
-    width: calc(100% - 350px);
+    left: 300px;
+    width: calc(100% - 300px);
     top: 0;
     padding: 16px 40px 16px 64px;
     color: #505F79;
     z-index:2;
     height: auto;
+    transition: all 0.5s ease;
 }
 
 .nav-bar ul {
@@ -258,6 +259,7 @@ body{
 
 .material_header_wrapper .header{
     font-size: 32px;
+    margin-bottom: 16px;
 }
 .material_header_wrapper .header img{
     cursor: pointer;
@@ -373,6 +375,7 @@ body{
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     min-width: 90%;
 }
+
 .material_table_wrapper .table_wrapper table thead{
 
     background: linear-gradient(90.14deg, #6C63FF -0.5%, #2E9FFF 100.78%);
@@ -1295,6 +1298,64 @@ table tbody tr{
     }
 table tbody tr td img{
 
+        display: none;
+    }
+
+}
+
+
+@media only screen and (max-width: 1500px){
+
+    .material_table_wrapper .table_wrapper table{
+        min-width: 90%;
+    }
+    .material_table_wrapper .table_wrapper table thead{
+        font-size: 16px;
+    }
+    .material_table_wrapper .table_wrapper table thead th{
+        padding: 16px 4px;
+    }
+    .material_table_wrapper .table_wrapper table tbody tr td{
+        font-size: 20px;
+        padding: 0 4px;
+    }
+
+    .material_table_wrapper .table_wrapper table tbody tr td img.face{
+        padding: 0 8px;
+    }
+
+}
+@media only screen and (max-width: 700px){
+
+    .sidebar {
+        left: -84px;
+    }
+
+    .sidebar.active {
+        width: 260px;
+        left: 0;
+    }
+    .sidebar ~ .main{
+        left: 0;
+        width: 100%;
+    }
+    .sidebar.active ~ .main{
+        left: 100%;
+        width: 100%;
+    }
+
+    .sidebar.active ~ .nav-bar{
+        left: 150%;
+    }
+    .nav-bar #userInfo{
+        font-size: 12px;
+    }
+
+    .nav-bar{
+        left: 40px;
+        width: calc(100% - 30px);
+    }
+    .special_tooltip::before{
         display: none;
     }
 

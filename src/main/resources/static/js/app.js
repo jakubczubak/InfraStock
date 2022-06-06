@@ -18,4 +18,10 @@ fetch('/userInfo')
     userInfo.innerText = "Hi, " + text + " !";
 });
 
-
+window.addEventListener("resize", function () {
+   if(window.innerWidth < 1100){
+    sidebar.classList.remove('active');
+}else {
+       sidebar.classList.add('active');
+   }
+});
