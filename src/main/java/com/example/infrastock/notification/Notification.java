@@ -1,6 +1,7 @@
 package com.example.infrastock.notification;
 
 import com.example.infrastock.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -19,6 +20,7 @@ public class Notification {
     private String createdOn;
 
     @ManyToOne
+    @JsonBackReference
     private User user;
 
 
