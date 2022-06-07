@@ -18,6 +18,7 @@ body{
     width: 100vw;
     color: #ffff;
     overflow-x: hidden;
+    position: relative
 }
 
 .sidebar {
@@ -461,7 +462,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 496px;
-    height: 800px;
+    height: 90%;
     background: #FFFFFF;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 32px;
@@ -549,7 +550,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 496px;
-    height: 800px;
+    height: 90%;
     background: #FFFFFF;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 32px;
@@ -630,12 +631,12 @@ body{
 }
 
 .new_material_creation_form_popup .form_wrapper{
-    position: absolute;
+    position: fixed;
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 496px;
-    height: 800px;
+    height: 90%;
     background: #FFFFFF;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 32px;
@@ -830,7 +831,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 496px;
-    height: 800px;
+    height: 90%;;
     background: #FFFFFF;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 32px;
@@ -1013,7 +1014,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 496px;
-    height: 800px;
+    height: 90%;
     background: #FFFFFF;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 32px;
@@ -1377,5 +1378,68 @@ table tbody tr td img{
     .special_tooltip::before{
         display: none;
     }
+    .logout_popup .popup_wrapper{
+        width: 90%;
+        height: 70%;
+    }
+
+}
+
+@media only screen and (max-width: 500px){
+    .nav-bar .notifications_wrapper .dropdown-content{
+        width: 90%;
+        right: -35%;
+    }
+    .nav-bar ul li img {
+        width: 28px;
+        height: auto;
+    }
+    .material_header_wrapper .btn_wrapper ul{
+        margin: 0 auto;
+        text-align: center;
+    }
+    .material_category_wrapper .btn_wrapper .category_item{
+        width: 200px;
+        height: 150px;
+        border-radius: 32px;
+    }
+
+    .material_table_wrapper .table_wrapper table{
+        min-width: 100%;
+    }
+    .sidebar .nav_list li#settings{
+        position: revert;
+    }
+    .sidebar .nav_list li#logout{
+         position: revert;
+     }
+    .sidebar {
+        height: 100%;
+    }
+
+    .logout_popup .popup_wrapper .btn_wrapper button{
+        font-size: 16px;
+    }
+
+    .material_category_creation_form_popup .form_wrapper{
+        width: 90%;
+        height: 90%;
+    }
+    .material_category_edit_form_popup .form_wrapper{
+        width: 90%;
+        height: 90%;
+    }
+    .new_material_creation_form_popup .form_wrapper{
+        width: 90%;
+        height: 90%;
+    }
+    .new_material_creation_form_popup .form_wrapper img.logo{
+        display: none;
+    }
+    .new_material_creation_form_popup .form_wrapper h1{
+        margin-top: 16px;
+    }
+
+
 
 }
