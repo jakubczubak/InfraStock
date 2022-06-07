@@ -47,7 +47,11 @@ fetch('/notifications')
 
             notificationContent.innerHTML = innerHTML;
         }else{
-            innerHTML =
+            innerHTML += `<div class="notification" >
+                            <p class="text">No notifications!</p>
+                            <p class="date"></p>
+                            <img src="" alt="">
+                        </div>`
             notificationContent.innerHTML = innerHTML;
         }
 
