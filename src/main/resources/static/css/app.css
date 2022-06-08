@@ -253,7 +253,7 @@ body{
 }
 
 .material_section_wrapper{
-    padding: 16px 40px 16px 40px;
+    margin: 16px 40px 16px 40px;
 }
 
 .material_header_wrapper{
@@ -366,6 +366,11 @@ body{
 .material_category_wrapper .btn_wrapper .category_item img.edit:hover{
     opacity: 1;
 }
+.material_table_wrapper h1{
+    width: 100%;
+    margin: 0 auto;
+}
+
 
 .material_table_wrapper h1{
     font-weight: 700;
@@ -378,7 +383,8 @@ body{
     padding: 48px 0;
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    overflow-x: auto;
+
 }
 
 .material_table_wrapper .table_wrapper table{
@@ -1333,7 +1339,7 @@ table tbody tr td img{
         font-size: 16px;
     }
     .material_table_wrapper .table_wrapper table thead th{
-        padding: 16px 4px;
+        padding: 16px 8px;
     }
     .material_table_wrapper .table_wrapper table tbody tr td{
         font-size: 20px;
@@ -1345,7 +1351,7 @@ table tbody tr td img{
     }
 
 }
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 800px){
 
     .sidebar {
         left: -84px;
@@ -1385,7 +1391,10 @@ table tbody tr td img{
 
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 700px){
+    .material_section_wrapper{
+        margin: 16px 8px 16px 8px;
+    }
     .nav-bar .notifications_wrapper .dropdown-content{
         width: 90%;
         right: -35%;
@@ -1440,6 +1449,9 @@ table tbody tr td img{
         margin-top: 16px;
     }
 
-
+    .material_table_wrapper .table_wrapper table tbody tr td{
+        font-size: 16px;
+        padding: 0 4px;
+    }
 
 }
