@@ -1,0 +1,11 @@
+services:
+
+  api:
+    image: czubakjakub/infrastock:v1.0.0
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://root:mysqlpw@host.docker.internal:33067/infrastock
+      - SPRING_JPA_HIBERNATE_DDL-AUTO=validate
+    ports:
+      - 9090:9090
+
+
