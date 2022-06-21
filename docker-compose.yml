@@ -4,9 +4,9 @@ services:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=mysqlpw
-      - MYSQL_USER=testuser
-      - MYSQL_DATABASE=testdb
-      - MYSQL_PASSWORD=123456
+      - MYSQL_USER=infrastock
+      - MYSQL_DATABASE=infrastock
+      - MYSQL_PASSWORD=infrastock123
     ports:
       - 33067:3306
 
