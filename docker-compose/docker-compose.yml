@@ -23,7 +23,7 @@ services:
   api:
     image: czubakjakub/infrastock:v1.0.0
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://root:mysqlpw@test-mysql-docker:3306/infrastock?useSSL=false
+      - SPRING_DATASOURCE_URL=jdbc:mysql://root:mysqlpw@test-mysql-docker:3306/infrastock?autoReconnect=true&useSSL=false
       - SPRING_JPA_HIBERNATE_DDL-AUTO=update
     ports:
       - 9090:9090
