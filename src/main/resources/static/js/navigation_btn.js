@@ -23,6 +23,25 @@ toolsBtn.addEventListener('click', function (){
 
 
 
+const material_nav_btn = document.getElementById('material_nav_btn');
+const tool_nav_btn = document.getElementById('tool_nav_btn');
+const material_section_wrapper = document.getElementById('material_section_wrapper');
+const tool_section_wrapper = document.getElementById('tool_section_wrapper');
+
+material_nav_btn.addEventListener('click', function (ev) {
+    material_nav_btn.classList.add('active');
+    tool_section_wrapper.style.display='none';
+    material_section_wrapper.style.display='revert';
+    tool_nav_btn.classList.remove('active');
+});
+
+tool_nav_btn.addEventListener('click', function (ev) {
+    tool_nav_btn.classList.add('active');
+    material_nav_btn.classList.remove('active');
+    material_section_wrapper.style.display='none';
+    tool_section_wrapper.style.display='revert';
+});
+
 logout_btn.addEventListener('click', function () {
     logout_popup.classList.add('active');
 });
