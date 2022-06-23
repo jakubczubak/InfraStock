@@ -1,0 +1,31 @@
+services:
+
+  mysql:
+    image: mysql:5.7
+    container_name: test-mysql-docker
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysqlpw
+      - MYSQL_USER=infrastock
+      - MYSQL_DATABASE=infrastock
+      - MYSQL_PASSWORD=infrastock123
+    ports:
+      - 33067:3306
+
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+
+  api:
+    image: czubakjakub/infrastock:v1.0.0
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://root:mysqlpw@test-mysql-docker:3306/infrastock?useSSL=false
+      - SPRING_JPA_HIBERNATE_DDL-AUTO=update
+    ports:
+      - 9090:9090
+    depends_on:
+      - mysql
