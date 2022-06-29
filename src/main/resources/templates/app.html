@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Infrastock</title>
-    <link media="all" rel="stylesheet" th:href="@{/css/app.css}" type="text/css"/>
-    <link media="all" rel="stylesheet" th:href="@{/css/alert.css}" type="text/css"/>
+    <link media="all" rel="stylesheet" href="/css/app.css" type="text/css"/>
+    <link media="all" rel="stylesheet" href="/css/alert.css" type="text/css"/>
 </head>
 <body>
 
@@ -14,98 +14,100 @@
 <div class="wrapper">
 
 
-    <!-- Sidebar part start -->
+    <!-- SIDEBAR SECTION START -->
     <div class="sidebar active">
         <div class="logo_content">
             <div class="logo" id="logo-wrapper">
-                <img class="logo_img" alt="Logo" src="/icons/undraw_heavy_box.svg" title="Infrastock">
+                <img alt="Logo" class="logo_img" src="/icons/undraw_heavy_box.svg" title="Infrastock">
                 <span class="logo_name">Infrastock</span>
-                <img id="sidebar_btn" alt="Logo" src="/icons/darhboard_btn.svg" title="Infrastock">
+                <img alt="Logo" id="sidebar_btn" src="/icons/darhboard_btn.svg" title="Infrastock">
             </div>
         </div>
         <ul class="nav_list">
             <li class="active">
-                <a  href="#" title="Materials section">
-                    <img  src="/icons/materials.svg">
+                <a href="#" title="Materials section">
+                    <img src="/icons/materials.svg" alt="Materials">
                     <span class="links_name">Materials</span>
                 </a>
             </li>
             <li class="disabled">
-                <a  href="#" title="Tools section" >
-                    <img src="/icons/light.svg">
+                <a href="#" title="Tools section">
+                    <img src="/icons/light.svg" alt="Tools">
                     <span class="links_name">Tools</span>
                 </a>
             </li>
             <li class="disabled">
-                <a  href="#" title="Projects calculations">
-                    <img  src="/icons/wallet.svg">
+                <a href="#" title="Projects calculations">
+                    <img src="/icons/wallet.svg" alt="Project calulations">
                     <span class="links_name">Calculations</span>
                 </a>
             </li>
-            <li id="settings" class="disabled">
-                <a  href="#" title="Settings">
-                    <img src="/icons/settings.svg">
+            <li class="disabled" id="settings">
+                <a href="#" title="Settings">
+                    <img src="/icons/settings.svg" alt="Settings">
                     <span class="links_name">Settings</span>
                 </a>
             </li>
             <li id="logout" title="Logout">
-                <a  href="#">
-                    <img src="/icons/sign_out.svg">
+                <a href="#">
+                    <img src="/icons/sign_out.svg" alt="Logout">
                     <span class="links_name">Logout</span>
                 </a>
             </li>
         </ul>
     </div>
-<!--     Sidebar part end -->
+    <!--     SIDEBAR SECTION END -->
 
-<!--     Main part start -->
+    <!--     MAIN SECTION START -->
+
+    <!--NAVBAR SECTION START-->
     <div class="nav-bar">
         <ul>
-            <li id="notificationButton" class="notifications_wrapper">
-                <img src="/icons/Bell.svg" alt="">
-                <span id="notificationCounter"  class="notifications_counter"></span>
+            <li class="notifications_wrapper" id="notificationButton">
+                <img alt="" src="/icons/Bell.svg">
+                <span class="notifications_counter" id="notificationCounter"></span>
                 <div class="dropdown-content" id="notificationDropdown">
                     <div class="notification-header">
                         <p>Notifications:</p>
                     </div>
                     <div class="notification-content" id="notificationContent">
                         <div class="notification">
-                            <p class="text">Admin added new material.Admin added new material.Admin added new material.</p>
+                            <p class="text">Admin added new material.Admin added new material.Admin added new
+                                material.</p>
                             <p class="date">time</p>
-                            <img src="/icons/del_table.svg" alt="">
+                            <img alt="" src="/icons/del_table.svg">
                         </div>
                     </div>
                 </div>
             </li>
-            <li><img  src="/icons/user.svg" alt=""></li>
+            <li><img alt="" src="/icons/user.svg"></li>
             <li><span id="userInfo">admin@inframet.com</span></li>
         </ul>
     </div>
 
     <div class="main">
-        <!--navbar part start-->
+        <!--NAVBAR SECTION END-->
 
-        <!--navbar part end-->
-
-<!--        material section start-->
-        <div class="material_section_wrapper">
+        <!--MATERIAL SECTION START-->
+        <div class="material_section_wrapper" style="display: none">
             <div class="material_header_wrapper">
-                <div class="special_tooltip" data-tooltip="This section contains information about materials currently in our company">
-                    <h1 class="header">Material section <img src="/icons/question.svg" alt=""></h1>
+                <div class="special_tooltip"
+                     data-tooltip="The module allows you to manage the warehouse of materials">
+                    <h1 class="header">Material section <img alt="" src="/icons/question.svg"></h1>
                 </div>
                 <div class="btn_wrapper">
                     <ul>
                         <li id="new_material_btn">
-                            <img src="/icons/add.svg" alt=""><span>New material</span>
+                            <img alt="" src="/icons/add.svg"><span>Create material</span>
                         </li>
                         <li id="add_material_category_btn">
-                            <img src="/icons/add.svg" alt=""><span>New category</span>
+                            <img alt="" src="/icons/add.svg"><span>Material category</span>
                         </li>
                         <li id="clear-filters-button">
-                            <img src="/icons/refresh.svg" alt=""><span>Refresh</span>
+                            <img alt="" src="/icons/refresh.svg"><span>Refresh</span>
                         </li>
                         <li id="materialShoppingList">
-                            <img src="/icons/bag.svg" alt=""><span>Shopping list</span>
+                            <img alt="" src="/icons/Bag.svg"><span>Materials to buy</span>
                         </li>
                     </ul>
                 </div>
@@ -120,15 +122,15 @@
                 <div class="table_wrapper">
                     <table id="materials-table">
                         <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Description</th>
-                                <th>Quantity</th>
-                                <th>Min. quantity</th>
-                                <th>Category</th>
-                                <th>Inventory date</th>
-                                <th><img id="material_pdf" src="/icons/print.svg" alt="" title="Print table"></th>
-                            </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Min. quantity</th>
+                            <th>Category</th>
+                            <th>Inventory date</th>
+                            <th><img alt="" id="material_pdf" src="/icons/Print.svg" title="Print table"></th>
+                        </tr>
                         </thead>
                         <tbody id="materials_items">
                         </tbody>
@@ -138,39 +140,103 @@
 
         </div>
 
-        <!--        material section end-->
+        <!--MATERIAL SECTION END-->
+
+
+        <!--TOOL SECTION START-->
+        <div class="tool_section_wrapper">
+            <div class="tool_header_wrapper">
+                <div class="special_tooltip"
+                     data-tooltip="The module allows you to manage the warehouse of tools">
+                    <h1 class="header">Tool section <img alt="" src="/icons/question.svg"></h1>
+                </div>
+                <div class="btn_wrapper">
+                    <ul>
+                        <li id="new_tool_btn">
+                            <img alt="" src="/icons/add.svg"><span>Create tool</span>
+                        </li>
+                        <li id="add_tool_category_btn">
+                            <img alt="" src="/icons/add.svg"><span>Tool category</span>
+                        </li>
+                        <li id="tool_clear-filters-button">
+                            <img alt="" src="/icons/refresh.svg"><span>Refresh</span>
+                        </li>
+                        <li id="toolShoppingList">
+                            <img alt="" src="/icons/Bag.svg"><span>Tools to buy</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tool_category_wrapper">
+                <h1 class="header">Choose tool category:</h1>
+                <div class="btn_wrapper" id="tool-categories-items">
+                </div>
+            </div>
+            <div class="tool_table_wrapper">
+                <h1 class="header">Tool table:</h1>
+                <div class="table_wrapper">
+                    <table id="tool-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Min. quantity</th>
+                            <th>Category</th>
+                            <th>Inventory date</th>
+                            <th><img alt="" id="tool_pdf" src="/icons/Print.svg" title="Print table"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="tool_items">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!--TOOL SECTION END-->
+
+
     </div>
-<!--     Main part end -->
-    <!--        Alert part start-->
+    <!--MAIN SECTION END-->
+
+
+    <!--ALERT SECTION START-->
     <div class="alert_wrapper">
         <div class="alert_info">
-            <div  id="alert_info" class="alert info">
-                <img class="alert_msg_icon" src="/icons/info.svg" alt=""><span class="alert-msg" id="alert_info_msg">Info</span>
-                <span class="alert-close-btn info" id="alert_info_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
+            <div class="alert info" id="alert_info">
+                <img alt="" class="alert_msg_icon" src="/icons/info.svg"><span class="alert-msg" id="alert_info_msg">Info</span>
+                <span class="alert-close-btn info" id="alert_info_close_btn"><img alt=""
+                                                                                  src="/icons/Close_round.svg"></span>
             </div>
         </div>
         <div class="alert_success">
-            <div id="alert_success" class="alert success">
-                <img class="alert_msg_icon" src="/icons/done.svg" alt=""><span class="alert-msg" id="alert_success_msg">Success!</span>
-                <span class="alert-close-btn success" id="alert_success_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
+            <div class="alert success" id="alert_success">
+                <img alt="" class="alert_msg_icon" src="/icons/done.svg"><span class="alert-msg" id="alert_success_msg">Success!</span>
+                <span class="alert-close-btn success" id="alert_success_close_btn"><img alt=""
+                                                                                        src="/icons/Close_round.svg"></span>
             </div>
         </div>
         <div class="alert_error">
-            <div id="alert_error" class="alert error">
-                <img class="alert_msg_icon" src="/icons/Alarm.svg" alt=""><span class="alert-msg" id="alert_error_msg">Something wrong!</span>
-                <span class="alert-close-btn error" id="alert_error_close_btn"><img src="/icons/Close_round.svg" alt=""></span>
+            <div class="alert error" id="alert_error">
+                <img alt="" class="alert_msg_icon" src="/icons/Alarm.svg"><span class="alert-msg" id="alert_error_msg">Something wrong!</span>
+                <span class="alert-close-btn error" id="alert_error_close_btn"><img alt="" src="/icons/Close_round.svg"></span>
             </div>
         </div>
     </div>
 
-    <!--    Alert part end-->
-<!--POPUP start-->
+    <!--ALERT SECTION END-->
+
+    <!--POPUP SECTION START-->
+
+    <!--    MATERIAL POPUP SECTION START-->
     <div class="material_category_creation_form_popup" id="material_category_creation_form_popup">
         <div class="form_wrapper">
-            <img src="/icons/undraw_add_info.svg" alt="">
+            <img alt="" src="/icons/undraw_add_info.svg">
             <h1>Material category creation form</h1>
             <div class="tooltip" data-tooltip="Material category description">
-                <input id="material_category_name" type="text" placeholder="Material category name">
+                <input id="material_category_name" placeholder="Material category name" type="text">
             </div>
             <div class="btn_wrapper">
                 <button id="material_category_creation_form_popup_create_btn">Create</button>
@@ -180,10 +246,11 @@
     </div>
     <div class="material_category_edit_form_popup" id="material_category_edit_form_popup">
         <div class="form_wrapper">
-            <img src="/icons/undraw_add_info.svg" alt="">
+            <img alt="" src="/icons/undraw_add_info.svg">
             <h1>Edit material category</h1>
             <div class="tooltip" data-tooltip="Material category description">
-            <input id="material_category_edit_form_popup_category_name_input" type="text" placeholder="Material category name">
+                <input id="material_category_edit_form_popup_category_name_input" placeholder="Material category name"
+                       type="text">
             </div>
             <div class="btn_wrapper">
                 <button id="material_category_edit_form_popup_update_btn">Update</button>
@@ -193,73 +260,73 @@
     </div>
     <div class="new_material_creation_form_popup" id="new_material_creation_form_popup">
         <div class="form_wrapper">
-            <img class="logo" src="/icons/addfiles.svg" alt="">
+            <img alt="" class="logo" src="/icons/addfiles.svg">
             <h1>New material creation form</h1>
             <div class="tooltip" data-tooltip="Material name">
-                <input id="material_description" type="text" placeholder="Material name">
+                <input id="material_description" placeholder="Material name" type="text">
             </div>
             <div class="quantity">
                 <div class="tooltip" data-tooltip="Quantity">
-                <input id="quantity" type="number" placeholder="Quantity" min="0" step="1">
+                    <input id="quantity" min="0" placeholder="Quantity" step="1" type="number">
                 </div>
                 <div class="tooltip" data-tooltip="Minimum quantity">
-                <input id="minimum_quantity" type="number" placeholder="Min. quantity" min="0" step="1">
+                    <input id="minimum_quantity" min="0" placeholder="Min. quantity" step="1" type="number">
                 </div>
             </div>
             <div class="tooltip" data-tooltip="Material category">
-            <select  name="categories" id="material_categories">
-            </select>
+                <select id="material_categories" name="categories">
+                </select>
             </div>
             <div class="density_price">
                 <div class="tooltip" data-tooltip="Density [g/cm3]">
-                <input id="density" type="number" placeholder="Density [g/cm3]" min="0">
+                    <input id="density" min="0" placeholder="Density [g/cm3]" type="number">
                 </div>
                 <div class="tooltip" data-tooltip="Price [PLN/kg]">
-                <input id="price" type="number" placeholder="Price [PLN/kg]" min="0">
+                    <input id="price" min="0" placeholder="Price [PLN/kg]" type="number">
                 </div>
             </div>
             <span>Dimensions:</span>
             <div class="img_wrapper">
                 <div class="tooltip" data-tooltip="Dimension for plate">
-                <img id="plate_btn" src="/icons/Add_1.svg" alt="Plate">
+                    <img alt="Plate" id="plate_btn" src="/icons/Add_1.svg">
                 </div>
                 <div class="tooltip" data-tooltip="Dimension for Tube">
-                <img id="tube_btn" src="/icons/Add_2.svg" alt="Tube">
+                    <img alt="Tube" id="tube_btn" src="/icons/Add_2.svg">
                 </div>
                 <div class="tooltip" data-tooltip="Dimension for Rod">
-                <img id="rod_btn" src="/icons/Add_3.svg" alt="Rod">
+                    <img alt="Rod" id="rod_btn" src="/icons/Add_3.svg">
                 </div>
             </div>
             <div class="dimensions_input_wrapper">
 
                 <div class="plate" id="plate_inputs">
                     <div class="tooltip" data-tooltip="X axis dimension [mm]">
-                    <input id="x_dimension" type="number" placeholder="X [mm]" min="0">
+                        <input id="x_dimension" min="0" placeholder="X [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Y axis dimension [mm]">
-                    <input id="y_dimension" type="number" placeholder="Y [mm]" min="0">
+                        <input id="y_dimension" min="0" placeholder="Y [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Z axis dimension [mm]">
-                    <input id="z_dimension" type="number" placeholder="Z [mm]" min="0">
+                        <input id="z_dimension" min="0" placeholder="Z [mm]" type="number">
                     </div>
                 </div>
                 <div class="tube hide" id="tube_inputs">
                     <div class="tooltip" data-tooltip="Outer diameter &#x2300; [mm]">
-                    <input id="D_outer_dimension" type="number" placeholder="&#x2300; [mm]" min="0">
+                        <input id="D_outer_dimension" min="0" placeholder="&#x2300; [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Inner diameter &#x2300; [mm]">
-                    <input id="d_inner_dimension" type="number" placeholder="&#8960; [mm]" min="0">
+                        <input id="d_inner_dimension" min="0" placeholder="&#8960; [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Length of tube [mm]">
-                    <input id="length_dimension" type="number" placeholder="L [mm]" min="0">
+                        <input id="length_dimension" min="0" placeholder="L [mm]" type="number">
                     </div>
                 </div>
                 <div class="rod hide" id="rod_inputs">
                     <div class="tooltip" data-tooltip="Diameter &#x2300; [mm]">
-                    <input id="d_dimension" type="number" placeholder="&#x2300; [mm]" min="0">
+                        <input id="d_dimension" min="0" placeholder="&#x2300; [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Length of rod [mm]">
-                    <input id="length_rod_dimension" type="number" placeholder="L [mm]" min="0">
+                        <input id="length_rod_dimension" min="0" placeholder="L [mm]" type="number">
                     </div>
                 </div>
 
@@ -272,73 +339,73 @@
     </div>
     <div class="edit_material_creation_form_popup" id="edit_material_creation_form_popup">
         <div class="form_wrapper">
-            <img  class="logo" src="/icons/update.svg" alt="">
+            <img alt="" class="logo" src="/icons/update.svg">
             <h1>Edit material</h1>
             <div class="tooltip" data-tooltip="Material name">
-            <input id="material_description_edit" type="text" placeholder="Material name">
+                <input id="material_description_edit" placeholder="Material name" type="text">
             </div>
             <div class="quantity">
                 <div class="tooltip" data-tooltip="Quantity">
-                <input id="quantity_edit" type="number" placeholder="Quantity" min="0" step="1">
+                    <input id="quantity_edit" min="0" placeholder="Quantity" step="1" type="number">
                 </div>
                 <div class="tooltip" data-tooltip="Minimum quantity">
-                <input id="minimum_quantity_edit" type="number" placeholder="Min. quantity" min="0" step="1">
+                    <input id="minimum_quantity_edit" min="0" placeholder="Min. quantity" step="1" type="number">
                 </div>
             </div>
             <div class="tooltip" data-tooltip="Material category">
-            <select name="categories" id="material_categories_edit">
-            </select>
+                <select id="material_categories_edit" name="categories">
+                </select>
             </div>
             <div class="density_price">
                 <div class="tooltip" data-tooltip="Density [g/cm3]">
-                <input id="density_edit" type="number" placeholder="Density [g/cm3]" min="0">
+                    <input id="density_edit" min="0" placeholder="Density [g/cm3]" type="number">
                 </div>
                 <div class="tooltip" data-tooltip="Price [PLN/kg]">
-                <input id="price_edit" type="number" placeholder="Price [PLN/kg]" min="0">
+                    <input id="price_edit" min="0" placeholder="Price [PLN/kg]" type="number">
                 </div>
             </div>
             <span>Dimensions:</span>
             <div class="img_wrapper">
                 <div class="tooltip" data-tooltip="Dimension for plate">
-                <img id="plate_btn_edit" src="/icons/Add_1.svg" alt="Plate">
+                    <img alt="Plate" id="plate_btn_edit" src="/icons/Add_1.svg">
                 </div>
                 <div class="tooltip" data-tooltip="Dimension for tube">
-                <img id="tube_btn_edit" src="/icons/Add_2.svg" alt="Tube">
+                    <img alt="Tube" id="tube_btn_edit" src="/icons/Add_2.svg">
                 </div>
                 <div class="tooltip" data-tooltip="Dimension for rod">
-                <img id="rod_btn_edit" src="/icons/Add_3.svg" alt="Rod">
+                    <img alt="Rod" id="rod_btn_edit" src="/icons/Add_3.svg">
                 </div>
             </div>
             <div class="dimensions_input_wrapper">
 
                 <div class="plate" id="plate_inputs_edit">
                     <div class="tooltip" data-tooltip="X axis dimension [mm]">
-                    <input id="x_dimension_edit" type="number" placeholder="X [mm]" min="0">
+                        <input id="x_dimension_edit" min="0" placeholder="X [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Y axis dimension [mm]">
-                    <input id="y_dimension_edit" type="number" placeholder="Y [mm]" min="0">
+                        <input id="y_dimension_edit" min="0" placeholder="Y [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Z axis dimension [mm]">
-                    <input id="z_dimension_edit" type="number" placeholder="Z [mm]" min="0">
+                        <input id="z_dimension_edit" min="0" placeholder="Z [mm]" type="number">
                     </div>
                 </div>
                 <div class="tube hide" id="tube_inputs_edit">
                     <div class="tooltip" data-tooltip="Outer diameter &#x2300; [mm]">
-                    <input id="D_outer_dimension_edit" type="number" placeholder="&#x2300; [mm]" min="0">
+                        <input id="D_outer_dimension_edit" min="0" placeholder="&#x2300; [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Inner diameter &#x2300; [mm]">
-                    <input id="d_inner_dimension_edit" type="number" placeholder="&#8960; [mm]" min="0">
+                        <input id="d_inner_dimension_edit" min="0" placeholder="&#8960; [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Length of tube [mm]">
-                    <input id="length_dimension_edit" type="number" placeholder="L [mm]" min="0">
+                        <input id="length_dimension_edit" min="0" placeholder="L [mm]" type="number">
                     </div>
                 </div>
                 <div class="rod hide" id="rod_inputs_edit">
                     <div class="tooltip" data-tooltip="Diameter &#x2300; [mm]">
-                    <input id="d_dimension_edit" type="number" placeholder="&#x2300; [mm]" min="0">
+                        <input id="d_dimension_edit" min="0" placeholder="&#x2300; [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Length of rod [mm]">
-                    <input id="length_rod_dimension_edit" type="number" placeholder="L [mm]" min="0">
+                        <input id="length_rod_dimension_edit" min="0" placeholder="L [mm]" type="number">
                     </div>
                 </div>
 
@@ -351,13 +418,13 @@
     </div>
     <div class="material_info_popup" id="material_info">
         <div class="form_wrapper">
-            <img src="/icons/questions.svg" alt="">
+            <img alt="" src="/icons/questions.svg">
             <h1>Info</h1>
             <span id="material_description_info">Material description: </span>
             <span id="material_quantity_info">Quantity: </span>
             <span id="material_mass_info">Mass per piece: </span>
             <span><strong id="material_total_mass_info">Total mass: </strong></span>
-            <img src="/icons/dollar.svg" alt="">
+            <img alt="" src="/icons/dollar.svg">
             <span id="material_price_info">Price per piece: </span>
             <span><strong id="material_total_price">Total price: </strong></span>
             <div class="btn_wrapper">
@@ -365,9 +432,138 @@
             </div>
         </div>
     </div>
+    <!--    MATERIAL POPUP SECTION END-->
+
+    <!--    TOOL POPUP SECTION START-->
+    <div class="tool_category_creation_form_popup" id="tool_category_creation_form_popup">
+        <div class="form_wrapper">
+            <img alt="" src="/icons/undraw_add_info.svg">
+            <h1>Tool category creation form</h1>
+            <div class="tooltip" data-tooltip="Tool type description">
+                <input id="tool_category_name" placeholder="e.g. DRILL HSS" type="text">
+            </div>
+            <div class="btn_wrapper">
+                <button id="tool_category_creation_form_popup_create_btn">Create</button>
+                <button id="tool_category_creation_form_popup_close_btn">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="tool_category_edit_form_popup" id="tool_category_edit_form_popup">
+        <div class="form_wrapper">
+            <img alt="" src="/icons/undraw_add_info.svg">
+            <h1>Edit tool category</h1>
+            <div class="tooltip" data-tooltip="Tool category description">
+                <input id="tool_category_edit_form_popup_category_name_input" placeholder="Tool category name"
+                       type="text">
+            </div>
+            <div class="btn_wrapper">
+                <button id="tool_category_edit_form_popup_update_btn">Update</button>
+                <button id="tool_category_edit_form_popup_close_btn">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="new_tool_creation_form_popup" id="new_tool_creation_form_popup">
+        <div class="form_wrapper">
+            <img alt="" class="logo" src="/icons/addfiles.svg">
+            <h1>New tool creation form</h1>
+            <div class="tooltip" data-tooltip="Tool description">
+                <input id="tool_description" placeholder="Tool description" type="text">
+            </div>
+            <div class="quantity">
+                <div class="tooltip" data-tooltip="Quantity">
+                    <input id="tool_quantity" min="0" placeholder="Quantity" step="1" type="number">
+                </div>
+                <div class="tooltip" data-tooltip="Minimum quantity">
+                    <input id="tool_minimum_quantity" min="0" placeholder="Min. quantity" step="1" type="number">
+                </div>
+            </div>
+            <div class="tooltip" data-tooltip="Tool category">
+                <select id="tool_categories" name="categories">
+                </select>
+            </div>
+            <div class="tool_price">
+                <div class="tooltip" data-tooltip="Price [PLN/kg]">
+                    <input id="tool_price" min="0" placeholder="Price [PLN]" type="number">
+                </div>
+            </div>
+            <span>Links:</span>
+            <div class="links_wrapper">
+                <div class="tooltip" data-tooltip="1. Link">
+                    <input placeholder="1. Link to the store" type="URL">
+                </div>
+                <div class="tooltip" data-tooltip="2. Link">
+                    <input placeholder="2. Link to the store" type="URL">
+                </div>
+            </div>
+
+            <div class="btn_wrapper">
+                <button id="tool_new_material_creation_form_popup_create_btn">Create</button>
+                <button id="tool_new_material_creation_form_popup_close_btn">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="edit_tool_creation_form_popup" id="edit_tool_creation_form_popup">
+        <div class="form_wrapper">
+            <img alt="" class="logo" src="/icons/update.svg">
+            <h1>Edit tool</h1>
+            <div class="tooltip" data-tooltip="Tool name">
+                <input id="tool_description_edit" placeholder="Tool name" type="text">
+            </div>
+            <div class="quantity">
+                <div class="tooltip" data-tooltip="Quantity">
+                    <input id="tool_quantity_edit" min="0" placeholder="Quantity" step="1" type="number">
+                </div>
+                <div class="tooltip" data-tooltip="Minimum quantity">
+                    <input id="tool_minimum_quantity_edit" min="0" placeholder="Min. quantity" step="1" type="number">
+                </div>
+            </div>
+            <div class="tooltip" data-tooltip="Tool category">
+                <select id="tool_categories_edit" name="categories">
+                </select>
+            </div>
+            <div class="tool_price">
+                <div class="tooltip" data-tooltip="Price [PLN/kg]">
+                    <input id="tool_price_edit" min="0" placeholder="Price [PLN]" type="number">
+                </div>
+            </div>
+            <span>Links:</span>
+            <div class="links_wrapper">
+                <div class="tooltip" data-tooltip="1. Link">
+                    <input placeholder="1. Link to the store" type="URL">
+                </div>
+                <div class="tooltip" data-tooltip="2. Link">
+                    <input placeholder="2. Link to the store" type="URL">
+                </div>
+            </div>
+
+            <div class="btn_wrapper">
+                <button id="edit_tool_creation_form_popup_update_btn">Update</button>
+                <button id="edit_tool_creation_form_popup_close_btn">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="material_info_popup" id="material_info">
+        <div class="form_wrapper">
+            <img alt="" src="/icons/questions.svg">
+            <h1>Info</h1>
+            <span id="material_description_info">Material description: </span>
+            <span id="material_quantity_info">Quantity: </span>
+            <span id="material_mass_info">Mass per piece: </span>
+            <span><strong id="material_total_mass_info">Total mass: </strong></span>
+            <img alt="" src="/icons/dollar.svg">
+            <span id="material_price_info">Price per piece: </span>
+            <span><strong id="material_total_price">Total price: </strong></span>
+            <div class="btn_wrapper">
+                <button id="material_info_close_btn">Close</button>
+            </div>
+        </div>
+    </div>
+    <!--    TOOL POPUP SECTION END-->
+
+
     <div class="delete_popup" id="delete_popup">
         <div class="popup_wrapper">
-            <img src="/icons/red_trash.svg" alt="">
+            <img alt="" src="/icons/red_trash.svg">
             <h1>Delete?</h1>
             <h3>Here something is Deleted.</h3>
             <div class="btn_wrapper">
@@ -376,9 +572,9 @@
             </div>
         </div>
     </div>
-    <div id="logout_popup" class="logout_popup">
+    <div class="logout_popup" id="logout_popup">
         <div class="popup_wrapper">
-            <img src="/icons/logout.svg" alt="">
+            <img alt="" src="/icons/logout.svg">
             <h1>Log out from Infrastock?</h1>
             <div class="btn_wrapper">
                 <button id="logout_btn_confirm">Yes, log out</button>
@@ -386,23 +582,20 @@
             </div>
         </div>
     </div>
-<!--    POPUP END-->
+    <!--    POPUP SECTION END-->
 </div>
 
-<script
-        crossorigin="anonymous"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script th:src="@{/js/app.js}"></script>
-<script th:src="@{/js/getMaterialCategories.js}"></script>
-<script th:src="@{/js/getMaterials.js}"></script>
-<script th:src="@{/js/navigation_btn.js}"></script>
-<script th:src="@{/js/alert.js}"></script>
-<script th:src="@{/js/addNewMaterial.js}"></script>
-<script th:src="@{/js/addMaterialCategory.js}"></script>
-<script th:src="@{/js/printThis.js}"></script>
-<script th:src="@{/js/printTable.js}"></script>
-<script th:src="@{/js/notificationDropdown.js}"></script>
-<script th:src="@{/js/material_info.js}"></script>
+
+<script src="/js/app.js"></script>
+<script src="/js/getMaterialCategories.js"></script>
+<script src="/js/getMaterials.js"></script>
+<script src="/js/navigation_btn.js"></script>
+<script src="/js/alert.js"></script>
+<script src="/js/addNewMaterial.js"></script>
+<script src="/js/addMaterialCategory.js"></script>
+<script src="/js/printThis.js"></script>
+<script src="/js/printTable.js"></script>
+<script src="/js/notificationDropdown.js"></script>
+<script src="/js/material_info.js"></script>
 </body>
 </html>
