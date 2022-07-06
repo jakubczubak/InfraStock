@@ -489,10 +489,10 @@
             <span>Links:</span>
             <div class="links_wrapper">
                 <div class="tooltip" data-tooltip="1. Link">
-                    <input placeholder="1. Link to the store" type="URL">
+                    <input placeholder="1. Link to the store" type="URL" id="tool_link_1">
                 </div>
                 <div class="tooltip" data-tooltip="2. Link">
-                    <input placeholder="2. Link to the store" type="URL">
+                    <input placeholder="2. Link to the store" type="URL" id="tool_link_2">
                 </div>
             </div>
 
@@ -542,19 +542,19 @@
             </div>
         </div>
     </div>
-    <div class="material_info_popup" id="material_info">
+    <div class="tool_info_popup" id="tool_info">
         <div class="form_wrapper">
             <img alt="" src="/icons/questions.svg">
             <h1>Info</h1>
-            <span id="material_description_info">Material description: </span>
-            <span id="material_quantity_info">Quantity: </span>
-            <span id="material_mass_info">Mass per piece: </span>
-            <span><strong id="material_total_mass_info">Total mass: </strong></span>
+            <span id="tool_description_info">Tool description: </span>
+            <span id="tool_quantity_info">Quantity: </span>
+            <span id="tool_link_1_info">1. Link: </span>
+            <span id="tool_link_2_info">2. Link: </span>
             <img alt="" src="/icons/dollar.svg">
-            <span id="material_price_info">Price per piece: </span>
-            <span><strong id="material_total_price">Total price: </strong></span>
+            <span id="tool_price_info">Tool price: </span>
+            <span><strong id="tool_total_price">Total price: </strong></span>
             <div class="btn_wrapper">
-                <button id="material_info_close_btn">Close</button>
+                <button id="tool_info_close_btn">Close</button>
             </div>
         </div>
     </div>
@@ -592,7 +592,9 @@
 <script src="/js/navigation_btn.js"></script>
 <script src="/js/alert.js"></script>
 <script src="/js/addNewMaterial.js"></script>
+<script src="/js/addNewTool.js"></script>
 <script src="/js/addMaterialCategory.js"></script>
+<script src="/js/addToolCategory.js"></script>
 <script src="/js/printThis.js"></script>
 <script src="/js/printTable.js"></script>
 <script src="/js/notificationDropdown.js"></script>

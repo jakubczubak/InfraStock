@@ -1778,8 +1778,8 @@ body {
 
 /*NEW TOOL POPUP END*/
 
-/*EDIT TOOL POPUP START*/ -- do dokonczenia
-.edit_material_creation_form_popup {
+/*EDIT TOOL POPUP START*/
+.edit_tool_creation_form_popup {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -1790,11 +1790,11 @@ body {
     z-index: 2;
 }
 
-.edit_material_creation_form_popup.active {
+.edit_tool_creation_form_popup.active {
     display: block;
 }
 
-.edit_material_creation_form_popup .form_wrapper {
+.edit_tool_creation_form_popup .form_wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1806,12 +1806,12 @@ body {
     border-radius: 32px;
 }
 
-.edit_material_creation_form_popup .form_wrapper img {
+.edit_tool_creation_form_popup .form_wrapper img {
     display: block;
     margin: 32px auto 0 auto;
 }
 
-.edit_material_creation_form_popup .form_wrapper h1 {
+.edit_tool_creation_form_popup .form_wrapper h1 {
     font-weight: 700;
     font-size: 32px;
     text-align: center;
@@ -1819,7 +1819,7 @@ body {
     padding: 16px 0;
 }
 
-.edit_material_creation_form_popup .form_wrapper .quantity {
+.edit_tool_creation_form_popup .form_wrapper .quantity{
     display: flex;
     width: 80%;
     justify-content: space-around;
@@ -1827,12 +1827,12 @@ body {
     gap: 16px;
 }
 
-.edit_material_creation_form_popup .form_wrapper .quantity div input {
+.edit_tool_creation_form_popup .form_wrapper .quantity div input {
     margin: 0 auto;
     width: 100%;
 }
 
-.edit_material_creation_form_popup .form_wrapper select {
+.edit_tool_creation_form_popup .form_wrapper select {
     width: 80%;
     height: 48px;
     background-color: #fff;
@@ -1843,32 +1843,18 @@ body {
     display: block;
 }
 
-.edit_material_creation_form_popup .form_wrapper select::placeholder {
+.edit_tool_creation_form_popup .form_wrapper select::placeholder {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     color: #505F79;
 }
 
-.edit_material_creation_form_popup .form_wrapper select:focus {
+.edit_tool_creation_form_popup .form_wrapper select:focus {
     outline-color: #6C63FF;
 }
 
-.edit_material_creation_form_popup .form_wrapper .density_price {
-    display: flex;
-    width: 80%;
-    justify-content: space-around;
-    margin: 0 auto;
-    gap: 16px;
-
-}
-
-.edit_material_creation_form_popup .form_wrapper .density_price div input {
-    width: 100%;
-}
-
-
-.edit_material_creation_form_popup .form_wrapper input {
+.edit_tool_creation_form_popup .form_wrapper input {
     width: 80%;
     height: 48px;
     background-color: #fff;
@@ -1880,18 +1866,18 @@ body {
     cursor: pointer;
 }
 
-.edit_material_creation_form_popup .form_wrapper input:focus {
+.edit_tool_creation_form_popup .form_wrapper input:focus {
     outline-color: #6C63FF;
 }
 
-.edit_material_creation_form_popup .form_wrapper input::placeholder {
+.edit_tool_creation_form_popup .form_wrapper input::placeholder {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     color: #505F79;
 }
 
-.edit_material_creation_form_popup .form_wrapper span {
+.edit_tool_creation_form_popup .form_wrapper span {
     text-align: center;
     display: block;
     margin-top: 16px;
@@ -1900,56 +1886,11 @@ body {
     color: #BAB6B6;
 }
 
-.edit_material_creation_form_popup .form_wrapper .img_wrapper {
-    display: flex;
-    justify-content: space-evenly;
+.edit_tool_creation_form_popup .form_wrapper .links_wrapper {
     margin-top: 8px;
-
 }
 
-.edit_material_creation_form_popup .form_wrapper .img_wrapper img {
-    display: inline-block;
-    margin: 8px auto;
-    cursor: pointer;
-}
-
-.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div {
-    display: flex;
-    width: 80%;
-    justify-content: space-around;
-    margin: 8px auto;
-}
-
-.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.plate.hide {
-    display: none;
-}
-
-.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.tube.hide {
-    display: none;
-}
-
-.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.rod.hide {
-    display: none;
-}
-
-.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.plate.show {
-    display: flex;
-}
-
-.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.tube.show {
-    display: flex;
-}
-
-.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.rod.show {
-    display: flex;
-}
-
-.edit_material_creation_form_popup .form_wrapper .dimensions_input_wrapper input {
-    width: 95%;
-    margin: 0;
-}
-
-.edit_material_creation_form_popup .form_wrapper .btn_wrapper {
+.edit_tool_creation_form_popup .form_wrapper .btn_wrapper {
     width: 80%;
     display: block;
     margin: 0 auto;
@@ -1959,7 +1900,7 @@ body {
     transform: translate(-50%);
 }
 
-.edit_material_creation_form_popup .form_wrapper .btn_wrapper button{
+.edit_tool_creation_form_popup .form_wrapper .btn_wrapper button{
     display: block;
     cursor: pointer;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -1973,15 +1914,98 @@ body {
     margin: 8px 0;
 }
 
-.edit_material_creation_form_popup .form_wrapper .btn_wrapper button:first-child {
+.edit_tool_creation_form_popup .form_wrapper .btn_wrapper button:first-child {
     background: #FBB034;
 }
 
-.edit_material_creation_form_popup .form_wrapper .btn_wrapper button:last-child {
+.edit_tool_creation_form_popup .form_wrapper .btn_wrapper button:last-child {
     background: #00A1C3;
 }
 
 /*EDIT TOOL POPUP END*/
+
+
+/*TOOL INFO POPUP START*/
+.tool_info_popup {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(249, 250, 252, 0.8);
+    display: none;
+    z-index: 2;
+}
+
+.tool_info_popup.active {
+    display: block;
+}
+
+.tool_info_popup .form_wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 496px;
+    height: 90%;
+    background: #FFFFFF;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+}
+
+.tool_info_popup .form_wrapper img {
+    display: block;
+    margin: 32px auto 0 auto;
+}
+
+.tool_info_popup .form_wrapper h1 {
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+    color: #505F79;
+    padding: 16px 0;
+}
+
+.tool_info_popup .form_wrapper .btn_wrapper {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.tool_info_popup .form_wrapper span {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 8px 0;
+    color: #505F79;
+}
+
+.tool_info_popup .form_wrapper img {
+
+    padding: 8px 0;
+}
+
+
+.tool_info_popup .form_wrapper .btn_wrapper button {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    width: 100%;
+    height: 48px;
+    background: #00A1C3;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+}
+
+/*TOOL INFO POPUP END*/
 
 
 /*DELETE POPUP START*/
