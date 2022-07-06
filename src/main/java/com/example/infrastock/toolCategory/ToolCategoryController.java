@@ -29,9 +29,8 @@ public class ToolCategoryController {
     @PostMapping(value = "/addCategory")
     public String createMaterialCategory(@RequestBody @Valid ToolCategoryDTO categoryDTO) {
 
-        System.out.println(categoryDTO.getCategoryName());
         if (toolCategoryService.checkIfCategoryExist(categoryDTO.getCategoryName())) {
-            return "The tool category you have entered is already in DataBase";
+            return "The tool category you have entered is already in Database";
         } else {
             toolCategoryService.createToolCategory(categoryDTO);
             return "Congratulations, you've added a new tool category";
