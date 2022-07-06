@@ -18,7 +18,6 @@ tool_category_creation_form_popup_create_btn.addEventListener("click", e => {
         categoryName: tool_category_name.value
     };
 
-console.log(JSON.stringify(newToolCategory));
     fetch('/tools/addCategory', {
         method: 'POST',
         headers: {

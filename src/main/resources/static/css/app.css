@@ -72,8 +72,8 @@ body {
 }
 
 .sidebar .logo_content .logo_img {
-    width: 60px;
-    height: 38px;
+    width: 58px;
+    height: auto;
 }
 
 .sidebar .logo_content .logo_name {
