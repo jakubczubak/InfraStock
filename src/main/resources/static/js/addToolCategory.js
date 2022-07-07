@@ -29,10 +29,10 @@ tool_category_creation_form_popup_create_btn.addEventListener("click", e => {
             response.text().then(function (text) {
 
                 if (response.ok){
-                    if(text === "Congratulations, you've added a new tool category"){
+                    if(text === "Successfully added tool category"){
                         tool_category_creation_form_popup.classList.remove("active");
                         tool_category_name.value = "";
-                        printMaterialCategories();
+                        printToolCategories();
                         showSuccessAlert(text);
                         setTimeout(function () {
                             hideSuccessAlert();

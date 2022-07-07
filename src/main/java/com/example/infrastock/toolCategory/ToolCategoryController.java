@@ -1,8 +1,5 @@
 package com.example.infrastock.toolCategory;
 
-
-
-import com.example.infrastock.materialCategory.MaterialCategoryDTO;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -30,10 +27,10 @@ public class ToolCategoryController {
     public String createMaterialCategory(@RequestBody @Valid ToolCategoryDTO categoryDTO) {
 
         if (toolCategoryService.checkIfCategoryExist(categoryDTO.getCategoryName())) {
-            return "The tool category you have entered is already in Database";
+            return categoryDTO.getCategoryName() + " already exist!";
         } else {
             toolCategoryService.createToolCategory(categoryDTO);
-            return "Congratulations, you've added a new tool category";
+            return "Successfully added tool category";
         }
     }
 
@@ -48,6 +45,6 @@ public class ToolCategoryController {
     @PostMapping("/updateTool")
     public String updateToolCategory(@RequestBody @Valid ToolCategoryDTO toolCategoryDTO, @RequestParam Long id) {
         toolCategoryService.updateToolCategory(toolCategoryDTO, id);
-        return "Successfully tool category updated: " + toolCategoryDTO.getCategoryName();
+        return "Successfully updated: " + toolCategoryDTO.getCategoryName();
     }
 }
