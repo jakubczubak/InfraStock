@@ -42,8 +42,8 @@ function showMaterialInfoPopUp(id) {
             material_quantity_info.innerHTML = `Quantity:  <strong>${material.quantity}</strong>`;
             material_mass_info.innerHTML = `Mass per piece: <strong>${singleMass}</strong> kg`;
             material_total_mass_info.innerHTML = `Total mass:   <strong>${totalMass}</strong> kg`;
-            material_price_info.innerHTML = `Price per piece:  <strong>${singlePrice}</strong> PLN`;
-            material_total_price.innerHTML = `Total price: <strong>${totalPrice}</strong> PLN`;
+            material_price_info.innerHTML = `Net price per piece:  <strong>${singlePrice}</strong> PLN`;
+            material_total_price.innerHTML = `Total net price: <strong>${totalPrice}</strong> PLN`;
 
             material_info.classList.add('active');
         });

@@ -9,11 +9,12 @@ services:
       - MYSQL_USER=infrastock
       - MYSQL_DATABASE=infrastock
       - MYSQL_PASSWORD=infrastock123
+      - TZ=Europe/Warsaw
     ports:
       - 33067:3306
     volumes:
-      - "./.mysql-data/db:/var/lib/mysql"
-
+      - ./infrastock-db:/var/lib/mysql
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci',']
 
   adminer:
     image: adminer
@@ -26,7 +27,7 @@ services:
   api:
     image: czubakjakub/infrastock:v1.0.0
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://root:mysqlpw@test-mysql-docker:3306/infrastock?autoReconnect=true&useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8?useLegacyDatetimeCode=false&serverTimezone=Europe/Warsaw"
+      - SPRING_DATASOURCE_URL=jdbc:mysql://root:mysqlpw@test-mysql-docker:3306/infrastock?autoReconnect=true&useSSL=false&serverTimezone=Europe/Warsaw
       - SPRING_JPA_HIBERNATE_DDL-AUTO=update
     restart: always
     ports:
