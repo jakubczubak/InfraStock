@@ -15,7 +15,7 @@ fetch('/userInfo')
     .then(function (response) {
         return response.text();
     }).then(function (text) {
-    userInfo.innerText = "Hi, " + text + " !";
+    userInfo.innerText = "Hi, " + text + "!";
 });
 
 window.addEventListener("resize", function () {

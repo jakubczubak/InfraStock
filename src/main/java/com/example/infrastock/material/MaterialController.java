@@ -11,15 +11,11 @@ import java.util.List;
 @RestController
 public class MaterialController {
 
-    private MaterialService materialService;
-    private MaterialRepo materialRepo;
-    private NotificationService notificationService;
+    private final MaterialService materialService;
 
 
-    public MaterialController(MaterialService materialService, MaterialRepo materialRepo, NotificationService notificationService) {
+    public MaterialController(MaterialService materialService) {
         this.materialService = materialService;
-        this.materialRepo = materialRepo;
-        this.notificationService = notificationService;
     }
 
 

@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 public class MaterialService {
 
-    private MaterialRepo materialRepo;
-    private MaterialCategoryRepo materialCategoryRepo;
-    private NotificationService notificationService;
+    private final MaterialRepo materialRepo;
+    private final MaterialCategoryRepo materialCategoryRepo;
+    private final NotificationService notificationService;
 
     public MaterialService(MaterialRepo materialItemRepo, MaterialCategoryRepo materialCategoryRepo, NotificationService notificationService) {
         this.materialRepo = materialItemRepo;
