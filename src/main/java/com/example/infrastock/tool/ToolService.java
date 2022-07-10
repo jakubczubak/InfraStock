@@ -43,7 +43,7 @@ public class ToolService {
 
         notificationService.sendNotificationToUsers("added new tool: " + toolDTO.getToolName());
         ToolCategory toolCategory = toolCategoryRepo.findByToolCategoryName(categoryName);
-        Tool newTool = new Tool(toolDTO.getToolName(), toolDTO.getQuantity(), toolDTO.getMinQuantity(), toolCategory, toolDTO.getPrice());
+        Tool newTool = new Tool(toolDTO.getToolName(), toolDTO.getQuantity(), toolDTO.getMinQuantity(), toolCategory, toolDTO.getPrice(), toolDTO.getLink1(), toolDTO.getLink2());
         toolRepo.save(newTool);
 
     }

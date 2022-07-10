@@ -32,9 +32,8 @@ public class ToolController {
     @PostMapping(value = "/addTool")
     public String createTool(@RequestBody @Valid ToolDTO toolDTO) {
 
-
         if (toolService.checkIfToolExist(toolDTO.getToolName())) {
-            return "The tool you have entered is already in DataBase";
+            return "The tool you have entered is already in Database";
         } else {
             toolService.createTool(toolDTO);
             return "Congratulations, you've added a new tool";
@@ -50,9 +49,9 @@ public class ToolController {
 
     @DeleteMapping("/deleteTool")
     public String deleteTool(@RequestParam Long id) {
-        String categoryName = toolService.getCategoryName(id);
+        String toolName = toolService.getToolByID(id).getToolName();
         toolService.deleteTool(id);
-        return "Successfully deleted: " + categoryName;
+        return "Successfully deleted: " + toolName;
 
     }
 

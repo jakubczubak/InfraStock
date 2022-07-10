@@ -27,6 +27,9 @@ public class ToolDTO {
     @Min(value = 0, message = "Minimum price could be 0")
     private float price;
 
+    private String link1;
+    private String link2;
+
 
     public ToolDTO() {
     }
@@ -38,14 +41,31 @@ public class ToolDTO {
         this.category = category;
     }
 
-    public ToolDTO(String toolName, Integer quantity, Integer minQuantity, String category, float price) {
+    public ToolDTO(String toolName, Integer quantity, Integer minQuantity, String category, float price, String link1, String link2) {
         this.toolName = toolName;
         this.quantity = quantity;
         this.minQuantity = minQuantity;
         this.category = category;
         this.price = price;
+        this.link1 = link1;
+        this.link2 = link2;
     }
 
+    public String getLink1() {
+        return link1;
+    }
+
+    public void setLink1(String link1) {
+        this.link1 = link1;
+    }
+
+    public String getLink2() {
+        return link2;
+    }
+
+    public void setLink2(String link2) {
+        this.link2 = link2;
+    }
 
     public Long getId() {
         return id;
@@ -97,5 +117,20 @@ public class ToolDTO {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+
+    @Override
+    public String toString() {
+        return "ToolDTO{" +
+                "id=" + id +
+                ", toolName='" + toolName + '\'' +
+                ", quantity=" + quantity +
+                ", minQuantity=" + minQuantity +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                ", link1='" + link1 + '\'' +
+                ", link2='" + link2 + '\'' +
+                '}';
     }
 }

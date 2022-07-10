@@ -26,14 +26,13 @@ tool_new_material_creation_form_popup_create_btn.addEventListener('click', funct
 
     let newTool = {
         toolName: tool_description.value,
-        tool_quantity: tool_quantity.value,
-        tool_minimum_quantity: tool_minimum_quantity.value,
-        tool_category: tool_categories.value,
+        quantity: tool_quantity.value,
+        minQuantity: tool_minimum_quantity.value,
+        category: tool_categories.value,
         price: tool_price.value,
-        link_1:tool_link_1.value,
-        link_2:tool_link_2.value
+        link1:tool_link_1.value,
+        link2:tool_link_2.value
     };
-
 
     fetch('/addTool', {
         method: 'POST',
@@ -47,13 +46,14 @@ tool_new_material_creation_form_popup_create_btn.addEventListener('click', funct
 
                 if (response.ok){
                     if(text === "Congratulations, you've added a new tool"){
-                        new_material_creation_form_popup.classList.remove('active');
+                        new_tool_creation_form_popup.classList.remove('active');
                         clearDataMaterialCreationForm();
-                        printMaterials("/tools");
+                        printTools("/tools");
                         showSuccessAlert(text);
                         setTimeout(function () {
                             hideSuccessAlert();
                         }, 5000); //hide alert automatically after 5sec
+
                     }else{
                         showErrorAlert(text);
                         setTimeout(function () {

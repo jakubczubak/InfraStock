@@ -22,6 +22,8 @@ public class Tool {
     @Column(name = "updated_on")
     private String updatedOn;
     private float price;
+    private String link1;
+    private String link2;
 
     public Tool() {
     }
@@ -34,14 +36,31 @@ public class Tool {
 
     }
 
-    public Tool(String toolName, Integer quantity, Integer minQuantity, ToolCategory toolCategoryName, float price) {
+    public Tool(String toolName, Integer quantity, Integer minQuantity, ToolCategory toolCategoryName, float price, String link1, String link2) {
         this.toolName = toolName;
         this.quantity = quantity;
         this.minQuantity = minQuantity;
         this.toolCategoryName = toolCategoryName;
         this.price = price;
+        this.link1 = link1;
+        this.link2 = link2;
     }
 
+    public String getLink1() {
+        return link1;
+    }
+
+    public void setLink1(String link1) {
+        this.link1 = link1;
+    }
+
+    public String getLink2() {
+        return link2;
+    }
+
+    public void setLink2(String link2) {
+        this.link2 = link2;
+    }
 
     @PreUpdate
     public void preUpdate() {
