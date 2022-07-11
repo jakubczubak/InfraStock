@@ -42,7 +42,7 @@ public class ToolController {
 
     @PutMapping("/updateTool")
     public String updateTool(@RequestBody @Valid ToolDTO toolDTO) {
-        System.out.println(toolDTO.getPrice());
+        System.out.println(toolDTO.toString());
         toolService.updateTool(toolDTO);
         return "Successfully updated: " + toolDTO.getToolName();
     }

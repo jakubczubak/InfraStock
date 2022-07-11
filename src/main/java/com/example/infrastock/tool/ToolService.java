@@ -55,6 +55,8 @@ public class ToolService {
         toolToUpdate.setMinQuantity(toolDTO.getMinQuantity());
         toolToUpdate.setToolCategoryName(toolCategoryRepo.findByToolCategoryName(toolDTO.getCategory()));
         toolToUpdate.setPrice(toolDTO.getPrice());
+        toolToUpdate.setLink1(toolDTO.getLink1());
+        toolToUpdate.setLink2(toolDTO.getLink2());
         notificationService.sendNotificationToUsers("updated tool: " + toolDTO.getToolName());
         toolRepo.save(toolToUpdate);
     }
