@@ -25,13 +25,13 @@
             </div>
         </div>
         <ul class="nav_list">
-            <li class="active">
+            <li class="active" id="materialsBtn">
                 <a href="#" title="Materials section">
                     <img src="/icons/materials.svg" alt="Materials">
                     <span class="links_name">Materials</span>
                 </a>
             </li>
-            <li class="disabled">
+            <li id="toolsBtn">
                 <a href="#" title="Tools section">
                     <img src="/icons/light.svg" alt="Tools">
                     <span class="links_name">Tools</span>
@@ -89,7 +89,7 @@
         <!--NAVBAR SECTION END-->
 
         <!--MATERIAL SECTION START-->
-        <div class="material_section_wrapper" style="display: none">
+        <div class="material_section_wrapper">
             <div class="material_header_wrapper">
                 <div class="special_tooltip"
                      data-tooltip="The module allows you to manage the warehouse of materials">
@@ -600,6 +600,7 @@
 <script src="/js/printTable.js"></script>
 <script src="/js/notificationDropdown.js"></script>
 <script src="/js/material_info.js"></script>
+<script src="/js/tool_info.js"></script>
 
 </body>
 </html>
