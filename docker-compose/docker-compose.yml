@@ -26,7 +26,7 @@ services:
       - mysql
 
   api:
-    image: czubakjakub/infrastock:v1.0.0
+    image: czubakjakub/infrastock:v2.0.0
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://root:mysqlpw@test-mysql-docker:3306/infrastock?autoReconnect=true&useSSL=false&serverTimezone=Europe/Warsaw
       - SPRING_JPA_HIBERNATE_DDL-AUTO=update
