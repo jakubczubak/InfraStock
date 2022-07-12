@@ -1,5 +1,12 @@
 const clear_filters_button = document.getElementById("clear-filters-button");
 const materialShoppingList = document.getElementById("materialShoppingList");
+const material_category_setting_btn = document.getElementById('material_category_setting_btn');
+
+material_category_setting_btn.addEventListener('click', function (){
+    console.log("elo");
+})
+
+
 
 materialShoppingList.addEventListener('click', function () {
     printMaterials('/shoppingList');
