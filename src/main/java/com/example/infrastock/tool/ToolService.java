@@ -88,4 +88,17 @@ public class ToolService {
 
         return shoppingList;
     }
+
+    public double getNetWorthOfTools(){
+
+        double netWorth = 0;
+        for(int i = 0; i<toolRepo.findAll().size();i++){
+
+            Tool tool = toolRepo.findAll().get(i);
+
+            netWorth += tool.getPrice()*tool.getQuantity();
+        }
+
+        return Math.floor(netWorth*100)/100;
+    }
 }

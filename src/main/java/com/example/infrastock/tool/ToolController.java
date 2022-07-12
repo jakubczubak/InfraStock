@@ -1,5 +1,6 @@
 package com.example.infrastock.tool;
 
+import com.example.infrastock.material.Material;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -9,11 +10,13 @@ import java.util.List;
 public class ToolController {
 
     private final ToolService toolService;
+    private final ToolRepo toolRepo;
 
 
 
-    public ToolController(ToolService toolService) {
+    public ToolController(ToolService toolService, ToolRepo toolRepo) {
         this.toolService = toolService;
+        this.toolRepo = toolRepo;
     }
 
 
@@ -66,6 +69,11 @@ public class ToolController {
     @GetMapping("/tools/shoppingList")
     public List<Tool> getShoppingList() {
         return toolService.getShoppingList();
+    }
+
+    @GetMapping("/tools/net_worth")
+    public double getNetWorthOfTools(){
+        return toolService.getNetWorthOfTools();
     }
 
 }

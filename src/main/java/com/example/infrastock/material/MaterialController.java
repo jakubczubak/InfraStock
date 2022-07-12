@@ -71,4 +71,9 @@ public class MaterialController {
         return materialService.getShoppingList();
     }
 
+
+    @GetMapping("/materials/net_worth")
+    public double getNetWorthOfMaterials(){
+        return materialService.getNetWorthOfMaterials();
+    }
 }

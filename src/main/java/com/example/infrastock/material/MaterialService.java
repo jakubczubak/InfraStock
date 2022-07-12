@@ -94,4 +94,30 @@ public class MaterialService {
 
         return shoppingList;
     }
+
+    public double getNetWorthOfMaterials(){
+
+        double netWorth = 0;
+        for(int i = 0; i<materialRepo.findAll().size();i++){
+
+            Material material = materialRepo.findAll().get(i);
+
+            double singleMassForPlate = (material.getDensity() * material.getX_dimension() * material.getY_dimension() *material.getZ_dimension() / 1000000);
+            double singleMassForRod = (material.getDensity() * Math.PI * Math.pow((material.getD_dimension() / 2), 2) * material.getLength_rod_dimension() / 1000000);
+            double singleMassForTube = (material.getDensity() * Math.PI * (Math.pow((material.getD_outer_dimension() / 2), 2) - Math.pow((material.getD_inner_dimension() / 2), 2)) * material.getLength_dimension() / 1000000);
+
+            double singleMass = 0;
+
+            if(singleMassForPlate > 0){
+                singleMass = singleMassForPlate;
+            }else if( singleMassForRod > 0) {
+                singleMass = singleMassForRod;
+            }else {
+                singleMass = singleMassForTube;
+            }
+
+            netWorth += singleMass * material.getQuantity() * material.getPrice();
+        }
+        return Math.floor(netWorth*100.0)/100.0;
+    }
 }

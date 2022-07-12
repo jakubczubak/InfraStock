@@ -1,16 +1,14 @@
 const materials_to_buy_count = document.getElementById('materials_to_buy_count');
+const materials_to_buy = document.getElementById('materials_to_buy');
 const materials_net_worth = document.getElementById('materials_net_worth');
 const tools_to_buy_count = document.getElementById('tools_to_buy_count');
+const tools_to_buy = document.getElementById('tools_to_buy');
 const tools_net_worth = document.getElementById('tools_net_worth');
 
 
-
-
-materials_to_buy_count.innerHTML= '1<strong>positions</strong>';
-materials_net_worth.innerHTML = '32 000<strong>PLN</strong>';
-tools_to_buy_count.innerHTML = '15<strong>positions</strong>';
-tools_net_worth.innerHTML = '16 300<strong>PLN</strong>';
-
+materials_to_buy.addEventListener('click', function (){
+    dashboard_section_wrapper.classList.remove('active');
+})
 
 const updateDashboard = function updateDashboard() {
 
@@ -19,7 +17,7 @@ const updateDashboard = function updateDashboard() {
             if (response.ok) {
                 return response.json();
             } else {
-                throw "Error fetch tool list"
+                throw "Error fetch materials shopping list"
             }
         })
         .then(function (tools) {
@@ -31,11 +29,35 @@ const updateDashboard = function updateDashboard() {
             if (response.ok) {
                 return response.json();
             } else {
-                throw "Error fetch tool list"
+                throw "Error fetch tools shopping list"
             }
         })
         .then(function (tools) {
             tools_to_buy_count.innerHTML= `${tools.length}<strong>positions</strong>`;
+        });
+
+    fetch('/tools/net_worth')
+        .then(function (response) {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw "Error fetch tools net worth"
+            }
+        })
+        .then(function (text) {
+            tools_net_worth.innerHTML = `${text}<strong>PLN</strong>`;
+        });
+
+    fetch('/materials/net_worth')
+        .then(function (response) {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw "Error fetch materials newt worth"
+            }
+        })
+        .then(function (text) {
+            materials_net_worth.innerHTML = `${text}<strong>PLN</strong>`;
         });
 };
 
