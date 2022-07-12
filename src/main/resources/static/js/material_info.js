@@ -17,9 +17,9 @@ function showMaterialInfoPopUp(id) {
         .then(response => response.json())
         .then(material => {
 
-            let singleMassForPlate = (material.density * material.x_dimension * material.y_dimension *material.z_dimension / 1000000).toFixed(9);
-            let singleMassForRod = (material.density * Math.PI * Math.pow((material.d_dimension / 2), 2) * material.length_rod_dimension / 1000000).toFixed(9);
-            let singleMassForTube = (material.density * Math.PI * (Math.pow((material.d_outer_dimension / 2), 2) - Math.pow((material.d_inner_dimension / 2), 2)) * material.length_dimension / 1000000).toFixed(9);
+            let singleMassForPlate = (material.density * material.x_dimension * material.y_dimension *material.z_dimension / 1000000).toFixed(3);
+            let singleMassForRod = (material.density * Math.PI * Math.pow((material.d_dimension / 2), 2) * material.length_rod_dimension / 1000000).toFixed(3);
+            let singleMassForTube = (material.density * Math.PI * (Math.pow((material.d_outer_dimension / 2), 2) - Math.pow((material.d_inner_dimension / 2), 2)) * material.length_dimension / 1000000).toFixed(3);
 
             let singleMass = 0;
 
@@ -34,7 +34,7 @@ function showMaterialInfoPopUp(id) {
 
 
 
-            let totalMass = (material.quantity * singleMass).toFixed(2);
+            let totalMass = (material.quantity * singleMass).toFixed(3);
             let singlePrice = (singleMass * material.price).toFixed(2);
             let totalPrice = (material.quantity * singlePrice).toFixed(2);
 

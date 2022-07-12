@@ -90,6 +90,37 @@
     <div class="main">
         <!--NAVBAR SECTION END-->
 
+        <!--DASHBOARD SECTION START-->
+        <div class="dashboard_section_wrapper active" id="dashboard_section_wrapper">
+            <div class="dashboard_header_wrapper">
+                    <h1 class="header">Quick overview</h1>
+            </div>
+            <div class="quick_overviews_wrapper">
+                <div class="quick_overview_item">
+                    <h1>Materials to buy:</h1>
+                     <p id="materials_to_buy_count">32<strong>positions</strong></p>
+                    <img src="/icons/metal_bar.svg" alt="Materials">
+                </div>
+                <div class="quick_overview_item" style="border-color: #FF9800">
+                    <h1>Net worth of materials:</h1>
+                    <p id="materials_net_worth">32 000<strong>PLN</strong></p>
+                    <img src="/icons/wallet_overview.svg" alt="Materials">
+                </div>
+                <div class="quick_overview_item" style="border-color: #4F46E5">
+                    <h1>Tools to buy:</h1>
+                    <p id="tools_to_buy_count">15<strong>positions</strong></p>
+                    <img src="/icons/drill.svg" alt="Materials">
+                </div>
+                <div class="quick_overview_item" style="border-color: #26E7A5">
+                    <h1>Net worth of tools:</h1>
+                    <p id="tools_net_worth">16 300<strong>PLN</strong></p>
+                    <img src="/icons/wallet_overview.svg" alt="Materials">
+                </div>
+            </div>
+        </div>
+
+        <!--DASHBOARD SECTION END-->
+
         <!--MATERIAL SECTION START-->
         <div class="material_section_wrapper" id="material_section_wrapper">
             <div class="material_header_wrapper">
@@ -100,7 +131,7 @@
                 <div class="btn_wrapper">
                     <ul>
                         <li id="new_material_btn">
-                            <img alt="" src="/icons/add.svg"><span>Create tool</span>
+                            <img alt="" src="/icons/add.svg"><span>Create material</span>
                         </li>
                         <li id="add_material_category_btn">
                             <img alt="" src="/icons/add.svg"><span>Material category</span>
@@ -586,6 +617,7 @@
     </div>
     <!--    POPUP SECTION END-->
 </div>
+<script src="/js/dashboard.js"></script>
 <script src="/js/jQuery.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/getMaterialCategories.js"></script>

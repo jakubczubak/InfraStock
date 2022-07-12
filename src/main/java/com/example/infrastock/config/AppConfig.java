@@ -23,20 +23,25 @@ public class AppConfig {
         this.materialService = materialService;
 
 //create default account
-        UserDTO admin = new UserDTO();
+        UserDTO admin_1 = new UserDTO();
 
-        admin.setUsername("admin");
-        admin.setEmail("admin@inframet.com");
-        admin.setPassword("admin");
+        admin_1.setUsername("Jakub Czubak");
+        admin_1.setEmail("jczu@inframet.com");
+        admin_1.setPassword("kuba");
 
-        if (!userService.checkIfEmailExist(admin.getEmail())) {
-            userService.createAdmin(admin);
+        if (!userService.checkIfEmailExist(admin_1.getEmail())) {
+            userService.createAdmin(admin_1);
         }
 
+        UserDTO admin_2 = new UserDTO();
 
+        admin_2.setUsername("Michał Ostrowski");
+        admin_2.setEmail("most@inframet.com");
+        admin_2.setPassword("michal");
 
+        if (!userService.checkIfEmailExist(admin_2.getEmail())) {
+            userService.createAdmin(admin_2);
+        }
 
     }
-
-
 }

@@ -219,7 +219,7 @@ body {
 .nav-bar .notifications_wrapper .dropdown-content {
     position: fixed;
     top: 60px;
-    transform: translateX(-45%);
+    transform: translateX(-90%);
     width: 413px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
@@ -286,6 +286,69 @@ body {
 
 /*NAVBAR SECTION END*/
 
+/*DASHBOARD SECTION START*/
+.dashboard_section_wrapper {
+    margin: 40px 40px 40px 40px;
+    transition: all 2s ease;
+    display: none;
+}
+.dashboard_section_wrapper.active {
+    display: revert;
+}
+.dashboard_header_wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.dashboard_header_wrapper .header {
+    font-size: 24px;
+    margin-bottom: 30px;
+
+}
+
+.quick_overviews_wrapper{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.quick_overviews_wrapper .quick_overview_item{
+    background-color: rgba(108, 99, 255, 0.04);
+    width: 314px;
+    height: 147px;
+    border-radius: 16px;
+    border-left: 4px solid;
+    border-color: #F000B9;
+    padding: 20px 30px ;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    cursor: pointer;
+}
+.quick_overviews_wrapper .quick_overview_item h1{
+    font-size: 20px;
+    font-weight: 500;
+    color: #84878B;
+}
+.quick_overviews_wrapper .quick_overview_item p{
+    font-size: 30px;
+    font-weight: 700;
+    color: #334155;
+    display: inline-block;
+    position: absolute;
+    bottom: 30px;
+}
+.quick_overviews_wrapper .quick_overview_item p strong{
+    font-size: 16px;
+    font-weight: 500;
+    color: #84878B;
+    padding-left: 8px;
+}
+.quick_overviews_wrapper .quick_overview_item img{
+    position: absolute;
+    right: 20px;
+}
+/*DASHBOARD SECTION END*/
 
 /*MATERIAL SECTION START*/
 .material_section_wrapper {

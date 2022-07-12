@@ -23,8 +23,8 @@ public class UserController {
     @GetMapping(value = "/userInfo")
     public String getUserInfo(){
         Object principal = SecurityContextHolder. getContext(). getAuthentication(). getPrincipal();
-        String email = ((User)principal).getEmail();
-        return email;
+        String username = ((User)principal).getUsername();
+        return username;
     }
 
 

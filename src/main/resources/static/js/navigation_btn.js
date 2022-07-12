@@ -4,7 +4,7 @@ const logout_btn = document.getElementById('logout');
 const logout_popup = document.getElementById('logout_popup');
 const logout_btn_confirm = document.getElementById('logout_btn_confirm');
 const logout_btn_cancel = document.getElementById('logout_btn_cancel');
-
+const dashboard_section_wrapper = document.getElementById('dashboard_section_wrapper');
 const materialsBtn = document.getElementById('materialsBtn');
 const material_section_wrapper = document.getElementById('material_section_wrapper');
 const toolsBtn = document.getElementById('toolsBtn');
@@ -15,19 +15,23 @@ materialsBtn.addEventListener('click', function (){
     tool_section_wrapper.classList.remove('active');
     materialsBtn.classList.add('active');
     material_section_wrapper.classList.add('active');
+    dashboard_section_wrapper.classList.remove('active');
 })
 toolsBtn.addEventListener('click', function (){
     materialsBtn.classList.remove('active');
     material_section_wrapper.classList.remove('active');
     toolsBtn.classList.add('active');
     tool_section_wrapper.classList.add('active');
+    dashboard_section_wrapper.classList.remove('active');
 })
 
 logo_wrapper.addEventListener('click', function (){
+    updateDashboard();
     toolsBtn.classList.remove('active');
     materialsBtn.classList.remove('active');
     material_section_wrapper.classList.remove('active');
     tool_section_wrapper.classList.remove('active');
+    dashboard_section_wrapper.classList.add('active');
 })
 
 

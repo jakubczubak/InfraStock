@@ -6,10 +6,10 @@ toolShoppingList.addEventListener('click', function () {
 });
 
 tool_clear_filters_button.addEventListener("click", function () {
-    printTools("/tools/materials");
+    printTools("/tools");
 });
 
-const printTools = function printMaterials(url) {
+const printTools = function printTools(url) {
 
     fetch(url)
         .then(function (response) {
@@ -169,9 +169,6 @@ function updateTool(id) {
                 link1:tool_link_1_edit.value,
                 link2:tool_link_2_edit.value
             };
-
-            console.log(updatedTool);
-
             fetch('/updateTool?id=' + updatedTool.id, {
                 method: 'PUT',
                 headers: {

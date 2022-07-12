@@ -63,7 +63,7 @@ public class ToolController {
         return toolService.getSortedTools(categoryName);
     }
 
-    @GetMapping("/tool/shoppingList")
+    @GetMapping("/tools/shoppingList")
     public List<Tool> getShoppingList() {
         return toolService.getShoppingList();
     }
