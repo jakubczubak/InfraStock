@@ -62,6 +62,7 @@ body {
 .sidebar .logo_content .logo {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .sidebar .logo_content .logo img#sidebar_btn {
@@ -290,6 +291,11 @@ body {
 .material_section_wrapper {
     margin: 16px 40px 16px 40px;
     display: none;
+    transition: all 2s ease;
+}
+.material_section_wrapper.active {
+    display: revert;
+    transition: all 2s ease;
 }
 
 .material_header_wrapper {
@@ -499,6 +505,9 @@ body {
 .tool_section_wrapper {
     display: none;
     margin: 16px 40px 16px 40px;
+}
+.tool_section_wrapper.active {
+    display: revert;
 }
 
 .tool_header_wrapper {
