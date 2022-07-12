@@ -99,6 +99,6 @@ public class ToolService {
             netWorth += tool.getPrice()*tool.getQuantity();
         }
 
-        return Math.floor(netWorth*100)/100;
+        return Math.floor(netWorth);
     }
 }

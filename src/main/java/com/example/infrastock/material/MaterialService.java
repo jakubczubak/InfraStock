@@ -118,6 +118,6 @@ public class MaterialService {
 
             netWorth += singleMass * material.getQuantity() * material.getPrice();
         }
-        return Math.floor(netWorth*100.0)/100.0;
+        return Math.floor(netWorth);
     }
 }
