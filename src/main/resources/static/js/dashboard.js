@@ -6,6 +6,9 @@ const tools_to_buy = document.getElementById('tools_to_buy');
 const tools_net_worth = document.getElementById('tools_net_worth');
 
 
+
+
+
 materials_to_buy.addEventListener('click', function (){
     dashboard_section_wrapper.classList.remove('active');
     printMaterials('/shoppingList');

@@ -4,6 +4,10 @@ const tool_category_edit_form_popup_close_btn = document.getElementById('tool_ca
 const tool_category_edit_form_popup_category_name_input = document.getElementById('tool_category_edit_form_popup_category_name_input');
 
 
+
+
+
+
 function printToolCategories() {
     fetch('/tools/categories')
         .then(function (response) {

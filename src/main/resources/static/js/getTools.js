@@ -1,5 +1,14 @@
 const tool_clear_filters_button = document.getElementById("tool_clear-filters-button");
 const toolShoppingList = document.getElementById("toolShoppingList");
+const tool_category_setting_btn = document.getElementById('tool_category_setting_btn');
+
+
+tool_category_setting_btn.addEventListener('click', function (){
+    const tool_items_img = document.querySelectorAll("#tool-categories-items > div > img");
+    tool_items_img.forEach((element) => {
+        element.classList.toggle('active');
+    })
+})
 
 toolShoppingList.addEventListener('click', function () {
     printTools('/tools/shoppingList');

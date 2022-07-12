@@ -456,6 +456,13 @@ body {
     padding: 0 8px;
 }
 
+.material_category_wrapper .btn_wrapper .category_item img {
+    display: none;
+}
+.material_category_wrapper .btn_wrapper .category_item img.active {
+    display: block;
+}
+
 .material_category_wrapper .btn_wrapper .category_item img.del {
     width: 30px;
     position: absolute;
@@ -675,6 +682,14 @@ body {
     color: #ffffff;
     padding: 0 8px;
 }
+
+.tool_category_wrapper .btn_wrapper .tool_category_item img{
+    display: none;
+}
+.tool_category_wrapper .btn_wrapper .tool_category_item img.active{
+    display: revert;
+}
+
 
 .tool_category_wrapper .btn_wrapper .tool_category_item img.del {
     width: 30px;

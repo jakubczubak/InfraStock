@@ -2,8 +2,12 @@ const clear_filters_button = document.getElementById("clear-filters-button");
 const materialShoppingList = document.getElementById("materialShoppingList");
 const material_category_setting_btn = document.getElementById('material_category_setting_btn');
 
+
 material_category_setting_btn.addEventListener('click', function (){
-    console.log("elo");
+    const category_items_img = document.querySelectorAll("#categories-items > div > img");
+    category_items_img.forEach((element) => {
+        element.classList.toggle('active');
+    })
 })
 
 
