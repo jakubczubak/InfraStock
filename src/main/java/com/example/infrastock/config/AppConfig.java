@@ -43,5 +43,16 @@ public class AppConfig {
             userService.createAdmin(admin_2);
         }
 
+
+        UserDTO admin_3 = new UserDTO();
+
+        admin_2.setUsername("Maksym Polak");
+        admin_2.setEmail("mpol@inframet.com");
+        admin_2.setPassword("maksym");
+
+        if (!userService.checkIfEmailExist(admin_2.getEmail())) {
+            userService.createAdmin(admin_2);
+        }
+
     }
 }

@@ -91,7 +91,7 @@
         <!--NAVBAR SECTION END-->
 
         <!--DASHBOARD SECTION START-->
-        <div class="dashboard_section_wrapper active" id="dashboard_section_wrapper">
+        <div class="dashboard_section_wrapper active" id="dashboard_section_wrapper" style="display: none">
             <div class="dashboard_header_wrapper">
                     <h1 class="header">Quick overview</h1>
             </div>
@@ -229,6 +229,61 @@
         </div>
 
         <!--TOOL SECTION END-->
+
+        <!--PROJECT CALCULATION SECTION START-->
+        <div class="calculation_section_wrapper" id="calculation_section_wrapper">
+            <div class="calculation_header_wrapper">
+                <div class="special_tooltip"
+                     data-tooltip="The module allows you to see information about project calculations">
+                    <h1 class="header">Project calculations <img alt="" src="/icons/question.svg"></h1>
+                </div>
+                <div class="btn_wrapper">
+                    <ul>
+                        <li id="new_project_calculation_btn">
+                            <img alt="" src="/icons/add.svg"><span>Create calculation</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project_calculation_table_wrapper">
+                <h1 class="header">All calculations:</h1>
+                <div class="table_wrapper">
+                    <table id="project_calculation_table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Project name</th>
+                            <th>Date</th>
+                            <th>Value</th>
+                            <th>Status</th>
+                            <th><img alt="" id="project_calculation_pdf" src="/icons/print.svg" title="Print table"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="project_calculation_items">
+                        <tr>
+                            <td class="material-list-number">1</td>
+                            <td>LOR10</td>
+                            <td>22/11/22</td>
+                            <td>5200 <strong>PLN</strong></td>
+                            <td><button class="finish">Finish</button></td>
+                            <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
+                        </tr>
+                        <tr>
+                            <td class="material-list-number">1</td>
+                            <td>LOR10</td>
+                            <td>22/11/22</td>
+                            <td>5200 <strong>PLN</strong></td>
+                            <td><button class="pending">Pending</button></td>
+                            <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!--PROJECT CALCULATION SECTION END-->
 
 
     </div>
