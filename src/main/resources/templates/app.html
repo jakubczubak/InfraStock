@@ -306,14 +306,16 @@
                     </ul>
                 </div>
             </div>
-            <div class="project_calculation_table_wrapper">
+            <div class="project_calculation_creation_form_table_wrapper">
                 <h1 class="header">Project calculation name:</h1>
-                <input type="text" placeholder="Calculation name">
+                <input type="text" placeholder="what is the name of your project?">
                 <h1 class="header">CNC machine time:</h1>
-                <input type="text" placeholder="CNC time">
-                <button>Pending</button>
+                <input type="text" placeholder="how much time did the CNC machining take? (hours)">
+                <div class="status">
+                    <p>Status:  <button>Pending</button></p>
+                </div>
                 <div class="table_wrapper">
-                    <table id="project_calculation_table">
+                    <table id="">
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -321,10 +323,10 @@
                             <th>Category</th>
                             <th>Quantity</th>
                             <th>Value</th>
-                            <th><img alt="" id="project_calculation_pdf" src="/icons/print.svg" title="Print table"></th>
+                            <th><img alt="" id="" src="/icons/print.svg" title="Print table"></th>
                         </tr>
                         </thead>
-                        <tbody id="project_calculation_items">
+                        <tbody id="">
                         <tr>
                             <td class="material-list-number">1</td>
                             <td>PA 13 10_415_575</td>
@@ -344,7 +346,7 @@
                         </tbody>
                     </table>
                 </div>
-                <button>Save</button>
+                <button class="save">Save</button>
             </div>
 
         </div>
