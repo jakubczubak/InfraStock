@@ -2455,6 +2455,211 @@ body {
 /*TOOL INFO POPUP END*/
 
 
+
+/*OWN MATERIAL POPUP START*/
+.own_material_creation_form_popup {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(249, 250, 252, 0.8);
+    display: revert;
+    z-index: 2;
+}
+
+.own_material_creation_form_popup.active {
+    display: block;
+}
+
+.own_material_creation_form_popup .form_wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 496px;
+    height: 90%;
+    background: #FFFFFF;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+}
+
+.own_material_creation_form_popup .form_wrapper img {
+    display: block;
+    margin: 32px auto 0 auto;
+}
+
+.own_material_creation_form_popup .form_wrapper h1 {
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+    color: #505F79;
+    padding: 16px 0;
+}
+
+.own_material_creation_form_popup .form_wrapper label {
+    color: #BAB6B6;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.own_material_creation_form_popup .form_wrapper .quantity {
+    display: flex;
+    width: 80%;
+    justify-content: flex-start;
+    margin: 8px auto;
+    gap: 16px;
+}
+
+.own_material_creation_form_popup .form_wrapper .quantity div input {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.own_material_creation_form_popup .form_wrapper .density_price {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    margin: 0 auto;
+    gap: 16px;
+}
+
+.own_material_creation_form_popup .form_wrapper .density_price div input {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.own_material_creation_form_popup .form_wrapper input {
+    width: 80%;
+    height: 48px;
+    background-color: #fff;
+    border: 1px solid #DFE1E6;
+    border-radius: 8px;
+    padding: 0 16px;
+    margin: 8px auto;
+    display: block;
+    cursor: pointer;
+}
+
+
+.own_material_creation_form_popup .form_wrapper input:focus {
+    outline-color: #6C63FF;
+}
+
+.own_material_creation_form_popup .form_wrapper input::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #505F79;
+}
+
+.own_material_creation_form_popup .form_wrapper span {
+    text-align: center;
+    display: block;
+    margin-top: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #BAB6B6;
+}
+
+.own_material_creation_form_popup .form_wrapper .img_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 8px;
+}
+
+.own_material_creation_form_popup .form_wrapper .img_wrapper img {
+    margin: 8px auto;
+    cursor: pointer;
+}
+
+.own_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    margin: 0px auto 16px auto;
+}
+
+.own_material_creation_form_popup .form_wrapper .own_material_price{
+    margin-top: 16px;
+    width: 80%;
+    margin: 0 auto;
+}
+.own_material_creation_form_popup .form_wrapper .own_material_price input{
+    width: 40%;
+    display: block;
+    margin-left: 0;
+    margin-top: 16px;
+}
+
+
+.own_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.plate.hide {
+    display: none;
+}
+
+.own_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.tube.hide {
+    display: none;
+}
+
+.own_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.rod.hide {
+    display: none;
+}
+
+.own_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.plate.show {
+    display: flex;
+}
+
+.own_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.tube.show {
+    display: flex;
+}
+
+.own_material_creation_form_popup .form_wrapper .dimensions_input_wrapper div.rod.show {
+    display: flex;
+}
+
+.own_material_creation_form_popup .form_wrapper .dimensions_input_wrapper input {
+    width: 95%;
+    margin: 0;
+}
+
+.own_material_creation_form_popup .form_wrapper .btn_wrapper {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.own_material_creation_form_popup .form_wrapper .btn_wrapper button{
+    display: block;
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    width: 100%;
+    height: 48px;
+    margin: 8px 0;
+}
+
+.own_material_creation_form_popup .form_wrapper .btn_wrapper button:first-child {
+    background: #1DB954;
+}
+
+.own_material_creation_form_popup .form_wrapper .btn_wrapper button:last-child {
+    background: #00A1C3;
+}
+
+/*OWN MATERIAL POPUP END*/
+
 /*DELETE POPUP START*/
 .delete_popup {
     position: fixed;
