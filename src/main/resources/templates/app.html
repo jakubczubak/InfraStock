@@ -359,6 +359,60 @@
 
         <!--PROJECT CALCULATION CREATION FORM END-->
 
+        <!-- SELECT MATERIAL SECTION START-->
+        <div class="select_material_section_wrapper" id="select_material_section_wrapper">
+            <div class="material_header_wrapper">
+                <div class="special_tooltip"
+                     data-tooltip="Select material and add it to project calculation">
+                    <h1 class="header">Select material from database <img alt="" src="/icons/question.svg"></h1>
+                </div>
+                <div class="btn_wrapper">
+                    <ul>
+                        <li id="new_material_btn">
+                            <img alt="" src="/icons/add.svg"><span>Create material</span>
+                        </li>
+                        <li id="add_material_category_btn">
+                            <img alt="" src="/icons/add.svg"><span>Material category</span>
+                        </li>
+                        <li id="clear-filters-button">
+                            <img alt="" src="/icons/refresh.svg"><span>Refresh</span>
+                        </li>
+                        <li id="materialShoppingList">
+                            <img alt="" src="/icons/Bag.svg"><span>Materials to buy</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="material_category_wrapper">
+                <h1 class="header">Choose tool category <img src="/icons/settings_icon.svg" alt="Edit" title="Edit category" id="material_category_setting_btn"></h1>
+                <div class="btn_wrapper" id="categories-items">
+                </div>
+            </div>
+            <div class="material_table_wrapper">
+                <h1 class="header">Material table:</h1>
+                <div class="table_wrapper">
+                    <table id="materials-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Min. quantity</th>
+                            <th>Category</th>
+                            <th>Inventory date</th>
+                            <th><img alt="" id="material_pdf" src="/icons/print.svg" title="Print table"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="materials_items">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!--SELECT MATERIAL SECTION END-->
+
 
     </div>
     <!--MAIN SECTION END-->

@@ -2464,7 +2464,7 @@ body {
     top: 0;
     left: 0;
     background-color: rgba(249, 250, 252, 0.8);
-    display: revert;
+    display: none;
     z-index: 2;
 }
 
