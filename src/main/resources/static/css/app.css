@@ -807,7 +807,7 @@ body {
 
 /*PROJECT CALCULATION SECTION START*/
 .calculation_section_wrapper {
-    /*display: none;*/
+    display: none;
     margin: 16px 40px 16px 40px;
 }
 .calculation_section_wrapper.active {
@@ -966,7 +966,7 @@ body {
 
 /*PROJECT CALCULATION CREATION FORM START*/
 .calculation_creation_form_section_wrapper {
-    /*display: none;*/
+    display: none;
     margin: 16px 40px 16px 40px;
 }
 .calculation_creation_form_section_wrapper.active {
@@ -2659,6 +2659,237 @@ body {
 }
 
 /*OWN MATERIAL POPUP END*/
+
+/*SELECT MATERIAL SECTION START*/
+.select_material_section_wrapper {
+    margin: 16px 40px 16px 40px;
+    display: none;
+    transition: all 2s ease;
+}
+.select_material_section_wrapper.active {
+    display: revert;
+    transition: all 2s ease;
+}
+
+.select_material_section_wrapper .material_header_wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.select_material_section_wrapper .material_header_wrapper .header {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.select_material_section_wrapper .material_header_wrapper .header img {
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+    left: -3px;
+}
+
+.select_material_section_wrapper .material_header_wrapper .btn_wrapper ul li {
+    display: inline-block;
+    list-style: none;
+    height: 52px;
+    width: 200px;
+    text-align: center;
+    background: #00A1C4;
+    border-radius: 32px;
+    color: #ffffff;
+    line-height: 52px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 8px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.select_material_section_wrapper .material_header_wrapper .btn_wrapper ul li:hover {
+    background-color: #06c6f5;;
+}
+
+.select_material_section_wrapper .material_header_wrapper .btn_wrapper ul li img {
+    position: relative;
+    top: 5px;
+    left: -4px;
+}
+
+.select_material_section_wrapper .material_category_wrapper {
+    padding: 48px 0;
+}
+
+.select_material_section_wrapper .material_category_wrapper .header {
+    font-weight: 700;
+    font-size: 22px;
+    color: rgba(63, 61, 86, 0.7);
+    opacity: 0.7;
+}
+
+.select_material_section_wrapper .material_category_wrapper .header img {
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+}
+
+.select_material_section_wrapper .material_category_wrapper .btn_wrapper {
+    margin: 0 auto;
+    width: 90%;
+    padding: 48px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.select_material_section_wrapper .material_category_wrapper .btn_wrapper .category_item {
+    width: 210px;
+    height: 180px;
+    border-radius: 32px;
+    box-shadow: 0 4px 4px #6C63FF;
+    background: linear-gradient(122.62deg, #02D2FF 0%, #6C63FF 100%);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.select_material_section_wrapper .material_category_wrapper .btn_wrapper .category_item h1 {
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 8px;
+}
+
+.select_material_section_wrapper .material_category_wrapper .btn_wrapper .category_item img {
+    display: none;
+}
+.select_material_section_wrapper .material_category_wrapper .btn_wrapper .category_item img.active {
+    display: block;
+}
+
+.select_material_section_wrapper material_category_wrapper .btn_wrapper .category_item img.del {
+    width: 30px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.2s all ease;
+}
+
+.select_material_section_wrapper .material_category_wrapper .btn_wrapper .category_item img.del:hover {
+    opacity: 1;
+}
+
+.select_material_section_wrapper .material_category_wrapper .btn_wrapper .category_item img.edit {
+    width: 30px;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.2s all ease;
+}
+
+.select_material_section_wrapper .material_category_wrapper .btn_wrapper .category_item img.edit:hover {
+    opacity: 1;
+}
+
+.select_material_section_wrapper .material_table_wrapper h1 {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.select_material_section_wrapper .material_table_wrapper h1 {
+    font-weight: 700;
+    font-size: 22px;
+    color: rgba(63, 61, 86, 0.7);
+    opacity: 0.7;
+}
+
+.select_material_section_wrapper .material_table_wrapper .table_wrapper {
+    padding: 48px 0;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+
+}
+
+.select_material_section_wrapper .material_table_wrapper .table_wrapper table {
+    border-collapse: collapse;
+    border-radius: 32px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    min-width: 90%;
+}
+
+.select_material_section_wrapper .material_table_wrapper .table_wrapper table thead {
+
+    background: linear-gradient(90.14deg, #6C63FF -0.5%, #2E9FFF 100.78%);
+    font-weight: lighter;
+    color: #ffffff;
+    font-size: 22px;
+    border-top-left-radius: 32px;
+}
+
+.select_material_section_wrapper .material_table_wrapper .table_wrapper table thead th {
+    padding: 16px 8px;
+}
+
+.select_material_section_wrapper .material_table_wrapper .table_wrapper table tbody tr {
+    height: 62px;
+    background: #F9F9FF;
+    border-bottom: 1px solid #6C63FF;
+}
+
+.select_material_section_wrapper .material_table_wrapper .table_wrapper table tbody tr:last-child {
+    height: 62px;
+    background: #F9F9FF;
+    border-bottom: none;
+}
+
+.select_material_section_wrapper .material_table_wrapper .table_wrapper table tbody tr td {
+    font-weight: 300;
+    font-size: 20px;
+    color: #000000;
+    opacity: 1;
+    padding: 0 64px;
+    position: relative;
+}
+
+
+.select_material_section_wrapper .material_table_wrapper .table_wrapper table tbody tr td button {
+    background: #1DB954;
+    border-radius: 16px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    padding: 8px 48px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    position: relative;
+    cursor: pointer;
+}
+.select_material_section_wrapper .material_table_wrapper .table_wrapper table tbody tr td button img{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 20px;
+    top: 5px;
+}
+
+/*SELECT MATERIAL SECTION END*/
+
 
 /*DELETE POPUP START*/
 .delete_popup {

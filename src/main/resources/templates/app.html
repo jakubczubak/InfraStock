@@ -39,7 +39,7 @@
                     <span class="links_name">Tools</span>
                 </a>
             </li>
-            <li class="disabled">
+            <li class="nav_btn" id="calculationsBtn">
                 <a href="#" title="Projects calculations">
                     <img src="/icons/wallet.svg" alt="Project calulations">
                     <span class="links_name">Calculations</span>
@@ -91,7 +91,7 @@
         <!--NAVBAR SECTION END-->
 
         <!--DASHBOARD SECTION START-->
-        <div class="dashboard_section_wrapper active" id="dashboard_section_wrapper" style="display: none">
+        <div class="dashboard_section_wrapper active" id="dashboard_section_wrapper">
             <div class="dashboard_header_wrapper">
                     <h1 class="header">Quick overview</h1>
             </div>
@@ -237,7 +237,7 @@
         <!--TOOL SECTION END-->
 
         <!--PROJECT CALCULATION SECTION START-->
-        <div class="calculation_section_wrapper" id="calculation_section_wrapper" style="display: none">
+        <div class="calculation_section_wrapper" id="calculation_section_wrapper">
             <div class="calculation_header_wrapper">
                 <div class="special_tooltip"
                      data-tooltip="The module allows you to see information about project calculations">
@@ -295,7 +295,7 @@
         <!--PROJECT CALCULATION SECTION END-->
 
         <!--PROJECT CALCULATION CREATION FORM START-->
-        <div class="calculation_creation_form_section_wrapper" id="calculation_creation_form_section_wrapper" style="display: none">
+        <div class="calculation_creation_form_section_wrapper" id="calculation_creation_form_section_wrapper">
             <div class="calculation_creation_form_header_wrapper">
                 <div class="special_tooltip"
                      data-tooltip="Create your project calculation">
@@ -303,10 +303,10 @@
                 </div>
                 <div class="btn_wrapper">
                     <ul>
-                        <li id="asds">
+                        <li id="add_material_from_db">
                             <img alt="" src="/icons/add.svg"><span>Add material from database</span>
                         </li>
-                        <li id="asd">
+                        <li id="add_your_own_material">
                             <img alt="" src="/icons/add.svg"><span>Add your own material</span>
                         </li>
                     </ul>
@@ -363,28 +363,19 @@
         <div class="select_material_section_wrapper" id="select_material_section_wrapper">
             <div class="material_header_wrapper">
                 <div class="special_tooltip"
-                     data-tooltip="Select material and add it to project calculation">
+                     data-tooltip="Choose a material and calculate the value of your project">
                     <h1 class="header">Select material from database <img alt="" src="/icons/question.svg"></h1>
                 </div>
                 <div class="btn_wrapper">
                     <ul>
-                        <li id="new_material_btn">
-                            <img alt="" src="/icons/add.svg"><span>Create material</span>
-                        </li>
-                        <li id="add_material_category_btn">
-                            <img alt="" src="/icons/add.svg"><span>Material category</span>
-                        </li>
-                        <li id="clear-filters-button">
-                            <img alt="" src="/icons/refresh.svg"><span>Refresh</span>
-                        </li>
-                        <li id="materialShoppingList">
-                            <img alt="" src="/icons/Bag.svg"><span>Materials to buy</span>
+                        <li id="back_to_calculations_btn">
+                           <span>Back to calculations</span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="material_category_wrapper">
-                <h1 class="header">Choose tool category <img src="/icons/settings_icon.svg" alt="Edit" title="Edit category" id="material_category_setting_btn"></h1>
+                <h1 class="header">Choose material category:</h1>
                 <div class="btn_wrapper" id="categories-items">
                 </div>
             </div>
@@ -396,14 +387,17 @@
                         <tr>
                             <th>ID</th>
                             <th>Description</th>
-                            <th>Quantity</th>
-                            <th>Min. quantity</th>
-                            <th>Category</th>
-                            <th>Inventory date</th>
-                            <th><img alt="" id="material_pdf" src="/icons/print.svg" title="Print table"></th>
+                            <th>Value</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody id="materials_items">
+                        <tr>
+                            <td class="material-list-number">1</td>
+                            <td>PA13</td>
+                            <td>300 PLN</td>
+                            <td><button><img src="/icons/add.svg" alt="">Add</button></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -849,8 +843,8 @@
                 </div>
             </div>
             <div class="btn_wrapper">
-                <button id="new_material_creation_form_popup_create_btn">Create</button>
-                <button id="new_material_creation_form_popup_close_btn">Close</button>
+                <button id="own_material_creation_form_popup_create_btn">Create</button>
+                <button id="own_material_creation_form_popup_close_btn">Close</button>
             </div>
         </div>
     </div>
@@ -896,6 +890,7 @@
 <script src="/js/printTable.js"></script>
 <script src="/js/notificationDropdown.js"></script>
 <script src="/js/material_info.js"></script>
+<script src="/js/projectCalculations.js"></script>
 <script src="/js/tool_info.js"></script>
 
 </body>
