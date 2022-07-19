@@ -780,66 +780,66 @@
             </div>
             <div class="quantity">
                 <div class="tooltip" data-tooltip="Quantity">
-                    <input id="quantity" min="0" placeholder="Quantity" step="1" type="number">
+                    <input id="own_material_quantity" min="0" placeholder="Quantity" step="1" type="number">
                 </div>
             </div>
             <div class="density_price">
                 <div class="tooltip" data-tooltip="Density [g/cm3]">
-                    <input id="density" min="0" placeholder="Density [g/cm3]" type="number">
+                    <input id="own_material_density" min="0" placeholder="Density [g/cm3]" type="number">
                 </div>
                 <div class="tooltip" data-tooltip="Net price [PLN/kg]">
-                    <input id="price" min="0" placeholder="Net price [PLN/kg]" type="number">
+                    <input id="own_material_price" min="0" placeholder="Net price [PLN/kg]" type="number">
                 </div>
             </div>
             <span>Dimensions:</span>
             <div class="img_wrapper">
                 <div class="tooltip" data-tooltip="Dimension for plate">
-                    <img alt="Plate" id="plate_btn" src="/icons/Add_1.svg">
+                    <img alt="Plate" id="own_material_plate_btn" src="/icons/Add_1.svg">
                 </div>
                 <div class="tooltip" data-tooltip="Dimension for Tube">
-                    <img alt="Tube" id="tube_btn" src="/icons/Add_2.svg">
+                    <img alt="Tube" id="own_material_tube_btn" src="/icons/Add_2.svg">
                 </div>
                 <div class="tooltip" data-tooltip="Dimension for Rod">
-                    <img alt="Rod" id="rod_btn" src="/icons/Add_3.svg">
+                    <img alt="Rod" id="own_material_rod_btn" src="/icons/Add_3.svg">
                 </div>
             </div>
             <div class="dimensions_input_wrapper">
 
-                <div class="plate" id="plate_inputs">
+                <div class="plate" id="own_material_plate_inputs">
                     <div class="tooltip" data-tooltip="X axis dimension [mm]">
-                        <input id="x_dimension" min="0" placeholder="X [mm]" type="number">
+                        <input id="own_material_x_dimension" min="0" placeholder="X [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Y axis dimension [mm]">
-                        <input id="y_dimension" min="0" placeholder="Y [mm]" type="number">
+                        <input id="own_material_y_dimension" min="0" placeholder="Y [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Z axis dimension [mm]">
-                        <input id="z_dimension" min="0" placeholder="Z [mm]" type="number">
+                        <input id="own_material_z_dimension" min="0" placeholder="Z [mm]" type="number">
                     </div>
                 </div>
-                <div class="tube hide" id="tube_inputs">
+                <div class="tube hide" id="own_material_tube_inputs">
                     <div class="tooltip" data-tooltip="Outer diameter &#x2300; [mm]">
-                        <input id="D_outer_dimension" min="0" placeholder="&#x2300; [mm]" type="number">
+                        <input id="own_material_D_outer_dimension" min="0" placeholder="&#x2300; [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Inner diameter &#x2300; [mm]">
-                        <input id="d_inner_dimension" min="0" placeholder="&#8960; [mm]" type="number">
+                        <input id="own_material_d_inner_dimension" min="0" placeholder="&#8960; [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Length of tube [mm]">
-                        <input id="length_dimension" min="0" placeholder="L [mm]" type="number">
+                        <input id="own_material_length_dimension" min="0" placeholder="L [mm]" type="number">
                     </div>
                 </div>
-                <div class="rod hide" id="rod_inputs">
+                <div class="rod hide" id="own_material_rod_inputs">
                     <div class="tooltip" data-tooltip="Diameter &#x2300; [mm]">
-                        <input id="d_dimension" min="0" placeholder="&#x2300; [mm]" type="number">
+                        <input id="own_material_d_dimension" min="0" placeholder="&#x2300; [mm]" type="number">
                     </div>
                     <div class="tooltip" data-tooltip="Length of rod [mm]">
-                        <input id="length_rod_dimension" min="0" placeholder="L [mm]" type="number">
+                        <input id="own_material_length_rod_dimension" min="0" placeholder="L [mm]" type="number">
                     </div>
                 </div>
             </div>
             <span>Or just enter the price of the material:</span>
             <div class="tooltip" data-tooltip="Material price">
                 <div  class="own_material_price">
-                    <input id="own_material_price" placeholder="Net price [PLN]" type="text">
+                    <input id="own_material_only_price" placeholder="Net price [PLN]" type="text">
                 </div>
             </div>
             <div class="btn_wrapper">
@@ -892,6 +892,7 @@
 <script src="/js/material_info.js"></script>
 <script src="/js/projectCalculations.js"></script>
 <script src="/js/tool_info.js"></script>
-
+<script src="/js/Material.js"></script>
+<script src="/js/Calculation.js"></script>
 </body>
 </html>

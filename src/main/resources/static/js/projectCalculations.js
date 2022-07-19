@@ -30,3 +30,5 @@ back_to_calculations_btn.addEventListener('click', function (){
     select_material_section_wrapper.classList.remove('active');
     calculation_creation_form_section_wrapper.classList.add('active');
 })
+
+
