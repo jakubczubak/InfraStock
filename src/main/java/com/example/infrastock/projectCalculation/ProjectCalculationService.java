@@ -1,24 +1,12 @@
 package com.example.infrastock.projectCalculation;
 
 import com.example.infrastock.simpleMaterial.SimpleMaterial;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "calculations")
+@Service
 public class ProjectCalculationService {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String projectName;
-    private String createdOn;
-    private float value;
-    private double cncTime;
-    private String status;
-    @OneToMany
-    @JoinColumn(name = "material_ID")
-    private List<SimpleMaterial> materialList;
 
 }
