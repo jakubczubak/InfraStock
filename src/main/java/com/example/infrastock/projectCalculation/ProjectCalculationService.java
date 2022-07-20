@@ -9,4 +9,9 @@ import java.util.List;
 @Service
 public class ProjectCalculationService {
 
+    private final ProjectCalculationRepo projectCalculationRepo;
+
+    public ProjectCalculationService(ProjectCalculationRepo projectCalculationRepo){
+        this.projectCalculationRepo=projectCalculationRepo;
+    }
 }
