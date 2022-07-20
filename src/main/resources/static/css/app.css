@@ -1151,7 +1151,13 @@ body {
     background: #1DB954;
 }
 .project_calculation_creation_form_table_wrapper button.back {
-    background: #06c6f5;
+    background: #FBB034;
+}
+.project_calculation_creation_form_table_wrapper button.save:hover {
+    background: #0dce51;
+}
+.project_calculation_creation_form_table_wrapper button.back:hover {
+    background: #ef9807;
 }
 
 

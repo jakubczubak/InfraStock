@@ -9,7 +9,7 @@ const back_to_calculations_btn = document.getElementById('back_to_calculations_b
 const project_calculation_creation_form_popup = document.getElementById('project_calculation_creation_form_popup');
 const project_calculation_creation_form_popup_create_btn = document.getElementById('project_calculation_creation_form_popup_create_btn');
 const project_calculation_creation_form_popup_close_btn = document.getElementById('project_calculation_creation_form_popup_close_btn');
-
+const calculation_creation_form_section_wrapper_back_btn = document.getElementById('calculation_creation_form_section_wrapper_back_btn');
 
 new_project_calculation_btn.addEventListener('click', function (){
     project_calculation_creation_form_popup.classList.add('active')
@@ -28,6 +28,13 @@ project_calculation_creation_form_popup_close_btn.addEventListener('click', func
 add_your_own_material.addEventListener('click', function (){
     own_material_creation_form_popup.classList.add('active');
 });
+
+calculation_creation_form_section_wrapper_back_btn.addEventListener('click', function (){
+    calculation_creation_form_section_wrapper.classList.remove('active');
+    calculation_section_wrapper.classList.add('active');
+
+
+})
 
 own_material_creation_form_popup_close_btn.addEventListener('click', function (){
     own_material_creation_form_popup.classList.remove('active');
