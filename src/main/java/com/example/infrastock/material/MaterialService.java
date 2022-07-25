@@ -44,7 +44,6 @@ public class MaterialService {
         MaterialCategory materialCategory = materialCategoryRepo.findByCategoryName(categoryName);
         Material newMaterial = new Material(materialDTO.getMaterialName(), materialDTO.getQuantity(), materialDTO.getMinQuantity(), materialCategory, materialDTO.getX_dimension(), materialDTO.getY_dimension(), materialDTO.getZ_dimension(), materialDTO.getD_outer_dimension(), materialDTO.getD_inner_dimension(), materialDTO.getLength_dimension(), materialDTO.getDensity(), materialDTO.getPrice(), materialDTO.getD_dimension(), materialDTO.getLength_rod_dimension());
         materialRepo.save(newMaterial);
-
     }
 
     public void updateMaterial(MaterialDTO materialDTO) {

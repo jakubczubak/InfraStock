@@ -26,10 +26,8 @@ public class ProjectCalculation {
     public ProjectCalculation() {
     }
 
-    public ProjectCalculation(Long id, String projectName, String createdOn, float materialValue, int cncTime, String status, List<SimpleMaterial> materialList) {
-        this.id = id;
+    public ProjectCalculation(String projectName, float materialValue, int cncTime, String status, List<SimpleMaterial> materialList) {
         this.projectName = projectName;
-        this.createdOn = createdOn;
         this.materialValue = materialValue;
         this.cncTime = cncTime;
         this.status = status;
@@ -46,6 +44,14 @@ public class ProjectCalculation {
         createdOn = now.format(formatter);
     }
 
+    public String getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(String createdOn) {
+        this.createdOn = createdOn;
+    }
+
     public Long getId() {
         return id;
     }
@@ -60,10 +66,6 @@ public class ProjectCalculation {
 
     public void setProjectName(String projectName) {
         this.projectName = projectName;
-    }
-
-    public String getCreatedOn() {
-        return createdOn;
     }
 
     public float getMaterialValue() {

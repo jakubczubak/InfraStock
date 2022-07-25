@@ -10,7 +10,7 @@ public class MaterialDTO {
     private String materialName;
 
     @NotNull(message = "Enter the quantity")
-    @Min(value = 0, message = "Chose the category of material!")
+    @Min(value = 0, message = "Minimum quantity could be 0")
     @Max(value = 99, message = "Maximum quantity could be 99")
     private Integer quantity;
 

@@ -1025,9 +1025,10 @@ body {
     background: #F9F9FF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 32px;
-    padding: 32px 28px;
+    padding: 48px 28px 32px 28px;
     min-height: 70vh;
     position: relative;
+
 }
 
 .project_calculation_creation_form_table_wrapper h1 {
@@ -1035,6 +1036,11 @@ body {
     font-weight: 700;
     font-size: 20px;
     color: rgba(63, 61, 86, 0.7);
+    margin: 8px 0 16px 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 16px;
 }
 .project_calculation_creation_form_table_wrapper input {
     border: 1px solid #DFE1E6;
