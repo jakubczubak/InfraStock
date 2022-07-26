@@ -11,6 +11,52 @@ const project_calculation_creation_form_popup_create_btn = document.getElementBy
 const project_calculation_creation_form_popup_close_btn = document.getElementById('project_calculation_creation_form_popup_close_btn');
 const calculation_creation_form_section_wrapper_back_btn = document.getElementById('calculation_creation_form_section_wrapper_back_btn');
 const project_calculation_creation_form_name = document.getElementById('project_calculation_creation_form_name');
+const calculation_status = document.getElementById('calculation_status');
+const calculation_creation_form_section_wrapper_save_btn =document.getElementById('calculation_creation_form_section_wrapper_save_btn');
+const cnc_time = document.getElementById('cnc_time');
+
+
+calculation_creation_form_section_wrapper_save_btn.addEventListener('click', function (){
+    const calculation = JSON.parse(sessionStorage.calculation);
+    calculation.cncTime = cnc_time.value;
+    calculation.status = calculation_status.innerText;
+    calculation.materialValue = 1000;
+
+    console.log(calculation);
+
+    fetch("/create-calculation", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(calculation),
+    })
+        .then(function (response) {
+            response.text().then(function (text) {
+                if (response.ok){
+
+                    showSuccessAlert(text);
+                    setTimeout(function () {
+                        hideSuccessAlert();
+                    }, 5000); //hide alert automatically after 5sec
+                }else{
+                    showErrorAlert(text);
+                    setTimeout(function () {
+                        hideErrorAlert();
+                    }, 5000); //hide alert automatically after 5sec
+                }
+            })
+        });
+});
+
+calculation_status.addEventListener('click', function (){
+ calculation_status.classList.toggle('finish');
+ if(calculation_status.classList.contains('finish')){
+     calculation_status.innerText = 'Finish'
+ }else{
+     calculation_status.innerText = 'Pending'
+ }
+})
 
 
 
@@ -30,37 +76,11 @@ project_calculation_creation_form_popup_create_btn.addEventListener('click', fun
         status : '',
         materialList : [],
     }
-
     project_calculation_creation_form_name.innerText = calculation.projectName;
     project_calculation_creation_form_popup.classList.remove('active');
     calculation_section_wrapper.classList.remove('active');
     calculation_creation_form_section_wrapper.classList.add('active');
-
     sessionStorage.setItem('calculation', JSON.stringify(calculation));
-    // fetch("/create-calculation", {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(calculation),
-    // })
-    //     .then(function (response) {
-    //         response.text().then(function (text) {
-    //             if (response.ok){
-    //
-    //                 showSuccessAlert(text);
-    //                 setTimeout(function () {
-    //                     hideSuccessAlert();
-    //                 }, 5000); //hide alert automatically after 5sec
-    //             }else{
-    //                 showErrorAlert(text);
-    //                 setTimeout(function () {
-    //                     hideErrorAlert();
-    //                 }, 5000); //hide alert automatically after 5sec
-    //             }
-    //         })
-    //     });
-
 });
 
 project_calculation_creation_form_popup_close_btn.addEventListener('click', function (){
@@ -75,8 +95,6 @@ add_your_own_material.addEventListener('click', function (){
 calculation_creation_form_section_wrapper_back_btn.addEventListener('click', function (){
     calculation_creation_form_section_wrapper.classList.remove('active');
     calculation_section_wrapper.classList.add('active');
-
-
 })
 
 own_material_creation_form_popup_close_btn.addEventListener('click', function (){

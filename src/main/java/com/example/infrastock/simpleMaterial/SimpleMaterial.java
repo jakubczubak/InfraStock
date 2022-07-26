@@ -9,17 +9,15 @@ public class SimpleMaterial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private String category;
     private int quantity;
     private float value;
 
     public SimpleMaterial() {
     }
 
-    public SimpleMaterial(Long id, String description, String category, int quantity, float value) {
+    public SimpleMaterial(Long id, String description, int quantity, float value) {
         this.id = id;
         this.description = description;
-        this.category = category;
         this.quantity = quantity;
         this.value = value;
     }
@@ -40,13 +38,6 @@ public class SimpleMaterial {
         this.description = description;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     public int getQuantity() {
         return quantity;

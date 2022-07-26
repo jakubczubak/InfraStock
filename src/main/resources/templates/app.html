@@ -93,12 +93,12 @@
         <!--DASHBOARD SECTION START-->
         <div class="dashboard_section_wrapper active" id="dashboard_section_wrapper">
             <div class="dashboard_header_wrapper">
-                    <h1 class="header">Quick overview</h1>
+                <h1 class="header">Quick overview</h1>
             </div>
             <div class="quick_overviews_wrapper">
                 <div class="quick_overview_item" id="materials_to_buy">
                     <h1>Materials to buy:</h1>
-                     <p id="materials_to_buy_count">32<strong>positions</strong></p>
+                    <p id="materials_to_buy_count">32<strong>positions</strong></p>
                     <img src="/icons/metal_bar.svg" alt="Materials">
                 </div>
                 <div class="quick_overview_item" style="border-color: #FF9800">
@@ -152,7 +152,9 @@
                 </div>
             </div>
             <div class="material_category_wrapper">
-                <h1 class="header">Choose tool category <img src="/icons/settings_icon.svg" alt="Edit" title="Edit category" id="material_category_setting_btn"></h1>
+                <h1 class="header">Choose tool category <img src="/icons/settings_icon.svg" alt="Edit"
+                                                             title="Edit category" id="material_category_setting_btn">
+                </h1>
                 <div class="btn_wrapper" id="categories-items">
                 </div>
             </div>
@@ -207,7 +209,8 @@
                 </div>
             </div>
             <div class="tool_category_wrapper">
-                <h1 class="header">Choose tool category <img src="/icons/settings_icon.svg" alt="Edit" title="Edit category" id="tool_category_setting_btn"></h1>
+                <h1 class="header">Choose tool category <img src="/icons/settings_icon.svg" alt="Edit"
+                                                             title="Edit category" id="tool_category_setting_btn"></h1>
                 <div class="btn_wrapper" id="tool-categories-items">
                 </div>
             </div>
@@ -263,7 +266,8 @@
                             <th>Material value</th>
                             <th>CNC time</th>
                             <th>Status</th>
-                            <th><img alt="" id="project_calculation_pdf" src="/icons/print.svg" title="Print table"></th>
+                            <th><img alt="" id="project_calculation_pdf" src="/icons/print.svg" title="Print table">
+                            </th>
                         </tr>
                         </thead>
                         <tbody id="project_calculation_items">
@@ -273,8 +277,14 @@
                             <td>22/11/22</td>
                             <td>5200 <strong>PLN</strong></td>
                             <td>32 <strong>h</strong></td>
-                            <td><button class="finish">Finish</button></td>
-                            <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
+                            <td>
+                                <button class="finish">Finish</button>
+                            </td>
+                            <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"
+                                     title="Edit"><img src="/icons/info_fill.svg" alt=""
+                                                       onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img
+                                    src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"
+                                    title="Delete"></td>
                         </tr>
                         <tr>
                             <td class="material-list-number">1</td>
@@ -282,8 +292,14 @@
                             <td>22/11/22</td>
                             <td>5200 <strong>PLN</strong></td>
                             <td>32 <strong>h</strong></td>
-                            <td><button class="pending">Pending</button></td>
-                            <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
+                            <td>
+                                <button class="pending">Pending</button>
+                            </td>
+                            <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"
+                                     title="Edit"><img src="/icons/info_fill.svg" alt=""
+                                                       onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img
+                                    src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"
+                                    title="Delete"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -314,39 +330,43 @@
             </div>
             <div class="project_calculation_creation_form_table_wrapper">
                 <h1 id="project_calculation_creation_form_name" class="header"></h1>
-                <h3 class="header">CNC machine time:</h3>
-                <input type="text" placeholder="how much time did the CNC machining take? (hours)">
+                <div class="cnc_time">
+                    <h3 class="header">CNC machine time:</h3>
+                    <input id="cnc_time" type="number" step="0.5" min="0" max="1000"
+                           placeholder="how much time did the CNC machining take? (hours)">
+                </div>
                 <div class="status">
-                    <p>Status:  <button>Pending</button></p>
+                    <p>Status:
+                        <button class="pending" id="calculation_status">Pending</button>
+                    </p>
                 </div>
                 <div class="table_wrapper">
-                    <table id="">
+                    <table id="new_calculation_creation_form_table">
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>Material description</th>
-                            <th>Category</th>
                             <th>Quantity</th>
                             <th>Value</th>
                             <th><img alt="" id="" src="/icons/print.svg" title="Print table"></th>
                         </tr>
                         </thead>
-                        <tbody id="">
+                        <tbody id="new_calculation_creation_form_table_tbody">
                         <tr>
                             <td class="material-list-number">1</td>
                             <td>PA 13 10_415_575</td>
-                            <td>PA 13</td>
                             <td>3</td>
                             <td>3000<strong> PLN</strong></td>
-                            <td><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
+                            <td><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"
+                                     title="Delete"></td>
                         </tr>
                         <tr>
                             <td class="material-list-number">1</td>
                             <td>PA 13 10_415_575</td>
-                            <td>PA 13</td>
                             <td>3</td>
                             <td>3000<strong> PLN</strong></td>
-                            <td><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
+                            <td><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"
+                                     title="Delete"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -372,7 +392,7 @@
                 <div class="btn_wrapper">
                     <ul>
                         <li id="back_to_calculations_btn">
-                           <span>Back to calculations</span>
+                            <span>Back to calculations</span>
                         </li>
                     </ul>
                 </div>
@@ -399,7 +419,9 @@
                             <td class="material-list-number">1</td>
                             <td>PA13</td>
                             <td>300 PLN</td>
-                            <td><button><img src="/icons/add.svg" alt="">Add</button></td>
+                            <td>
+                                <button><img src="/icons/add.svg" alt="">Add</button>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -788,81 +810,94 @@
         </div>
     </div>
     <div class="own_material_creation_form_popup" id="own_material_creation_form_popup">
-        <div class="form_wrapper">
-            <img alt="" class="logo" src="/icons/addfiles.svg">
-            <h1>Own material creation form</h1>
-            <div class="tooltip" data-tooltip="Material name">
-                <input id="own_material_description" placeholder="Material name" type="text">
-            </div>
-            <div class="quantity">
-                <div class="tooltip" data-tooltip="Quantity">
-                    <input id="own_material_quantity" min="0" placeholder="Quantity" step="1" type="number">
-                </div>
-            </div>
-            <div class="density_price">
-                <div class="tooltip" data-tooltip="Density [g/cm3]">
-                    <input id="own_material_density" min="0" placeholder="Density [g/cm3]" type="number">
-                </div>
-                <div class="tooltip" data-tooltip="Net price [PLN/kg]">
-                    <input id="own_material_price" min="0" placeholder="Net price [PLN/kg]" type="number">
-                </div>
-            </div>
-            <span>Dimensions:</span>
-            <div class="img_wrapper">
-                <div class="tooltip" data-tooltip="Dimension for plate">
-                    <img alt="Plate" id="own_material_plate_btn" src="/icons/Add_1.svg">
-                </div>
-                <div class="tooltip" data-tooltip="Dimension for Tube">
-                    <img alt="Tube" id="own_material_tube_btn" src="/icons/Add_2.svg">
-                </div>
-                <div class="tooltip" data-tooltip="Dimension for Rod">
-                    <img alt="Rod" id="own_material_rod_btn" src="/icons/Add_3.svg">
-                </div>
-            </div>
-            <div class="dimensions_input_wrapper">
+            <div class="form_wrapper">
+                <form action="" onsubmit="createOwnMaterial()">
 
-                <div class="plate" id="own_material_plate_inputs">
-                    <div class="tooltip" data-tooltip="X axis dimension [mm]">
-                        <input id="own_material_x_dimension" min="0" placeholder="X [mm]" type="number">
-                    </div>
-                    <div class="tooltip" data-tooltip="Y axis dimension [mm]">
-                        <input id="own_material_y_dimension" min="0" placeholder="Y [mm]" type="number">
-                    </div>
-                    <div class="tooltip" data-tooltip="Z axis dimension [mm]">
-                        <input id="own_material_z_dimension" min="0" placeholder="Z [mm]" type="number">
+                <img alt="" class="logo" src="/icons/addfiles.svg">
+                <h1>Own material creation form</h1>
+                <div class="tooltip" data-tooltip="Material name">
+                    <input id="own_material_description" placeholder="Material name" required type="text">
+                </div>
+                <div class="quantity">
+                    <div class="tooltip" data-tooltip="Quantity">
+                        <input id="own_material_quantity" placeholder="Quantity" required type="number" min="0"
+                               step="1">
                     </div>
                 </div>
-                <div class="tube hide" id="own_material_tube_inputs">
-                    <div class="tooltip" data-tooltip="Outer diameter &#x2300; [mm]">
-                        <input id="own_material_D_outer_dimension" min="0" placeholder="&#x2300; [mm]" type="number">
+                <div class="density_price">
+                    <div class="tooltip" data-tooltip="Density [g/cm3]">
+                        <input id="own_material_density" min="0" placeholder="Density [g/cm3]" required type="number"
+                               step="0.1">
                     </div>
-                    <div class="tooltip" data-tooltip="Inner diameter &#x2300; [mm]">
-                        <input id="own_material_d_inner_dimension" min="0" placeholder="&#8960; [mm]" type="number">
-                    </div>
-                    <div class="tooltip" data-tooltip="Length of tube [mm]">
-                        <input id="own_material_length_dimension" min="0" placeholder="L [mm]" type="number">
+                    <div class="tooltip" data-tooltip="Net price [PLN/kg]">
+                        <input id="own_material_price" min="0" placeholder="Net price [PLN/kg]" required type="number">
                     </div>
                 </div>
-                <div class="rod hide" id="own_material_rod_inputs">
-                    <div class="tooltip" data-tooltip="Diameter &#x2300; [mm]">
-                        <input id="own_material_d_dimension" min="0" placeholder="&#x2300; [mm]" type="number">
+                <span>Dimensions:</span>
+                <div class="img_wrapper">
+                    <div class="tooltip" data-tooltip="Dimension for plate">
+                        <img alt="Plate" id="own_material_plate_btn" src="/icons/Add_1.svg">
                     </div>
-                    <div class="tooltip" data-tooltip="Length of rod [mm]">
-                        <input id="own_material_length_rod_dimension" min="0" placeholder="L [mm]" type="number">
+                    <div class="tooltip" data-tooltip="Dimension for Tube">
+                        <img alt="Tube" id="own_material_tube_btn" src="/icons/Add_2.svg">
+                    </div>
+                    <div class="tooltip" data-tooltip="Dimension for Rod">
+                        <img alt="Rod" id="own_material_rod_btn" src="/icons/Add_3.svg">
                     </div>
                 </div>
+                <div class="dimensions_input_wrapper">
+
+                    <div class="plate" id="own_material_plate_inputs">
+                        <div class="tooltip" data-tooltip="X axis dimension [mm]">
+                            <input id="own_material_x_dimension" min="0" placeholder="X [mm]" required type="number">
+                        </div>
+                        <div class="tooltip" data-tooltip="Y axis dimension [mm]">
+                            <input id="own_material_y_dimension" min="0" placeholder="Y [mm]" required type="number">
+                        </div>
+                        <div class="tooltip" data-tooltip="Z axis dimension [mm]">
+                            <input id="own_material_z_dimension" min="0" placeholder="Z [mm]" required type="number">
+                        </div>
+                    </div>
+                    <div class="tube hide" id="own_material_tube_inputs">
+                        <div class="tooltip" data-tooltip="Outer diameter &#x2300; [mm]">
+                            <input id="own_material_D_outer_dimension" min="0" placeholder="&#x2300; [mm]"
+                                   type="number">
+                        </div>
+                        <div class="tooltip" data-tooltip="Inner diameter &#x2300; [mm]">
+                            <input id="own_material_d_inner_dimension" min="0" placeholder="&#8960; [mm]"
+                                   type="number">
+                        </div>
+                        <div class="tooltip" data-tooltip="Length of tube [mm]">
+                            <input id="own_material_length_dimension" min="0" placeholder="L [mm]"
+                                   type="number">
+                        </div>
+                    </div>
+                    <div class="rod hide" id="own_material_rod_inputs">
+                        <div class="tooltip" data-tooltip="Diameter &#x2300; [mm]">
+                            <input id="own_material_d_dimension" min="0" placeholder="&#x2300; [mm]"
+                                   type="number">
+                        </div>
+                        <div class="tooltip" data-tooltip="Length of rod [mm]">
+                            <input id="own_material_length_rod_dimension" min="0" placeholder="L [mm]"
+                                   type="number">
+                        </div>
+                    </div>
+                </div>
+                <span>Or just enter the price of the material:</span>
+                <div class="tooltip" data-tooltip="Material price">
+                    <div class="own_material_price">
+                        <input id="own_material_only_price" placeholder="Net price [PLN]" type="number" step="1.0"
+                               min="0">
+                    </div>
+                </div>
+                <div class="btn_wrapper">
+                    <button type="submit" value="Submit" id="own_material_creation_form_popup_create_btn">Create</button>
+                    <button type="reset" id="own_material_creation_form_popup_close_btn">Close</button>
+                </div>
+        </form>
             </div>
-            <span>Or just enter the price of the material:</span>
-            <div class="tooltip" data-tooltip="Material price">
-                <div  class="own_material_price">
-                    <input id="own_material_only_price" placeholder="Net price [PLN]" type="text">
-                </div>
-            </div>
-            <div class="btn_wrapper">
-                <button id="own_material_creation_form_popup_create_btn">Create</button>
-                <button id="own_material_creation_form_popup_close_btn">Close</button>
-            </div>
-        </div>
+
+
     </div>
     <!--    PROJECT CALCULATION SECTION END-->
 
@@ -908,5 +943,6 @@
 <script src="/js/material_info.js"></script>
 <script src="/js/projectCalculations.js"></script>
 <script src="/js/tool_info.js"></script>
+<script src="/js/ownMaterialCreationForm.js"></script>
 </body>
 </html>

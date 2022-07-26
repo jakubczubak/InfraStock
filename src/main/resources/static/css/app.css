@@ -1031,6 +1031,10 @@ body {
 
 }
 
+.project_calculation_creation_form_table_wrapper .cnc_time {
+    margin: 16px 0 16px 0;
+}
+
 .project_calculation_creation_form_table_wrapper h1 {
     font-style: normal;
     font-weight: 700;
@@ -1045,7 +1049,7 @@ body {
 .project_calculation_creation_form_table_wrapper input {
     border: 1px solid #DFE1E6;
     border-radius: 8px;
-    width: 448px;
+    width: 350px;
     height: 32px;
     text-indent: 8px;
     margin: 8px 0 16px 0;
@@ -1073,6 +1077,11 @@ body {
     margin-left: 8px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+.project_calculation_creation_form_table_wrapper div.status button.finish {
+    background: #0dce51;
+
+}
+
 
 .project_calculation_creation_form_table_wrapper .table_wrapper {
     padding: 48px 0;
