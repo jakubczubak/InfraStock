@@ -175,7 +175,6 @@ function printMaterialsInCalculationSection(url) {
 
 
                 let singlePrice = (singleMass * material.price).toFixed(2);
-                let totalPrice = (material.quantity * singlePrice).toFixed(2);
 
                 i++;
 
@@ -183,8 +182,8 @@ function printMaterialsInCalculationSection(url) {
                     `<tr>
                 <td class="material-list-number">${i + 1}</td>
                 <td>${material.materialName}</td>
-                <td>${totalPrice}<strong>PLN</strong></td>
-                <td><button><img src="/icons/add.svg" alt="">Add</button></td>
+                <td>${singlePrice}<strong>PLN</strong></td>
+                <td><button onclick="addMaterialToCalculation('${material.materialName}', 1, ${singlePrice})"><img src="/icons/add.svg" alt="">Add</button></td>
                 </tr>
                 `
             });
@@ -192,4 +191,16 @@ function printMaterialsInCalculationSection(url) {
         });
 };
 
-
+function addMaterialToCalculation(description, quantity, value){
+    const calculation = JSON.parse(sessionStorage.calculation);
+    const material = {
+        description : description,
+        quantity : quantity,
+        value : value
+    }
+    calculation.materialList.push(material);
+    sessionStorage.setItem('calculation', JSON.stringify(calculation));
+    printMaterialsInCalculationCreationForm();
+    select_material_section_wrapper.classList.remove('active');
+    calculation_creation_form_section_wrapper.classList.add('active');
+}
