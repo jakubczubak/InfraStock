@@ -133,11 +133,11 @@ function printMaterialsInCalculationCreationForm(){
     calculation.materialList.forEach(function (material, index){
         materialsItemsWrapperInnerHTML += `
         <tr>
-                            <td class="material-list-number">${index}</td>
+                            <td class="material-list-number">${index+1}</td>
                             <td>${material.description}</td>
                             <td>${material.quantity}</td>
                             <td>${material.value}<strong> PLN</strong></td>
-                            <td><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${index})"
+                            <td><img src="/icons/del_table.svg" alt="" onclick="deleteMaterialFromCalculationForm(${index})"
                                      title="Delete"></td>
         </tr>
         `
@@ -146,5 +146,11 @@ function printMaterialsInCalculationCreationForm(){
     new_calculation_creation_form_table_tbody.innerHTML = materialsItemsWrapperInnerHTML;
 }
 
+function deleteMaterialFromCalculationForm(id){
+    const calculation = JSON.parse(sessionStorage.calculation);
+    calculation.materialList.splice(id,1);
+    sessionStorage.setItem('calculation', JSON.stringify(calculation));
+    printMaterialsInCalculationCreationForm();
+}
 
 
