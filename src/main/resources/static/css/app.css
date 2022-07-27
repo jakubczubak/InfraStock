@@ -2893,6 +2893,12 @@ body {
     padding: 0 64px;
     position: relative;
 }
+.select_material_section_wrapper .material_table_wrapper .table_wrapper table tbody tr td strong{
+    font-size: 16px;
+    font-weight: 500;
+    color: #84878B;
+    padding-left: 8px;
+}
 
 
 .select_material_section_wrapper .material_table_wrapper .table_wrapper table tbody tr td button {

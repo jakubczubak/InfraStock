@@ -102,6 +102,8 @@ own_material_creation_form_popup_close_btn.addEventListener('click', function ()
 });
 
 add_material_from_db.addEventListener('click', function (){
+    printMaterialCategoriesInCalculationSection();
+    printMaterialsInCalculationSection('/materials')
     calculation_creation_form_section_wrapper.classList.remove('active');
     select_material_section_wrapper.classList.add('active');
 });
@@ -110,5 +112,84 @@ back_to_calculations_btn.addEventListener('click', function (){
     select_material_section_wrapper.classList.remove('active');
     calculation_creation_form_section_wrapper.classList.add('active');
 })
+
+function printMaterialCategoriesInCalculationSection() {
+
+
+    fetch('/materials/categories')
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw "Error fetch Material Categories"
+            }
+        })
+        .then(function (categories) {
+            const categoriesItems = document.getElementById("calculation_categories_items");
+            let categoriesItemsInnerHTML = "";
+            categories.forEach(function (category) {
+                categoriesItemsInnerHTML += `
+                                    <div class="category_item" >
+                        <h1>${category.categoryName}</h1>
+                    </div>
+                `
+            });
+            categoriesItems.innerHTML = categoriesItemsInnerHTML;
+            // printMaterialTableSortedByCategoryName();
+
+        })
+}
+
+function printMaterialsInCalculationSection(url) {
+
+    fetch(url)
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw "Error fetch Material list"
+            }
+        })
+        .then(function (materials) {
+            materials.sort((a, b) => (a.materialName > b.materialName) ? 1 : -1);
+
+            const materialsItemsWrapper = document.getElementById("calculation_materials_items");
+            let materialsItemsWrapperInnerHTML = "";
+            let i = -1;
+            materials.forEach(function (material) {
+
+
+                let singleMassForPlate = (material.density * material.x_dimension * material.y_dimension *material.z_dimension / 1000000).toFixed(3);
+                let singleMassForRod = (material.density * Math.PI * Math.pow((material.d_dimension / 2), 2) * material.length_rod_dimension / 1000000).toFixed(3);
+                let singleMassForTube = (material.density * Math.PI * (Math.pow((material.d_outer_dimension / 2), 2) - Math.pow((material.d_inner_dimension / 2), 2)) * material.length_dimension / 1000000).toFixed(3);
+
+                let singleMass = 0;
+
+                if(singleMassForPlate > 0){
+                    singleMass = singleMassForPlate;
+                }else if( singleMassForRod > 0) {
+                    singleMass = singleMassForRod;
+                }else {
+                    singleMass = singleMassForTube;
+                }
+
+
+                let singlePrice = (singleMass * material.price).toFixed(2);
+                let totalPrice = (material.quantity * singlePrice).toFixed(2);
+
+                i++;
+
+                materialsItemsWrapperInnerHTML +=
+                    `<tr>
+                <td class="material-list-number">${i + 1}</td>
+                <td>${material.materialName}</td>
+                <td>${totalPrice}<strong>PLN</strong></td>
+                <td><button><img src="/icons/add.svg" alt="">Add</button></td>
+                </tr>
+                `
+            });
+            materialsItemsWrapper.innerHTML = materialsItemsWrapperInnerHTML;
+        });
+};
 
 
