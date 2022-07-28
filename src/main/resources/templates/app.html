@@ -378,6 +378,9 @@
                         <li id="back_to_calculations_btn">
                             <span>Back to calculations</span>
                         </li>
+                        <li id="clear_filters_btn">
+                            <span>Clear filters</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -782,15 +785,15 @@
     <!--    PROJECT CALCULATION SECTION START-->
     <div class="project_calculation_creation_form_popup" id="project_calculation_creation_form_popup">
         <div class="form_wrapper">
-            <img alt="" src="/icons/calculator.svg">
-            <h1>Create calculation</h1>
-            <div class="tooltip" data-tooltip="Enter project's name">
-                <input id="project_calculation_name" placeholder="Enter project's name" type="text">
-            </div>
-            <div class="btn_wrapper">
-                <button id="project_calculation_creation_form_popup_create_btn">Create</button>
-                <button id="project_calculation_creation_form_popup_close_btn">Close</button>
-            </div>
+                <img alt="" src="/icons/calculator.svg">
+                <h1>Create calculation</h1>
+                <div class="tooltip" data-tooltip="Enter project's name">
+                    <input id="project_calculation_name" placeholder="Enter project's name" required type="text">
+                </div>
+                <div class="btn_wrapper">
+                    <button id="project_calculation_creation_form_popup_create_btn">Create</button>
+                    <button id="project_calculation_creation_form_popup_close_btn">Close</button>
+                </div>
         </div>
     </div>
     <div class="own_material_creation_form_popup" id="own_material_creation_form_popup">

@@ -48,7 +48,7 @@ function printMaterialTableSortedByCategoryName(){
     for (let i = 0; i < category_items.length; i++) {
 
         category_items[i].addEventListener("click", function () {
-            printMaterials(`/sortedMaterials?categoryName=${this.children[0].innerHTML}`);
+            printMaterials(`/sortedMaterials?categoryName=${this.children[0].innerText}`);
         })
     }
 }

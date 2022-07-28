@@ -14,6 +14,13 @@ const project_calculation_creation_form_name = document.getElementById('project_
 const calculation_status = document.getElementById('calculation_status');
 const calculation_creation_form_section_wrapper_save_btn =document.getElementById('calculation_creation_form_section_wrapper_save_btn');
 const cnc_time = document.getElementById('cnc_time');
+const clear_filters_btn = document.getElementById('clear_filters_btn');
+const project_calculation_name = document.getElementById('project_calculation_name');
+const new_calculation_creation_form_table_tbody = document.getElementById('new_calculation_creation_form_table_tbody');
+
+clear_filters_btn.addEventListener('click', function (){
+    printMaterialsInCalculationSection('/materials');
+});
 
 
 calculation_creation_form_section_wrapper_save_btn.addEventListener('click', function (){
@@ -61,26 +68,33 @@ calculation_status.addEventListener('click', function (){
 
 
 new_project_calculation_btn.addEventListener('click', function (){
+    project_calculation_name.value = "";
     project_calculation_creation_form_popup.classList.add('active')
 });
 
 project_calculation_creation_form_popup_create_btn.addEventListener('click', function(){
     sessionStorage.clear();
+    new_calculation_creation_form_table_tbody.innerHTML = "";
 
-    const project_calculation_name = document.getElementById('project_calculation_name');
-
-    const calculation = {
-        projectName : project_calculation_name.value,
-        materialValue : '',
-        cncTime : '',
-        status : '',
-        materialList : [],
+    if(project_calculation_name.value.length <3){
+        showErrorAlert("Project's name should have at least 3 characters");
+        setTimeout(function () {
+            hideErrorAlert();
+        }, 5000); //hide alert automatically after 5sec
+    }else{
+        const calculation = {
+            projectName : project_calculation_name.value,
+            materialValue : '',
+            cncTime : '',
+            status : '',
+            materialList : [],
+        }
+        project_calculation_creation_form_name.innerText = calculation.projectName;
+        project_calculation_creation_form_popup.classList.remove('active');
+        calculation_section_wrapper.classList.remove('active');
+        calculation_creation_form_section_wrapper.classList.add('active');
+        sessionStorage.setItem('calculation', JSON.stringify(calculation));
     }
-    project_calculation_creation_form_name.innerText = calculation.projectName;
-    project_calculation_creation_form_popup.classList.remove('active');
-    calculation_section_wrapper.classList.remove('active');
-    calculation_creation_form_section_wrapper.classList.add('active');
-    sessionStorage.setItem('calculation', JSON.stringify(calculation));
 });
 
 project_calculation_creation_form_popup_close_btn.addEventListener('click', function (){
@@ -103,7 +117,7 @@ own_material_creation_form_popup_close_btn.addEventListener('click', function ()
 
 add_material_from_db.addEventListener('click', function (){
     printMaterialCategoriesInCalculationSection();
-    printMaterialsInCalculationSection('/materials')
+    printMaterialsInCalculationSection('/materials');
     calculation_creation_form_section_wrapper.classList.remove('active');
     select_material_section_wrapper.classList.add('active');
 });
@@ -135,9 +149,21 @@ function printMaterialCategoriesInCalculationSection() {
                 `
             });
             categoriesItems.innerHTML = categoriesItemsInnerHTML;
-            // printMaterialTableSortedByCategoryName();
+            printMaterialTableSortedByCategoryNameInCalculationSection();
 
         })
+}
+
+function printMaterialTableSortedByCategoryNameInCalculationSection(){
+    const category_items = document.getElementsByClassName("category_item");
+
+
+    for (let i = 0; i < category_items.length; i++) {
+
+        category_items[i].addEventListener("click", function () {
+            printMaterialsInCalculationSection(`/sortedMaterials?categoryName=${this.children[0].innerHTML}`);
+        })
+    }
 }
 
 function printMaterialsInCalculationSection(url) {

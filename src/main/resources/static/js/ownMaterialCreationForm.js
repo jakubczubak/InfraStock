@@ -87,7 +87,7 @@ function createOwnMaterial(){
     let materialValue = singleMass * own_material_price.value * own_material_quantity.value;
 
 
-    if(own_material_only_price.value != 0){
+    if(own_material_only_price.value !== 0){
         materialValue = own_material_only_price.value
     }
 
