@@ -7,6 +7,7 @@ import com.example.infrastock.simpleMaterial.SimpleMaterial;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
+import java.text.DecimalFormat;
 import java.util.List;
 
 @Service
@@ -20,7 +21,11 @@ public class ProjectCalculationService {
 
     public void createCalculation(ProjectCalculationDTO projectCalculationDTO) {
 
-        ProjectCalculation projectCalculation = new ProjectCalculation(projectCalculationDTO.getProjectName(),projectCalculationDTO.getMaterialValue(),projectCalculationDTO.getCncTime(), projectCalculationDTO.getStatus(),projectCalculationDTO.getMaterialList());
+        ProjectCalculation projectCalculation = new ProjectCalculation(projectCalculationDTO.getProjectName(),Math.round(projectCalculationDTO.getMaterialValue()),projectCalculationDTO.getCncTime(), projectCalculationDTO.getStatus(),projectCalculationDTO.getMaterialList());
         projectCalculationRepo.save(projectCalculation);
+    }
+
+    public List<ProjectCalculation> getCalculationList(){
+        return projectCalculationRepo.findAll();
     }
 }

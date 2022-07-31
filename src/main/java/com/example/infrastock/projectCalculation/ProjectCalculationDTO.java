@@ -72,4 +72,15 @@ public class ProjectCalculationDTO {
     public void setMaterialList(List<SimpleMaterial> materialList) {
         this.materialList = materialList;
     }
+
+    @Override
+    public String toString() {
+        return "ProjectCalculationDTO{" +
+                "projectName='" + projectName + '\'' +
+                ", materialValue=" + materialValue +
+                ", cncTime=" + cncTime +
+                ", status='" + status + '\'' +
+                ", materialList=" + materialList +
+                '}';
+    }
 }

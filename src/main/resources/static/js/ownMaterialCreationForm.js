@@ -84,12 +84,16 @@ function createOwnMaterial(){
         singleMass = singleMassForTube;
     }
 
-    let materialValue = singleMass * own_material_price.value * own_material_quantity.value;
+    let materialValue = singleMass * parseFloat(own_material_price.value)  * parseFloat(own_material_quantity.value);
 
 
-    if(own_material_only_price.value !== 0){
-        materialValue = own_material_only_price.value
-    }
+    // if(own_material_only_price.value !== 0){
+    //     materialValue = own_material_only_price.value
+    // }
+
+    console.log('wartosc materialu: ' + materialValue);
+    console.log('wartosc inputu: ' + own_material_price.value);
+    console.log(singleMassForPlate);
 
 
     const calculation = JSON.parse(sessionStorage.calculation);

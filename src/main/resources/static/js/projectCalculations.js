@@ -25,9 +25,15 @@ clear_filters_btn.addEventListener('click', function (){
 
 calculation_creation_form_section_wrapper_save_btn.addEventListener('click', function (){
     const calculation = JSON.parse(sessionStorage.calculation);
+
+    let valueOfMaterial = 0;
+
+    calculation.materialList.forEach(function (material){
+        valueOfMaterial += parseFloat(material.value);
+    });
     calculation.cncTime = cnc_time.value;
     calculation.status = calculation_status.innerText;
-    calculation.materialValue = 1000;
+    calculation.materialValue = valueOfMaterial.toFixed(2);
 
     console.log(calculation);
 
@@ -41,7 +47,8 @@ calculation_creation_form_section_wrapper_save_btn.addEventListener('click', fun
         .then(function (response) {
             response.text().then(function (text) {
                 if (response.ok){
-
+                    calculation_creation_form_section_wrapper.classList.remove('active');
+                    calculation_section_wrapper.classList.add('active');
                     showSuccessAlert(text);
                     setTimeout(function () {
                         hideSuccessAlert();

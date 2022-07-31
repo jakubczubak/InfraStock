@@ -19,7 +19,7 @@ public class ProjectCalculation {
     private float materialValue;
     private int cncTime;
     private String status;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "calculation_ID")
     private List<SimpleMaterial> materialList;
 
