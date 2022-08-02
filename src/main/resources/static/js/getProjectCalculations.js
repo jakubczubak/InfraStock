@@ -16,8 +16,6 @@ function printProjectCalculations(){
             let i = -1;
             calculations.forEach(function (calculation) {
                 i++;
-                let inventoryDate = material.updatedOn;
-
 
                 calculationsItemsWrapperInnerHTML +=
                         `<tr>
