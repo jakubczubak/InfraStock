@@ -65,7 +65,6 @@ const own_material_description = document.getElementById('own_material_descripti
 const own_material_quantity = document.getElementById('own_material_quantity');
 const own_material_density = document.getElementById('own_material_density');
 const own_material_price = document.getElementById('own_material_price');
-const own_material_only_price = document.getElementById('own_material_only_price');
 
 
 function createOwnMaterial(){
@@ -87,9 +86,11 @@ function createOwnMaterial(){
     let materialValue = singleMass * parseFloat(own_material_price.value)  * parseFloat(own_material_quantity.value);
 
 
-    // if(own_material_only_price.value !== 0){
-    //     materialValue = own_material_only_price.value
-    // }
+    const own_material_only_price = document.getElementById('own_material_only_price');
+
+    if(own_material_only_price.value > 0){
+        materialValue = own_material_only_price.value
+    }
 
     console.log('wartosc materialu: ' + materialValue);
     console.log('wartosc inputu: ' + own_material_price.value);
