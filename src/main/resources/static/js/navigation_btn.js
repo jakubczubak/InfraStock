@@ -56,6 +56,7 @@ calculationsBtn.addEventListener('click', function (){
     material_section_wrapper.classList.remove('active');
     tool_section_wrapper.classList.remove('active');
     dashboard_section_wrapper.classList.remove('active');
+    printProjectCalculations();
     calculation_section_wrapper.classList.add('active');
     calculation_creation_form_section_wrapper.classList.remove('active');
     select_material_section_wrapper.classList.remove('active')

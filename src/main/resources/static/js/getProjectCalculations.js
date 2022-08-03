@@ -20,12 +20,12 @@ function printProjectCalculations(){
                 calculationsItemsWrapperInnerHTML +=
                         `<tr>
                 <td class="material-list-number">${i + 1}</td>
-                <td>${material.materialName}</td>
-                <td>${material.quantity}<img class="face" src="/icons/sad.svg" alt="" title="Low quantity!"></td>
-                <td>${material.minQuantity}</td>
-                <td>${material.category.categoryName}</td>
-                <td>${inventoryDate}</td>
-                <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})" title="Delete"></td>
+                <td>${calculation.projectName}</td>
+                <td>${calculation.createdOn}</td>
+                <td>${calculation.materialValue} <strong>PLN</strong></td>
+                <td>${calculation.cncTime} <strong>h</strong></td>
+                <td><button class="${calculation.status}">${calculation.status}</button></td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="" title="Info"><img src="/icons/del_table.svg" alt="" onclick="" title="Delete"></td>
                 </tr>
                 `
 
