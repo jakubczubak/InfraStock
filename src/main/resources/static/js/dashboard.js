@@ -4,6 +4,7 @@ const materials_net_worth = document.getElementById('materials_net_worth');
 const tools_to_buy_count = document.getElementById('tools_to_buy_count');
 const tools_to_buy = document.getElementById('tools_to_buy');
 const tools_net_worth = document.getElementById('tools_net_worth');
+const project_calculations = document.getElementById('project_calculations');
 
 
 
@@ -69,6 +70,18 @@ const updateDashboard = function updateDashboard() {
         })
         .then(function (text) {
             materials_net_worth.innerHTML = `${text}<strong>PLN</strong>`;
+        });
+
+    fetch('/get-calculation-list')
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw "Error fetch calculations counter"
+            }
+        })
+        .then(function (calculations) {
+            project_calculations.innerHTML = `${calculations.length}<strong>calculations</strong>`;
         });
 };
 
