@@ -68,6 +68,10 @@ const own_material_price = document.getElementById('own_material_price');
 
 
 function createOwnMaterial(){
+    const own_material_form = document.getElementById('own_material_form');
+    own_material_form.addEventListener('submit', function (event){
+        event.preventDefault();
+    })
     let singleMassForPlate = (own_material_density.value * own_material_x_dimension.value * own_material_y_dimension.value * own_material_z_dimension.value / 1000000).toFixed(3);
     let singleMassForRod = (own_material_density.value * Math.PI * Math.pow((own_material_d_dimension.value / 2), 2) * own_material_length_rod_dimension.value / 1000000).toFixed(3);
     let singleMassForTube = (own_material_density.value * Math.PI * (Math.pow((own_material_D_outer_dimension.value / 2), 2) - Math.pow((own_material_d_inner_dimension.value / 2), 2)) * own_material_length_dimension.value / 1000000).toFixed(3);
@@ -91,11 +95,6 @@ function createOwnMaterial(){
     if(own_material_only_price.value > 0){
         materialValue = own_material_only_price.value
     }
-
-    console.log('wartosc materialu: ' + materialValue);
-    console.log('wartosc inputu: ' + own_material_price.value);
-    console.log(singleMassForPlate);
-
 
     const calculation = JSON.parse(sessionStorage.calculation);
     const material = {
