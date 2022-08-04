@@ -8,7 +8,10 @@ const project_calculations = document.getElementById('project_calculations');
 
 
 
-
+project_calculations.addEventListener('click', function (){
+    dashboard_section_wrapper.classList.remove('active');
+    calculation_section_wrapper.classList.add('active');
+});
 
 materials_to_buy.addEventListener('click', function (){
     dashboard_section_wrapper.classList.remove('active');
@@ -20,7 +23,7 @@ tools_to_buy.addEventListener('click', function (){
     dashboard_section_wrapper.classList.remove('active');
     printTools('/tools/shoppingList');
     tool_section_wrapper.classList.add('active');
-})
+});
 
 const updateDashboard = function updateDashboard() {
 

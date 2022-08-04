@@ -271,36 +271,7 @@
                         </tr>
                         </thead>
                         <tbody id="project_calculation_items">
-                        <tr>
-                            <td class="material-list-number">1</td>
-                            <td>LOR10</td>
-                            <td>22/11/22</td>
-                            <td>5200 <strong>PLN</strong></td>
-                            <td>32 <strong>h</strong></td>
-                            <td>
-                                <button class="finish">Finish</button>
-                            </td>
-                            <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"
-                                     title="Edit"><img src="/icons/info_fill.svg" alt=""
-                                                       onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img
-                                    src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"
-                                    title="Delete"></td>
-                        </tr>
-                        <tr>
-                            <td class="material-list-number">1</td>
-                            <td>LOR10</td>
-                            <td>22/11/22</td>
-                            <td>5200 <strong>PLN</strong></td>
-                            <td>32 <strong>h</strong></td>
-                            <td>
-                                <button class="pending">Pending</button>
-                            </td>
-                            <td><img src="/icons/edit_fill.svg" alt="" onclick="updateMaterial(${material.id})"
-                                     title="Edit"><img src="/icons/info_fill.svg" alt=""
-                                                       onclick="showMaterialInfoPopUp(${material.id})" title="Info"><img
-                                    src="/icons/del_table.svg" alt="" onclick="deleteMaterial(${material.id})"
-                                    title="Delete"></td>
-                        </tr>
+<!--                       DATA from back-end-->
                         </tbody>
                     </table>
                 </div>
@@ -309,62 +280,6 @@
         </div>
 
         <!--PROJECT CALCULATION SECTION END-->
-
-        <!--PROJECT CALCULATION CREATION FORM START-->
-        <div class="calculation_creation_form_section_wrapper" id="calculation_creation_form_section_wrapper">
-            <div class="calculation_creation_form_header_wrapper">
-                <div class="special_tooltip"
-                     data-tooltip="Create your project calculation">
-                    <h1 class="header">New calculation creation form <img alt="" src="/icons/question.svg"></h1>
-                </div>
-                <div class="btn_wrapper">
-                    <ul>
-                        <li id="add_material_from_db">
-                            <img alt="" src="/icons/add.svg"><span>Add material from database</span>
-                        </li>
-                        <li id="add_your_own_material">
-                            <img alt="" src="/icons/add.svg"><span>Add your own material</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="project_calculation_creation_form_table_wrapper">
-                <h1 id="project_calculation_creation_form_name" class="header"></h1>
-                <div class="cnc_time">
-                    <h3 class="header">CNC machine time:</h3>
-                    <input id="cnc_time" type="number" step="0.5" min="0" max="1000"
-                           placeholder="how much time did the CNC machining take? (hours)">
-                </div>
-                <div class="status">
-                    <p>Status:
-                        <button class="pending" id="calculation_status">Pending</button>
-                    </p>
-                </div>
-                <div class="table_wrapper">
-                    <table id="new_calculation_creation_form_table">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Material description</th>
-                            <th>Quantity</th>
-                            <th>Value</th>
-                            <th><img alt="" id="calculation_material_pdf" src="/icons/print.svg" title="Print table"></th>
-                        </tr>
-                        </thead>
-                        <tbody id="new_calculation_creation_form_table_tbody">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="btn-wrapper">
-                    <button class="save" id="calculation_creation_form_section_wrapper_save_btn">Save</button>
-                    <button class="back" id="calculation_creation_form_section_wrapper_back_btn">Back</button>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!--PROJECT CALCULATION CREATION FORM END-->
 
         <!-- SELECT MATERIAL SECTION START-->
         <div class="select_material_section_wrapper" id="select_material_section_wrapper">
@@ -402,14 +317,7 @@
                         </tr>
                         </thead>
                         <tbody id="calculation_materials_items">
-                        <tr>
-                            <td class="material-list-number">1</td>
-                            <td>PA13</td>
-                            <td>300 PLN</td>
-                            <td>
-                                <button><img src="/icons/add.svg" alt="">Add</button>
-                            </td>
-                        </tr>
+<!--                       DATA from back-end-->
                         </tbody>
                     </table>
                 </div>
@@ -419,7 +327,100 @@
 
         <!--SELECT MATERIAL SECTION END-->
 
+        <!--PROJECT CALCULATION CREATION FORM START-->
+        <div class="calculation_creation_form_section_wrapper" id="calculation_creation_form_section_wrapper">
+            <div class="calculation_creation_form_header_wrapper">
+                <div class="special_tooltip"
+                     data-tooltip="Create your project calculation">
+                    <h1 class="header">New calculation creation form <img alt="" src="/icons/question.svg"></h1>
+                </div>
+                <div class="btn_wrapper">
+                    <ul>
+                        <li id="add_material_from_db">
+                            <img alt="" src="/icons/add.svg"><span>Add material from database</span>
+                        </li>
+                        <li id="add_your_own_material">
+                            <img alt="" src="/icons/add.svg"><span>Add your own material</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project_calculation_creation_form_table_wrapper">
+                <h1 id="project_calculation_creation_form_name" class="header"></h1>
+                <div class="cnc_time">
+                    <h3 class="header">CNC machine time:</h3>
+                    <input id="cnc_time" type="number" step="0.5" min="0" max="1000"
+                           placeholder="how much time did the CNC machining take? (hours)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                </div>
+                <div class="status">
+                    <p>Status:
+                        <button class="pending" id="calculation_status">Pending</button>
+                    </p>
+                </div>
+                <div class="table_wrapper">
+                    <table id="new_calculation_creation_form_table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Material description</th>
+                            <th>Quantity</th>
+                            <th>Value</th>
+                            <th><img alt="" id="calculation_material_pdf" src="/icons/print.svg" title="Print table"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="new_calculation_creation_form_table_tbody">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-wrapper">
+                    <button class="save" id="calculation_creation_form_section_wrapper_save_btn">Save</button>
+                    <button class="back" id="calculation_creation_form_section_wrapper_back_btn">Back</button>
+                </div>
 
+            </div>
+
+        </div>
+
+        <!--PROJECT CALCULATION CREATION FORM END-->
+
+        <!--PROJECT CALCULATION INFO SECTION START-->
+        <div class="calculation_info_section_wrapper" id="calculation_info_section_wrapper">
+            <div class="calculation_info_header_wrapper">
+                <div class="special_tooltip"
+                     data-tooltip="The module allows you to check the list of materials for a specific project">
+                    <h1 class="header">Information about the project <img alt="" src="/icons/question.svg"></h1>
+                </div>
+            </div>
+            <div class="project_calculation_info_table_wrapper">
+                <h1 id="project_calculation_info_name" class="header">LOPG10</h1>
+                <div class="cnc_time">
+                    <p class="header">CNC time: <strong id="project_calculation_info_cnc_time">3</strong> h</p>
+                <div class="status">
+                    <p id="project_calculation_status">Status:
+                    </p>
+                </div>
+                <div class="table_wrapper">
+                    <table id="project_calculation_info_table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Material description</th>
+                            <th>Quantity</th>
+                            <th>Value</th>
+                            <th><img alt="" id="project_calculation_info_pdf" src="/icons/print.svg" title="Print table"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="new_calculation_info_table_tbody">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-wrapper">
+                    <button class="back" id="calculation_info_section_wrapper_back_btn">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <!--PROJECT CALCULATION INFO SECTION END-->
     </div>
     <!--MAIN SECTION END-->
 

@@ -17,6 +17,57 @@ const cnc_time = document.getElementById('cnc_time');
 const clear_filters_btn = document.getElementById('clear_filters_btn');
 const project_calculation_name = document.getElementById('project_calculation_name');
 const new_calculation_creation_form_table_tbody = document.getElementById('new_calculation_creation_form_table_tbody');
+const calculation_info_section_wrapper = document.getElementById('calculation_info_section_wrapper');
+const calculation_info_section_wrapper_back_btn = document.getElementById('calculation_info_section_wrapper_back_btn');
+
+function show_calculation_info(id){
+
+    fetch("/get-calculation?id=" + id)
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw "Error fetch Project calculation"
+            }
+        })
+        .then(function (calculation) {
+
+            const project_calculation_items = document.getElementById('new_calculation_info_table_tbody');
+            const project_calculation_info_cnc_time = document.getElementById('project_calculation_info_cnc_time');
+            const project_calculation_info_name = document.getElementById('project_calculation_info_name');
+            const project_calculation_status = document.getElementById('project_calculation_status');
+
+
+            project_calculation_status.innerHTML = `<button  class="${calculation.status}">${calculation.status}</button>`
+            project_calculation_info_name.innerText = calculation.projectName;
+            project_calculation_info_cnc_time.innerText = calculation.cncTime;
+
+
+            let calculationsItemsWrapperInnerHTML = "";
+            let i = -1;
+            calculation.materialList.forEach(function (material) {
+                i++;
+
+                calculationsItemsWrapperInnerHTML +=
+                    `<tr>
+                <td class="material-list-number">${i + 1}</td>
+                <td>${material.description}</td>
+                <td>${material.quantity}</td>
+                <td>${material.value}<strong> PLN</strong></td>
+                </tr>
+                `
+            });
+            project_calculation_items.innerHTML = calculationsItemsWrapperInnerHTML;
+
+            calculation_section_wrapper.classList.remove('active');
+            calculation_info_section_wrapper.classList.add('active');
+        });
+}
+
+calculation_info_section_wrapper_back_btn.addEventListener('click', function (){
+    calculation_info_section_wrapper.classList.remove('active');
+    calculation_section_wrapper.classList.add('active');
+})
 
 clear_filters_btn.addEventListener('click', function (){
     printMaterialsInCalculationSection('/materials');

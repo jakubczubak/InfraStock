@@ -32,4 +32,9 @@ public class ProjectCalculationController {
         projectCalculationService.deleteCalculation(id);
         return "Deleted calculation for: " + projectName;
     }
+
+    @GetMapping("/get-calculation")
+    public ProjectCalculation getProjectCalculationByID(@RequestParam Long id){
+        return projectCalculationService.getProjectCalculationByID(id);
+    }
 }

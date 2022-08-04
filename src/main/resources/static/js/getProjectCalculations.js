@@ -9,7 +9,7 @@ function printProjectCalculations(){
             }
         })
         .then(function (calculations) {
-            calculations.sort((a, b) => (a.createdOn > b.createdOn) ? 1 : -1);
+            calculations.sort((a, b) => (a.createdOn < b.createdOn) ? 1 : -1);
 
             const project_calculation_items = document.getElementById('project_calculation_items');
             let calculationsItemsWrapperInnerHTML = "";
@@ -25,7 +25,7 @@ function printProjectCalculations(){
                 <td>${calculation.materialValue} <strong>PLN</strong></td>
                 <td>${calculation.cncTime} <strong>h</strong></td>
                 <td><button class="${calculation.status}">${calculation.status}</button></td>
-                <td><img src="/icons/edit_fill.svg" alt="" onclick="" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteProjectCalculation(${calculation.id})" title="Delete"></td>
+                <td><img src="/icons/edit_fill.svg" alt="" onclick="" title="Edit"><img src="/icons/info_fill.svg" alt="" onclick="show_calculation_info(${calculation.id})" title="Info"><img src="/icons/del_table.svg" alt="" onclick="deleteProjectCalculation(${calculation.id})" title="Delete"></td>
                 </tr>
                 `
 

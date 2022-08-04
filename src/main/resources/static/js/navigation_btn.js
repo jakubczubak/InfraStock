@@ -21,7 +21,9 @@ materialsBtn.addEventListener('click', function (){
     calculation_creation_form_section_wrapper.classList.remove('active');
     materialsBtn.classList.add('active');
     material_section_wrapper.classList.add('active');
-    select_material_section_wrapper.classList.remove('active')
+    select_material_section_wrapper.classList.remove('active');
+    calculation_info_section_wrapper.classList.remove('active');
+
 })
 toolsBtn.addEventListener('click', function (){
     materialsBtn.classList.remove('active');
@@ -33,6 +35,8 @@ toolsBtn.addEventListener('click', function (){
     dashboard_section_wrapper.classList.remove('active');
     calculation_creation_form_section_wrapper.classList.remove('active');
     select_material_section_wrapper.classList.remove('active')
+    calculation_info_section_wrapper.classList.remove('active');
+
 })
 
 logo_wrapper.addEventListener('click', function (){
@@ -46,9 +50,12 @@ logo_wrapper.addEventListener('click', function (){
     dashboard_section_wrapper.classList.add('active');
     calculation_creation_form_section_wrapper.classList.remove('active');
     select_material_section_wrapper.classList.remove('active')
+    calculation_info_section_wrapper.classList.remove('active');
+
 })
 
 calculationsBtn.addEventListener('click', function (){
+    calculation_info_section_wrapper.classList.remove('active');
     toolsBtn.classList.remove('active');
     tool_section_wrapper.classList.remove('active');
     materialsBtn.classList.remove('active');
@@ -59,7 +66,9 @@ calculationsBtn.addEventListener('click', function (){
     printProjectCalculations();
     calculation_section_wrapper.classList.add('active');
     calculation_creation_form_section_wrapper.classList.remove('active');
-    select_material_section_wrapper.classList.remove('active')
+    select_material_section_wrapper.classList.remove('active');
+    calculation_info_section_wrapper.classList.remove('active');
+
 })
 
 
