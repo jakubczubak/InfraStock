@@ -948,10 +948,10 @@ body {
     border: none;
     font-size: 20px;
 }
-.project_calculation_table_wrapper .table_wrapper table tbody tr td button.finish{
+.project_calculation_table_wrapper .table_wrapper table tbody tr td button.Finish{
     background: #1DB954;
 }
-.project_calculation_table_wrapper .table_wrapper table tbody tr td button.pending{
+.project_calculation_table_wrapper .table_wrapper table tbody tr td button.Pending{
     background: #FBB034;
 }
 

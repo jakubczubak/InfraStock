@@ -28,4 +28,12 @@ public class ProjectCalculationService {
     public List<ProjectCalculation> getCalculationList(){
         return projectCalculationRepo.findAll();
     }
+
+    public void deleteCalculation(Long id){
+        projectCalculationRepo.deleteById(id);
+    }
+
+    public ProjectCalculation getProjectCalculationByID(Long id){
+        return projectCalculationRepo.findById(id).get();
+    }
 }

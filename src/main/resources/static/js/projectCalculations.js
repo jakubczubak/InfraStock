@@ -47,6 +47,7 @@ calculation_creation_form_section_wrapper_save_btn.addEventListener('click', fun
         .then(function (response) {
             response.text().then(function (text) {
                 if (response.ok){
+                    printProjectCalculations();
                     calculation_creation_form_section_wrapper.classList.remove('active');
                     calculation_section_wrapper.classList.add('active');
                     showSuccessAlert(text);
@@ -236,4 +237,38 @@ function addMaterialToCalculation(description, quantity, value){
     printMaterialsInCalculationCreationForm();
     select_material_section_wrapper.classList.remove('active');
     calculation_creation_form_section_wrapper.classList.add('active');
+}
+
+function deleteProjectCalculation(id){
+
+    const element = event.target.parentNode.parentNode;
+
+
+    delete_popup.classList.add('active');
+    delete_popup_cancel_btn.onclick = function () {
+        delete_popup.classList.remove('active');
+    };
+    delete_popup_delete_btn.onclick = function () {
+        fetch('/delete-calculation?id=' + id, {
+            method: 'DELETE',
+        })
+            .then(function (response) {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    delete_popup.classList.remove('active');
+                    showErrorAlert('Error: delete project calculation');
+                    throw "Error: delete project calculation";
+                }
+            }) // or res.json()
+            .then(res => {
+                element.remove();
+                delete_popup.classList.remove('active');
+                showInfoAlert(res);
+                setTimeout(function () {
+                    hideInfoAlert();
+                }, 5000); //hide alert automatically after 5sec
+            })
+    }
+
 }

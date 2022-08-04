@@ -1,10 +1,7 @@
 package com.example.infrastock.projectCalculation;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -27,5 +24,12 @@ public class ProjectCalculationController {
     @GetMapping("/get-calculation-list")
     public List<ProjectCalculation> getCalculationList(){
         return projectCalculationService.getCalculationList();
+    }
+
+    @DeleteMapping("/delete-calculation")
+    public String deleteCalculation(@RequestParam Long id){
+        String projectName = projectCalculationService.getProjectCalculationByID(id).getProjectName();
+        projectCalculationService.deleteCalculation(id);
+        return "Deleted calculation for: " + projectName;
     }
 }
