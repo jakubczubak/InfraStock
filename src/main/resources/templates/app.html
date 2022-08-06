@@ -383,6 +383,65 @@
 
         <!--PROJECT CALCULATION CREATION FORM END-->
 
+        <!--PROJECT CALCULATION CREATION FORM EDIT START-->
+        <div class="calculation_edit_form_section_wrapper" id="calculation_edit_form_section_wrapper">
+            <div class="calculation_edit_form_header_wrapper">
+                <div class="special_tooltip"
+                     data-tooltip="Update your project calculation">
+                    <h1 class="header">Update project calculation <img alt="" src="/icons/question.svg"></h1>
+                </div>
+                <div class="btn_wrapper">
+                    <ul>
+                        <li id="">
+                            <img alt="" src="/icons/add.svg"><span>Add material from database</span>
+                        </li>
+                        <li id="">
+                            <img alt="" src="/icons/add.svg"><span>Add your own material</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project_calculation_edit_form_table_wrapper">
+                <div class="cnc_time">
+                    <h3 class="header">Project's name:</h3>
+                    <input id="project_calculation_edit_name" type="text">
+                </div>
+                <div class="cnc_time">
+                    <h3 class="header">CNC machine time:</h3>
+                    <input id="project_calculation_edit_cnc_time" type="number"
+                           placeholder="how much time did the CNC machining take? (hours)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                </div>
+                <div class="status">
+                    <p id="project_calculation_edit_status">Status:
+                        <button class="pending" >Pending</button>
+                    </p>
+                </div>
+                <div class="table_wrapper">
+                    <table id="">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Material description</th>
+                            <th>Quantity</th>
+                            <th>Value</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody id="new_calculation_edit_form_table_tbody">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-wrapper">
+                    <button class="save" id="calculation_edit_form_section_wrapper_update_btn">Update</button>
+                    <button class="back" id="calculation_edit_form_section_wrapper_back_btn">Back</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--PROJECT CALCULATION CREATION FORM EDIT END-->
+
         <!--PROJECT CALCULATION INFO SECTION START-->
         <div class="calculation_info_section_wrapper" id="calculation_info_section_wrapper">
             <div class="calculation_info_header_wrapper">
@@ -912,6 +971,9 @@
     </div>
     <!--    POPUP SECTION END-->
 </div>
+
+</div>
+
 <script src="/js/dashboard.js"></script>
 <script src="/js/jQuery.js"></script>
 <script src="/js/app.js"></script>
@@ -933,5 +995,7 @@
 <script src="/js/tool_info.js"></script>
 <script src="/js/ownMaterialCreationForm.js"></script>
 <script src="/js/getProjectCalculations.js"></script>
+<script src="/js/projectCalculationEditForm.js"></script>
+
 </body>
 </html>
