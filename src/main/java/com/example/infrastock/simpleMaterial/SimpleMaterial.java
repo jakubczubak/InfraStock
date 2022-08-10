@@ -54,4 +54,14 @@ public class SimpleMaterial {
     public void setValue(float value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "SimpleMaterial{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", quantity=" + quantity +
+                ", value=" + value +
+                '}';
+    }
 }

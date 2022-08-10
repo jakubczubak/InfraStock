@@ -1,5 +1,6 @@
 package com.example.infrastock.projectCalculation;
 
+import com.example.infrastock.simpleMaterial.SimpleMaterial;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,5 +37,11 @@ public class ProjectCalculationController {
     @GetMapping("/get-calculation")
     public ProjectCalculation getProjectCalculationByID(@RequestParam Long id){
         return projectCalculationService.getProjectCalculationByID(id);
+    }
+
+    @PostMapping("/add-material-to-calculation")
+    public void addMaterialToCalculation(@RequestBody SimpleMaterial simpleMaterial,@RequestParam Long id ){
+        System.out.println(simpleMaterial);
+        System.out.println("calculationID: " + id);
     }
 }
