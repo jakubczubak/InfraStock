@@ -39,8 +39,8 @@ public class ProjectCalculationController {
         return projectCalculationService.getProjectCalculationByID(id);
     }
 
-    @PostMapping("/add-material-to-calculation")
-    public void addMaterialToCalculation(@RequestBody SimpleMaterial simpleMaterial,@RequestParam Long id ){
-        projectCalculationService.addMaterialToExistCalculation(id,simpleMaterial);
-    }
+//    @PostMapping("/update")
+//    public void addMaterialToCalculation(@RequestBody SimpleMaterial simpleMaterial,@RequestParam Long id ){
+//        projectCalculationService.addMaterialToExistCalculation(id,simpleMaterial);
+//    }
 }

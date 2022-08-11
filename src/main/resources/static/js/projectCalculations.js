@@ -385,39 +385,15 @@ function addMaterialToCalculation(description, quantity, value){
 
 function addMaterialToEditCalculation(description, quantity, value){
 
-    const calculationID = JSON.parse(sessionStorage.calculationID);
+    const calculationToUpdate = JSON.parse(sessionStorage.calculationToUpdate);
     const material = {
         description : description,
         quantity : quantity,
         value : value
     }
-
-    console.log(calculationID);
-    console.log(material);
-
-    fetch("/add-material-to-calculation?id=" + calculationID.id, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(material),
-    })
-        .then(function (response) {
-            response.text().then(function (text) {
-                if (response.ok){
-                    const select_material_edit_section_wrapper = document.getElementById('select_material_edit_section_wrapper');
-                    select_material_edit_section_wrapper.classList.remove('active');
-                    const calculation_edit_form_section_wrapper = document.getElementById('calculation_edit_form_section_wrapper');
-                    calculation_edit_form_section_wrapper.classList.add('active');
-                    showCalculationEditForm(calculationID.id);
-                }else{
-                    showErrorAlert('Error: add-material-to-calculation ENDPOINT');
-                    setTimeout(function () {
-                        hideErrorAlert();
-                    }, 5000); //hide alert automatically after 5sec
-                }
-            })
-        });
+    console.log(calculationToUpdate.materialList.push(material));
+    sessionStorage.setItem('calculationToUpdate', JSON.stringify(calculationToUpdate));
+    showUpdatedCalculationEditForm()
 
 }
 

@@ -40,6 +40,8 @@ public class ProjectCalculationService {
     public void addMaterialToExistCalculation(Long calculationID, SimpleMaterial simpleMaterial){
         ProjectCalculation existCalculation = projectCalculationRepo.getById(calculationID);
         existCalculation.getMaterialList().add(simpleMaterial);
+        float updateMaterialValue = existCalculation.getMaterialValue() + simpleMaterial.getValue();
+        existCalculation.setMaterialValue(updateMaterialValue);
         projectCalculationRepo.save(existCalculation);
     }
 }
