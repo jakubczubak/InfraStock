@@ -41,7 +41,6 @@ public class ProjectCalculationController {
 
     @PostMapping("/add-material-to-calculation")
     public void addMaterialToCalculation(@RequestBody SimpleMaterial simpleMaterial,@RequestParam Long id ){
-        System.out.println(simpleMaterial);
-        System.out.println("calculationID: " + id);
+        projectCalculationService.addMaterialToExistCalculation(id,simpleMaterial);
     }
 }

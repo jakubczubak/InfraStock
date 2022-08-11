@@ -1393,6 +1393,221 @@ body {
 
 /*PROJECT CALCULATION EDIT FORM END*/
 
+
+/*PROJECT CALCULATION EDIT FORM START*/
+.calculation_edit_form_section_wrapper {
+    display: none;
+    margin: 16px 40px 16px 40px;
+}
+.calculation_edit_form_section_wrapper.active {
+    display: revert;
+}
+
+.calculation_edit_form_header_wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+
+.calculation_edit_form_header_wrapper .header {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.calculation_edit_form_header_wrapper .header img {
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+    left: -3px;
+}
+
+.calculation_edit_form_header_wrapper .btn_wrapper ul li {
+    display: inline-block;
+    list-style: none;
+    height: 52px;
+    padding: 0 16px;
+    text-align: center;
+    background: rgba(108, 99, 255, 0.8);
+    border-radius: 32px;
+    color: #ffffff;
+    line-height: 52px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 8px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.calculation_edit_form_header_wrapper .btn_wrapper ul li:hover {
+    background-color: #6C63FF;
+}
+
+.calculation_edit_form_header_wrapper .btn_wrapper ul li img {
+    position: relative;
+    top: 5px;
+    left: -4px;
+}
+
+.project_calculation_edit_form_table_wrapper{
+    margin-top: 40px;
+    background: #F9F9FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+    padding: 48px 28px 32px 28px;
+    min-height: 78vh;
+    position: relative;
+
+}
+
+.project_calculation_edit_form_table_wrapper .cnc_time {
+    margin: 16px 0 16px 0;
+}
+
+.project_calculation_edit_form_table_wrapper h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: rgba(63, 61, 86, 0.7);
+    margin: 8px 0 16px 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 16px;
+}
+.project_calculation_edit_form_table_wrapper input {
+    border: 1px solid #DFE1E6;
+    border-radius: 8px;
+    width: 350px;
+    height: 32px;
+    text-indent: 8px;
+    margin: 8px 0 16px 0;
+}
+.project_calculation_edit_form_table_wrapper input:focus {
+    outline-color: #6C63FF;
+}
+
+.project_calculation_edit_form_table_wrapper div.status{
+    position: absolute;
+    top:32px;
+    right:48px;
+
+}
+
+.project_calculation_edit_form_table_wrapper div.status button {
+    background: #FBB034;
+    border-radius: 16px;
+    border: none;
+    width: 117px;
+    height: 32px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.project_calculation_edit_form_table_wrapper div.status button.finish {
+    background: #0dce51;
+
+}
+
+
+.project_calculation_edit_form_table_wrapper .table_wrapper {
+    padding: 48px 0;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+.project_calculation_edit_form_table_wrapper .table_wrapper table {
+    border-collapse: collapse;
+    overflow: hidden;
+    text-align: center;
+    min-width: 100%;
+}
+
+.project_calculation_edit_form_table_wrapper .table_wrapper table thead {
+    border-bottom: thin solid #E6E6E6;
+}
+
+.project_calculation_edit_form_table_wrapper .table_wrapper table thead th {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #919191;
+    padding-bottom: 16px;
+}
+
+.project_calculation_edit_form_table_wrapper .table_wrapper table thead th img {
+    width: 32px;
+    position: relative;
+    left: 0;
+    top: 7px;
+    cursor: pointer;
+}
+
+.project_calculation_edit_form_table_wrapper .table_wrapper table tbody tr {
+    height: 62px;
+    border-bottom: thin solid #E6E6E6;
+}
+
+.project_calculation_edit_form_table_wrapper .table_wrapper table tbody tr:last-child {
+    height: 62px;
+    border-bottom: none;
+}
+
+.project_calculation_edit_form_table_wrapper .table_wrapper table tbody tr td {
+    font-weight: 300;
+    font-size: 20px;
+    color: #000000;
+    opacity: 1;
+    position: relative;
+}
+.project_calculation_edit_form_table_wrapper .table_wrapper table tbody tr td strong{
+    font-weight: 300;
+    font-size: 16px;
+    color: #919191;
+}
+
+
+.project_calculation_edit_form_table_wrapper .table_wrapper table tbody tr td img {
+    cursor: pointer;
+}
+
+.project_calculation_edit_form_table_wrapper .btn-wrapper {
+    position: absolute;
+    bottom:32px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.project_calculation_edit_form_table_wrapper .btn-wrapper button {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 8px;
+    padding: 8px 64px;
+}
+.project_calculation_edit_form_table_wrapper button.save {
+    background: #1DB954;
+}
+.project_calculation_edit_form_table_wrapper button.back {
+    background: #FBB034;
+}
+.project_calculation_edit_form_table_wrapper button.save:hover {
+    background: #0dce51;
+}
+.project_calculation_edit_form_table_wrapper button.back:hover {
+    background: #ef9807;
+}
+
+
+/*PROJECT CALCULATION EDIT FORM END*/
+
 /*PROJECT CALCULATION INFO SECTION START*/
 .calculation_info_section_wrapper {
     display: none;

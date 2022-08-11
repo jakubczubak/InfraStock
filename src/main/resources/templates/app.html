@@ -488,6 +488,62 @@
 
         <!--PROJECT CALCULATION CREATION FORM EDIT END-->
 
+        <!--PROJECT CALCULATION EDIT START-->
+        <div class="calculation_edit_form_section_wrapper" id="calculation_edit_form_section_wrapper">
+            <div class="calculation_edit_form_header_wrapper">
+                <div class="special_tooltip"
+                     data-tooltip="Create your project calculation">
+                    <h1 class="header">New calculation creation form <img alt="" src="/icons/question.svg"></h1>
+                </div>
+                <div class="btn_wrapper">
+                    <ul>
+                        <li id="">
+                            <img alt="" src="/icons/add.svg"><span>Add material from database</span>
+                        </li>
+                        <li id="">
+                            <img alt="" src="/icons/add.svg"><span>Add your own material</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project_calculation_edit_form_table_wrapper">
+                <h1 id="project_calculation_edit_form_name" class="header"></h1>
+                <div class="cnc_time">
+                    <h3 class="header">CNC machine time:</h3>
+                    <input id="" type="number" step="0.5" min="0" max="1000"
+                           placeholder="how much time did the CNC machining take? (hours)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                </div>
+                <div class="status">
+                    <p>Status:
+                        <button class="pending" id="">Pending</button>
+                    </p>
+                </div>
+                <div class="table_wrapper">
+                    <table id="">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Material description</th>
+                            <th>Quantity</th>
+                            <th>Value</th>
+                            <th><img alt="" id="" src="/icons/print.svg" title="Print table"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-wrapper">
+                    <button class="save" id="calculation_edit_form_section_wrapper_save_btn">Save</button>
+                    <button class="back" id="calculation_edit_form_section_wrapper_back_btn">Back</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--PROJECT CALCULATION EDIT FORM END-->
+
         <!--PROJECT CALCULATION INFO SECTION START-->
         <div class="calculation_info_section_wrapper" id="calculation_info_section_wrapper">
             <div class="calculation_info_header_wrapper">
@@ -904,7 +960,7 @@
     </div>
     <div class="own_material_creation_form_popup" id="own_material_creation_form_popup">
             <div class="form_wrapper">
-                <form id="own_material_form" action="" onsubmit="createOwnMaterial()">
+                <form id="own_material_form">
 
                 <img alt="" class="logo" src="/icons/addfiles.svg">
                 <h1>Own material creation form</h1>
@@ -984,7 +1040,7 @@
                     </div>
                 </div>
                 <div class="btn_wrapper">
-                    <button type="submit" value="Submit" id="own_material_creation_form_popup_create_btn">Create</button>
+                    <button type="button"  id="own_material_creation_form_popup_create_btn" onclick="createOwnMaterial()">Create</button>
                     <button type="reset" id="own_material_creation_form_popup_close_btn">Close</button>
                 </div>
         </form>
