@@ -214,32 +214,7 @@ function printMaterialCategoriesInCalculationSection() {
         })
 }
 
-function printMaterialCategoriesInCalculationEditSection() {
 
-
-    fetch('/materials/categories')
-        .then(function (response) {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw "Error fetch Material Categories"
-            }
-        })
-        .then(function (categories) {
-            const categoriesItems = document.getElementById("calculation_categories_items_edit");
-            let categoriesItemsInnerHTML = "";
-            categories.forEach(function (category) {
-                categoriesItemsInnerHTML += `
-                                    <div class="category_item" >
-                        <h1>${category.categoryName}</h1>
-                    </div>
-                `
-            });
-            categoriesItems.innerHTML = categoriesItemsInnerHTML;
-            printMaterialTableSortedByCategoryNameInCalculationEditSection();
-
-        })
-}
 
 function printMaterialTableSortedByCategoryNameInCalculationSection(){
     const category_items = document.getElementsByClassName("category_item");
@@ -253,17 +228,7 @@ function printMaterialTableSortedByCategoryNameInCalculationSection(){
     }
 }
 
-function printMaterialTableSortedByCategoryNameInCalculationEditSection(){
-    const category_items = document.getElementsByClassName("category_item");
 
-
-    for (let i = 0; i < category_items.length; i++) {
-
-        category_items[i].addEventListener("click", function () {
-            printMaterialsInCalculationEditSection(`/sortedMaterials?categoryName=${this.children[0].innerHTML}`);
-        })
-    }
-}
 
 function printMaterialsInCalculationSection(url) {
 
@@ -315,59 +280,7 @@ function printMaterialsInCalculationSection(url) {
             materialsItemsWrapper.innerHTML = materialsItemsWrapperInnerHTML;
         });
 }
-function printMaterialsInCalculationEditSection(url) {
 
-    fetch(url)
-        .then(function (response) {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw "Error fetch Material list"
-            }
-        })
-        .then(function (materials) {
-            materials.sort((a, b) => (a.materialName > b.materialName) ? 1 : -1);
-
-            const materialsItemsWrapper = document.getElementById("calculation_materials_items_edit");
-            let materialsItemsWrapperInnerHTML = "";
-            let i = -1;
-
-
-
-            materials.forEach(function (material) {
-
-
-                let singleMassForPlate = (material.density * material.x_dimension * material.y_dimension *material.z_dimension / 1000000).toFixed(3);
-                let singleMassForRod = (material.density * Math.PI * Math.pow((material.d_dimension / 2), 2) * material.length_rod_dimension / 1000000).toFixed(3);
-                let singleMassForTube = (material.density * Math.PI * (Math.pow((material.d_outer_dimension / 2), 2) - Math.pow((material.d_inner_dimension / 2), 2)) * material.length_dimension / 1000000).toFixed(3);
-
-                let singleMass = 0;
-
-                if(singleMassForPlate > 0){
-                    singleMass = singleMassForPlate;
-                }else if( singleMassForRod > 0) {
-                    singleMass = singleMassForRod;
-                }else {
-                    singleMass = singleMassForTube;
-                }
-
-
-                let singlePrice = (singleMass * material.price).toFixed(2);
-
-                i++;
-
-                materialsItemsWrapperInnerHTML +=
-                    `<tr>
-                <td class="material-list-number">${i + 1}</td>
-                <td>${material.materialName}</td>
-                <td>${singlePrice}<strong>PLN</strong></td>
-                <td><button onclick="addMaterialToEditCalculation('${material.materialName}', 1, ${singlePrice})"><img src="/icons/add.svg" alt="">Add</button></td>
-                </tr>
-                `
-            });
-            materialsItemsWrapper.innerHTML = materialsItemsWrapperInnerHTML;
-        });
-}
 
 function addMaterialToCalculation(description, quantity, value){
     const calculation = JSON.parse(sessionStorage.calculation);
@@ -383,19 +296,7 @@ function addMaterialToCalculation(description, quantity, value){
     calculation_creation_form_section_wrapper.classList.add('active');
 }
 
-function addMaterialToEditCalculation(description, quantity, value){
 
-    const calculationToUpdate = JSON.parse(sessionStorage.calculationToUpdate);
-    const material = {
-        description : description,
-        quantity : quantity,
-        value : value
-    }
-    console.log(calculationToUpdate.materialList.push(material));
-    sessionStorage.setItem('calculationToUpdate', JSON.stringify(calculationToUpdate));
-    showUpdatedCalculationEditForm()
-
-}
 
 function deleteProjectCalculation(id){
 

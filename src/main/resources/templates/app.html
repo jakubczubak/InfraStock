@@ -326,53 +326,6 @@
         </div>
 
         <!--SELECT MATERIAL SECTION END-->
-
-        <!-- SELECT MATERIAL EDIT SECTION START-->
-        <div class="select_material_edit_section_wrapper" id="select_material_edit_section_wrapper">
-            <div class="material_header_wrapper">
-                <div class="special_tooltip"
-                     data-tooltip="Choose a material and calculate the value of your project">
-                    <h1 class="header">Select material from database <img alt="" src="/icons/question.svg"></h1>
-                </div>
-                <div class="btn_wrapper">
-                    <ul>
-                        <li id="back_to_calculations_btn_edit">
-                            <span>Back to calculations</span>
-                        </li>
-                        <li id="clear_filters_btn_edit" onclick="clearFilterInEditSection()">
-                            <span>Clear filters</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="material_category_wrapper">
-                <h1 class="header">Choose material category:</h1>
-                <div class="btn_wrapper" id="calculation_categories_items_edit">
-                </div>
-            </div>
-            <div class="material_table_wrapper">
-                <h1 class="header">Material table:</h1>
-                <div class="table_wrapper">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Description</th>
-                            <th>Value</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody id="calculation_materials_items_edit">
-                        <!--                       DATA from back-end-->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-
-        <!--SELECT MATERIAL EDIT SECTION END-->
-
         <!--PROJECT CALCULATION CREATION FORM START-->
         <div class="calculation_creation_form_section_wrapper" id="calculation_creation_form_section_wrapper">
             <div class="calculation_creation_form_header_wrapper">
@@ -428,122 +381,6 @@
         </div>
 
         <!--PROJECT CALCULATION CREATION FORM END-->
-
-        <!--PROJECT CALCULATION CREATION FORM EDIT START-->
-        <div class="calculation_edit_form_section_wrapper" id="calculation_edit_form_section_wrapper">
-            <div class="calculation_edit_form_header_wrapper">
-                <div class="special_tooltip"
-                     data-tooltip="Update your project calculation">
-                    <h1 class="header">Update project calculation <img alt="" src="/icons/question.svg"></h1>
-                </div>
-                <div class="btn_wrapper">
-                    <ul>
-                        <li id="add_material_from_db_edit_form">
-                            <img alt="" src="/icons/add.svg"><span>Add material from database</span>
-                        </li>
-                        <li id="add_your_own_material_edit_form">
-                            <img alt="" src="/icons/add.svg"><span>Add your own material</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="project_calculation_edit_form_table_wrapper">
-                <div class="cnc_time">
-                    <h3 class="header">Project's name:</h3>
-                    <input id="project_calculation_edit_name" type="text">
-                </div>
-                <div class="cnc_time">
-                    <h3 class="header">CNC machine time:</h3>
-                    <input id="project_calculation_edit_cnc_time" type="number"
-                           placeholder="how much time did the CNC machining take? (hours)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-                </div>
-                <div class="status">
-                    <p id="project_calculation_edit_status" onclick="changeStatusOfCalculation()">Status:
-                        <button class="pending" >Pending</button>
-                    </p>
-                </div>
-                <div class="table_wrapper">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Material description</th>
-                            <th>Quantity</th>
-                            <th>Value</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody id="new_calculation_edit_form_table_tbody">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="btn-wrapper">
-                    <button class="save" id="calculation_edit_form_section_wrapper_update_btn">Update</button>
-                    <button class="back" id="calculation_edit_form_section_wrapper_back_btn">Back</button>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!--PROJECT CALCULATION CREATION FORM EDIT END-->
-
-        <!--PROJECT CALCULATION EDIT START-->
-        <div class="calculation_edit_form_section_wrapper" id="calculation_edit_form_section_wrapper">
-            <div class="calculation_edit_form_header_wrapper">
-                <div class="special_tooltip"
-                     data-tooltip="Create your project calculation">
-                    <h1 class="header">New calculation creation form <img alt="" src="/icons/question.svg"></h1>
-                </div>
-                <div class="btn_wrapper">
-                    <ul>
-                        <li id="">
-                            <img alt="" src="/icons/add.svg"><span>Add material from database</span>
-                        </li>
-                        <li id="">
-                            <img alt="" src="/icons/add.svg"><span>Add your own material</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="project_calculation_edit_form_table_wrapper">
-                <h1 id="project_calculation_edit_form_name" class="header"></h1>
-                <div class="cnc_time">
-                    <h3 class="header">CNC machine time:</h3>
-                    <input id="" type="number" step="0.5" min="0" max="1000"
-                           placeholder="how much time did the CNC machining take? (hours)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-                </div>
-                <div class="status">
-                    <p>Status:
-                        <button class="pending" id="">Pending</button>
-                    </p>
-                </div>
-                <div class="table_wrapper">
-                    <table id="">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Material description</th>
-                            <th>Quantity</th>
-                            <th>Value</th>
-                            <th><img alt="" id="" src="/icons/print.svg" title="Print table"></th>
-                        </tr>
-                        </thead>
-                        <tbody id="">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="btn-wrapper">
-                    <button class="save" id="calculation_edit_form_section_wrapper_save_btn">Save</button>
-                    <button class="back" id="calculation_edit_form_section_wrapper_back_btn">Back</button>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!--PROJECT CALCULATION EDIT FORM END-->
-
         <!--PROJECT CALCULATION INFO SECTION START-->
         <div class="calculation_info_section_wrapper" id="calculation_info_section_wrapper">
             <div class="calculation_info_header_wrapper">
@@ -1097,7 +934,7 @@
 <script src="/js/tool_info.js"></script>
 <script src="/js/ownMaterialCreationForm.js"></script>
 <script src="/js/getProjectCalculations.js"></script>
-<script src="/js/projectCalculationEditForm.js"></script>
+
 
 </body>
 </html>
