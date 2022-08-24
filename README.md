@@ -58,6 +58,9 @@ wait for the installation process to complete
 
 check the address in the browser `http://localhost:9090/`
 
+login: `jczu@inframet.com`
+
+password: `kuba`
 
 ## Project Status
 Project is: _in progress_ 
