@@ -30,7 +30,6 @@ List the ready features here:
 - Login/logout
 - Registration
 - CRUD for materials
-- CRUD for materials
 - CRUD for tools
 - CRUD for calculations
 
