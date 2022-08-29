@@ -293,7 +293,7 @@ body {
     display: none;
 }
 .dashboard_section_wrapper.active {
-    display: none;
+    display: revert;
 }
 .dashboard_header_wrapper {
     display: flex;
